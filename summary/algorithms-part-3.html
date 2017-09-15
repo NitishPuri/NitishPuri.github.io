@@ -5,14 +5,14 @@
     <meta name="author" content="Nitish Puri" />
     <meta name="robots" content="index, follow"/>
 
-    <meta property="og:title" content="Algorithms, Part 3(Graphs)"/>
-    <meta property="og:url" content="/summary/algorithms-part-3graphs.html"/>
+    <meta property="og:title" content="Algorithms, Part 3"/>
+    <meta property="og:url" content="/summary/algorithms-part-3.html"/>
     <meta property="og:site_name" content="nitishpuri.github.io"/>
     <meta property="og:type" content="article"/>
 
-    <link rel="canonical" href="/summary/algorithms-part-3graphs.html" />
+    <link rel="canonical" href="/summary/algorithms-part-3.html" />
 
-    <title>Algorithms, Part 3(Graphs) | nitishpuri.github.io</title>
+    <title>Algorithms, Part 3 | nitishpuri.github.io</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
@@ -73,13 +73,13 @@
     <article>
       <header>
         <h1 class="entry-title">
-          <a href="/summary/algorithms-part-3graphs.html" rel="bookmark"
-             title="Permalink to Algorithms, Part 3(Graphs)">Algorithms, Part 3(Graphs)</a></h1>
+          <a href="/summary/algorithms-part-3.html" rel="bookmark"
+             title="Permalink to Algorithms, Part 3">Algorithms, Part 3</a></h1>
       </header>
       <div class="entry-content">
 <footer class="post-info">
     <address class="vcard author">
-        by <a class="url fn" href="/author/nitish-puri.html">Nitish Puri</a>
+        by <a class="url fn" href="/author/sanjoy-dasgupta.html">Sanjoy DasGupta</a>
     </address>
 
     in <a href="/category/summary.html">Summary</a>
@@ -87,11 +87,12 @@
     on 2017-08-29
 
         |
-        tags:         <a href="/tag/algorithms-notes.html">algorithms notes</a>
+        tags:         <a href="/tag/algorithms.html">algorithms</a>
+        <a href="/tag/notes.html">notes</a>
 
 
         |
-        <a href="/summary/algorithms-part-3graphs.html#disqus_thread">comments</a>
+        <a href="/summary/algorithms-part-3.html#disqus_thread">comments</a>
 
     
 </footer><!-- /.post-info -->
@@ -102,107 +103,115 @@
           <span class='st_email_hcount' displayText='Email'></span>
         </div>
 
+        <p>This post is part 3 of the "Algorithms" series:</p>
+        <ol class="parts">
+                <li >
+                    <a href='/summary/algorithms-part-1.html'>Algorithms, Part 1</a>
+                </li>
+                <li >
+                    <a href='/summary/algorithms-part-2.html'>Algorithms, Part 2</a>
+                </li>
+                <li class="active">
+                    <a href='/summary/algorithms-part-3.html'>Algorithms, Part 3</a>
+                </li>
+                <li >
+                    <a href='/summary/algorithms-part-4.html'>Algorithms, Part 4</a>
+                </li>
+        </ol>
+        <hr>
 
         <p>Contents:</p>
         <nav class="toc">
-          <div id="toc"><ul><li><a class="toc-href" href="#decomposition-of-graphs" title="Decomposition of Graphs">Decomposition of Graphs</a><ul><li><a class="toc-href" href="#why-graphs" title="Why Graphs">Why Graphs</a></li><li><a class="toc-href" href="#depth-first-search-in-undirected-graphs" title="Depth first search in undirected Graphs">Depth first search in undirected Graphs</a></li><li><a class="toc-href" href="#depth-first-search-in-directed-graphs" title="Depth-First search in Directed Graphs">Depth-First search in Directed Graphs</a></li><li><a class="toc-href" href="#strongly-connected-components" title="Strongly Connected Components">Strongly Connected Components</a></li></ul></li><li><a class="toc-href" href="#paths-in-graphs_1" title="Paths in Graphs">Paths in Graphs</a><ul><li><a class="toc-href" href="#distances" title="Distances">Distances</a></li><li><a class="toc-href" href="#breadth-first-search" title="Breadth first search">Breadth first search</a></li><li><a algorithm'="" class="toc-href" href="#dijkstras-algorithm" s="" title="Dijkstra">Dijkstra's algorithm</a></li><li><a class="toc-href" href="#priority-queue-implementations" title="Priority Queue Implementations">Priority Queue Implementations</a></li><li><a class="toc-href" href="#binary-heap" title="Binary Heap">Binary Heap</a></li><li><a class="toc-href" href="#shortest-paths-in-the-presence-of-negative-edges" title="Shortest paths in the presence of negative edges">Shortest paths in the presence of negative edges</a></li><li><a class="toc-href" href="#shortest-paths-in-dags" title="Shortest paths in dags">Shortest paths in dags</a></li></ul></li></ul></div>
+          <div id="toc"><ul><li><a class="toc-href" href="#chapter-3-decomposition-of-graphs" title="Chapter 3: Decomposition of Graphs">Chapter 3: Decomposition of Graphs</a><ul><li><a class="toc-href" href="#why-graphs" title="Why Graphs">Why Graphs</a></li><li><a class="toc-href" href="#depth-first-search-in-undirected-graphs" title="Depth first search in undirected Graphs">Depth first search in undirected Graphs</a></li><li><a class="toc-href" href="#depth-first-search-in-directed-graphs" title="Depth-First search in Directed Graphs">Depth-First search in Directed Graphs</a><ul><li><a class="toc-href" href="#types-of-edges" title="Types of edges">Types of edges</a></li><li><a class="toc-href" href="#directed-acyclic-graphs" title="Directed Acyclic Graphs">Directed Acyclic Graphs</a></li></ul></li><li><a class="toc-href" href="#strongly-connected-components_1" title="Strongly Connected Components">Strongly Connected Components</a><ul><li><a class="toc-href" href="#defining-connectivity-for-directed-graphs" title="Defining connectivity for directed graphs">Defining connectivity for directed graphs</a></li><li><a class="toc-href" href="#an-efficient-algorithm" title="An efficient algorithm">An efficient algorithm</a></li></ul></li></ul></li><li><a class="toc-href" href="#chapter-4-paths-in-graphs_2" title="Chapter 4: Paths in Graphs">Chapter 4: Paths in Graphs</a><ul><li><a class="toc-href" href="#distances" title="Distances">Distances</a></li><li><a class="toc-href" href="#breadth-first-search" title="Breadth first search">Breadth first search</a></li><li><a algorithm'="" class="toc-href" href="#dijkstras-algorithm" s="" title="Dijkstra">Dijkstra's algorithm</a><ul><li><a class="toc-href" href="#an-adaptation-of-breadth-first-search" title="An adaptation of breadth-first search">An adaptation of breadth-first search</a></li><li><a class="toc-href" href="#running-time" title="Running time">Running time</a></li></ul></li><li><a class="toc-href" href="#priority-queue-implementations_1" title="Priority Queue Implementations">Priority Queue Implementations</a><ul><li><a class="toc-href" href="#array" title="Array">Array</a></li></ul></li><li><a class="toc-href" href="#binary-heap_1" title="Binary Heap">Binary Heap</a><ul><li><a class="toc-href" href="#d-ary-heap" title="d-ary heap">d-ary heap</a></li></ul></li><li><a class="toc-href" href="#shortest-paths-in-the-presence-of-negative-edges_1" title="Shortest paths in the presence of negative edges">Shortest paths in the presence of negative edges</a></li><li><a class="toc-href" href="#shortest-paths-in-dags" title="Shortest paths in dags">Shortest paths in dags</a></li></ul></li></ul></div>
         </nav>
         <hr>
     
-        <ol>
-<li>TOC
-{:toc}</li>
-</ol>
-<hr/>
-<h2 id="decomposition-of-graphs">Decomposition of Graphs</h2>
+        <h2 id="chapter-3-decomposition-of-graphs">Chapter 3: Decomposition of Graphs</h2>
 <h3 id="why-graphs">Why Graphs</h3>
 <p>The range of problems that can be solved by representing your problem in Graphs.</p>
-<p>Graph representations,
-<em>Adjacency Matrix</em>
+<p>Graph representations, <br/>
+<em>Adjacency Matrix</em> <br/>
 </p>
 <div class="math">$$ a_{ij} = \begin{cases} 1 \text{ if there is an edge from } v_i \text{ to } v_j \\ 0 \text{ otherwise} \end{cases}$$</div>
 <p> <br/>
-Or, <em>Adjacency List</em>,
-</p>
-<div class="math">$$|V|$$</div>
-<p> linked lists, one per vertex. The list for <em>u</em> holds the names of vertices to which <em>u</em>, has an outgoing edge. </p>
+Or, <em>Adjacency List</em>, <br/>
+<span class="math">\(|V|\)</span> linked lists, one per vertex. The list for <em>u</em> holds the names of vertices to which <em>u</em>, has an outgoing edge. </p>
 <h3 id="depth-first-search-in-undirected-graphs">Depth first search in undirected Graphs</h3>
-<p><strong>Exploring mazes</strong>
-<img alt="alt" src="/images/algdg/3_maze.png"/></p>
+<p><strong>Exploring mazes</strong> <br/>
+<img alt="alt" src="/images/algdg/3_maze.png"/> </p>
 <p>So, we need to simulate a piece of chalk(to check whether the node has been visited), and a string(to retrace our steps back home). <br/>
 The analogs that we have are, <em>a boolean flag</em> as a chalk, and <em>a stack</em> as a string(in this case its the recursive system stack). <br/>
-<img alt="alt" src="/images/algdg/3_maze2.png"/>
+<img alt="alt" src="/images/algdg/3_maze2.png"/> <br/>
 <img alt="alt" src="/images/algdg/3_dfs.png"/> <br/>
-Running time, </p>
-<div class="math">$$O(|V| + |E|)$$</div>
-<p><em>Connectivity in unidirected graphs</em>
-<img alt="alt" src="/images/algdg/3_cc.png"/>
-Identify and assign different integers to the different connected components in a unidirected Graph.</p>
-<p><em>Previsit and Postvisit orderings</em>
-<img alt="alt" src="/images/algdg/3_previsit.png"/></p>
-<p><strong>Property :</strong> <em>For any node <div class="math">$$u$$</div> and <div class="math">$$v$$</div>, the two intervels <div class="math">$$[pre(u), post(u)]$$</div> and <div class="math">$$[pre(v), post(v)]$$</div> are either disjoint or one is contained within the other.</em> </p>
+Running time, <span class="math">\(O(|V| + |E|)\)</span></p>
+<p><em>Connectivity in undirected graphs</em> <br/>
+<img alt="alt" src="/images/algdg/3_cc.png"/> <br/>
+Identify and assign different integers to the different connected components in a undirected Graph.   </p>
+<p><em>Previsit and Postvisit orderings</em> <br/>
+<img alt="alt" src="/images/algdg/3_previsit.png"/> </p>
+<p><strong>Property :</strong> <em>For any node <span class="math">\(u\)</span> and <span class="math">\(v\)</span>, the two intervals <span class="math">\([pre(u), post(u)]\)</span> and <span class="math">\([pre(v), post(v)]\)</span> are either disjoint or one is contained within the other.</em> </p>
 <h3 id="depth-first-search-in-directed-graphs">Depth-First search in Directed Graphs</h3>
-<h4>Types of edges</h4>
-<p><img alt="alt" src="/images/algdg/3_edges.png"/>
-<img alt="alt" src="/images/algdg/3_edges2.png"/></p>
-<h4>Direcetd Acyclic Graphs</h4>
+<h4 id="types-of-edges">Types of edges</h4>
+<p><img alt="alt" src="/images/algdg/3_edges.png"/> <br/>
+<img alt="alt" src="/images/algdg/3_edges2.png"/> </p>
+<h4 id="directed-acyclic-graphs">Directed Acyclic Graphs</h4>
 <p><strong>Property :</strong> <em>A directed graph has a cycle if and only if its depth-first search reveals a back edge.</em> <br/>
-<strong>Property :</strong> <em>In a dag, every edge leads to a vertex with a lower <div class="math">$$post$$</div> number.</em> <br/>
+<strong>Property :</strong> <em>In a dag, every edge leads to a vertex with a lower <span class="math">\(post\)</span> number.</em> <br/>
 <strong>Property :</strong> <em>Every dag has at least one source and at least one sink.</em> </p>
-<h3 id="strongly-connected-components">Strongly Connected Components</h3>
-<h4>Defining connectivity for directed graphs</h4>
+<h3 id="strongly-connected-components_1">Strongly Connected Components</h3>
+<h4 id="defining-connectivity-for-directed-graphs">Defining connectivity for directed graphs</h4>
 <p>Two nodes <em>u</em> and <em>v</em> of a directed graph are <em>connected</em> if there is ap path from <em>u</em> to <em>v</em> and a path from <em>v</em> to <em>u</em>. <br/>
-<img alt="alt" src="/images/algdg/3_dag.png"/>
+<img alt="alt" src="/images/algdg/3_dag.png"/> <br/>
 This relation partitions <em>V</em> into disjoint sets that we call <em>strongly connected components</em>.The graph above has five of them.   </p>
 <p><strong>Property :</strong> <em>Every directed graph is a dag of its strongly connected components.</em> </p>
-<h4>An efficient algorithm</h4>
-<p><strong>Property 1 :</strong> <em>If the <div class="math">$$explore$$</div> subroutine is started in a node <div class="math">$$u$$</div>, then it will terminate precisely when all nodes reachable from <div class="math">$$u$$</div> have been visited.</em> </p>
+<h4 id="an-efficient-algorithm">An efficient algorithm</h4>
+<p><strong>Property 1 :</strong> <em>If the <span class="math">\(explore\)</span> subroutine is started in a node <span class="math">\(u\)</span>, then it will terminate precisely when all nodes reachable from <span class="math">\(u\)</span> have been visited.</em> </p>
 <p>Therefore, if we call <em>explore</em> on a node that lies somewhere in a <em>sink</em> strongly connected component(a strongly connected component that is a sink in the meta-graph), then we will retrieve exactly that component. <br/>
 But, how to find a node that we know for sure lies in a sink strongly connected component. <br/>
 How do we continue once the first component has been discovered.   </p>
-<p><strong>Property 2:</strong> <em>The node that receives the highest <div class="math">$$post$$</div> number in a depth-first search must lie in a source strongly connected component.</em> </p>
+<p><strong>Property 2:</strong> <em>The node that receives the highest <span class="math">\(post\)</span> number in a depth-first search must lie in a source strongly connected component.</em> </p>
 <p>which directly follows from,   </p>
-<p><strong>Property 3:</strong> <em>If <div class="math">$$C$$</div> and <div class="math">$$C'$$</div> are strongly connected components, and there is an edge from a node in <div class="math">$$C$$</div> to a node in <div class="math">$$C'$$</div>, then the highest <div class="math">$$post$$</div> number in <div class="math">$$C$$</div> is bigger than the highest <div class="math">$$post$$</div> number in <div class="math">$$C'$$</div>.</em> </p>
+<p><strong>Property 3:</strong> <em>If <span class="math">\(C\)</span> and <span class="math">\(C'\)</span> are strongly connected components, and there is an edge from a node in <span class="math">\(C\)</span> to a node in <span class="math">\(C'\)</span>, then the highest <span class="math">\(post\)</span> number in <span class="math">\(C\)</span> is bigger than the highest <span class="math">\(post\)</span> number in <span class="math">\(C'\)</span>.</em> </p>
 <p>So, now we can determine whether a particular node lies in a <em>source</em> component of the meta graph. The opposite of what we need.   </p>
 <p>Now, consider the reverse graph. It will have exactly the same strongly connected components as G. So if we find a part of <em>source</em> in the reverse graph, this node will be a part of a <em>sink</em> component in the original graph.   </p>
 <p>Once we find the first strongly connected component a d deleted it from the graph, the next node with the highest post number will be a part of another sink component in G.   </p>
-<p>The resulting algotihm, <br/>
-1. Run depth-first search on <span class="math">\(G^R<div class="math">$$.
-2. Run the undirected connected components algorithm on $$</div>G\)</span>$m and during the depth-first search, process the vertices in decreasing order of their <em>post</em> numbers. from step 1.</p>
-<h2 id="paths-in-graphs_1">Paths in Graphs</h2>
+<p>The resulting algorithm, <br/>
+1. Run depth-first search on <span class="math">\(G^R\)</span>. <br/>
+2. Run the undirected connected components algorithm on <span class="math">\(G\)</span> and during the depth-first search, process the vertices in decreasing order of their <em>post</em> numbers from step 1.</p>
+<h2 id="chapter-4-paths-in-graphs_2">Chapter 4: Paths in Graphs</h2>
 <h3 id="distances">Distances</h3>
 <p>The <em>distance</em> between two nodes is the length of the shortest path between them.   </p>
 <h3 id="breadth-first-search">Breadth first search</h3>
 <p><img alt="alt" src="/images/algdg/4_breadth.png"/> </p>
 <h3 id="dijkstras-algorithm">Dijkstra's algorithm</h3>
-<h4>An adaptation of breadth-first search</h4>
-<p><em>For any edge <div class="math">$$e = (u,v) \text{ of } E $$</div>, replace it by <div class="math">$$l_e$$</div> edges of length 1, by adding <div class="math">$$l_e - 1$$</div> dummy nodes between <div class="math">$$u$$</div> and <div class="math">$$v$$</div> .</em> </p>
+<h4 id="an-adaptation-of-breadth-first-search">An adaptation of breadth-first search</h4>
+<p><em>For any edge <span class="math">\(e = (u,v) \text{ of } E\)</span>, replace it by <span class="math">\(l_e\)</span> edges of length 1, by adding <span class="math">\(l_e - 1\)</span> dummy nodes between <span class="math">\(u\)</span> and <span class="math">\(v\)</span>.</em> </p>
 <p>Therefore, we can compute distances in graph by running BFS on the new graph.   </p>
 <p>We can do this by setting an estimated time of arrival for each new node in the frontier. <br/>
 The nodes are then  being processed on the basis of earliest time. The right data structure to do this is a <em>priority queue</em>(usually implemented by a <em>heap</em>).   </p>
 <p><img alt="alt" src="/images/algdg/4_dijkstra.png"/> <br/>
 <img alt="alt" src="/images/algdg/4_dijkstra2.png"/> </p>
-<h4>Running time</h4>
-<div class="math">$$O(|V| + |E|)\log|V|$$</div>
+<h4 id="running-time">Running time</h4>
+<p><span class="math">\(O(|V| + |E|)\log|V|\)</span> </p>
 <p><em>Which heap is best ?</em> <br/>
 <img alt="alt" src="/images/algdg/4_heap.png"/> </p>
-<h3 id="priority-queue-implementations">Priority Queue Implementations</h3>
-<h4>Array</h4>
-<p>Simplest implementation of a priority queue is as an unordered array of key values for all potential elements.</p>
-<h3 id="binary-heap">Binary Heap</h3>
+<h3 id="priority-queue-implementations_1">Priority Queue Implementations</h3>
+<h4 id="array">Array</h4>
+<p>Simplest implementation of a priority queue is as an unordered array of key values for all potential elements.   </p>
+<h3 id="binary-heap_1">Binary Heap</h3>
 <p>Here elements are stored in a <em>complete</em> binary tree. In addition, a special ordering constraint
 is enforced: <em>the key of any node of the tree is less than or equal to that of its children</em>, i.e. 
 the root always contains the smallest element.   </p>
-<h4>d-ary heap</h4>
+<h4 id="d-ary-heap">d-ary heap</h4>
 <p>Identical to a binary heap, except that the nodes have <em>d</em> children instead of just two.</p>
-<h3 id="shortest-paths-in-the-presence-of-negative-edges">Shortest paths in the presence of negative edges</h3>
+<h3 id="shortest-paths-in-the-presence-of-negative-edges_1">Shortest paths in the presence of negative edges</h3>
 <p><img alt="alt" src="/images/algdg/4_neg.png"/> </p>
 <p><strong>Note :</strong> <em>The presence of a negative cycle means we cannot answer the question of shortest paths in the given graph.</em> <br/>
 <img alt="alt" src="/images/algdg/4_bell.png"/> </p>
 <h3 id="shortest-paths-in-dags">Shortest paths in dags</h3>
 <p><img alt="alt" src="/images/algdg/4_dags.png"/> </p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
+    var align = "left",
         indent = "0em",
         linebreak = "false";
 
@@ -267,7 +276,7 @@ the root always contains the smallest element.   </p>
         <h2>Comments</h2>
         <div id="disqus_thread"></div>
         <script type="text/javascript">
-          var disqus_identifier = "summary/algorithms-part-3graphs.html";
+          var disqus_identifier = "summary/algorithms-part-3.html";
           (function() {
           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
           dsq.src = '//nitishpuri.disqus.com/embed.js';

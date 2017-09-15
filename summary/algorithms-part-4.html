@@ -5,14 +5,14 @@
     <meta name="author" content="Nitish Puri" />
     <meta name="robots" content="index, follow"/>
 
-    <meta property="og:title" content="Algorithms, Part 4(Greedy Algorithms and Dynamic Programming)"/>
-    <meta property="og:url" content="/summary/algorithms-part-4greedy-algorithms-and-dynamic-programming.html"/>
+    <meta property="og:title" content="Algorithms, Part 4"/>
+    <meta property="og:url" content="/summary/algorithms-part-4.html"/>
     <meta property="og:site_name" content="nitishpuri.github.io"/>
     <meta property="og:type" content="article"/>
 
-    <link rel="canonical" href="/summary/algorithms-part-4greedy-algorithms-and-dynamic-programming.html" />
+    <link rel="canonical" href="/summary/algorithms-part-4.html" />
 
-    <title>Algorithms, Part 4(Greedy Algorithms and Dynamic Programming) | nitishpuri.github.io</title>
+    <title>Algorithms, Part 4 | nitishpuri.github.io</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
@@ -73,13 +73,13 @@
     <article>
       <header>
         <h1 class="entry-title">
-          <a href="/summary/algorithms-part-4greedy-algorithms-and-dynamic-programming.html" rel="bookmark"
-             title="Permalink to Algorithms, Part 4(Greedy Algorithms and Dynamic Programming)">Algorithms, Part 4(Greedy Algorithms and Dynamic Programming)</a></h1>
+          <a href="/summary/algorithms-part-4.html" rel="bookmark"
+             title="Permalink to Algorithms, Part 4">Algorithms, Part 4</a></h1>
       </header>
       <div class="entry-content">
 <footer class="post-info">
     <address class="vcard author">
-        by <a class="url fn" href="/author/nitish-puri.html">Nitish Puri</a>
+        by <a class="url fn" href="/author/sanjoy-dasgupta.html">Sanjoy DasGupta</a>
     </address>
 
     in <a href="/category/summary.html">Summary</a>
@@ -87,11 +87,12 @@
     on 2017-08-29
 
         |
-        tags:         <a href="/tag/algorithms-notes.html">algorithms notes</a>
+        tags:         <a href="/tag/algorithms.html">algorithms</a>
+        <a href="/tag/notes.html">notes</a>
 
 
         |
-        <a href="/summary/algorithms-part-4greedy-algorithms-and-dynamic-programming.html#disqus_thread">comments</a>
+        <a href="/summary/algorithms-part-4.html#disqus_thread">comments</a>
 
     
 </footer><!-- /.post-info -->
@@ -102,39 +103,50 @@
           <span class='st_email_hcount' displayText='Email'></span>
         </div>
 
+        <p>This post is part 4 of the "Algorithms" series:</p>
+        <ol class="parts">
+                <li >
+                    <a href='/summary/algorithms-part-1.html'>Algorithms, Part 1</a>
+                </li>
+                <li >
+                    <a href='/summary/algorithms-part-2.html'>Algorithms, Part 2</a>
+                </li>
+                <li >
+                    <a href='/summary/algorithms-part-3.html'>Algorithms, Part 3</a>
+                </li>
+                <li class="active">
+                    <a href='/summary/algorithms-part-4.html'>Algorithms, Part 4</a>
+                </li>
+        </ol>
+        <hr>
 
         <p>Contents:</p>
         <nav class="toc">
-          <div id="toc"><ul><li><a class="toc-href" href="#greedy-algorithms" title="Greedy Algorithms">Greedy Algorithms</a><ul><li><a class="toc-href" href="#minimum-spanning-trees" title="Minimum spanning trees">Minimum spanning trees</a></li><li><a class="toc-href" href="#huffman-coding" title="Huffman coding">Huffman coding</a></li><li><a class="toc-href" href="#horn-formulas" title="Horn formulas">Horn formulas</a></li><li><a class="toc-href" href="#set-cover" title="Set Cover">Set Cover</a></li></ul></li><li><a class="toc-href" href="#dynamic-programming_1" title="Dynamic Programming">Dynamic Programming</a><ul><li><a class="toc-href" href="#shortest-paths-in-dags-revisited" title="Shortest paths in dags, revisited">Shortest paths in dags, revisited</a></li><li><a class="toc-href" href="#longest-increasing-subsequence" title="Longest increasing subsequence">Longest increasing subsequence</a></li><li><a class="toc-href" href="#edit-distance" title="Edit distance">Edit distance</a></li><li><a class="toc-href" href="#knapsack" title="Knapsack">Knapsack</a></li><li><a class="toc-href" href="#chain-matrix-multiplication" title="Chain Matrix Multiplication">Chain Matrix Multiplication</a></li><li><a class="toc-href" href="#shortest-paths" title="Shortest Paths">Shortest Paths</a></li></ul></li></ul></div>
+          <div id="toc"><ul><li><a class="toc-href" href="#greedy-algorithms" title="Greedy Algorithms">Greedy Algorithms</a><ul><li><a class="toc-href" href="#minimum-spanning-trees" title="Minimum spanning trees">Minimum spanning trees</a><ul><li><a class="toc-href" href="#a-greedy-approach" title="A greedy approach">A greedy approach</a></li><li><a class="toc-href" href="#the-cut-property" title="The cut property">The cut property</a></li><li><a algorithm'="" class="toc-href" href="#kruskals-algorithm" s="" title="Kruskal">Kruskal's algorithm</a></li><li><a class="toc-href" href="#a-data-structure-for-disjoint-sets" title="A data structure for disjoint sets">A data structure for disjoint sets</a></li><li><a class="toc-href" href="#path-compression" title="Path compression">Path compression</a></li><li><a algorithm'="" class="toc-href" href="#prims-algorithm" s="" title="Prim">Prim's algorithm</a></li></ul></li><li><a class="toc-href" href="#huffman-coding_1" title="Huffman coding">Huffman coding</a></li><li><a class="toc-href" href="#horn-formulas" title="Horn formulas">Horn formulas</a></li><li><a class="toc-href" href="#set-cover" title="Set Cover">Set Cover</a></li></ul></li><li><a class="toc-href" href="#dynamic-programming_1" title="Dynamic Programming">Dynamic Programming</a><ul><li><a class="toc-href" href="#shortest-paths-in-dags-revisited" title="Shortest paths in dags, revisited">Shortest paths in dags, revisited</a></li><li><a class="toc-href" href="#longest-increasing-subsequence" title="Longest increasing subsequence">Longest increasing subsequence</a></li><li><a class="toc-href" href="#edit-distance" title="Edit distance">Edit distance</a><ul><li><a class="toc-href" href="#a-dynamic-programming-solution" title="A dynamic programming solution">A dynamic programming solution</a></li></ul></li><li><a class="toc-href" href="#knapsack_1" title="Knapsack">Knapsack</a><ul><li><a class="toc-href" href="#knapsack-with-repetition" title="Knapsack with repetition">Knapsack with repetition</a></li><li><a class="toc-href" href="#knapsack-without-repetition" title="Knapsack without repetition">Knapsack without repetition</a></li></ul></li><li><a class="toc-href" href="#chain-matrix-multiplication_1" title="Chain Matrix Multiplication">Chain Matrix Multiplication</a></li><li><a class="toc-href" href="#shortest-paths" title="Shortest Paths">Shortest Paths</a><ul><li><a class="toc-href" href="#shortest-reliable-paths" title="Shortest reliable paths">Shortest reliable paths</a></li><li><a class="toc-href" href="#all-pairs-shortest-paths" title="All pairs shortest paths">All pairs shortest paths</a></li></ul></li></ul></li></ul></div>
         </nav>
         <hr>
     
-        <ol>
-<li>TOC
-{:toc}</li>
-</ol>
-<hr/>
-<h2 id="greedy-algorithms">Greedy Algorithms</h2>
+        <h2 id="greedy-algorithms">Greedy Algorithms</h2>
 <p><strong><em>!Thinking Ahead.</em></strong></p>
 <h3 id="minimum-spanning-trees">Minimum spanning trees</h3>
 <p><strong>Property 1</strong> <em>Removing a cycle edge cannot disconnect a graph.</em> <br/>
 The tree with minimum total weight is then known as <em>minimum spanning tree</em>.   </p>
 <p>Formally, <br/>
-<strong>Input :</strong> <em>An undirected graph <div class="math">$$G = (V, E)$$</div>; edge weights <div class="math">$$w_e$$</div></em>. <br/>
-<strong>Output :</strong> <em>A tree <div class="math">$$T = (V, E')$$</div>, with <div class="math">$$E' \subseteq E$$</div>, that minimizes <div class="math">$$weight(T) = \sum_{e \in E'}w_e$$</div>.</em> </p>
-<h4>A greedy approach</h4>
+<strong>Input :</strong> <em>An undirected graph <span class="math">\(G = (V, E)\)</span>; edge weights <span class="math">\(w_e\)</span></em>. <br/>
+<strong>Output :</strong> <em>A tree <span class="math">\(T = (V, E')\)</span>, with <span class="math">\(E' \subseteq E\)</span>, that minimizes <span class="math">\(weight(T) = \sum_{e \in E'}w_e\)</span>.</em> </p>
+<h4 id="a-greedy-approach">A greedy approach</h4>
 <p><em>Kruskal's algorithm</em> <br/>
 Repeatedly add the next lightest edge that doesn't produce a cycle. <br/>
 <img alt="alt" src="/images/algdg/5_kruskal.png"/> </p>
-<h4>The cut property</h4>
-<p><strong>Cut Property</strong> <em>Suppose edges <div class="math">$$X$$</div> are part of a minimum spanning tree of <div class="math">$$G = (V, E)$$</div>. Pick any subset of nodes S for which <div class="math">$$X$$</div> does not cross between <div class="math">$$S$$</div> and <div class="math">$$V-S$$</div>, and let <div class="math">$$e$$</div> be the lightest edge across this partition. Then <div class="math">$$X \cup \{e\}$$</div> is part of some <div class="math">$$MST$$</div>.</em> </p>
-<h4>Kruskal's algorithm</h4>
+<h4 id="the-cut-property">The cut property</h4>
+<p><strong>Cut Property</strong> <em>Suppose edges <span class="math">\(X\)</span> are part of a minimum spanning tree of <span class="math">\(G = (V, E)\)</span>. Pick any subset of nodes S for which <span class="math">\(X\)</span> does not cross between <span class="math">\(S\)</span> and <span class="math">\(V-S\)</span>, and let <span class="math">\(e\)</span> be the lightest edge across this partition. Then <span class="math">\(X \cup \{e\}\)</span> is part of some <span class="math">\(MST\)</span>.</em> </p>
+<h4 id="kruskals-algorithm">Kruskal's algorithm</h4>
 <p>We need to use a data structure for representing disjoint sets, supporting the following operations,   </p>
 <p><code>makeset(x)</code>: create a singelton set containing just <code>x</code>. <br/>
 <code>find(x)</code> : to which set does <code>x</code> belong. <br/>
 <code>union(x,y)</code> : merge the sets containing <code>x</code> and <code>y</code>.   </p>
 <p><img alt="alt" src="/images/algdg/5_kruskal2.png"/> </p>
-<h4>A data structure for disjoint sets</h4>
+<h4 id="a-data-structure-for-disjoint-sets">A data structure for disjoint sets</h4>
 <p><strong>Union by rank</strong> <br/>
 <img alt="alt" src="/images/algdg/5_union.png"/> <br/>
 </p>
@@ -157,22 +169,10 @@ else: \\
 \quad if\quad rank(r_x) = rank(r_y): rank(r_y) = rank(r_y) + 1
 $$</div>
 <p>The given structure has the following properties. 
-<strong>Property 1</strong> For any </p>
-<div class="math">$$x, rank(x) &lt; rank(\pi(x))$$</div>
-<p>.   </p>
-<p><strong>Property 2</strong> Any root node of rank </p>
-<div class="math">$$k$$</div>
-<p> has at least </p>
-<div class="math">$$2^k$$</div>
-<p> nodes in its tree.   </p>
-<p><strong>Property 3</strong> If there are </p>
-<div class="math">$$n$$</div>
-<p> elements overall, there can be at most </p>
-<div class="math">$$n/2^k$$</div>
-<p> nodes of rank </p>
-<div class="math">$$k$$</div>
-<p>.   </p>
-<h4>Path compression</h4>
+<strong>Property 1</strong> For any <span class="math">\(x, rank(x) &lt; rank(\pi(x))\)</span>.   </p>
+<p><strong>Property 2</strong> Any root node of rank <span class="math">\(k\)</span> has at least <span class="math">\(2^k\)</span> nodes in its tree.   </p>
+<p><strong>Property 3</strong> If there are <span class="math">\(n\)</span> elements overall, there can be at most <span class="math">\(n/2^k\)</span> nodes of rank <span class="math">\(k\)</span>.   </p>
+<h4 id="path-compression">Path compression</h4>
 <div class="math">$$ \\
 \underline{function\, find(x)} \\
 if\quad x \neq \pi(x): \pi(x) = find(\pi(x)) \\
@@ -180,10 +180,8 @@ return\; \pi(x) \\
 $$</div>
 <p> <br/>
 During each <em>find</em>, when  a series  of parent pointers are followed up to the root, we will change all these pointers so that they point directly to the root.   </p>
-<p>This simple alteration results in doing slightly more work per <em>find</em> operation. However, the <em>amortized</em> cost of each operation turns out to be just barely more than </p>
-<div class="math">$$O(1)$$</div>
-<p>.   </p>
-<h4>Prim's algorithm</h4>
+<p>This simple alteration results in doing slightly more work per <em>find</em> operation. However, the <em>amortized</em> cost of each operation turns out to be just barely more than <span class="math">\(O(1)\)</span>.   </p>
+<h4 id="prims-algorithm">Prim's algorithm</h4>
 <p>In most general terms, any algorithm working on the following general schema is guaranteed to work. <br/>
 </p>
 <div class="math">$$X = \{\,\}\text{ edges picked so far} \\
@@ -196,7 +194,7 @@ $$</div>
 Alternative to Kruskal's algorithmfor finding Minimum Spanning Trees. 
 <img alt="alt" src="/images/algdg/5_prim.png"/> <br/>
 This is very similar to Dijkstra, only that the priorities are decided differently.   </p>
-<h3 id="huffman-coding">Huffman coding</h3>
+<h3 id="huffman-coding_1">Huffman coding</h3>
 <p>Variable length encoding of symbols, depending on frequency of the particular symbol. <br/>
 Should be <em>prefix-free</em>, i.e. no codeword can be a prefix of another codeword.   </p>
 <p>Any <em>prefix-free</em> encoding can be represented by a full binary tree.   </p>
@@ -217,18 +215,13 @@ $$</div>
 <h3 id="horn-formulas">Horn formulas</h3>
 <p>Horn formulas are a framework for performing logical reasoning, expressing logical facts and deriving conclusions.   </p>
 <p>Knowledge about variables is represented by two kinds of clauses: <br/>
-1. <em>Implications,</em> whose left-hand side is an <code>AND</code> of any number of positive literals and whose right-hand side is a single positive literal. These express statements of the form "if the conditions on the left hold, then the one on the right must also be true.". For instance, </p>
-<div class="math">$$(z\land w)\implies u$$</div>
-<p> might mean "if the colonel was asleep at 8 pm and the murder took place at 8 pm then the colonel is innocent." A degenerate type of implication is the <em>singleton</em> "</p>
-<div class="math">$$\implies x$$</div>
-<p>," meaning simply that x is <code>true</code>: "the murder definitely occurred in the kitchen".
-2. Pure <em>negative clauses</em>, consisting of an <code>OR</code> of any number of negative literals, as in </p>
-<div class="math">$$(\bar u\lor \bar v \lor \bar y)$$</div>
+1. <em>Implications,</em> whose left-hand side is an <code>AND</code> of any number of positive literals and whose right-hand side is a single positive literal. These express statements of the form "if the conditions on the left hold, then the one on the right must also be true.". For instance, <span class="math">\((z\land w)\implies u\)</span> might mean "if the colonel was asleep at 8 pm and the murder took place at 8 pm then the colonel is innocent." A degenerate type of implication is the <em>singleton</em> "<span class="math">\(\implies x\)</span>," meaning simply that x is <code>true</code>: "the murder definitely occurred in the kitchen". <br/>
+2. Pure <em>negative clauses</em>, consisting of an <code>OR</code> of any number of negative literals, as in <span class="math">\((\bar u\lor \bar v \lor \bar y)\)</span> </p>
 <p>Given a set of clauses, we need to assign true/false values to the variables that satisfies all the clauses. The is called a <em>satisfying assignment</em>.   </p>
 <p>So we have this given formula for finding a satisfying assignment. <br/>
 </p>
 <div class="math">$$ \\
-Input :\quad \text{a Horn formula} \\
+Input:\quad \text{a Horn formula} \\
 Output:\quad \text{a satisfying assignment, if one exists} \\
 \, \\
 \text{set all variables to false} \\
@@ -236,8 +229,8 @@ Output:\quad \text{a satisfying assignment, if one exists} \\
 \text{while there is an implication that is not satisfied:} \\
 \quad \text{set the right-hand variable of the implication to true} \\
 \, \\
-\text{if all pure negative clauses are satisfied: return the assignment} \\
-\text{else: return "formula is not satisfiable"} \\
+\text{if all pure negative clauses are satisfied:   return the assignment} \\
+\text{else:   return "formula is not satisfiable"} \\
 $$</div>
 <h3 id="set-cover">Set Cover</h3>
 <div class="math">$$ \text{SET COVER} \\
@@ -246,12 +239,8 @@ Output: \text{A selection of the $S_i$ whose union is $B$} \\
 Cost: \text{Number of sets picked.} \\ 
 $$</div>
 <p>The greedy algorithm will not be optimal, but it  will be pretty close to it. <br/>
-<strong>Claim ,</strong> <em>Supppose <div class="math">$$B$$</div> contains <div class="math">$$n$$</div> elements and that the optimal cover consists of <div class="math">$$k$$</div> sets. Then the greedy algorithm will use at most <div class="math">$$k\ln n$$</div> sets.</em> </p>
-<p>The ratio between the greedy algorithm's solution and the optimal solution varies from input to input but is always less than </p>
-<div class="math">$$\ln n$$</div>
-<p>. There are certain inputs for which the ratio is very close to </p>
-<div class="math">$$\ln n$$</div>
-<p>.   </p>
+<strong>Claim ,</strong> <em>Supppose <span class="math">\(B\)</span> contains <span class="math">\(n\)</span> elements and that the optimal cover consists of <span class="math">\(k\)</span> sets. Then the greedy algorithm will use at most <span class="math">\(k\ln n\)</span> sets.</em> </p>
+<p>The ratio between the greedy algorithm's solution and the optimal solution varies from input to input but is always less than <span class="math">\(\ln n\)</span>. There are certain inputs for which the ratio is very close to <span class="math">\(\ln n\)</span>.   </p>
 <p>We call this maximum ratio the <em>approximation factor</em> of the greedy algorithm.  </p>
 <h2 id="dynamic-programming_1">Dynamic Programming</h2>
 <p>The <em>sledgehammers</em> of the algorithms class: Dynamic Programming and Linear Programming   </p>
@@ -271,23 +260,9 @@ programming we are not given a dag, it is <em>implicit</em>. Its nodes are the s
 edges are the dependencies between the subproblems.   </p>
 <h3 id="longest-increasing-subsequence">Longest increasing subsequence</h3>
 <p><img alt="alt" src="/images/algdg/6_subseq1.png"/> </p>
-<p>The problem can be represented as a DAG, containing all possible transitions; establish a node </p>
-<div class="math">$$i$$</div>
-<p> 
-for each element </p>
-<div class="math">$$a_i$$</div>
-<p>, and add directed edges </p>
-<div class="math">$$(i,j)$$</div>
-<p> whenever it is possible for </p>
-<div class="math">$$a_i$$</div>
-<p> and
-</p>
-<div class="math">$$a_j$$</div>
-<p> to be consecutive elements in an increasing subsequence, that is, whenever </p>
-<div class="math">$$i &lt; j$$</div>
-<p> and </p>
-<div class="math">$$a_i &lt; a_j$$</div>
-<p>.   </p>
+<p>The problem can be represented as a DAG, containing all possible transitions; establish a node <span class="math">\(i\)</span> 
+for each element <span class="math">\(a_i\)</span>, and add directed edges <span class="math">\((i,j)\)</span> whenever it is possible for <span class="math">\(a_i\)</span> and
+<span class="math">\(a_j\)</span> to be consecutive elements in an increasing subsequence, that is, whenever <span class="math">\(i &lt; j\)</span> and <span class="math">\(a_i &lt; a_j\)</span>.   </p>
 <p>So, for finding the longest subsequence, our goal is simply to find the longest path in the dag. <br/>
 </p>
 <div class="math">$$\\
@@ -296,55 +271,25 @@ for\quad j = 1, 2,... n: \\
 return\; max_jL(j) \\
 $$</div>
 <p> <br/>
-, where </p>
-<div class="math">$$L(j)$$</div>
-<p> is the length of the longest path(the longest increasing subsequence) ending in </p>
-<div class="math">$$j$$</div>
-<p>. <br/>
-The actual subsequence of nodes can also be determined by some bookkeeping(ex. note down </p>
-<div class="math">$$prev(j)$$</div>
-<p>),
+, where <span class="math">\(L(j)\)</span> is the length of the longest path(the longest increasing subsequence) ending in <span class="math">\(j\)</span>. <br/>
+The actual subsequence of nodes can also be determined by some bookkeeping(ex. note down <span class="math">\(prev(j)\)</span>),
 the next-to-last node on the longest path to j.)   </p>
 <h3 id="edit-distance">Edit distance</h3>
 <p>The minimum number of edits required to convert a string to another string.   </p>
-<h4>A dynamic programming solution</h4>
-<div class="math">$$E(i,j)$$</div>
-<p> represents the subproblems of finding match between string </p>
-<div class="math">$$x[1...i]$$</div>
-<p> and </p>
-<div class="math">$$y[1...j]$$</div>
-<p>. Our
-final objective is to compute </p>
-<div class="math">$$E(m,n)$$</div>
-<p>. <br/>
-For that we need to express </p>
-<div class="math">$$E(i,j)$$</div>
-<p> in terms of smaller subproblems.   </p>
+<h4 id="a-dynamic-programming-solution">A dynamic programming solution</h4>
+<p><span class="math">\(E(i,j)\)</span> represents the subproblems of finding match between string <span class="math">\(x[1...i]\)</span> and <span class="math">\(y[1...j]\)</span>. Our
+final objective is to compute <span class="math">\(E(m,n)\)</span>. <br/>
+For that we need to express <span class="math">\(E(i,j)\)</span> in terms of smaller subproblems.   </p>
 <p>Now, <br/>
-</p>
-<div class="math">$$E(i,j) = min\{1 + E(i-1, j), 1 + E(i, j-1), diff(i,j) + E(i-1, j-1)\}$$</div>
-<p> <br/>
-where, </p>
-<div class="math">$$diff(i,j)$$</div>
-<p> is 0 if </p>
-<div class="math">$$x[i] = y[i]$$</div>
-<p>, and </p>
-<div class="math">$$1$$</div>
-<p> otherwise.   </p>
-<p>The above relation forms a table, which can easily be computed in time </p>
-<div class="math">$$O(mn)$$</div>
-<p>.
+<span class="math">\(E(i,j) = min\{1 + E(i-1, j), 1 + E(i, j-1), diff(i,j) + E(i-1, j-1)\}\)</span> <br/>
+where, <span class="math">\(diff(i,j)\)</span> is 0 if <span class="math">\(x[i] = y[i]\)</span>, and <span class="math">\(1\)</span> otherwise.   </p>
+<p>The above relation forms a table, which can easily be computed in time <span class="math">\(O(mn)\)</span>.<br/>
 <img alt="alt" src="/images/algdg/6_subprob.png"/> </p>
-<h3 id="knapsack">Knapsack</h3>
+<h3 id="knapsack_1">Knapsack</h3>
 <p>A burglar wants to find out which items to carry, considering the weight and cost where he can carry up to a fixed amount of weight, maximizing the cost of items.   </p>
-<h4>Knapsack with repetition</h4>
-<div class="math">$$K(w) = $$</div>
-<p> maximum value achievable with a knapsack of capacity </p>
-<div class="math">$$w$$</div>
-<p>.
-</p>
-<div class="math">$$K(w) = max_{i:w_i \leq w}\{K(w - w_i)+v_i\}$$</div>
-<p>,   </p>
+<h4 id="knapsack-with-repetition">Knapsack with repetition</h4>
+<p><span class="math">\(K(w) =\)</span> maximum value achievable with a knapsack of capacity <span class="math">\(w\)</span>. <br/>
+<span class="math">\(K(w) = max_{i:w_i \leq w}\{K(w - w_i)+v_i\}\)</span>,   </p>
 <p>Algorithm: <br/>
 </p>
 <div class="math">$$\\
@@ -353,16 +298,9 @@ for\quad w = 1 to\; W : \\
 \quad K(w) = max\{K(w-w_i) + v_i : w_i &lt; w\} \\
 return\; K(W) \\
 $$</div>
-<h4>Knapsack without repetition</h4>
-<div class="math">$$K(w,j) = $$</div>
-<p> maximum value achievable using knapsack of capacity </p>
-<div class="math">$$w$$</div>
-<p> and items </p>
-<div class="math">$$1...j$$</div>
-<p>. <br/>
-</p>
-<div class="math">$$K(w,j) = max\{K(w-w_j,j-1) + v_j, K(w, j-1)\}$$</div>
-<p> <br/>
+<h4 id="knapsack-without-repetition">Knapsack without repetition</h4>
+<p><span class="math">\(K(w,j) =\)</span> maximum value achievable using knapsack of capacity <span class="math">\(w\)</span> and items <span class="math">\(1...j\)</span>. <br/>
+<span class="math">\(K(w,j) = max\{K(w-w_j,j-1) + v_j, K(w, j-1)\}\)</span> <br/>
 </p>
 <div class="math">$$\\
 \text{initialize all } K(0,j) = 0 \text{ and all } K(w,0) = 0 \\
@@ -372,76 +310,32 @@ for\quad j=1\; to\; n: \\
 \quad \quad else: K(w,j) = max\{K(w,j-1), K(w-w_j,j-1)+v_j\} \\
 return\; K(W,n) \\
 $$</div>
-<h3 id="chain-matrix-multiplication">Chain Matrix Multiplication</h3>
+<h3 id="chain-matrix-multiplication_1">Chain Matrix Multiplication</h3>
 <p>Matrix multiplication is not commutative, but is associative. <br/>
-Which means, </p>
-<div class="math">$$A \times (B \times C) = (A \times B) \times C$$</div>
-<p>.   </p>
+Which means, <span class="math">\(A \times (B \times C) = (A \times B) \times C\)</span>.   </p>
 <p>Thus, we can compute product of four different matrices in many different ways, Some of the ways are much better(computationally) than others. <br/>
 <img alt="alt" src="/images/algdg/6_mat1.png"/> </p>
 <h3 id="shortest-paths">Shortest Paths</h3>
-<h4>Shortest reliable paths</h4>
-<p>Suppose we want the shortest path from </p>
-<div class="math">$$s$$</div>
-<p> to </p>
-<div class="math">$$t$$</div>
-<p> that uses at most </p>
-<div class="math">$$k$$</div>
-<p> edges.   </p>
+<h4 id="shortest-reliable-paths">Shortest reliable paths</h4>
+<p>Suppose we want the shortest path from <span class="math">\(s\)</span> to <span class="math">\(t\)</span> that uses at most <span class="math">\(k\)</span> edges.   </p>
 <p>Is there a quick way to adapt Dijkstra's algorithm to this new task? Not quite; since the algorithm focuses on the length of each shortest path without remembering the number of hops in the path, which is now a crucial information. <br/>
 In dynamic programming, we can  now define, <br/>
-for each vertex </p>
-<div class="math">$$v$$</div>
-<p> and each integer </p>
-<div class="math">$$i &lt; k, dist(v,i)$$</div>
-<p> to be the <em>length of the shortest path from <div class="math">$$s$$</div> to <div class="math">$$v$$</div> that uses <div class="math">$$i$$</div> edges.</em> <br/>
-</p>
-<div class="math">$$dist(v,i) = min_(u,v)\in E{dist(u, i-1) + l(u,v)}$$</div>
-<p>.    </p>
-<h4>All pairs shortest paths</h4>
+for each vertex <span class="math">\(v\)</span> and each integer <span class="math">\(i &lt; k, dist(v,i)\)</span> to be the <em>length of the shortest path from <span class="math">\(s\)</span> to <span class="math">\(v\)</span> that uses <span class="math">\(i\)</span> edges.</em> <br/>
+<span class="math">\(dist(v,i) = min_(u,v)\in E{dist(u, i-1) + l(u,v)}\)</span>.    </p>
+<h4 id="all-pairs-shortest-paths">All pairs shortest paths</h4>
 <p><strong>Floyd-Warshall algorithm :</strong> <br/>
 We want to find the shortest paths between all pairs of vertices. <br/>
 Is there a good subproblem for solving this problem. Yes. <br/>
 We can start with just two starting nodes, and gradually expand the set of possible intermediate nodes. <br/>
-More concretely, number the vertices in </p>
-<div class="math">$$V$$</div>
-<p> as </p>
-<div class="math">$$\{1...n\}$$</div>
-<p> and let, </p>
-<div class="math">$$dist(1,j,k)$$</div>
-<p> denote the
-length of shortest path from </p>
-<div class="math">$$i$$</div>
-<p> to </p>
-<div class="math">$$j$$</div>
-<p> in which only nodes </p>
-<div class="math">$$\{1,2...k\}$$</div>
-<p> can be used as intermediates.   </p>
-<p>Initially, </p>
-<div class="math">$$dist(1,j,0)$$</div>
-<p> is the length of the direct edges between </p>
-<div class="math">$$i$$</div>
-<p> and </p>
-<div class="math">$$j$$</div>
-<p> if one exists, and is </p>
-<div class="math">$$\inf$$</div>
-<p> otherwise.   </p>
+More concretely, number the vertices in <span class="math">\(V\)</span> as <span class="math">\(\{1...n\}\)</span> and let, <span class="math">\(dist(1,j,k)\)</span> denote the length of
+shortest path from <span class="math">\(i\)</span> to <span class="math">\(j\)</span> in which only nodes <span class="math">\(\{1,2...k\}\)</span> can be used as intermediates.   </p>
+<p>Initially, <span class="math">\(dist(1,j,0)\)</span> is the length of the direct edges between <span class="math">\(i\)</span> and <span class="math">\(j\)</span> if one exists, and is <span class="math">\(\inf\)</span> otherwise.   </p>
 <p><img alt="alt" src="/images/algdg/6_allpair.png"/> </p>
-<p>This, using </p>
-<div class="math">$$k$$</div>
-<p> gives us a shorter path from </p>
-<div class="math">$$i$$</div>
-<p> to </p>
-<div class="math">$$j$$</div>
-<p> if and only if <br/>
-</p>
-<div class="math">$$dist(i,k,k-1) + dist(k,j,k-1) &lt; dist(i,j,k-1)$$</div>
-<p>,   </p>
-<p>in which case </p>
-<div class="math">$$dist(i,j,k)$$</div>
-<p> should be updated accordingly.   </p>
+<p>This, using <span class="math">\(k\)</span> gives us a shorter path from <span class="math">\(i\)</span> to <span class="math">\(j\)</span> if and only if <br/>
+<span class="math">\(dist(i,k,k-1) + dist(k,j,k-1) &lt; dist(i,j,k-1)\)</span>,   </p>
+<p>in which case <span class="math">\(dist(i,j,k)\)</span> should be updated accordingly.   </p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
+    var align = "left",
         indent = "0em",
         linebreak = "false";
 
@@ -506,7 +400,7 @@ length of shortest path from </p>
         <h2>Comments</h2>
         <div id="disqus_thread"></div>
         <script type="text/javascript">
-          var disqus_identifier = "summary/algorithms-part-4greedy-algorithms-and-dynamic-programming.html";
+          var disqus_identifier = "summary/algorithms-part-4.html";
           (function() {
           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
           dsq.src = '//nitishpuri.disqus.com/embed.js';
