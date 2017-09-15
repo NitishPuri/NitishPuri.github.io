@@ -5,14 +5,14 @@
     <meta name="author" content="Nitish Puri" />
     <meta name="robots" content="index, follow"/>
 
-    <meta property="og:title" content="Elements Of Statistical Learning"/>
-    <meta property="og:url" content="/elements-of-statistical-learning.html"/>
+    <meta property="og:title" content="Elements Of Statistical Learning, Part 2"/>
+    <meta property="og:url" content="/summary/elements-of-statistical-learning-part-2.html"/>
     <meta property="og:site_name" content="nitishpuri.github.io"/>
     <meta property="og:type" content="article"/>
 
-    <link rel="canonical" href="/elements-of-statistical-learning.html" />
+    <link rel="canonical" href="/summary/elements-of-statistical-learning-part-2.html" />
 
-    <title>Elements Of Statistical Learning | nitishpuri.github.io</title>
+    <title>Elements Of Statistical Learning, Part 2 | nitishpuri.github.io</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
@@ -73,8 +73,8 @@
     <article>
       <header>
         <h1 class="entry-title">
-          <a href="/elements-of-statistical-learning.html" rel="bookmark"
-             title="Permalink to Elements Of Statistical Learning">Elements Of Statistical Learning</a></h1>
+          <a href="/summary/elements-of-statistical-learning-part-2.html" rel="bookmark"
+             title="Permalink to Elements Of Statistical Learning, Part 2">Elements Of Statistical Learning, Part 2</a></h1>
       </header>
       <div class="entry-content">
 <footer class="post-info">
@@ -84,7 +84,7 @@
 
     in <a href="/category/summary.html">Summary</a>
 
-    on 2017-08-09
+    on 2017-09-15
 
         |
         tags:         <a href="/tag/data-science.html">data-science</a>
@@ -92,7 +92,7 @@
 
 
         |
-        <a href="/elements-of-statistical-learning.html#disqus_thread">comments</a>
+        <a href="/summary/elements-of-statistical-learning-part-2.html#disqus_thread">comments</a>
 
     
 </footer><!-- /.post-info -->
@@ -103,207 +103,24 @@
           <span class='st_email_hcount' displayText='Email'></span>
         </div>
 
+        <p>This post is part 2 of the "Elements Of Statistical Learning" series:</p>
+        <ol class="parts">
+                <li >
+                    <a href='/summary/elements-of-statistical-learning-part-1.html'>Elements Of Statistical Learning, Part 1</a>
+                </li>
+                <li class="active">
+                    <a href='/summary/elements-of-statistical-learning-part-2.html'>Elements Of Statistical Learning, Part 2</a>
+                </li>
+        </ol>
+        <hr>
+
+        <p>Contents:</p>
         <nav class="toc">
-          <div id="toc"><ul><li><a class="toc-href" href="#introduction" title="Introduction">Introduction</a></li><li><a class="toc-href" href="#overview-of-supervised-learning" title="Overview of Supervised Learning">Overview of Supervised Learning</a></li><li><a class="toc-href" href="#linear-methods-of-regression" title="Linear Methods Of Regression">Linear Methods Of Regression</a></li><li><a class="toc-href" href="#linear-methods-of-classification" title="Linear Methods of Classification">Linear Methods of Classification</a></li><li><a class="toc-href" href="#basis-expansions-and-regularization" title="Basis Expansions and Regularization">Basis Expansions and Regularization</a></li><li><a class="toc-href" href="#kernel-smoothing-methods" title="Kernel Smoothing Methods">Kernel Smoothing Methods</a></li><li><a class="toc-href" href="#model-assessment-and-selection" title="Model Assessment and Selection">Model Assessment and Selection</a></li></ul></div>
+          <div id="toc"><ul><li><a class="toc-href" href="#chapter-7-model-assessment-and-selection" title="Chapter 7: Model Assessment and Selection">Chapter 7: Model Assessment and Selection</a></li></ul></div>
         </nav>
+        <hr>
     
-        <hr/>
-<p><em>Note : Work in Progress.</em></p>
-<p>hello  </p>
-<h2 id="introduction">Introduction</h2>
-<ul>
-<li>Motivation towards statistical learning and belief in data.</li>
-<li>What's next.</li>
-</ul>
-<h2 id="overview-of-supervised-learning">Overview of Supervised Learning</h2>
-<ul>
-<li>Variable types and terminology<ul>
-<li>Quantitative vs Qualitative output.</li>
-<li>Regression and Classification</li>
-</ul>
-</li>
-<li>Simple approaches : Least Squares and Nearest Neighbors<ul>
-<li>Linear Models and Least Squares <br/>
-<span class="math">\(\hat Y = \hat \beta_0 + \sum_{j=1}^pX_j\hat\beta_j\)</span> <ul>
-<li>Least squares by solving <em>normal</em> equations.</li>
-</ul>
-</li>
-<li>Nearest Neighbor Methods<ul>
-<li><em>Voronoi tessellation</em></li>
-</ul>
-</li>
-<li>From Least Squares to Nearest Neighbors</li>
-</ul>
-</li>
-<li>Statistical Decision Theory       </li>
-<li>Local Methods in High Dimensions<ul>
-<li><strong>The curse of Dimensionality,*Bellman</strong>*</li>
-</ul>
-</li>
-<li>Statistical Models, Supervised Learning and Function Approximation<ul>
-<li>A Statistical Model for the Joint Distribution Pr(X, Y )</li>
-<li>Supervised Learning</li>
-<li>Function Approximation</li>
-</ul>
-</li>
-<li>Structured Regression Models<ul>
-<li>Difficulty of the Problem</li>
-</ul>
-</li>
-<li>Classes of Restricted Estimators<ul>
-<li>Roughness Penalty and Bayesian Methods  <ul>
-<li><em>regularization</em></li>
-</ul>
-</li>
-<li>Kernel Methods and Local Regression</li>
-<li>Basis Functions and Dictionary Methods</li>
-</ul>
-</li>
-<li>Model Selection and the Bias&ndash;Variance Tradeoff<br/>
-<img alt="Bias-Var" src="images/esl/bias-var.png"/> </li>
-</ul>
-<h2 id="linear-methods-of-regression">Linear Methods Of Regression</h2>
-<ul>
-<li>Introduction</li>
-<li>Linear Regression Models and Least Squares<ul>
-<li>Solution from <em>normal</em> form</li>
-<li>F statistic</li>
-<li>Example : prostrate cancer</li>
-<li>The Gauss-Markov Theorem<ul>
-<li>Proof that the Least Squares estimate for the parameters, <div class="math">$$\beta$$</div> has the least variance.    </li>
-</ul>
-</li>
-<li>Multiple Regression from Simple Univariate Regression
-<img alt="Alg 3.1" src="/images/esl/alg3_1.png"/></li>
-<li>Multiple Outputs</li>
-</ul>
-</li>
-<li>Subset Selection<ul>
-<li>Best-Subset Selection</li>
-<li>Forward and Backward-Stepwise Selection</li>
-<li>Forward-Stagewise Selection
-<img alt="alt" src="/images/esl/subset-sel.png"/></li>
-<li>Example : Prostrate Cancer (Continued)</li>
-</ul>
-</li>
-<li>Shrinkage Methods<ul>
-<li>Ridge Regression : L2 regularization</li>
-<li>The Lasso : L1 regularization</li>
-<li>Discussion : Subset Selection, Ridge Regression and the Lasso</li>
-<li>Least Angle Regression</li>
-</ul>
-</li>
-<li>Methods Using Derived Input Directions<ul>
-<li>Principal Components Regression</li>
-<li>Partial Least Squares</li>
-</ul>
-</li>
-<li>Discussion : A Comparison of Selection and Shrinkage Methods</li>
-<li>Multiple Outcomes Shrinkage and Selection <code>advanced</code></li>
-<li>More on Lasso and Related Path Algorithms <code>advanced</code><ul>
-<li>Incremental Forward Stagewise Regression</li>
-<li>Piecewise-Linear Path Algorithms</li>
-<li>The Dantzig selector</li>
-<li>The Grouped Lasso</li>
-<li>Further Properties of Lasso</li>
-<li>Pathwise Coordinate Optimization</li>
-</ul>
-</li>
-<li>Computational Considerations<ul>
-<li>Fitting is usually done using <em>Cholesky decomposition</em> of matrix <div class="math">$$X^TX$$</div>.</li>
-</ul>
-</li>
-</ul>
-<h2 id="linear-methods-of-classification">Linear Methods of Classification</h2>
-<ul>
-<li>Introduction</li>
-<li>Linear Regression of an Indicator Matrix</li>
-<li>Linear Discriminant Analysis<ul>
-<li>Regularized Discriminant Analysis</li>
-<li>Computations for LDA</li>
-<li>Reduced-Rank Linear Discriminant Analysis</li>
-</ul>
-</li>
-<li>Logistic Regression<ul>
-<li>Fitting Logistic Regression Models</li>
-<li>Example : South African Heart Disease</li>
-<li>Quadratic Approximations and Inference</li>
-<li>
-<div class="math">$$ L_1 $$</div> Regularized Logistic Regression</li>
-<li>Logistic Regression or LDA ?</li>
-</ul>
-</li>
-<li>Separating Hyperplanes<ul>
-<li>Rosenblatt&rsquo;s Perceptron Learning Algorithm</li>
-<li>Optimal Separating Hyperplanes <code>advanced</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="basis-expansions-and-regularization">Basis Expansions and Regularization</h2>
-<ul>
-<li>Introduction</li>
-<li>Piecewise Polynomials and Splines
-<img alt="alt" src="/images/esl/5_piecewise_1.png"/><ul>
-<li>Natural Cubic Splines</li>
-<li>Example: South African Heart Disease (Continued)</li>
-<li>Example: Phoneme Recognition</li>
-</ul>
-</li>
-<li>Filtering and Feature Extraction</li>
-<li>Smoothing Splines<ul>
-<li>Degrees of Freedom and Smoother Matrices</li>
-</ul>
-</li>
-<li>Automatic Selection of the Smoothing Parameters<ul>
-<li>Fixing the Degrees of Freedom</li>
-<li>The Bias&ndash;Variance Tradeoff</li>
-</ul>
-</li>
-<li>Nonparametric Logistic Regression</li>
-<li>Multidimensional Splines</li>
-<li>Regularization and Reproducing Kernel Hilbert Spaces <code>advanced</code><ul>
-<li>Spaces of Functions Generated by Kernels</li>
-<li>Examples of RKHS</li>
-<li>Penalized Polynomial Regression<ul>
-<li>Gaussian Radial Basis Functions</li>
-<li>Support Vector Classifiers</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Wavelet Smoothing <code>advanced</code><ul>
-<li>Wavelet Smoothing and the Wavelet Transform</li>
-<li>Adaptive Wavelet Filtering</li>
-</ul>
-</li>
-</ul>
-<h2 id="kernel-smoothing-methods">Kernel Smoothing Methods</h2>
-<ul>
-<li>One-Dimensional Kernel Smoothers<ul>
-<li>Local Linear Regression</li>
-<li>Local Polynomial Regression</li>
-</ul>
-</li>
-<li>Selecting the Width of the Kernel</li>
-<li>Local Regression in <div class="math">$$ {\mathbb R}^p $$</div>
-</li>
-<li>Structured Local Regression Models in <div class="math">$${\mathbb R}^p$$</div>
-<ul>
-<li>Structured Kernels</li>
-<li>Structured Regression Functions</li>
-</ul>
-</li>
-<li>Kernel Density Estimation and Classification<ul>
-<li>Kernel Density Estimation</li>
-<li>Kernel Density Classification</li>
-<li>The Naive Bayes Classifier</li>
-</ul>
-</li>
-<li>Radial Basis Functions and Kernels</li>
-<li>Mixture Models for Density Estimation and Classification</li>
-<li>Computational Considerations</li>
-</ul>
-<h2 id="model-assessment-and-selection">Model Assessment and Selection</h2>
+        <h2 id="chapter-7-model-assessment-and-selection">Chapter 7: Model Assessment and Selection</h2>
 <ul>
 <li>Introduction</li>
 <li>Bias, Variance and Model Complexity
@@ -316,6 +133,21 @@
 </li>
 <li>Optimism of the Training Error Rate</li>
 <li>Estimates of In-Sample Prediction Error</li>
+<li>The Effective Number of Parameters<ul>
+<li>Also known as <em>effective degree of freedom</em> <span class="math">\(= trace(S)\)</span>, where <span class="math">\(\hat y=Sy\)</span>. </li>
+</ul>
+</li>
+<li>The Bayesian Approach and BIC</li>
+<li>Minimum Description Length</li>
+<li>Vapnik-Chervonenkis Dimension ☠ </li>
+<li>Cross-Validation 👍  <ul>
+<li>K-Fold Cross Validation</li>
+<li>The Wrong and Right Way to Do Cross-validation</li>
+<li>Does Cross-Validation Really Work?</li>
+</ul>
+</li>
+<li>Bootstrap Methods</li>
+<li>Conditional or Expected Test Error? ☠ </li>
 </ul>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
@@ -383,7 +215,7 @@
         <h2>Comments</h2>
         <div id="disqus_thread"></div>
         <script type="text/javascript">
-          var disqus_identifier = "elements-of-statistical-learning.html";
+          var disqus_identifier = "summary/elements-of-statistical-learning-part-2.html";
           (function() {
           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
           dsq.src = '//nitishpuri.disqus.com/embed.js';
