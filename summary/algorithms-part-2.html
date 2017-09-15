@@ -5,14 +5,14 @@
     <meta name="author" content="Nitish Puri" />
     <meta name="robots" content="index, follow"/>
 
-    <meta property="og:title" content="Algorithms, Part 2(Divide and Conquer)"/>
-    <meta property="og:url" content="/summary/algorithms-part-2divide-and-conquer.html"/>
+    <meta property="og:title" content="Algorithms, Part 2"/>
+    <meta property="og:url" content="/summary/algorithms-part-2.html"/>
     <meta property="og:site_name" content="nitishpuri.github.io"/>
     <meta property="og:type" content="article"/>
 
-    <link rel="canonical" href="/summary/algorithms-part-2divide-and-conquer.html" />
+    <link rel="canonical" href="/summary/algorithms-part-2.html" />
 
-    <title>Algorithms, Part 2(Divide and Conquer) | nitishpuri.github.io</title>
+    <title>Algorithms, Part 2 | nitishpuri.github.io</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
@@ -73,8 +73,8 @@
     <article>
       <header>
         <h1 class="entry-title">
-          <a href="/summary/algorithms-part-2divide-and-conquer.html" rel="bookmark"
-             title="Permalink to Algorithms, Part 2(Divide and Conquer)">Algorithms, Part 2(Divide and Conquer)</a></h1>
+          <a href="/summary/algorithms-part-2.html" rel="bookmark"
+             title="Permalink to Algorithms, Part 2">Algorithms, Part 2</a></h1>
       </header>
       <div class="entry-content">
 <footer class="post-info">
@@ -92,7 +92,7 @@
 
 
         |
-        <a href="/summary/algorithms-part-2divide-and-conquer.html#disqus_thread">comments</a>
+        <a href="/summary/algorithms-part-2.html#disqus_thread">comments</a>
 
     
 </footer><!-- /.post-info -->
@@ -103,131 +103,92 @@
           <span class='st_email_hcount' displayText='Email'></span>
         </div>
 
+        <p>This post is part 2 of the "Algorithms" series:</p>
+        <ol class="parts">
+                <li >
+                    <a href='/summary/algorithms-part-1.html'>Algorithms, Part 1</a>
+                </li>
+                <li class="active">
+                    <a href='/summary/algorithms-part-2.html'>Algorithms, Part 2</a>
+                </li>
+        </ol>
+        <hr>
 
         <p>Contents:</p>
         <nav class="toc">
-          <div id="toc"><ul><li><a class="toc-href" href="#divide-and-conquer-algorithms" title="Divide-and-Conquer Algorithms">Divide-and-Conquer Algorithms</a><ul><li><a class="toc-href" href="#multiplication" title="Multiplication">Multiplication</a></li><li><a class="toc-href" href="#recurrence-relations" title="Recurrence relations">Recurrence relations</a></li><li><a class="toc-href" href="#mergesort" title="Mergesort">Mergesort</a></li><li><a class="toc-href" href="#medians" title="Medians">Medians</a></li><li><a class="toc-href" href="#matrix-multiplication" title="Matrix multiplication">Matrix multiplication</a></li><li><a class="toc-href" href="#fast-fourier-transform" title="Fast Fourier transform">Fast Fourier transform</a></li></ul></li></ul></div>
+          <div id="toc"><ul><li><a class="toc-href" href="#chapter-2-divide-and-conquer-algorithms" title="Chapter 2: Divide-and-Conquer Algorithms">Chapter 2: Divide-and-Conquer Algorithms</a><ul><li><a class="toc-href" href="#multiplication" title="Multiplication">Multiplication</a></li><li><a class="toc-href" href="#recurrence-relations" title="Recurrence relations">Recurrence relations</a></li><li><a class="toc-href" href="#mergesort" title="Mergesort">Mergesort</a></li><li><a class="toc-href" href="#medians" title="Medians">Medians</a></li><li><a class="toc-href" href="#matrix-multiplication" title="Matrix multiplication">Matrix multiplication</a></li><li><a class="toc-href" href="#fast-fourier-transform" title="Fast Fourier transform">Fast Fourier transform</a></li></ul></li></ul></div>
         </nav>
         <hr>
     
-        <ol>
-<li>TOC
-{:toc}</li>
-</ol>
-<hr/>
-<h2 id="divide-and-conquer-algorithms">Divide-and-Conquer Algorithms</h2>
+        <h2 id="chapter-2-divide-and-conquer-algorithms">Chapter 2: Divide-and-Conquer Algorithms</h2>
 <p>The divide and conquer strategy solves a problem by <br/>
-1. Breaking it into sub-problems that are themselves smaller instances of the same type of problem.
-2. Recursively solving these problems.
-3. Appropriately combining their results.</p>
+1. Breaking it into sub-problems that are themselves smaller instances of the same type of problem. <br/>
+2. Recursively solving these problems. <br/>
+3. Appropriately combining their results.   </p>
 <h3 id="multiplication">Multiplication</h3>
 <p>For multiplying two n-bit integers x and y. <br/>
-</p>
-<div class="math">$$ x = \bbox[5px, border:2px solid black]{ x_L } \quad \bbox[5px, border:2px solid black]{ x_R } = 2^{n/2}x_L + x_R $$</div>
-<p> <br/>
-</p>
-<div class="math">$$ y = \bbox[5px, border:2px solid black]{ y_L } \quad \bbox[5px, border:2px solid black]{ y_R } = 2^{n/2}y_L + y_R $$</div>
-<p> <br/>
-then, 
-</p>
-<div class="math">$$ xy = (2^{n/2}x_L + x_R)(2^{n/2}y_L + y_R) = 2^nx_Ly_L + 2^{n/2}(x_Ly_R + x_Ry_L) + x_Ry_R $$</div>
-<p>Now, we can compute xy by evaluating the RHS. Addition and multiplication by 2^n are linear time. Rest of the 4 multiplications can be done by recursively applying this algorithm.   </p>
-<p>So, </p>
-<div class="math">$$ T(n) = 4T(n/2) + O(n) $$</div>
-<p>.</p>
-<p>Which is results in </p>
-<div class="math">$$ O(n&sup2;) $$</div>
-<p>.</p>
-<p>By expanding the middle term, we can do with just three calculations, </p>
-<div class="math">$$ x_Ly_L , x_Ry_R, (x_L+x_R)(y_L+y_R). $$</div>
-<p> <br/>
+<span class="math">\(x = \bbox[5px, border:2px solid black]{ x_L } \quad \bbox[5px, border:2px solid black]{ x_R } = 2^{n/2}x_L + x_R\)</span> <br/>
+<span class="math">\(y = \bbox[5px, border:2px solid black]{ y_L } \quad \bbox[5px, border:2px solid black]{ y_R } = 2^{n/2}y_L + y_R\)</span> </p>
+<p>then, 
+<span class="math">\(xy = (2^{n/2}x_L + x_R)(2^{n/2}y_L + y_R) = 2^nx_Ly_L + 2^{n/2}(x_Ly_R + x_Ry_L) + x_Ry_R\)</span></p>
+<p>Now, we can compute xy by evaluating the RHS. Addition and multiplication by <span class="math">\(2^n\)</span> are linear time. Rest of the 4 multiplications can be done by recursively applying this algorithm.   </p>
+<p>So, <span class="math">\(T(n) = 4T(n/2) + O(n)\)</span>.</p>
+<p>Which results in <span class="math">\(O(n^2)\)</span>.</p>
+<p>By expanding the middle term, we can do with just three calculations, <span class="math">\(x_Ly_L , x_Ry_R, (x_L+x_R)(y_L+y_R)\)</span>. <br/>
 since, <br/>
-</p>
-<div class="math">$$ x_Ly_R  + x_Ry_L =  (x_L + x_R ) (y_L + y_R )  - x_Ly_L &ndash; x_Ry_R $$</div>
-<p>. <br/>
-Resulting algorithm would then be <br/>
-</p>
-<div class="math">$$ T(n) = 3T(n/2) + O(n) $$</div>
-<p>, which is </p>
-<div class="math">$$ O(n^{1.59}) $$</div>
-<p>
-<img alt="alt" src="/images/algdg/2_divide.png"/>
-Height of the tree </p>
-<div class="math">$$ = \log_2 n $$</div>
-<p>, since the length of the sub-problem gets halved at every level.
+<span class="math">\(x_Ly_R  + x_Ry_L =  (x_L + x_R ) (y_L + y_R )  - x_Ly_L &ndash; x_Ry_R\)</span>.   </p>
+<p>Resulting algorithm would then be <br/>
+<span class="math">\(T(n) = 3T(n/2) + O(n)\)</span>, which is <span class="math">\(O(n^{1.59})\)</span> </p>
+<p><img alt="alt" src="/images/algdg/2_divide.png"/> </p>
+<p>Height of the tree <span class="math">\(= \log_2 n\)</span>, since the length of the sub-problem gets halved at every level. <br/>
 Branching factor = 3.   </p>
-<p>So, at any level k we will have </p>
-<div class="math">$$ 3^k $$</div>
-<p>  to solve each of size </p>
-<div class="math">$$ n/2^k $$</div>
-<p>.   </p>
-<p>Therefore, time spent at level k is, </p>
-<div class="math">$$ 3^k \times O(\frac n {2^k}) = (\frac 3 2)^k \times O(n) $$</div>
+<p>So, at any level k we will have <span class="math">\(3^k\)</span>  to solve each of size <span class="math">\(n/2^k\)</span>.   </p>
+<p>Therefore, time spent at level k is, <span class="math">\(3^k \times O(\frac n {2^k}) = (\frac 3 2)^k \times O(n)\)</span> </p>
 <p>Which is a geometric series. So, the sum then approximates to the last term of the series. <br/>
-That is </p>
-<div class="math">$$ O(3^{\log_2 n}) $$</div>
-<p>, which can be written as </p>
-<div class="math">$$ O(n^{\log_2 3}) $$</div>
-<p>, which is about </p>
-<div class="math">$$O(n^{1.59}) $$</div>
-<p>.   </p>
-<p>Can we do better ??? using <em>Fast Fourier Transforms</em> discussed later.</p>
-<p><img alt="alt" src="/images/algdg/2_dividemul.png"/></p>
+That is <span class="math">\(O(3^{\log_2 n})\)</span>, which can be written as <span class="math">\(O(n^{\log_2 3})\)</span>, which is about <span class="math">\(O(n^{1.59})\)</span>.   </p>
+<p>Can we do better ??? using <em>Fast Fourier Transforms</em> discussed later.   </p>
+<p><img alt="alt" src="/images/algdg/2_dividemul.png"/> </p>
 <h3 id="recurrence-relations">Recurrence relations</h3>
-<p>Consider this recurrence tree.
-<img alt="alt" src="/images/algdg/2_recur.png"/></p>
+<p>Consider this recurrence tree. <br/>
+<img alt="alt" src="/images/algdg/2_recur.png"/> </p>
 <p><strong>Master's Theorem :</strong><br/>
-If </p>
-<div class="math">$$ T(n) = aT(\lceil n/b \rceil) + O(n^d)$$</div>
-<p> for some constants </p>
-<div class="math">$$ a &gt; 0, b &gt; 1 $$</div>
-<p>, and </p>
-<div class="math">$$ d \ge 0 $$</div>
-<p>, then <br/>
-</p>
+If <span class="math">\(T(n) = aT(\lceil n/b \rceil) + O(n^d)\)</span> for some constants <span class="math">\(a &gt; 0, b &gt; 1\)</span>, and <span class="math">\(d \ge 0\)</span>, then   </p>
 <div class="math">$$ T(n) = \begin{cases}
  O(n^d), \text{ if } d &gt; \log_b a \\ 
  O(n^d\log n), \text{ if } d = \log_b a \\
  O(n^{\log_b a}), \text{ if } d &lt; \log_b a 
  \end{cases}$$</div>
-<p><img alt="alt" src="/images/algdg/2_binary.png"/></p>
+<p><img alt="alt" src="/images/algdg/2_binary.png"/> </p>
 <h3 id="mergesort">Mergesort</h3>
 <p>Sort an array by recursively sorting each half and merging the results. <br/>
-<img alt="alt" src="/images/algdg/2_merge.png"/>
-<img alt="alt" src="/images/algdg/2_merge2.png"/></p>
+<img alt="alt" src="/images/algdg/2_merge.png"/> </p>
+<p><img alt="alt" src="/images/algdg/2_merge2.png"/> </p>
 <p>Since merge does constant amount of work per recursive call, overall time is <br/>
 </p>
-<div class="math">$$ T(n) = 2T(n/2) + O(n), \text{or } O(n\log n)$$</div>
+<div class="math">$$ T(n) = 2T(n/2) + O(n), \text{   or  } O(n\log n)$$</div>
 <p> <br/>
-Here is an iterative version using a Queue.
-<img alt="alt" src="/images/algdg/2_merge3.png"/></p>
+Here is an iterative version using a Queue. <br/>
+<img alt="alt" src="/images/algdg/2_merge3.png"/> </p>
 <h3 id="medians">Medians</h3>
-<p>Median = 50th percentile of a list of numbers.
-<img alt="alt" src="/images/algdg/2_medians.png"/>
+<p>Median = 50th percentile of a list of numbers. <br/>
+<img alt="alt" src="/images/algdg/2_medians.png"/> <br/>
 <em>A randomized divide-and-conquer algorithm for selection</em> <br/>
-For any number <code>v</code>, Split <code>S</code> into three categories: elements smaller than <code>v</code> </p>
-<div class="math">$$(S_L)$$</div>
-<p>, equal to <code>v</code> </p>
-<div class="math">$$(S_v)$$</div>
-<p> , greater than <code>v</code> </p>
-<div class="math">$$(S_R)$$</div>
-<p> , then
+For any number <code>v</code>, Split <code>S</code> into three categories: elements smaller than <code>v</code> <span class="math">\((S_L)\)</span>, equal to <code>v</code> <span class="math">\((S_v)\)</span> , greater than <code>v</code> <span class="math">\((S_R)\)</span> , then
 </p>
 <div class="math">$$ selection(S, k) = \begin{cases}
  selection(S_L, k), \quad\quad\quad\quad\quad\quad \text{if } k \le |S_L| \\ 
  v , \quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad \text{  if } |S_L| &lt; k \le |S_L| + |S_v| \\
  selection(S_R, k - |S_L| - |S_v|), \text{ if } k &gt; |S_L| + |S_v| 
  \end{cases}$$</div>
-<p>The three sub-lists can be computed in linear time, even in place. <br/>
-How to pick <code>v</code> ? Randomly from <code>S</code>.
-<img alt="alt" src="/images/algdg/2_unix.png"/></p>
+<p>The three sub-lists can be computed in linear time, even in place.  <br/>
+How to pick <code>v</code> ? Randomly from <code>S</code>. <br/>
+<img alt="alt" src="/images/algdg/2_unix.png"/> </p>
 <h3 id="matrix-multiplication">Matrix multiplication</h3>
-<p><img alt="alt" src="/images/algdg/2_matmul.png"/>
+<p><img alt="alt" src="/images/algdg/2_matmul.png"/> <br/>
 Symbolically, <br/>
 </p>
 <div class="math">$$ Z_{ij} = \sum_{k=1}^n X_{ik}Y_{kj}$$</div>
-<p>This implies the algorithm to be </p>
-<div class="math">$$O(n^3)$$</div>
+<p>This implies the algorithm to be <span class="math">\(O(n^3)\)</span></p>
 <p>Enter divide-and-conquer. <br/>
 Divide the matrices X and Y into 4 blocks. <br/>
 </p>
@@ -236,68 +197,44 @@ $$</div>
 <p>,    </p>
 <p>Then, their product can be expressed as, <br/>
 </p>
-<div class="math">$$ XY = \beg in{bmatrix}A &amp; B \\ C &amp; D\end{bmatrix} = 
+<div class="math">$$ XY = \begin{bmatrix}A &amp; B \\ C &amp; D\end{bmatrix} = 
 \begin{bmatrix}AE+BG &amp; AF+BH \\ CE+DG &amp; CF+DH \end{bmatrix} $$</div>
 <p>Total running time can be described as, <br/>
-</p>
-<div class="math">$$ T(n) = 8T(n/2) + O(n^2), \text{ which is again } O(n^3)$$</div>
-<p>.</p>
-<p>Turns out you can do this, 
+<span class="math">\(T(n) = 8T(n/2) + O(n^2), \text{ which is again } O(n^3)\)</span>.</p>
+<p>Turns out you can do this,<br/>
 </p>
 <div class="math">$$ XY = \begin{bmatrix}P_5+P_4-P_2+P_6 &amp; P_1+P_2 \\ P_3+P_4 &amp; P_1+P_5-P_3-P_7\end{bmatrix} $$</div>
 <p>where, <br/>
-</p>
-<div class="math">$$ P_1 = A(F-H) \quad\quad P_5 = (A+D)(E+H)$$</div>
-<p> <br/>
-</p>
-<div class="math">$$ P_2 = (A+B)H \quad\quad P_6 = (B-D)(G+H)$$</div>
-<p> <br/>
-</p>
-<div class="math">$$ P_3 = (C+D)E \quad\quad P_7 = (A-C)(E+F)$$</div>
-<p> <br/>
-</p>
-<div class="math">$$ P_4 = D(G-E) $$</div>
-<p>The new running time is, </p>
-<div class="math">$$ T(n) = 7T(n/2) + O(n^2), \text{which is } O(n^{\log_2 7}) \approx O(n^{2.81})$$</div>
+<span class="math">\(P_1 = A(F-H) \quad\quad P_5 = (A+D)(E+H)\)</span> <br/>
+<span class="math">\(P_2 = (A+B)H \quad\quad P_6 = (B-D)(G+H)\)</span> <br/>
+<span class="math">\(P_3 = (C+D)E \quad\quad P_7 = (A-C)(E+F)\)</span> <br/>
+<span class="math">\(P_4 = D(G-E)\)</span> </p>
+<p>The new running time is, <span class="math">\(T(n) = 7T(n/2) + O(n^2), \text{which is } O(n^{\log_2 7}) \approx O(n^{2.81})\)</span> </p>
 <h3 id="fast-fourier-transform">Fast Fourier transform</h3>
 <p>Next target, <em>Polynomials</em>.</p>
-<p>The general solution for polynomial multiplication works in </p>
-<div class="math">$$\theta(d^2) $$</div>
-<p> time, where </p>
-<div class="math">$$d$$</div>
-<p> is the degree of polynomials.</p>
+<p>The general solution for polynomial multiplication works in <span class="math">\(\theta(d^2)\)</span> time, where <span class="math">\(d\)</span> is the degree of polynomials.</p>
 <p><em>An alternative representation of polynomials.</em></p>
-<p><strong>Fact</strong> : <em>A degree-d polynomial is uniquely characterized by its values at any <div class="math">$$d+1$$</div> distinct points</em>.   </p>
+<p><strong>Fact</strong> : <em>A degree-d polynomial is uniquely characterized by its values at any <span class="math">\(d+1\)</span> distinct points</em>.   </p>
 <p>So, we can specify a degree-d polynomial </p>
 <div class="math">$$A(x) = a_0+a_1x+...+a_dx^d$$</div>
-<p> by any one of the following,
-1. Its coefficients, </p>
-<div class="math">$$a_0, a_1,..., a_d$$</div>
-<p> <br/>
-2. The values </p>
-<div class="math">$$A(x_0), A(x_1), ..., A(x_d)$$</div>
-<p>Now, taking in consideration the second form, the product has a degree </p>
-<div class="math">$$2d$$</div>
-<p>, and is completely determined by its values at </p>
-<div class="math">$$2d+1$$</div>
-<p> points. <br/>
+<p> by any one of the following, <br/>
+1. Its coefficients, <span class="math">\(a_0, a_1,..., a_d\)</span> <br/>
+2. The values <span class="math">\(A(x_0), A(x_1), ..., A(x_d)\)</span> </p>
+<p>Now, taking in consideration the second form, the product has a degree <span class="math">\(2d\)</span>, and is completely determined by its values at <span class="math">\(2d+1\)</span> points. <br/>
 Since, those values are just products of the two polynomials at the given point. Thus, polynomial multiplication takes linear time in the value representation. <br/>
-<img alt="alt" src="/images/algdg/2_poly1.png"/>
-<img alt="alt" src="/images/algdg/2_poly2.png"/></p>
+<img alt="alt" src="/images/algdg/2_poly1.png"/> <br/>
+<img alt="alt" src="/images/algdg/2_poly2.png"/> </p>
 <p><em>Evaluation by divide-and-conquer</em> <br/>
 <strong>The Trick</strong> : Choose the n points to be selected as positive-negative pairs, then the computations needed to be done overlap a lot. <br/>
 Specifically, <br/>
-<img alt="alt" src="/images/algdg/2_eval.png"/>
-if we could then recurse, we would have,
+<img alt="alt" src="/images/algdg/2_eval.png"/> <br/>
+if we could then recurse, we would have, <br/>
 </p>
 <div class="math">$$T(n) = 2T(n/2) + O(n), \text{which is } O(n\log n)$$</div>
 <p> <br/>
 But, recursing it at the second level and beyond seems impossible. Unless, of-course we use complex numbers. <br/>
-To get positive-negative pairs at subsequent levels, we can use the roots of </p>
-<div class="math">$$z^n = 1$$</div>
-<p> <br/>
-Which are, </p>
-<div class="math">$$1, \omega, \omega^2, ... \omega^{n-1}, \text{ where, } \omega = e^{2\pi i/n}$$</div>
+To get positive-negative pairs at subsequent levels, we can use the roots of <span class="math">\(z^n = 1\)</span> <br/>
+Which are, <span class="math">\(1, \omega, \omega^2, ... \omega^{n-1}, \text{ where, } \omega = e^{2\pi i/n}\)</span> </p>
 <p>So, if we choose these numbers, at every successive level of recursion we have pairs of positive-negative numbers <br/>
 <img alt="alt" src="/images/algdg/2_fft2.png"/></p>
 <p><strong>Interpolation</strong> <br/>
@@ -308,20 +245,10 @@ Which are, </p>
 <div class="math">$$\langle \text{coefficients} \rangle = \frac 1 n FFT(\langle \text{values} \rangle, \omega^{-1}) $$</div>
 <p>Details left,, See <em>Fourier basis</em></p>
 <p><strong>A closer look at the fast Fourier Transform</strong> <br/>
-The FFT takes as input a vector </p>
-<div class="math">$$a = (a_0, ... a_{n-1})$$</div>
-<p> and a complex number </p>
-<div class="math">$$\omega$$</div>
-<p> whose powers are the complex root of unity. <br/>
-It multiplies this vector with the Matrix </p>
-<div class="math">$$M_n(\omega)$$</div>
-<p>, which has </p>
-<div class="math">$$(j, k)_{th}$$</div>
-<p> entry (starting row and column count at zero) </p>
-<div class="math">$$\omega^{jk}$$</div>
-<p>.
-<img alt="alt" src="/images/algdg/2_fft3.png"/>
-<img alt="alt" src="/images/algdg/2_fft4.png"/></p>
+The FFT takes as input a vector <span class="math">\(a = (a_0, ... a_{n-1})\)</span> and a complex number <span class="math">\(\omega\)</span> whose powers are the complex root of unity. <br/>
+It multiplies this vector with the Matrix <span class="math">\(M_n(\omega)\)</span>, which has <span class="math">\((j, k)_{th}\)</span> entry (starting row and column count at zero) <span class="math">\(\omega^{jk}\)</span>.
+<img alt="alt" src="/images/algdg/2_fft3.png"/> <br/>
+<img alt="alt" src="/images/algdg/2_fft4.png"/> </p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
@@ -388,7 +315,7 @@ It multiplies this vector with the Matrix </p>
         <h2>Comments</h2>
         <div id="disqus_thread"></div>
         <script type="text/javascript">
-          var disqus_identifier = "summary/algorithms-part-2divide-and-conquer.html";
+          var disqus_identifier = "summary/algorithms-part-2.html";
           (function() {
           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
           dsq.src = '//nitishpuri.disqus.com/embed.js';

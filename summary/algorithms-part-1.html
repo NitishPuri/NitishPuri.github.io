@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="author" content="Nitish Puri" />
+    <meta name="robots" content="index, follow"/>
+
+    <meta property="og:title" content="Algorithms, Part 1"/>
+    <meta property="og:url" content="/summary/algorithms-part-1.html"/>
+    <meta property="og:site_name" content="nitishpuri.github.io"/>
+    <meta property="og:type" content="article"/>
+
+    <link rel="canonical" href="/summary/algorithms-part-1.html" />
+
+    <title>Algorithms, Part 1 | nitishpuri.github.io</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="/theme/css/main.css" />
+
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+        stLight.options({
+            publisher: "59baff2dc1263e001291a4b3",
+            doNotHash: false,
+            doNotCopy: false,
+            hashAddressBar: false
+        });
+    </script>
+</head>
+
+<body id="index">
+<a class="hidden-phone" href="nitishpuri">
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" />
+</a>
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <header id="banner" >
+                <h1>
+                    <a href="/">nitishpuri.github.io </a>
+                </h1>
+                <nav class="navbar">
+                    <div class="navbar-inner">
+                        <ul class="nav">
+                        </ul>
+
+<script>
+  (function() {
+    var cx = '011138406956770016801:3ffzupagszg';
+    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div id="google-custom-search" class="nav">
+    <gcse:search></gcse:search>
+</div>
+                    </div>
+                </nav>
+            </header><!-- /#banner -->
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <div class="row-fluid">
+<div class="span10 offset1">
+  <section>
+    <article>
+      <header>
+        <h1 class="entry-title">
+          <a href="/summary/algorithms-part-1.html" rel="bookmark"
+             title="Permalink to Algorithms, Part 1">Algorithms, Part 1</a></h1>
+      </header>
+      <div class="entry-content">
+<footer class="post-info">
+    <address class="vcard author">
+        by <a class="url fn" href="/author/sanjoy-dasgupta.html">Sanjoy DasGupta</a>
+    </address>
+
+    in <a href="/category/summary.html">Summary</a>
+
+    on 2017-08-19
+
+        |
+        tags:         <a href="/tag/algorithms.html">algorithms</a>
+        <a href="/tag/notes.html">notes</a>
+
+
+        |
+        <a href="/summary/algorithms-part-1.html#disqus_thread">comments</a>
+
+    
+</footer><!-- /.post-info -->
+        <div class="sharethis-top">
+          <span class='st_fblike_hcount' displayText='Facebook Like'></span>
+          <span class='st_plusone_hcount' displayText='Google +1'></span>
+          <span class='st_twitter_hcount' displayText='Tweet'></span>
+          <span class='st_email_hcount' displayText='Email'></span>
+        </div>
+
+        <p>This post is part 1 of the "Algorithms" series:</p>
+        <ol class="parts">
+                <li class="active">
+                    <a href='/summary/algorithms-part-1.html'>Algorithms, Part 1</a>
+                </li>
+                <li >
+                    <a href='/summary/algorithms-part-2.html'>Algorithms, Part 2</a>
+                </li>
+        </ol>
+        <hr>
+
+        <p>Contents:</p>
+        <nav class="toc">
+          <div id="toc"><ul><li><a class="toc-href" href="#chapter-0-prologue" title="Chapter 0: Prologue">Chapter 0: Prologue</a></li><li><a class="toc-href" href="#chapter-1-algorithms-with-numbers" title="Chapter 1: Algorithms with Numbers">Chapter 1: Algorithms with Numbers</a><ul><li><a class="toc-href" href="#basic-arithmetic" title="Basic Arithmetic">Basic Arithmetic</a></li><li><a class="toc-href" href="#modular-arithmetic" title="Modular Arithmetic">Modular Arithmetic</a></li><li><a class="toc-href" href="#cryptography" title="Cryptography">Cryptography</a></li><li><a class="toc-href" href="#universal-hashing" title="Universal Hashing">Universal Hashing</a></li></ul></li></ul></div>
+        </nav>
+        <hr>
+    
+        <h2 id="chapter-0-prologue">Chapter 0: Prologue</h2>
+<ul>
+<li>Books and algorithms<ul>
+<li>Ideas that changed the world.</li>
+<li>Widespread use of decimal system.</li>
+</ul>
+</li>
+<li>Enter Fibonacci<ul>
+<li><code>0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ....,</code></li>
+<li>Also, <span class="math">\(F_n = F_{n-1} + F_{n-2}\)</span></li>
+<li>And, <span class="math">\(F_n &asymp; 2^{0.694n}\)</span></li>
+<li>A naive implementation , with no caching of values.., <code>fib1</code><ul>
+<li>Runtime --&gt; <span class="math">\(T(n) &gt;= F_n\)</span>, exponential in n</li>
+</ul>
+</li>
+<li>Can We Do Better,....?</li>
+<li>A Polynomial algorithm..., <code>fib2</code><ul>
+<li>A loop based algorithm that remembers previous values in an array.</li>
+<li>Polynomial running time.</li>
+</ul>
+</li>
+<li>More Careful Analysis<ul>
+<li>What about addition of numbers Fibonacci values for large n.</li>
+<li>Adding two n-bit integers take time ~ n.</li>
+<li>So, <span class="math">\(fib1 &asymp;  n.Fn\)</span></li>
+<li>And, <span class="math">\(fib2 &asymp; n^2\)</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Big-O</strong> notation<ul>
+<li>Right simplification of the analysis.</li>
+<li>Leave behind the lower order terms.</li>
+<li>General rules :<ul>
+<li>Multiplicative constants can be omitted.</li>
+<li><span class="math">\(n^a\)</span> dominates <span class="math">\(n^b, if a &gt; b\)</span></li>
+<li>Any exponential dominates any polynomial. <span class="math">\(a^n\)</span> dominates  <span class="math">\(n^b\)</span></li>
+<li>Likewise, any polynomial dominates any logarithm. <span class="math">\(n\)</span> dominates <span class="math">\(log(n)\)</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Exercise 0.4 <br/>
+<img alt="0_fib" src="/images/algdg/0_fib.png"/><ul>
+<li>So now <span class="math">\(F_n\)</span> can be computed by calculating <span class="math">\(X^n\)</span> where <span class="math">\(X\)</span> is the square matrix.</li>
+<li>So, <span class="math">\(Fn = O(log n)\)</span></li>
+<li>But then, with careful analysis,<ul>
+<li>Multiplication of large n-bit numbers <span class="math">\(&asymp; O(n^2)\)</span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="chapter-1-algorithms-with-numbers">Chapter 1: Algorithms with Numbers</h2>
+<p>Two ancient problems: <br/>
+<strong>Factoring</strong> : Given a number N, express it as a product of its prime factors. <em>Hard</em> <br/>
+<strong>Primality</strong> : Given a number N, determine whether it is a prime. <em>Easy</em> </p>
+<h3 id="basic-arithmetic">Basic Arithmetic</h3>
+<p><img alt="alt" src="/images/algdg/1_base.png"/> </p>
+<ul>
+<li><em>Addition</em> <br/>
+The sum of any three single-digit numbers is at most two digits long. <br/>
+Given two binary numbers x and y, how does our algorithm take to add them? <br/>
+Depends on size of input, number of bits in x and y. <br/>
+Running time <span class="math">\(= O(n), n =\)</span> number of bits in the numbers. <br/>
+Is there anything faster? No.. <br/>
+About word length and large numbers</li>
+<li>
+<p><strong>Multiplication and Division</strong> <br/>
+To multiply <code>x</code> and <code>y</code>, create an array of intermediate sums, each representing the product of <code>x</code> by a single digit if <code>y</code>. These values are appropriately left shifted and added up.   </p>
+<ul>
+<li>
+<p>Running time = Addition of n numbers of n-bits length
+               = <span class="math">\((n-1).O(n)\)</span>
+               = <span class="math">\(O(n^2)\)</span> </p>
+</li>
+<li>
+<p>Another fascinating algorithm for multiplication: <br/>
+<img alt="alt" src="/images/algdg/1_mult.png"/>
+<img alt="alt" src="/images/algdg/1_mult2.png"/> <br/>
+However, running time = <span class="math">\(O(n^2)\)</span> , n = number of bits. <br/>
+<img alt="alt" src="/images/algdg/1_div.png"/> </p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="modular-arithmetic">Modular Arithmetic</h3>
+<div class="math">$$x \equiv y \pmod N  \Leftrightarrow  N divides (x - y)$$</div>
+<ul>
+<li>Modular arithmetic is a system for dealing with restricted ranges of integers.   </li>
+<li>
+<p>Another interpretation is that modular arithmetic deals with all the integers, but divides into N equivalence classes, each of the form <span class="math">\(\{i+kN:k\in \mathbb Z\},  i \in [0, N-1]\)</span>. <br/>
+<img alt="alt" src="/images/algdg/1_subs.png"/> <br/>
+<img alt="alt" src="/images/algdg/1_comp.png"/> </p>
+</li>
+<li>
+<p><strong>Modular addition and multiplication</strong> <br/>
+    To <code>add</code> two numbers <em>x</em> and <em>y</em> modulo <em>N</em>, we start with regular addition. Since <em>x</em> and <em>y</em> are both in the range <em>0</em> to <em>N - 1</em>, their sum is in the range <em>0</em> to <em>2(N-1)</em>. If the sum exceeds <em>N-1</em>, we merely need to subtract off <em>N</em> to bring it back to required range. So, running time <span class="math">\(= O(n), n = log N\)</span>.  </p>
+<p>To <code>multiply</code> two mod N numbers x and y, do regular multiplication, reduce the answer to modulo N. The product can be as large as <span class="math">\((N-1)^2\)</span>, at most 2n bits large. Need to compute the remainder using quadratic time division algorithm. Multiplication thus remains quadratic.   </p>
+<p><code>Division</code>, however is tricky, whenever legal, it can be managed in quadratic time.   </p>
+</li>
+<li>
+<p><strong>Modular exponentiation</strong> <br/>
+    We want to compute <span class="math">\(x^y \pmod N\)</span>. <br/>
+<img alt="alt" src="/images/algdg/1_modex.png"/> <br/>
+    Let <em>n</em> be the size(bits) of <em>x, y and N</em>. As with multiplication, the algorithm will halt after at most <em>n</em> recursive calls, and during each call it multiplies n-bit numbers, for a total running time of <span class="math">\(O(n^3)\)</span>.   </p>
+</li>
+<li>
+<p><strong>Euclid's algorithm for G.C.D</strong> <br/>
+<img alt="alt" src="/images/algdg/1_gcd.png"/> <br/>
+<strong>Eculid's rule :</strong> If x and y are positive integers with <span class="math">\(x &gt;= y\)</span> , then <span class="math">\(gcd(x, y) = gcd(x \pmod y, y)\)</span>. <br/>
+Also, if <span class="math">\(a &gt; b\)</span>, then <span class="math">\(a \pmod b &lt; a/2\)</span>. <br/>
+This means after any two consecutive iterations, both arguments are at the very least reduced to half.If they are initially n-bit, base case will be reached in at most <em>2n</em> recursive calls. And each call involves a quadratic-time division. Running time <span class="math">\(= O(n^3)\)</span>.   </p>
+</li>
+<li>
+<p><strong>An extension to Euclid's algorithm</strong>
+    A small extension to Euclid's algorithm is the key to dividing in the modular world.  <br/>
+<img alt="alt" src="/images/algdg/1_gcd2.png"/> </p>
+</li>
+<li><strong>Modular division</strong> <br/>
+<em>x</em> is the <em>multiplicative inverse</em> of <em>a modulo N</em>, if <span class="math">\(ax == 1 \pmod N\)</span> <br/>
+If <span class="math">\(gcd(a,N) &gt; 1 , \Rightarrow ax \neq 1 \pmod N  \forall x\)</span>, and therefor <em>a</em> cannot have a multiplicative inverse <em>modulo N</em>. <br/>
+When <span class="math">\(gcd(a, N) = 1\)</span>, we say <em>a</em> and <em>N</em> are <em>relatively prime</em>. <br/>
+The extended Euclid's algorithm gives us integers <em>x</em> and <em>y</em> such that <span class="math">\(ax + Ny = 1\)</span>, which means <span class="math">\(ax \equiv 1 (mod N)\)</span> . Thus x is a's sought <em>inverse</em>.   </li>
+</ul>
+<p><strong>Modular Division Theorem</strong> , <code>a</code> has multiplicative inverse modulo <code>N</code>, if and only if they are relatively prime, and it can be found by running extended Euclid theorem in time <span class="math">\(O(n^3)\)</span>. <br/>
+<img alt="alt" src="/images/algdg/1_isprime.png"/> </p>
+<ul>
+<li><strong>Primality Testing</strong> <br/>
+<img alt="alt" src="/images/algdg/1_fermat.png"/> <br/>
+<img alt="alt" src="/images/algdg/1_isprime2.png"/> <br/>
+Here the theorem does not say anything about what happens if number is not prime. <br/>
+In fact, for some composite numbers, <em>Pr(Algorithm returns yes when N is not prime) &lt;= 1/2</em>
+We can thus choose <em>k</em> different random integers to test for primality testing, reducing Pr to <span class="math">\(1/2^k\)</span>.   <ul>
+<li><strong>Generating random primes</strong> <br/>
+<img alt="alt" src="/images/algdg/1_lgprime.png"/> <br/>
+    Due to such abundance of prime numbers, prime number generation is easy.   <ul>
+<li>Generate a random n-bit number.</li>
+<li>Check for primality.</li>
+<li>If not prime, repeat the process.   </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="cryptography">Cryptography</h3>
+<p><em>Rivest-Shamir-Adelman(RSA)</em> : Blabber about private key and public key systems.   </p>
+<ul>
+<li><em>Private-key schemes: one time pad and AES</em> </li>
+<li><em>RSA</em> <br/>
+Public key cryptography <br/>
+Based heavily upon number theory. <br/>
+<img alt="alt" src="/images/algdg/1_rsa1.png"/> <br/>
+<img alt="alt" src="/images/algdg/1_rsa3.png"/> <br/>
+<img alt="alt" src="/images/algdg/1_rsa2.png"/> </li>
+</ul>
+<h3 id="universal-hashing">Universal Hashing</h3>
+<ul>
+<li><strong>Hash Tables</strong>
+Give a <code>key</code> to any <code>value</code>. <br/>
+<em>Hash function :</em> How to define the mapping between <code>key</code> and <code>value</code>.   </li>
+<li><strong>Families of Hash Functions</strong> <br/>
+<img alt="alt" src="/images/algdg/1_hash1.png"/> <br/>
+<img alt="alt" src="/images/algdg/1_hash2.png"/> <br/>
+<img alt="alt" src="/images/algdg/1_hash3.png"/> </li>
+</ul>
+<p>A family of hash functions with this property is called <em>universal</em> .</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}</script>
+
+        <div class="sharethis-bottom">
+          <span class='st_fblike_hcount' displayText='Facebook Like'></span>
+          <span class='st_plusone_hcount' displayText='Google +1'></span>
+          <span class='st_twitter_hcount' displayText='Tweet'></span>
+          <span class='st_email_hcount' displayText='Email'></span>
+        </div>
+      </div><!-- /.entry-content -->
+      <div class="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_identifier = "summary/algorithms-part-1.html";
+          (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//nitishpuri.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+      </div>
+
+    </article>
+  </section>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="site-footer">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <address>
+                    <p>
+                        This blog is proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                    </p>
+                    <p>
+                        <a href="http://github.com/jsliang/pelican-fresh/">Fresh</a> is a responsive theme designed by <a href="http://jsliang.com/">jsliang</a> and <a href="https://github.com/jsliang/pelican-fresh/graphs/contributors">contributors</a>.
+                        Special thanks to <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap</a>.
+                    </p>
+                </address>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-103032011-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'nitishpuri';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>
