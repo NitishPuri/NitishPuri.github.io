@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="author" content="Nitish Puri" />
+    <meta name="robots" content="index, follow"/>
+
+    <meta property="og:title" content="Algorithms, Part 3(Graphs)"/>
+    <meta property="og:url" content="/algorithms-part-3graphs.html"/>
+    <meta property="og:site_name" content="nitishpuri.github.io"/>
+    <meta property="og:type" content="article"/>
+
+    <link rel="canonical" href="/algorithms-part-3graphs.html" />
+
+    <title>Algorithms, Part 3(Graphs) | nitishpuri.github.io</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="/theme/css/main.css" />
+
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+        stLight.options({
+            publisher: "59baff2dc1263e001291a4b3",
+            doNotHash: false,
+            doNotCopy: false,
+            hashAddressBar: false
+        });
+    </script>
+</head>
+
+<body id="index">
+<a class="hidden-phone" href="nitishpuri">
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" />
+</a>
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <header id="banner" >
+                <h1>
+                    <a href="/">nitishpuri.github.io </a>
+                </h1>
+                <nav class="navbar">
+                    <div class="navbar-inner">
+                        <ul class="nav">
+                        </ul>
+
+<script>
+  (function() {
+    var cx = '011138406956770016801:3ffzupagszg';
+    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div id="google-custom-search" class="nav">
+    <gcse:search></gcse:search>
+</div>
+                    </div>
+                </nav>
+            </header><!-- /#banner -->
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <div class="row-fluid">
+<div class="span10 offset1">
+  <section>
+    <article>
+      <header>
+        <h1 class="entry-title">
+          <a href="/algorithms-part-3graphs.html" rel="bookmark"
+             title="Permalink to Algorithms, Part 3(Graphs)">Algorithms, Part 3(Graphs)</a></h1>
+      </header>
+      <div class="entry-content">
+<footer class="post-info">
+    <address class="vcard author">
+        by <a class="url fn" href="/author/nitish-puri.html">Nitish Puri</a>
+    </address>
+
+    in <a href="/category/summary.html">Summary</a>
+
+    on 2017-08-29
+
+        |
+        tags:         <a href="/tag/algorithms-notes.html">algorithms notes</a>
+
+
+        |
+        <a href="/algorithms-part-3graphs.html#disqus_thread">comments</a>
+
+    
+</footer><!-- /.post-info -->
+        <div class="sharethis-top">
+          <span class='st_fblike_hcount' displayText='Facebook Like'></span>
+          <span class='st_plusone_hcount' displayText='Google +1'></span>
+          <span class='st_twitter_hcount' displayText='Tweet'></span>
+          <span class='st_email_hcount' displayText='Email'></span>
+        </div>
+
+        <nav class="toc">
+          <div id="toc"><ul><li><a class="toc-href" href="#decomposition-of-graphs" title="Decomposition of Graphs">Decomposition of Graphs</a><ul><li><a class="toc-href" href="#why-graphs" title="Why Graphs">Why Graphs</a></li><li><a class="toc-href" href="#depth-first-search-in-undirected-graphs" title="Depth first search in undirected Graphs">Depth first search in undirected Graphs</a></li><li><a class="toc-href" href="#depth-first-search-in-directed-graphs" title="Depth-First search in Directed Graphs">Depth-First search in Directed Graphs</a></li><li><a class="toc-href" href="#strongly-connected-components" title="Strongly Connected Components">Strongly Connected Components</a></li></ul></li><li><a class="toc-href" href="#paths-in-graphs_1" title="Paths in Graphs">Paths in Graphs</a><ul><li><a class="toc-href" href="#distances" title="Distances">Distances</a></li><li><a class="toc-href" href="#breadth-first-search" title="Breadth first search">Breadth first search</a></li><li><a algorithm'="" class="toc-href" href="#dijkstras-algorithm" s="" title="Dijkstra">Dijkstra's algorithm</a></li><li><a class="toc-href" href="#priority-queue-implementations" title="Priority Queue Implementations">Priority Queue Implementations</a></li><li><a class="toc-href" href="#binary-heap" title="Binary Heap">Binary Heap</a></li><li><a class="toc-href" href="#shortest-paths-in-the-presence-of-negative-edges" title="Shortest paths in the presence of negative edges">Shortest paths in the presence of negative edges</a></li><li><a class="toc-href" href="#shortest-paths-in-dags" title="Shortest paths in dags">Shortest paths in dags</a></li></ul></li></ul></div>
+        </nav>
+    
+        <ol>
+<li>TOC
+{:toc}</li>
+</ol>
+<hr/>
+<h2 id="decomposition-of-graphs">Decomposition of Graphs</h2>
+<h3 id="why-graphs">Why Graphs</h3>
+<p>The range of problems that can be solved by representing your problem in Graphs.</p>
+<p>Graph representations,
+<em>Adjacency Matrix</em>
+</p>
+<div class="math">$$ a_{ij} = \begin{cases} 1 \text{ if there is an edge from } v_i \text{ to } v_j \\ 0 \text{ otherwise} \end{cases}$$</div>
+<p> <br/>
+Or, <em>Adjacency List</em>,
+</p>
+<div class="math">$$|V|$$</div>
+<p> linked lists, one per vertex. The list for <em>u</em> holds the names of vertices to which <em>u</em>, has an outgoing edge. </p>
+<h3 id="depth-first-search-in-undirected-graphs">Depth first search in undirected Graphs</h3>
+<p><strong>Exploring mazes</strong>
+<img alt="alt" src="/images/algdg/3_maze.png"/></p>
+<p>So, we need to simulate a piece of chalk(to check whether the node has been visited), and a string(to retrace our steps back home). <br/>
+The analogs that we have are, <em>a boolean flag</em> as a chalk, and <em>a stack</em> as a string(in this case its the recursive system stack). <br/>
+<img alt="alt" src="/images/algdg/3_maze2.png"/>
+<img alt="alt" src="/images/algdg/3_dfs.png"/> <br/>
+Running time, </p>
+<div class="math">$$O(|V| + |E|)$$</div>
+<p><em>Connectivity in unidirected graphs</em>
+<img alt="alt" src="/images/algdg/3_cc.png"/>
+Identify and assign different integers to the different connected components in a unidirected Graph.</p>
+<p><em>Previsit and Postvisit orderings</em>
+<img alt="alt" src="/images/algdg/3_previsit.png"/></p>
+<p><strong>Property :</strong> <em>For any node <div class="math">$$u$$</div> and <div class="math">$$v$$</div>, the two intervels <div class="math">$$[pre(u), post(u)]$$</div> and <div class="math">$$[pre(v), post(v)]$$</div> are either disjoint or one is contained within the other.</em> </p>
+<h3 id="depth-first-search-in-directed-graphs">Depth-First search in Directed Graphs</h3>
+<h4>Types of edges</h4>
+<p><img alt="alt" src="/images/algdg/3_edges.png"/>
+<img alt="alt" src="/images/algdg/3_edges2.png"/></p>
+<h4>Direcetd Acyclic Graphs</h4>
+<p><strong>Property :</strong> <em>A directed graph has a cycle if and only if its depth-first search reveals a back edge.</em> <br/>
+<strong>Property :</strong> <em>In a dag, every edge leads to a vertex with a lower <div class="math">$$post$$</div> number.</em> <br/>
+<strong>Property :</strong> <em>Every dag has at least one source and at least one sink.</em> </p>
+<h3 id="strongly-connected-components">Strongly Connected Components</h3>
+<h4>Defining connectivity for directed graphs</h4>
+<p>Two nodes <em>u</em> and <em>v</em> of a directed graph are <em>connected</em> if there is ap path from <em>u</em> to <em>v</em> and a path from <em>v</em> to <em>u</em>. <br/>
+<img alt="alt" src="/images/algdg/3_dag.png"/>
+This relation partitions <em>V</em> into disjoint sets that we call <em>strongly connected components</em>.The graph above has five of them.   </p>
+<p><strong>Property :</strong> <em>Every directed graph is a dag of its strongly connected components.</em> </p>
+<h4>An efficient algorithm</h4>
+<p><strong>Property 1 :</strong> <em>If the <div class="math">$$explore$$</div> subroutine is started in a node <div class="math">$$u$$</div>, then it will terminate precisely when all nodes reachable from <div class="math">$$u$$</div> have been visited.</em> </p>
+<p>Therefore, if we call <em>explore</em> on a node that lies somewhere in a <em>sink</em> strongly connected component(a strongly connected component that is a sink in the meta-graph), then we will retrieve exactly that component. <br/>
+But, how to find a node that we know for sure lies in a sink strongly connected component. <br/>
+How do we continue once the first component has been discovered.   </p>
+<p><strong>Property 2:</strong> <em>The node that receives the highest <div class="math">$$post$$</div> number in a depth-first search must lie in a source strongly connected component.</em> </p>
+<p>which directly follows from,   </p>
+<p><strong>Property 3:</strong> <em>If <div class="math">$$C$$</div> and <div class="math">$$C'$$</div> are strongly connected components, and there is an edge from a node in <div class="math">$$C$$</div> to a node in <div class="math">$$C'$$</div>, then the highest <div class="math">$$post$$</div> number in <div class="math">$$C$$</div> is bigger than the highest <div class="math">$$post$$</div> number in <div class="math">$$C'$$</div>.</em> </p>
+<p>So, now we can determine whether a particular node lies in a <em>source</em> component of the meta graph. The opposite of what we need.   </p>
+<p>Now, consider the reverse graph. It will have exactly the same strongly connected components as G. So if we find a part of <em>source</em> in the reverse graph, this node will be a part of a <em>sink</em> component in the original graph.   </p>
+<p>Once we find the first strongly connected component a d deleted it from the graph, the next node with the highest post number will be a part of another sink component in G.   </p>
+<p>The resulting algotihm, <br/>
+1. Run depth-first search on <span class="math">\(G^R<div class="math">$$.
+2. Run the undirected connected components algorithm on $$</div>G\)</span>$m and during the depth-first search, process the vertices in decreasing order of their <em>post</em> numbers. from step 1.</p>
+<h2 id="paths-in-graphs_1">Paths in Graphs</h2>
+<h3 id="distances">Distances</h3>
+<p>The <em>distance</em> between two nodes is the length of the shortest path between them.   </p>
+<h3 id="breadth-first-search">Breadth first search</h3>
+<p><img alt="alt" src="/images/algdg/4_breadth.png"/> </p>
+<h3 id="dijkstras-algorithm">Dijkstra's algorithm</h3>
+<h4>An adaptation of breadth-first search</h4>
+<p><em>For any edge <div class="math">$$e = (u,v) \text{ of } E $$</div>, replace it by <div class="math">$$l_e$$</div> edges of length 1, by adding <div class="math">$$l_e - 1$$</div> dummy nodes between <div class="math">$$u$$</div> and <div class="math">$$v$$</div> .</em> </p>
+<p>Therefore, we can compute distances in graph by running BFS on the new graph.   </p>
+<p>We can do this by setting an estimated time of arrival for each new node in the frontier. <br/>
+The nodes are then  being processed on the basis of earliest time. The right data structure to do this is a <em>priority queue</em>(usually implemented by a <em>heap</em>).   </p>
+<p><img alt="alt" src="/images/algdg/4_dijkstra.png"/> <br/>
+<img alt="alt" src="/images/algdg/4_dijkstra2.png"/> </p>
+<h4>Running time</h4>
+<div class="math">$$O(|V| + |E|)\log|V|$$</div>
+<p><em>Which heap is best ?</em> <br/>
+<img alt="alt" src="/images/algdg/4_heap.png"/> </p>
+<h3 id="priority-queue-implementations">Priority Queue Implementations</h3>
+<h4>Array</h4>
+<p>Simplest implementation of a priority queue is as an unordered array of key values for all potential elements.</p>
+<h3 id="binary-heap">Binary Heap</h3>
+<p>Here elements are stored in a <em>complete</em> binary tree. In addition, a special ordering constraint
+is enforced: <em>the key of any node of the tree is less than or equal to that of its children</em>, i.e. 
+the root always contains the smallest element.   </p>
+<h4>d-ary heap</h4>
+<p>Identical to a binary heap, except that the nodes have <em>d</em> children instead of just two.</p>
+<h3 id="shortest-paths-in-the-presence-of-negative-edges">Shortest paths in the presence of negative edges</h3>
+<p><img alt="alt" src="/images/algdg/4_neg.png"/> </p>
+<p><strong>Note :</strong> <em>The presence of a negative cycle means we cannot answer the question of shortest paths in the given graph.</em> <br/>
+<img alt="alt" src="/images/algdg/4_bell.png"/> </p>
+<h3 id="shortest-paths-in-dags">Shortest paths in dags</h3>
+<p><img alt="alt" src="/images/algdg/4_dags.png"/> </p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}</script>
+
+        <div class="sharethis-bottom">
+          <span class='st_fblike_hcount' displayText='Facebook Like'></span>
+          <span class='st_plusone_hcount' displayText='Google +1'></span>
+          <span class='st_twitter_hcount' displayText='Tweet'></span>
+          <span class='st_email_hcount' displayText='Email'></span>
+        </div>
+      </div><!-- /.entry-content -->
+      <div class="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_identifier = "algorithms-part-3graphs.html";
+          (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//nitishpuri.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+      </div>
+
+    </article>
+  </section>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="site-footer">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <address>
+                    <p>
+                        This blog is proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                    </p>
+                    <p>
+                        <a href="http://github.com/jsliang/pelican-fresh/">Fresh</a> is a responsive theme designed by <a href="http://jsliang.com/">jsliang</a> and <a href="https://github.com/jsliang/pelican-fresh/graphs/contributors">contributors</a>.
+                        Special thanks to <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap</a>.
+                    </p>
+                </address>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-103032011-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'nitishpuri';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>

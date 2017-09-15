@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="author" content="Nitish Puri" />
+    <meta name="robots" content="index, follow"/>
+
+    <meta property="og:title" content="Research Notes - Machine Learning"/>
+    <meta property="og:url" content="/research-notes-machine-learning.html"/>
+    <meta property="og:site_name" content="nitishpuri.github.io"/>
+    <meta property="og:type" content="article"/>
+
+    <link rel="canonical" href="/research-notes-machine-learning.html" />
+
+    <title>Research Notes - Machine Learning | nitishpuri.github.io</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="/theme/css/main.css" />
+
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+        stLight.options({
+            publisher: "59baff2dc1263e001291a4b3",
+            doNotHash: false,
+            doNotCopy: false,
+            hashAddressBar: false
+        });
+    </script>
+</head>
+
+<body id="index">
+<a class="hidden-phone" href="nitishpuri">
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" />
+</a>
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <header id="banner" >
+                <h1>
+                    <a href="/">nitishpuri.github.io </a>
+                </h1>
+                <nav class="navbar">
+                    <div class="navbar-inner">
+                        <ul class="nav">
+                        </ul>
+
+<script>
+  (function() {
+    var cx = '011138406956770016801:3ffzupagszg';
+    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div id="google-custom-search" class="nav">
+    <gcse:search></gcse:search>
+</div>
+                    </div>
+                </nav>
+            </header><!-- /#banner -->
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <div class="row-fluid">
+<div class="span10 offset1">
+  <section>
+    <article>
+      <header>
+        <h1 class="entry-title">
+          <a href="/research-notes-machine-learning.html" rel="bookmark"
+             title="Permalink to Research Notes - Machine Learning">Research Notes - Machine Learning</a></h1>
+      </header>
+      <div class="entry-content">
+<footer class="post-info">
+    <address class="vcard author">
+        by <a class="url fn" href="/author/nitish.html">Nitish</a>
+    </address>
+
+    in <a href="/category/summary.html">Summary</a>
+
+    on 2017-09-05
+
+        |
+        tags:         <a href="/tag/notes-deep-learning.html">notes deep-learning</a>
+
+
+        |
+        <a href="/research-notes-machine-learning.html#disqus_thread">comments</a>
+
+    
+</footer><!-- /.post-info -->
+        <div class="sharethis-top">
+          <span class='st_fblike_hcount' displayText='Facebook Like'></span>
+          <span class='st_plusone_hcount' displayText='Google +1'></span>
+          <span class='st_twitter_hcount' displayText='Tweet'></span>
+          <span class='st_email_hcount' displayText='Email'></span>
+        </div>
+
+        <nav class="toc">
+          <div id="toc"><ul><li><a class="toc-href" href="#deep-learning" title="Deep Learning">Deep Learning</a><ul><li><a class="toc-href" href="#image-segmentation" title="Image Segmentation">Image Segmentation</a></li></ul></li></ul></div>
+        </nav>
+    
+        <ol>
+<li>TOC
+{:toc}</li>
+</ol>
+<hr/>
+<p>Very minimal notes on some papers or articles that I recently read. Mainly for logging purposes.</p>
+<h2 id="deep-learning">Deep Learning</h2>
+<h3 id="image-segmentation">Image Segmentation</h3>
+<h4><a href="http://blog.qure.ai/notes/semantic-segmentation-deep-learning-review">Image segmentation review</a></h4>
+<ul>
+<li>A review of segmentation at qure.ai</li>
+</ul>
+<h4><a href="https://arxiv.org/pdf/1704.06857">A Review of Deep Learning Techniques Applied to Semantic Segmentation</a> : <em>Apr 2017</em></h4>
+<ul>
+<li><em>Semantic Segmentation, Deep Learning, Scene Labeling, Object Segmentation</em> </li>
+<li>This paper provides a review on deep learning methods for semantic segmentation applied to various  application areas. This also describes the terminology used as well as some background concepts, then some existing models are reviewed(2017). At last a set of promising future works are discussed.</li>
+<li>These techniques are not very mature as of yet, mainly because of a lack of unifying picture.</li>
+<li><img alt="Evolution of object recognition" src="images/papers/deepSegment1.png"/></li>
+<li>CNN Architectures : AlexNet, VGG, GoogleNet, ResNet, etc..</li>
+<li>2D and 3D Datasets : <a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/">PascalVOC</a>,  <a href="6. http://mscoco.org/">Microsoft COCO</a>, and more,...   </li>
+<li>Decoder Variants, Integrating Context Knowledge</li>
+<li>Instance Segmentation</li>
+<li>RGB-D Data and 3D Data</li>
+<li>Video Sequences   </li>
+</ul>
+<h4><a href="https://arxiv.org/abs/1606.00915">DeepLab : Semantic Image Segmentation with Deep Convolution Nets, Atrous Convolution, and Fully Connected CRFs</a> : <em>May 2017</em></h4>
+<ul>
+<li><em>Semantic Segmentation, Atrous Convolution, Conditional Random Fields</em></li>
+<li>Introduces upsampled filters(Altrous Convolution) as a tool in dense prediction tasks. Allows us to control the resolution at which feature responses are computed and also allows us to effectively enlarge the field of view of filters to incorporate larger context without increasing the number of parameters or the amount of computation.</li>
+<li>???? // <em>Read this again..</em></li>
+</ul>
+<h4>[U-Net: Convolution Networks for Biomedical Image Segmentation] : <em>May 2015</em></h4>
+<ul>
+<li>Focuses on end-to-end training for segmentation tasks, relying heavily on data augmentation.</li>
+</ul>
+<h4><a href="https://arxiv.org/abs/1411.4038">Fully Convolutional Networks for Semantic Segmentation</a> : <em>Mar 2015</em></h4>
+<ul>
+<li>One of the first works to use Fully Connected layers to create pixel heatmap as output.</li>
+<li>Introducing Upsampling or Convolution Transpose.</li>
+</ul>
+<h4><a href="https://arxiv.org/abs/1411.6228">From Image-level to Pixel-level Labeling with Convolutional Networks</a> : <em>Apr 2015</em></h4>
+<ul>
+<li>Weakly supervised segmentation.</li>
+<li>Put more weights to pixels with known class labels.</li>
+<li>Uses part of model trained on ImageNet and trains for segmentation on PascalVOC.</li>
+</ul>
+<h4>https://arxiv.org/abs/1508.06576</h4>
+<h4>https://arxiv.org/abs/1311.2901</h4>
+<h4>https://arxiv.org/pdf/1602.03616.pdf</h4>
+<h4></h4>
+
+        <div class="sharethis-bottom">
+          <span class='st_fblike_hcount' displayText='Facebook Like'></span>
+          <span class='st_plusone_hcount' displayText='Google +1'></span>
+          <span class='st_twitter_hcount' displayText='Tweet'></span>
+          <span class='st_email_hcount' displayText='Email'></span>
+        </div>
+      </div><!-- /.entry-content -->
+      <div class="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_identifier = "research-notes-machine-learning.html";
+          (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//nitishpuri.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+      </div>
+
+    </article>
+  </section>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="site-footer">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <address>
+                    <p>
+                        This blog is proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                    </p>
+                    <p>
+                        <a href="http://github.com/jsliang/pelican-fresh/">Fresh</a> is a responsive theme designed by <a href="http://jsliang.com/">jsliang</a> and <a href="https://github.com/jsliang/pelican-fresh/graphs/contributors">contributors</a>.
+                        Special thanks to <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap</a>.
+                    </p>
+                </address>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-103032011-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'nitishpuri';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>

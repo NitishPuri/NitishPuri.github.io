@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="author" content="Nitish Puri" />
+    <meta name="robots" content="index, follow"/>
+
+    <meta property="og:title" content="Notes On Opengl"/>
+    <meta property="og:url" content="/notes-on-opengl.html"/>
+    <meta property="og:site_name" content="nitishpuri.github.io"/>
+    <meta property="og:type" content="article"/>
+
+    <link rel="canonical" href="/notes-on-opengl.html" />
+
+    <title>Notes On Opengl | nitishpuri.github.io</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="/theme/css/main.css" />
+
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+        stLight.options({
+            publisher: "59baff2dc1263e001291a4b3",
+            doNotHash: false,
+            doNotCopy: false,
+            hashAddressBar: false
+        });
+    </script>
+</head>
+
+<body id="index">
+<a class="hidden-phone" href="nitishpuri">
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" />
+</a>
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <header id="banner" >
+                <h1>
+                    <a href="/">nitishpuri.github.io </a>
+                </h1>
+                <nav class="navbar">
+                    <div class="navbar-inner">
+                        <ul class="nav">
+                        </ul>
+
+<script>
+  (function() {
+    var cx = '011138406956770016801:3ffzupagszg';
+    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div id="google-custom-search" class="nav">
+    <gcse:search></gcse:search>
+</div>
+                    </div>
+                </nav>
+            </header><!-- /#banner -->
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <div class="row-fluid">
+<div class="span10 offset1">
+  <section>
+    <article>
+      <header>
+        <h1 class="entry-title">
+          <a href="/notes-on-opengl.html" rel="bookmark"
+             title="Permalink to Notes On Opengl">Notes On Opengl</a></h1>
+      </header>
+      <div class="entry-content">
+<footer class="post-info">
+    <address class="vcard author">
+        by <a class="url fn" href="/author/nitish-puri.html">Nitish Puri</a>
+    </address>
+
+    in <a href="/category/summary.html">Summary</a>
+
+    on 2017-08-09
+
+        |
+        tags:         <a href="/tag/graphics-opengl-notes.html">graphics opengl notes</a>
+
+
+        |
+        <a href="/notes-on-opengl.html#disqus_thread">comments</a>
+
+    
+</footer><!-- /.post-info -->
+        <div class="sharethis-top">
+          <span class='st_fblike_hcount' displayText='Facebook Like'></span>
+          <span class='st_plusone_hcount' displayText='Google +1'></span>
+          <span class='st_twitter_hcount' displayText='Tweet'></span>
+          <span class='st_email_hcount' displayText='Email'></span>
+        </div>
+
+        <nav class="toc">
+          <div id="toc"><ul><li><a class="toc-href" href="#transformations" title="Transformations">Transformations</a></li><li><a class="toc-href" href="#vertex-specifications" title="Vertex Specifications">Vertex Specifications</a></li><li><a class="toc-href" href="#pipeline" title="Pipeline">Pipeline</a></li></ul></div>
+        </nav>
+    
+        <h2 id="transformations">Transformations</h2>
+<p><em>Translation</em> :  (x, y, z) =
+</p>
+<div class="math">$$
+\begin{bmatrix}   
+ 1 &amp; 0 &amp; 0 &amp; x \\   
+ 0 &amp; 1 &amp; 0 &amp; y \\   
+ 0 &amp; 0 &amp; 1 &amp; z \\   
+ 0 &amp; 0 &amp; 0 &amp; 1   
+\end{bmatrix}
+$$</div>
+<p><em>Scale</em> : (x, y, z) = 
+</p>
+<div class="math">$$
+\begin{bmatrix}   
+ x &amp; 0 &amp; 0 &amp; 0 \\   
+ 0 &amp; y &amp; 0 &amp; 0 \\   
+ 0 &amp; 0 &amp; z &amp; 0 \\   
+ 0 &amp; 0 &amp; 0 &amp; 1   
+\end{bmatrix}
+$$</div>
+<p><em>Rotation x</em> : 
+</p>
+<div class="math">$$
+\begin{bmatrix}   
+ 1 &amp; 0 &amp; 0 &amp; 0 \\   
+ 0 &amp; cos(\theta) &amp; -sin(\theta) &amp; 0 \\   
+ 0 &amp; sin(theta) &amp; cos(theta) &amp; z \\   
+ 0 &amp; 0 &amp; 0 &amp; 1   
+\end{bmatrix}
+$$</div>
+<p><em>Rotation y</em> : 
+</p>
+<div class="math">$$
+\begin{bmatrix}   
+ cos(\theta) &amp; 0 &amp; sin(\theta) &amp; 0 \\   
+ 0 &amp; 1 &amp; 0 &amp; 0 \\   
+ -sin(\theta) &amp; 0 &amp; cos(theta) &amp; z \\   
+ 0 &amp; 0 &amp; 0 &amp; 1   
+\end{bmatrix}
+$$</div>
+<p><em>Rotation z</em> : 
+</p>
+<div class="math">$$
+\begin{bmatrix}   
+ cos(\theta) &amp; -sin(\theta) &amp; 0 &amp; 0 \\   
+ sin(theta) &amp; cos(theta) &amp; 0 &amp; 0 \\   
+ 0 &amp; 0 &amp; 1 &amp; z \\   
+ 0 &amp; 0 &amp; 0 &amp; 1   
+\end{bmatrix}
+$$</div>
+<h2 id="vertex-specifications">Vertex Specifications</h2>
+<p>Specify vertex data.</p>
+<ul>
+<li>Create buffer Data: const float vertexPositions[] = {...}</li>
+<li>Initialize vertex Buffer:<ul>
+<li>glGenBuffers(1, &amp;posiionBufferObject)</li>
+<li>glbindbuffer(GL_ARRAY_BUFFER, positionbufferObject)</li>
+<li>glbufferData(GL_ARRAY_BUFFER, sizeof(vertexpositions), vertexpositions, BufferobjectUsageHint)<ul>
+<li>BufferobjectUsagehint:<ul>
+<li>GL__STATIC_DRAW: Static data, only intend to set it once</li>
+<li>GL_STREAM_DRAW: Dynamic data, intend to update it constantly, generally once per frame</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>glbindbuffer(0)</li>
+</ul>
+</li>
+<li>Specify vertex data:<ul>
+<li>glbindbuffer(GL_ARRAY_BUFFER, positionbufferobject)</li>
+<li>glenablevertexattribarray(0)</li>
+<li>glvertexattribarray(0, 4, GL_FLOAT, GL_FALSE, 0, 0)</li>
+</ul>
+</li>
+<li>Display:<ul>
+<li>gldrawarrays(GL_TRIANGLES, 0, 3)</li>
+</ul>
+</li>
+<li>glbufferSubData(): Change buffer data value</li>
+</ul>
+<p>Vertex Array Objects: OpenGL Objects that store all of the state needed to make one or more draw calls. This includes attribute array setup information from glVertexAttribArray , buffer objects used for attribute arrays, and GL_ELEMENT_ARRAY_BUFFER   binding, which is a buffer object that stores the index arrays, if needed</p>
+<h2 id="pipeline">Pipeline</h2>
+<ul>
+<li>Vertex Specification</li>
+<li>Vertex Proocessing and Vertex Shader</li>
+<li>Culling</li>
+<li>Rasterization</li>
+<li>Fragment Processing</li>
+</ul>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}</script>
+
+        <div class="sharethis-bottom">
+          <span class='st_fblike_hcount' displayText='Facebook Like'></span>
+          <span class='st_plusone_hcount' displayText='Google +1'></span>
+          <span class='st_twitter_hcount' displayText='Tweet'></span>
+          <span class='st_email_hcount' displayText='Email'></span>
+        </div>
+      </div><!-- /.entry-content -->
+      <div class="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_identifier = "notes-on-opengl.html";
+          (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//nitishpuri.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+      </div>
+
+    </article>
+  </section>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="site-footer">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <address>
+                    <p>
+                        This blog is proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                    </p>
+                    <p>
+                        <a href="http://github.com/jsliang/pelican-fresh/">Fresh</a> is a responsive theme designed by <a href="http://jsliang.com/">jsliang</a> and <a href="https://github.com/jsliang/pelican-fresh/graphs/contributors">contributors</a>.
+                        Special thanks to <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap</a>.
+                    </p>
+                </address>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-103032011-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'nitishpuri';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>
