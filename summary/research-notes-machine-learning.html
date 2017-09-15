@@ -108,12 +108,15 @@
                 <li class="active">
                     <a href='/summary/research-notes-machine-learning.html'>Research Notes - Machine Learning</a>
                 </li>
+                <li >
+                    <a href='/summary/research-notes-robotics.html'>Research Notes - Robotics</a>
+                </li>
         </ol>
         <hr>
 
         <p>Contents:</p>
         <nav class="toc">
-          <div id="toc"><ul><li><a class="toc-href" href="#deep-learning" title="Deep Learning">Deep Learning</a><ul><li><a class="toc-href" href="#image-segmentation" title="Image Segmentation">Image Segmentation</a><ul><li><a class="toc-href" href="#image-segmentation-review" title="Image segmentation review">Image segmentation review</a></li><li><a class="toc-href" href="#a-review-of-deep-learning-techniques-applied-to-semantic-segmentation-apr-2017" title="A Review of Deep Learning Techniques Applied to Semantic Segmentation : Apr 2017">A Review of Deep Learning Techniques Applied to Semantic Segmentation : Apr 2017</a></li><li><a class="toc-href" href="#deeplab-semantic-image-segmentation-with-deep-convolution-nets-atrous-convolution-and-fully-connected-crfs-may-2017" title="DeepLab : Semantic Image Segmentation with Deep Convolution Nets, Atrous Convolution, and Fully Connected CRFs : May 2017">DeepLab : Semantic Image Segmentation with Deep Convolution Nets, Atrous Convolution, and Fully Connected CRFs : May 2017</a></li><li><a class="toc-href" href="#u-net-convolution-networks-for-biomedical-image-segmentation-may-2015" title="[U-Net: Convolution Networks for Biomedical Image Segmentation] : May 2015">[U-Net: Convolution Networks for Biomedical Image Segmentation] : May 2015</a></li><li><a class="toc-href" href="#fully-convolutional-networks-for-semantic-segmentation-mar-2015" title="Fully Convolutional Networks for Semantic Segmentation : Mar 2015">Fully Convolutional Networks for Semantic Segmentation : Mar 2015</a></li><li><a class="toc-href" href="#from-image-level-to-pixel-level-labeling-with-convolutional-networks-apr-2015" title="From Image-level to Pixel-level Labeling with Convolutional Networks : Apr 2015">From Image-level to Pixel-level Labeling with Convolutional Networks : Apr 2015</a></li><li><a class="toc-href" href="#httpsarxivorgabs150806576" title="https://arxiv.org/abs/1508.06576">https://arxiv.org/abs/1508.06576</a></li><li><a class="toc-href" href="#httpsarxivorgabs13112901" title="https://arxiv.org/abs/1311.2901">https://arxiv.org/abs/1311.2901</a></li><li><a class="toc-href" href="#httpsarxivorgpdf160203616pdf" title="https://arxiv.org/pdf/1602.03616.pdf">https://arxiv.org/pdf/1602.03616.pdf</a></li><li><a class="toc-href" href="#_1" title=""></a></li></ul></li></ul></li></ul></div>
+          <div id="toc"><ul><li><a class="toc-href" href="#deep-learning" title="Deep Learning">Deep Learning</a><ul><li><a class="toc-href" href="#image-segmentation" title="Image Segmentation">Image Segmentation</a><ul><li><a class="toc-href" href="#image-segmentation-review" title="Image segmentation review">Image segmentation review</a></li><li><a class="toc-href" href="#a-review-of-deep-learning-techniques-applied-to-semantic-segmentation-apr-2017" title="A Review of Deep Learning Techniques Applied to Semantic Segmentation : Apr 2017">A Review of Deep Learning Techniques Applied to Semantic Segmentation : Apr 2017</a></li><li><a class="toc-href" href="#deeplab-semantic-image-segmentation-with-deep-convolution-nets-atrous-convolution-and-fully-connected-crfs-may-2017" title="DeepLab : Semantic Image Segmentation with Deep Convolution Nets, Atrous Convolution, and Fully Connected CRFs : May 2017">DeepLab : Semantic Image Segmentation with Deep Convolution Nets, Atrous Convolution, and Fully Connected CRFs : May 2017</a></li><li><a class="toc-href" href="#u-net-convolution-networks-for-biomedical-image-segmentation-may-2015" title="U-Net: Convolution Networks for Biomedical Image Segmentation : May 2015">U-Net: Convolution Networks for Biomedical Image Segmentation : May 2015</a></li><li><a class="toc-href" href="#fully-convolutional-networks-for-semantic-segmentation-mar-2015" title="Fully Convolutional Networks for Semantic Segmentation : Mar 2015">Fully Convolutional Networks for Semantic Segmentation : Mar 2015</a></li><li><a class="toc-href" href="#from-image-level-to-pixel-level-labeling-with-convolutional-networks-apr-2015" title="From Image-level to Pixel-level Labeling with Convolutional Networks : Apr 2015">From Image-level to Pixel-level Labeling with Convolutional Networks : Apr 2015</a></li><li><a class="toc-href" href="#to-read" title="To Read">To Read</a></li></ul></li></ul></li></ul></div>
         </nav>
         <hr>
     
@@ -139,31 +142,37 @@
 <li>RGB-D Data and 3D Data</li>
 <li>Video Sequences   </li>
 </ul>
-<h4 id="deeplab-semantic-image-segmentation-with-deep-convolution-nets-atrous-convolution-and-fully-connected-crfs-may-2017"><a href="https://arxiv.org/abs/1606.00915">DeepLab : Semantic Image Segmentation with Deep Convolution Nets, Atrous Convolution, and Fully Connected CRFs</a> : <em>May 2017</em></h4>
+<h4 id="deeplab-semantic-image-segmentation-with-deep-convolution-nets-atrous-convolution-and-fully-connected-crfs-may-2017">DeepLab : Semantic Image Segmentation with Deep Convolution Nets, Atrous Convolution, and Fully Connected CRFs : <em>May 2017</em></h4>
+<p><a href="https://arxiv.org/abs/1606.00915"><em>Source</em></a> </p>
 <ul>
 <li><em>Semantic Segmentation, Atrous Convolution, Conditional Random Fields</em></li>
 <li>Introduces upsampled filters(Altrous Convolution) as a tool in dense prediction tasks. Allows us to control the resolution at which feature responses are computed and also allows us to effectively enlarge the field of view of filters to incorporate larger context without increasing the number of parameters or the amount of computation.</li>
 <li>???? // <em>Read this again..</em></li>
 </ul>
-<h4 id="u-net-convolution-networks-for-biomedical-image-segmentation-may-2015">[U-Net: Convolution Networks for Biomedical Image Segmentation] : <em>May 2015</em></h4>
+<h4 id="u-net-convolution-networks-for-biomedical-image-segmentation-may-2015">U-Net: Convolution Networks for Biomedical Image Segmentation : <em>May 2015</em></h4>
+<p><a href="https://arxiv.org/abs/1505.04597"><em>Source</em></a> </p>
 <ul>
 <li>Focuses on end-to-end training for segmentation tasks, relying heavily on data augmentation.</li>
 </ul>
-<h4 id="fully-convolutional-networks-for-semantic-segmentation-mar-2015"><a href="https://arxiv.org/abs/1411.4038">Fully Convolutional Networks for Semantic Segmentation</a> : <em>Mar 2015</em></h4>
+<h4 id="fully-convolutional-networks-for-semantic-segmentation-mar-2015">Fully Convolutional Networks for Semantic Segmentation : <em>Mar 2015</em></h4>
+<p><a href="https://arxiv.org/abs/1411.4038"><em>Source</em></a> </p>
 <ul>
 <li>One of the first works to use Fully Connected layers to create pixel heatmap as output.</li>
 <li>Introducing Upsampling or Convolution Transpose.</li>
 </ul>
-<h4 id="from-image-level-to-pixel-level-labeling-with-convolutional-networks-apr-2015"><a href="https://arxiv.org/abs/1411.6228">From Image-level to Pixel-level Labeling with Convolutional Networks</a> : <em>Apr 2015</em></h4>
+<h4 id="from-image-level-to-pixel-level-labeling-with-convolutional-networks-apr-2015">From Image-level to Pixel-level Labeling with Convolutional Networks : <em>Apr 2015</em></h4>
+<p><a href="(https://arxiv.org/abs/1411.6228)"><em>Source</em></a> </p>
 <ul>
 <li>Weakly supervised segmentation.</li>
 <li>Put more weights to pixels with known class labels.</li>
 <li>Uses part of model trained on ImageNet and trains for segmentation on PascalVOC.</li>
 </ul>
-<h4 id="httpsarxivorgabs150806576">https://arxiv.org/abs/1508.06576</h4>
-<h4 id="httpsarxivorgabs13112901">https://arxiv.org/abs/1311.2901</h4>
-<h4 id="httpsarxivorgpdf160203616pdf">https://arxiv.org/pdf/1602.03616.pdf</h4>
-<h4 id="_1"></h4>
+<h4 id="to-read">To Read</h4>
+<ul>
+<li>https://arxiv.org/abs/1508.06576</li>
+<li>https://arxiv.org/abs/1311.2901</li>
+<li>https://arxiv.org/pdf/1602.03616.pdf</li>
+</ul>
 
         <div class="sharethis-bottom">
           <span class='st_fblike_hcount' displayText='Facebook Like'></span>
