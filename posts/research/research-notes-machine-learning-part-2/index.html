@@ -115,7 +115,7 @@ nitishpuri.github.io            </a>
 
                 <p>Contents:</p>
                 <nav class="toc">
-                  <div id="toc"><ul><li><a class="toc-href" href="#deep-learning" title="Deep Learning">Deep Learning</a><ul><li><a class="toc-href" href="#neural-style" title="Neural Style">Neural Style</a><ul><li><a class="toc-href" href="#a-neural-style-algorithm-of-artistic-style" title="A Neural Style Algorithm of Artistic Style">A Neural Style Algorithm of Artistic Style</a></li><li><a class="toc-href" href="#improving-the-neural-algorithm-of-artistic-style" title="Improving the Neural Algorithm of Artistic Style">Improving the Neural Algorithm of Artistic Style</a></li><li><a class="toc-href" href="#preserving-color-in-neural-artistic-style-transfer" title="Preserving Color in Neural Artistic Style Transfer">Preserving Color in Neural Artistic Style Transfer</a></li></ul></li><li><a class="toc-href" href="#to-read_1" title="To Read">To Read</a></li></ul></li></ul></div>
+                  <div id="toc"><ul><li><a class="toc-href" href="#deep-learning" title="Deep Learning">Deep Learning</a><ul><li><a class="toc-href" href="#neural-style" title="Neural Style">Neural Style</a><ul><li><a class="toc-href" href="#a-neural-style-algorithm-of-artistic-style" title="A Neural Style Algorithm of Artistic Style">A Neural Style Algorithm of Artistic Style</a></li><li><a class="toc-href" href="#improving-the-neural-algorithm-of-artistic-style" title="Improving the Neural Algorithm of Artistic Style">Improving the Neural Algorithm of Artistic Style</a></li><li><a class="toc-href" href="#preserving-color-in-neural-artistic-style-transfer" title="Preserving Color in Neural Artistic Style Transfer">Preserving Color in Neural Artistic Style Transfer</a></li><li><a class="toc-href" href="#artistic-style-transfer-for-videos" title="Artistic style transfer for videos">Artistic style transfer for videos</a></li></ul></li><li><a class="toc-href" href="#to-read_1" title="To Read">To Read</a></li></ul></li></ul></div>
                 </nav>
                 <hr>
                 
@@ -209,7 +209,7 @@ nitishpuri.github.io            </a>
 <img alt="alt" src="/images/papers/improvedStyle5.jpg"/> </li>
 </ul>
 <h4 id="preserving-color-in-neural-artistic-style-transfer"><strong>Preserving Color in Neural Artistic Style Transfer</strong></h4>
-<p><em>Leon A. Gatys, Matthias Bethge, Aaron Hertzmann, Eli Shechtman : Jun 2016</em>
+<p><em>Leon A. Gatys, Matthias Bethge, Aaron Hertzmann, Eli Shechtman : Jun 2016</em> <br/>
 <a href="https://arxiv.org/abs/1606.05897"><em>Source</em></a> </p>
 <p><img alt="alt" src="/images/papers/colorTransfer1.jpg"/> <br/>
 <img alt="alt" src="/images/papers/colorTransfer2.jpg"/> </p>
@@ -250,16 +250,79 @@ nitishpuri.github.io            </a>
 </ul>
 </li>
 </ul>
+<h4 id="artistic-style-transfer-for-videos"><strong>Artistic style transfer for videos</strong></h4>
+<p><em>Manuel Ruder, Alexey Dosovitskiy, Thomas Brox : Apr 2016</em> <br/>
+<a href="https://arxiv.org/abs/1604.08610"><em>Source</em></a> </p>
+<ul>
+<li>The previously discussed techniques have been applied to videos on per frame basis.</li>
+<li>However, processing each frame of the video independently leads to flickering and false discontinuities, since the solution of the style transfer task is not stable.</li>
+<li>To regularize the transfer temporal constraints using optical flow are introduced.
+<img alt="alt" src="/images/papers/videoStyle1.jpg"/> </li>
+<li>Notation<ul>
+<li><span class="math">\(\mathbf p^{(i)}\)</span> is the <span class="math">\(i^{th}\)</span> frame of the original video.</li>
+<li><span class="math">\(\mathbf a\)</span> is the style image.</li>
+<li><span class="math">\(\mathbf x^{(i)}\)</span> are the stylized frames to be generated.</li>
+<li><span class="math">\(\mathbf {x'}^{(i)}\)</span> is the initialization of the style optimization algorithmat frame <span class="math">\(i\)</span>.</li>
+</ul>
+</li>
+<li>Short-term consistency by initialization<ul>
+<li>Most basic way to yield temporal consistency is to initialize the optimization for the frame <span class="math">\(i+1\)</span> with the stylized frame <span class="math">\(i\)</span>.</li>
+<li>Does not perform very well if there are moving objects in the scene, so we use optical flow.</li>
+<li><span class="math">\(\mathbf {x'}^{(i+1)}=\omega_i^{i+1}\mathbf x^{(i)}\)</span>. Here <span class="math">\(\omega_i^{i+1}\)</span> denotes the function tha warps a given image using the optical flow field that was estimated between <span class="math">\(\mathbf p^{(i)}\)</span> and <span class="math">\(\mathbf p^{(i+1)}\)</span>.</li>
+<li><em>DeepFlow</em> and <em>EpicFlow</em>, both based on <em>Deep Matching</em> are used for optical flow estimation.</li>
+</ul>
+</li>
+<li>Temporal consistency loss<ul>
+<li>Let <span class="math">\(\mathbf w = (u,v)\)</span> be the optical flow in forward direction and <span class="math">\(\mathbf {\hat w}=(\hat u, \hat v)\)</span> the flow in backward direction.</li>
+<li>Then, <span class="math">\(\mathbf {\tilde w}(x,y) = \mathbf{w}((x,y) + \mathbf{\hat{w}}(x,y))\)</span> is the forward flow warped to the second image.</li>
+<li>In areas without disoclusion, this warped flow should be approximately the opposite of the backward flow.</li>
+<li>So, we can find the areas of disoclusions where <span class="math">\(|\mathbf{\widetilde{w} + \hat{w}}|^2 &gt; 0.01(|\mathbf{\widetilde{w}}|^2+|\mathbf{\hat{w}}|^2)+0.5\)</span>.</li>
+<li>and motion boundaries can be detected where <span class="math">\(|\Delta\mathbf{\hat{u}}|^2+|\Delta\mathbf{\hat{v}}|^2&gt;0.01|\mathbf{\hat{w}}|^2+0.002\)</span>.</li>
+<li>So, temporal consistency loss function penalizes deviations from the warped image in regions where the optical flow is consistent and estimated with high confidence. <br/>
+<div class="math">$$\mathcal{L}_{temporal}(\mathbf{x,\omega,c}) = \frac1D\sum_{k=1}^Dc_k\cdot(x_k-\omega_k)^2$$</div>
+</li>
+<li>Here, <span class="math">\(\mathbf{c}\in [0,1]^D\)</span> is per-pixel weighing of the loss and <span class="math">\(D=W\times{H}\times{C}\)</span> is the dimensionality of the image.</li>
+<li>We define <span class="math">\(\mathbf{c}^{(i-1,i)}\)</span> between frames <span class="math">\(i-1\)</span> and <span class="math">\(i\)</span> as <span class="math">\(0\)</span> in disoccluded regions and the motion boundaries, and 1 everywhere else.</li>
+<li>So, overall loss takes the form, <br/>
+<div class="math">$$\mathcal L_{shortterm}(\mathbf{p}^{(i)},\mathbf{a},\mathbf{x}^{(i)}) = \alpha\mathcal{L}_{content}(\mathbf{p}^{(i)},\mathbf{x}^{(i)}) + \beta\mathcal{L}_{style}(\mathbf{a},\mathbf{x}^{(i)}) + \gamma\mathcal{L}_{temporal}(\mathbf{x}^{(i)}, \omega_{i-1}^i(\mathbf{x}^{(i-1)}), \mathbf{c}^{(i-1,i)})$$</div>
+</li>
+</ul>
+</li>
+<li>Long-term consistency<ul>
+<li>The short-term model has the following limitation: when some areas are occluded in some frame and disoccluded later, these areas will likely change their appearance in the stylized video.</li>
+<li>So, we need to use a penalization for deviations from more distant frames too.</li>
+<li><span class="math">\(J\)</span> is the set of relative indices that each frame takes into account.</li>
+<li>So, the loss function is,
+<div class="math">$$\mathcal L_{longterm}(\mathbf{p}^{(i)},\mathbf{a},\mathbf{x}^{(i)}) = \alpha\mathcal{L}_{content}(\mathbf{p}^{(i)},\mathbf{x}^{(i)}) + \beta\mathcal{L}_{style}(\mathbf{a},\mathbf{x}^{(i)}) + \gamma\sum_{j\in J:i-j\geq1}\mathcal{L}_{temporal}(\mathbf{x}^{(i)}, \omega_{i-j}^i(\mathbf{x}^{(i-j)}), \mathbf{c}_{long}^{(i-j,i)})$$</div>
+</li>
+<li>where, <span class="math">\(\mathbf{c}_{long}^{(i-j,i)}=\text{max}(\mathbf{c}^{(i-j,i)} - \sum_{k\in J:i-k&gt;i-j}\mathbf{c}^{(i-k,i)}, \mathbf{0})\)</span></li>
+</ul>
+</li>
+<li>Multi-pass algorithm<ul>
+<li>The image boundaries tend to have less contrast and less diversity than other areas.</li>
+<li>This is not a problem for mostly static videos, but with large camera motion, these effects can creep in towards the center, which leads to lower quality images over time.</li>
+<li>So, we use a multi-pass algorithm which processes the whole sequence in multiple passes and alternating directions.</li>
+<li>Each pass consists of a lower number of iterations without full convergence. The sequence is run in alternating directions with each flow and blended for some number of iterations till some convergence.</li>
+<li>The multi-pass algorithm can be combined with temporal consistency loss described above.</li>
+<li>Achieve good results if temporal loss is disabled in several initial passes and enabled in later passes after the images had stabilized.</li>
+</ul>
+</li>
+<li>Long term motion estimate...</li>
+<li>Artifacts at image boundaries,...</li>
+<li><em>Implementation</em> : https://github.com/manuelruder/artistic-videos</li>
+<li><em>Watch in action</em> : https://youtu.be/vQk_Sfl7kSc   </li>
+</ul>
 <h3 id="to-read_1">To Read</h3>
 <ul>
-<li>https://arxiv.org/abs/1606.05897</li>
-<li>https://arxiv.org/abs/1604.08610</li>
 <li>https://arxiv.org/abs/1708.08288</li>
 <li>http://cs.stanford.edu/people/jcjohns/eccv16/</li>
 <li>https://arxiv.org/abs/1607.08022</li>
 <li>https://arxiv.org/abs/1603.01768</li>
 <li>https://arxiv.org/abs/1505.07376</li>
 <li>https://arxiv.org/abs/1601.04589</li>
+<li>https://hal.inria.fr/hal-00873592</li>
+<li>https://hal.inria.fr/hal-01142656</li>
+<li>https://lmb.informatik.uni-freiburg.de/Publications/2010/Bro10e/</li>
 </ul>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "left",
@@ -324,7 +387,7 @@ nitishpuri.github.io            </a>
        <h5>Previous articles</h5>
        <ul>
            <li><a href="/posts/research/research-notes-machine-learning/">Research Notes - Machine Learning</a></li>
-           <li><a href="/posts/reserch/research-notes-robotics/">Research Notes - Robotics</a></li>
+           <li><a href="/posts/research/research-notes-robotics/">Research Notes - Robotics</a></li>
        </ul>
 </section>
     <hr />
@@ -433,7 +496,7 @@ nitishpuri.github.io            </a>
   <ul class="list-group">
     <li class="list-group-item">
       <h5></i>Previous article</h5>
-      <a href="/posts/reserch/research-notes-robotics/">Research Notes - Robotics</a>
+      <a href="/posts/research/research-notes-robotics/">Research Notes - Robotics</a>
     </li>
   </ul>
 </li>
