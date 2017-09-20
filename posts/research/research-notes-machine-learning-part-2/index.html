@@ -12,18 +12,19 @@
 <link rel="canonical" href="/posts/research/research-notes-machine-learning-part-2/">
 
         <meta name="author" content="Nitish" />
-        <meta name="keywords" content="notes,deep-learning" />
-        <meta name="description" content="Minimal notes on some papers or articles that I recently read. Mainly for logging." />
+        <meta name="keywords" content="notes,deep-learning,style-transfer" />
+        <meta name="description" content="Minimal notes on neural style transfer related papers." />
 
         <meta property="og:site_name" content="nitishpuri.github.io" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Research Notes - Machine Learning, Part 2"/>
         <meta property="og:url" content="/posts/research/research-notes-machine-learning-part-2/"/>
-        <meta property="og:description" content="Minimal notes on some papers or articles that I recently read. Mainly for logging."/>
+        <meta property="og:description" content="Minimal notes on neural style transfer related papers."/>
         <meta property="article:published_time" content="2017-09-19" />
             <meta property="article:section" content="Research" />
             <meta property="article:tag" content="notes" />
             <meta property="article:tag" content="deep-learning" />
+            <meta property="article:tag" content="style-transfer" />
             <meta property="article:author" content="Nitish" />
 
 
@@ -109,18 +110,20 @@ nitishpuri.github.io            </a>
 	<a href="/tag/notes/">notes</a>
         /
 	<a href="/tag/deep-learning/">deep-learning</a>
+        /
+	<a href="/tag/style-transfer/">style-transfer</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
 
                 <p>Contents:</p>
                 <nav class="toc">
-                  <div id="toc"><ul><li><a class="toc-href" href="#deep-learning" title="Deep Learning">Deep Learning</a><ul><li><a class="toc-href" href="#neural-style" title="Neural Style">Neural Style</a><ul><li><a class="toc-href" href="#a-neural-style-algorithm-of-artistic-style" title="A Neural Style Algorithm of Artistic Style">A Neural Style Algorithm of Artistic Style</a></li><li><a class="toc-href" href="#improving-the-neural-algorithm-of-artistic-style" title="Improving the Neural Algorithm of Artistic Style">Improving the Neural Algorithm of Artistic Style</a></li><li><a class="toc-href" href="#preserving-color-in-neural-artistic-style-transfer" title="Preserving Color in Neural Artistic Style Transfer">Preserving Color in Neural Artistic Style Transfer</a></li><li><a class="toc-href" href="#artistic-style-transfer-for-videos" title="Artistic style transfer for videos">Artistic style transfer for videos</a></li></ul></li><li><a class="toc-href" href="#to-read_1" title="To Read">To Read</a></li></ul></li></ul></div>
+                  <div id="toc"><ul><li><a class="toc-href" href="#deep-learning" title="Deep Learning">Deep Learning</a><ul><li><a class="toc-href" href="#style-transfer" title="Style Transfer">Style Transfer</a><ul><li><a class="toc-href" href="#a-neural-style-algorithm-of-artistic-style" title="A Neural Style Algorithm of Artistic Style">A Neural Style Algorithm of Artistic Style</a></li><li><a class="toc-href" href="#improving-the-neural-algorithm-of-artistic-style" title="Improving the Neural Algorithm of Artistic Style">Improving the Neural Algorithm of Artistic Style</a></li><li><a class="toc-href" href="#preserving-color-in-neural-artistic-style-transfer" title="Preserving Color in Neural Artistic Style Transfer">Preserving Color in Neural Artistic Style Transfer</a></li></ul></li><li><a class="toc-href" href="#to-read_1" title="To Read">To Read</a></li></ul></li></ul></div>
                 </nav>
                 <hr>
                 
                 <h2 id="deep-learning"><strong>Deep Learning</strong></h2>
-<h3 id="neural-style"><strong>Neural Style</strong></h3>
+<h3 id="style-transfer"><strong>Style Transfer</strong></h3>
 <h4 id="a-neural-style-algorithm-of-artistic-style"><strong>A Neural Style Algorithm of Artistic Style</strong></h4>
 <p><em>Leon A. Gatys, Alexander S. Ecker, Matthias Bethge : Sep 2015</em> <br/>
 <a href="https://arxiv.org/abs/1508.06576"><em>Source</em></a> </p>
@@ -250,84 +253,53 @@ nitishpuri.github.io            </a>
 </ul>
 </li>
 </ul>
-<h4 id="artistic-style-transfer-for-videos"><strong>Artistic style transfer for videos</strong></h4>
-<p><em>Manuel Ruder, Alexey Dosovitskiy, Thomas Brox : Apr 2016</em> <br/>
-<a href="https://arxiv.org/abs/1604.08610"><em>Source</em></a> </p>
-<ul>
-<li>The previously discussed techniques have been applied to videos on per frame basis.</li>
-<li>However, processing each frame of the video independently leads to flickering and false discontinuities, since the solution of the style transfer task is not stable.</li>
-<li>To regularize the transfer temporal constraints using optical flow are introduced.
-<img alt="alt" src="/images/papers/videoStyle1.jpg"/> </li>
-<li>Notation<ul>
-<li><span class="math">\(\mathbf p^{(i)}\)</span> is the <span class="math">\(i^{th}\)</span> frame of the original video.</li>
-<li><span class="math">\(\mathbf a\)</span> is the style image.</li>
-<li><span class="math">\(\mathbf x^{(i)}\)</span> are the stylized frames to be generated.</li>
-<li><span class="math">\(\mathbf {x'}^{(i)}\)</span> is the initialization of the style optimization algorithmat frame <span class="math">\(i\)</span>.</li>
-</ul>
-</li>
-<li>Short-term consistency by initialization<ul>
-<li>Most basic way to yield temporal consistency is to initialize the optimization for the frame <span class="math">\(i+1\)</span> with the stylized frame <span class="math">\(i\)</span>.</li>
-<li>Does not perform very well if there are moving objects in the scene, so we use optical flow.</li>
-<li><span class="math">\(\mathbf {x'}^{(i+1)}=\omega_i^{i+1}\mathbf x^{(i)}\)</span>. Here <span class="math">\(\omega_i^{i+1}\)</span> denotes the function tha warps a given image using the optical flow field that was estimated between <span class="math">\(\mathbf p^{(i)}\)</span> and <span class="math">\(\mathbf p^{(i+1)}\)</span>.</li>
-<li><em>DeepFlow</em> and <em>EpicFlow</em>, both based on <em>Deep Matching</em> are used for optical flow estimation.</li>
-</ul>
-</li>
-<li>Temporal consistency loss<ul>
-<li>Let <span class="math">\(\mathbf w = (u,v)\)</span> be the optical flow in forward direction and <span class="math">\(\mathbf {\hat w}=(\hat u, \hat v)\)</span> the flow in backward direction.</li>
-<li>Then, <span class="math">\(\mathbf {\tilde w}(x,y) = \mathbf{w}((x,y) + \mathbf{\hat{w}}(x,y))\)</span> is the forward flow warped to the second image.</li>
-<li>In areas without disoclusion, this warped flow should be approximately the opposite of the backward flow.</li>
-<li>So, we can find the areas of disoclusions where <span class="math">\(|\mathbf{\widetilde{w} + \hat{w}}|^2 &gt; 0.01(|\mathbf{\widetilde{w}}|^2+|\mathbf{\hat{w}}|^2)+0.5\)</span>.</li>
-<li>and motion boundaries can be detected where <span class="math">\(|\Delta\mathbf{\hat{u}}|^2+|\Delta\mathbf{\hat{v}}|^2&gt;0.01|\mathbf{\hat{w}}|^2+0.002\)</span>.</li>
-<li>So, temporal consistency loss function penalizes deviations from the warped image in regions where the optical flow is consistent and estimated with high confidence. <br/>
-<div class="math">$$\mathcal{L}_{temporal}(\mathbf{x,\omega,c}) = \frac1D\sum_{k=1}^Dc_k\cdot(x_k-\omega_k)^2$$</div>
-</li>
-<li>Here, <span class="math">\(\mathbf{c}\in [0,1]^D\)</span> is per-pixel weighing of the loss and <span class="math">\(D=W\times{H}\times{C}\)</span> is the dimensionality of the image.</li>
-<li>We define <span class="math">\(\mathbf{c}^{(i-1,i)}\)</span> between frames <span class="math">\(i-1\)</span> and <span class="math">\(i\)</span> as <span class="math">\(0\)</span> in disoccluded regions and the motion boundaries, and 1 everywhere else.</li>
-<li>So, overall loss takes the form, <br/>
-<div class="math">$$\mathcal L_{shortterm}(\mathbf{p}^{(i)},\mathbf{a},\mathbf{x}^{(i)}) = \alpha\mathcal{L}_{content}(\mathbf{p}^{(i)},\mathbf{x}^{(i)}) + \beta\mathcal{L}_{style}(\mathbf{a},\mathbf{x}^{(i)}) + \gamma\mathcal{L}_{temporal}(\mathbf{x}^{(i)}, \omega_{i-1}^i(\mathbf{x}^{(i-1)}), \mathbf{c}^{(i-1,i)})$$</div>
-</li>
-</ul>
-</li>
-<li>Long-term consistency<ul>
-<li>The short-term model has the following limitation: when some areas are occluded in some frame and disoccluded later, these areas will likely change their appearance in the stylized video.</li>
-<li>So, we need to use a penalization for deviations from more distant frames too.</li>
-<li><span class="math">\(J\)</span> is the set of relative indices that each frame takes into account.</li>
-<li>So, the loss function is,
-<div class="math">$$\mathcal L_{longterm}(\mathbf{p}^{(i)},\mathbf{a},\mathbf{x}^{(i)}) = \alpha\mathcal{L}_{content}(\mathbf{p}^{(i)},\mathbf{x}^{(i)}) + \beta\mathcal{L}_{style}(\mathbf{a},\mathbf{x}^{(i)}) + \gamma\sum_{j\in J:i-j\geq1}\mathcal{L}_{temporal}(\mathbf{x}^{(i)}, \omega_{i-j}^i(\mathbf{x}^{(i-j)}), \mathbf{c}_{long}^{(i-j,i)})$$</div>
-</li>
-<li>where, <span class="math">\(\mathbf{c}_{long}^{(i-j,i)}=\text{max}(\mathbf{c}^{(i-j,i)} - \sum_{k\in J:i-k&gt;i-j}\mathbf{c}^{(i-k,i)}, \mathbf{0})\)</span></li>
-</ul>
-</li>
-<li>Multi-pass algorithm<ul>
-<li>The image boundaries tend to have less contrast and less diversity than other areas.</li>
-<li>This is not a problem for mostly static videos, but with large camera motion, these effects can creep in towards the center, which leads to lower quality images over time.</li>
-<li>So, we use a multi-pass algorithm which processes the whole sequence in multiple passes and alternating directions.</li>
-<li>Each pass consists of a lower number of iterations without full convergence. The sequence is run in alternating directions with each flow and blended for some number of iterations till some convergence.</li>
-<li>The multi-pass algorithm can be combined with temporal consistency loss described above.</li>
-<li>Achieve good results if temporal loss is disabled in several initial passes and enabled in later passes after the images had stabilized.</li>
-</ul>
-</li>
-<li>Long term motion estimate...</li>
-<li>Artifacts at image boundaries,...</li>
-<li><em>Implementation</em> : https://github.com/manuelruder/artistic-videos</li>
-<li><em>Watch in action</em> : https://youtu.be/vQk_Sfl7kSc   </li>
-</ul>
 <h3 id="to-read_1">To Read</h3>
 <ul>
+<li><a href="https://github.com/tensorflow/magenta">Magenta</a></li>
+<li><a href="https://arxiv.org/abs/1512.02325">Single Shot</a></li>
+<li>https://medium.com/towards-data-science/deep-learning-for-object-detection-a-comprehensive-review-73930816d8d9</li>
+<li><a href="https://arxiv.org/abs/1605.06409">F-RCN</a></li>
+<li><a href="https://arxiv.org/abs/1506.01497">Faster R-CNN</a></li>
+<li>https://arxiv.org/pdf/1411.1792.pdf</li>
 <li>https://arxiv.org/abs/1708.08288</li>
-<li>http://cs.stanford.edu/people/jcjohns/eccv16/</li>
-<li>https://arxiv.org/abs/1607.08022</li>
+<li>https://arxiv.org/abs/1512.00567</li>
+<li>https://arxiv.org/abs/1610.02357</li>
+<li>https://arxiv.org/pdf/1511.08630.pdf</li>
+<li>https://arxiv.org/abs/1602.07261</li>
+<li>https://arxiv.org/pdf/1704.04861.pdf</li>
 <li>https://arxiv.org/abs/1603.01768</li>
 <li>https://arxiv.org/abs/1505.07376</li>
 <li>https://arxiv.org/abs/1601.04589</li>
 <li>https://hal.inria.fr/hal-00873592</li>
 <li>https://hal.inria.fr/hal-01142656</li>
 <li>https://lmb.informatik.uni-freiburg.de/Publications/2010/Bro10e/</li>
+<li>http://deeplearning.net/wp-content/uploads/2013/03/pseudo_label_final.pdf</li>
+<li>https://arxiv.org/abs/1503.02531</li>
+<li>https://arxiv.org/abs/1512.05287</li>
+<li>http://www.cs.toronto.edu/~rsalakhu/papers/srivastava14a.pdf</li>
+<li>https://arxiv.org/abs/1603.07285v1</li>
+<li><a href="http://www.matthewzeiler.com/wp-content/uploads/2017/07/cvpr2010.pdf">Deconvolutional Networks</a></li>
+<li><a href="http://ruder.io/optimizing-gradient-descent/">Gradient Descent Ocerview</a>, https://arxiv.org/abs/1609.04747</li>
+<li>(Deep Visualization Toolbox)(http://yosinski.com/deepvis)</li>
+<li><a href="https://arxiv.org/abs/1409.1259">Neural Machine Translation</a></li>
+<li>https://arxiv.org/abs/1412.3555v1</li>
+<li>http://www.bioinf.jku.at/publications/older/2604.pdf</li>
+<li>http://www.mitpressjournals.org/doi/pdf/10.1162/089976600300015015</li>
+<li>RNN Book, http://www.cs.toronto.edu/~graves/preprint.pdf</li>
+<li><a href="https://web.stanford.edu/~awni/papers/relu_hybrid_icml2013_final.pdf">Rectifier Nonlinearities Improve Neural Network Acoustic Models</a></li>
+<li><a href="https://arxiv.org/abs/1502.01852">https://arxiv.org/abs/1502.01852</a></li>
+<li>https://arxiv.org/abs/1511.07289v1</li>
+<li>https://arxiv.org/abs/1402.3337</li>
+<li>https://arxiv.org/abs/1502.03167</li>
+<li>http://www.jmlr.org/papers/volume12/duchi11a/duchi11a.pdf</li>
+<li>https://arxiv.org/abs/1212.5701</li>
+<li>https://arxiv.org/abs/1412.6980v8</li>
+<li></li>
 </ul>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "left",
         indent = "0em",
-        linebreak = "false";
+        linebreak = "true";
 
     if (false) {
         align = (screen.width < 768) ? "left" : align;
@@ -388,6 +360,11 @@ nitishpuri.github.io            </a>
        <ul>
            <li><a href="/posts/research/research-notes-machine-learning/">Research Notes - Machine Learning</a></li>
            <li><a href="/posts/research/research-notes-robotics/">Research Notes - Robotics</a></li>
+       </ul>
+       <h5>Next articles</h5>
+       <ul>
+           <li><a href="/posts/research/research-notes-machine-learning-part-3/">Research Notes - Machine Learning, Part 3</a></li>
+           <li><a href="/posts/research/research-notes-machine-learning-part-4/">Research Notes - Machine Learning, Part 4</a></li>
        </ul>
 </section>
     <hr />
@@ -456,7 +433,7 @@ nitishpuri.github.io            </a>
     <li class="list-group-item tag-3">
       <a href="/tag/data-science/">data-science</a>
     </li>
-    <li class="list-group-item tag-3">
+    <li class="list-group-item tag-2">
       <a href="/tag/deep-learning/">deep-learning</a>
     </li>
     <li class="list-group-item tag-1">
@@ -486,6 +463,9 @@ nitishpuri.github.io            </a>
     <li class="list-group-item tag-3">
       <a href="/tag/sketch/">sketch</a>
     </li>
+    <li class="list-group-item tag-3">
+      <a href="/tag/style-transfer/">style-transfer</a>
+    </li>
   </ul>
 </li>
 <!-- End Sidebar/Tag Cloud -->
@@ -497,6 +477,10 @@ nitishpuri.github.io            </a>
     <li class="list-group-item">
       <h5></i>Previous article</h5>
       <a href="/posts/research/research-notes-robotics/">Research Notes - Robotics</a>
+    </li>
+    <li class="list-group-item">
+      <h5>Next article</h5>
+      <a href="/posts/research/research-notes-machine-learning-part-3/">Research Notes - Machine Learning, Part 3</a>
     </li>
   </ul>
 </li>

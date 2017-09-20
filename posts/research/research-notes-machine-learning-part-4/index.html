@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="english" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Research Notes - Robotics - nitishpuri.github.io</title>
+    <title>Research Notes - Machine Learning, Part 4 - nitishpuri.github.io</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,21 +9,21 @@
 
 
 
-<link rel="canonical" href="/posts/reserch/research-notes-robotics/">
+<link rel="canonical" href="/posts/research/research-notes-machine-learning-part-4/">
 
         <meta name="author" content="Nitish" />
-        <meta name="keywords" content="notes,robotics" />
-        <meta name="description" content="Minimal notes on some papers or articles that I recently read. Mainly for logging." />
+        <meta name="keywords" content="notes,deep-learning" />
+        <meta name="description" content="Minimal notes on general neural networks." />
 
         <meta property="og:site_name" content="nitishpuri.github.io" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Research Notes - Robotics"/>
-        <meta property="og:url" content="/posts/reserch/research-notes-robotics/"/>
-        <meta property="og:description" content="Minimal notes on some papers or articles that I recently read. Mainly for logging."/>
-        <meta property="article:published_time" content="2017-09-05" />
-            <meta property="article:section" content="Reserch" />
+        <meta property="og:title" content="Research Notes - Machine Learning, Part 4"/>
+        <meta property="og:url" content="/posts/research/research-notes-machine-learning-part-4/"/>
+        <meta property="og:description" content="Minimal notes on general neural networks."/>
+        <meta property="article:published_time" content="2017-09-20" />
+            <meta property="article:section" content="Research" />
             <meta property="article:tag" content="notes" />
-            <meta property="article:tag" content="robotics" />
+            <meta property="article:tag" content="deep-learning" />
             <meta property="article:author" content="Nitish" />
 
 
@@ -81,10 +81,10 @@ nitishpuri.github.io            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="/posts/reserch/research-notes-robotics/"
+                    <a href="/posts/research/research-notes-machine-learning-part-4/"
                        rel="bookmark"
-                       title="Permalink to Research Notes - Robotics">
-                        Research Notes - Robotics
+                       title="Permalink to Research Notes - Machine Learning, Part 4">
+                        Research Notes - Machine Learning, Part 4
                     </a>
                 </h1>
             </header>
@@ -94,7 +94,7 @@ nitishpuri.github.io            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-09-05T00:00:00+05:30"> Tue 05 September 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-09-20T20:30:00+05:30"> Wed 20 September 2017</time>
     </span>
 
 
@@ -102,252 +102,148 @@ nitishpuri.github.io            </a>
             <a href="/author/nitish.html"><i class="fa fa-user"></i> Nitish</a>
 
         <span class="label label-default">Category</span>
-        <a href="/category/reserch/">Reserch</a>
+        <a href="/category/research/">Research</a>
 
 
 <span class="label label-default">Tags</span>
 	<a href="/tag/notes/">notes</a>
         /
-	<a href="/tag/robotics/">robotics</a>
+	<a href="/tag/deep-learning/">deep-learning</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
 
                 <p>Contents:</p>
                 <nav class="toc">
-                  <div id="toc"><ul><li><a class="toc-href" href="#robotics" title="Robotics">Robotics</a><ul><li><a class="toc-href" href="#robot-grasping" title="Robot Grasping">Robot Grasping</a><ul><li><a class="toc-href" href="#robotic-grasping-and-contact-a-review" title="Robotic Grasping and Contact: A Review">Robotic Grasping and Contact: A Review</a></li></ul></li><li><a class="toc-href" href="#mobile-robots_1" title="Mobile Robots">Mobile Robots</a><ul><li><a class="toc-href" href="#modular-and-reconfigurable-mobile-robots" title="Modular and Reconfigurable Mobile Robots">Modular and Reconfigurable Mobile Robots</a></li></ul></li><li><a class="toc-href" href="#bio-robots_1" title="Bio Robots">Bio Robots</a><ul><li><a class="toc-href" href="#openratslam-on-open-source-brain-based-slam-system" title="OpenRatSLAM : on open source brain-based SLAM system">OpenRatSLAM : on open source brain-based SLAM system</a></li><li><a class="toc-href" href="#biologically-inspired-approaches-to-robotics" title="Biologically Inspired Approaches to Robotics">Biologically Inspired Approaches to Robotics</a></li><li><a class="toc-href" href="#the-first-takeoff-of-a-biologically-inspired-at-scale-robotic-insect" title="The First Takeoff of a Biologically Inspired At-Scale Robotic Insect">The First Takeoff of a Biologically Inspired At-Scale Robotic Insect</a></li><li><a class="toc-href" href="#towards-dynamic-trot-gait-locomotion-design-control-and-experiments-with-cheetah-cub-a-compliant-quadruped-robot" title="Towards Dynamic Trot Gait Locomotion&mdash;Design, Control, and Experiments with Cheetah-cub, a Compliant Quadruped Robot">Towards Dynamic Trot Gait Locomotion&mdash;Design, Control, and Experiments with Cheetah-cub, a Compliant Quadruped Robot</a></li></ul></li></ul></li></ul></div>
+                  <div id="toc"><ul><li><a class="toc-href" href="#deep-learning" title="Deep Learning">Deep Learning</a><ul><li><a class="toc-href" href="#architectures" title="Architectures">Architectures</a><ul><li><a class="toc-href" href="#self-normalizing-neural-networks" title="Self-Normalizing Neural Networks">Self-Normalizing Neural Networks</a></li><li><a class="toc-href" href="#understanding-deep-learning-requires-rethinking-generalization" title="Understanding deep learning requires rethinking generalization">Understanding deep learning requires rethinking generalization</a></li></ul></li></ul></li></ul></div>
                 </nav>
                 <hr>
                 
-                <p>Very minimal notes on some papers or articles that I recently read. Mainly for logging purposes.</p>
-<h2 id="robotics"><strong>Robotics</strong></h2>
-<h3 id="robot-grasping"><strong>Robot Grasping</strong></h3>
-<h4 id="robotic-grasping-and-contact-a-review"><strong>Robotic Grasping and Contact: A Review</strong></h4>
-<p><a href="https://pdfs.semanticscholar.org/54f8/8557554d9a4e517f301cb170bd50cbe4cfc9.pdf"><em>Source</em></a> </p>
+                <h2 id="deep-learning"><strong>Deep Learning</strong></h2>
+<h3 id="architectures"><strong>Architectures</strong></h3>
+<h4 id="self-normalizing-neural-networks"><strong>Self-Normalizing Neural Networks</strong></h4>
+<p><em>G&uuml;nter Klambauer, Thomas Unterthiner, Andreas Mayr, Sepp Hochreiter : Sep 2017</em> <br/>
+<a href="https://arxiv.org/abs/1706.02515"><em>Source</em></a> </p>
 <ul>
-<li>Survey of work done in last two decades.</li>
-<li>Functions of Human hand <ul>
-<li>Explore : <em>haptics</em></li>
-<li>Restrain : <em>fixturing</em></li>
-<li>Manipulation : <em>dexterous manipulation</em></li>
+<li>Deep learning is setting new benchmarks everyday with the help of RNNs and CNNs.</li>
+<li>However, looking at problems that are not related to vision or sequential tasks, gradient boosting, random forests, or support vector machines are winning most of the competitions(Eg. Kaggle, <a href="https://www.kaggle.com/c/higgs-boson">HIGGS Challenge</a>).</li>
+<li>With CNNs success, batch normalization and other stochastic regularization techniques has evolved into a standard.</li>
+<li>Both RNNs and CNNs can stabilize learning with weight sharing.</li>
+<li>However, this is not very useful with FNNs, and often leads to high variance.</li>
+<li><strong>Self-Normalizing Neural Networks</strong></li>
+<li><strong>Definition 1 :</strong> <em>A neural network is self-normalizing if it possesses a mapping <span class="math">\(g : \Omega \mapsto\Omega\)</span> for each activation <span class="math">\(y\)</span> that maps mean and variance from one layer to the next and has a stable and attracting fixed point depending on <span class="math">\((\omega,\tau)\)</span> in <span class="math">\(\Omega\)</span>. Furthermore, the mean and the variance remain in the domain <span class="math">\(\Omega\)</span>, that is <span class="math">\(g(\Omega)\subseteq\Omega\)</span>, where <span class="math">\(\Omega = \{(\mu,\nu)|\mu\in[\mu_{min}, \mu{max}], \nu\in[\nu_{min}, \nu{max}]\}\)</span>. When iteratively applying the mapping <span class="math">\(g\)</span>, each point within <span class="math">\(\Omega\)</span> converges to this fixed point.</em></li>
+<li>So, SNNs keep normalization of activations when propagating them through layers of the network.</li>
+<li><strong>Constructing SNNs :</strong> <ul>
+<li>The activation function, SELU
+<div class="math">$$\text{selu}(x) = \lambda\begin{cases}x, &amp; \text{if } x \ge 0 \\
+\alpha e^x - \alpha, &amp; \text{if } x \leq 0 \end{cases}$$</div>
+</li>
+<li>This activation allows to construct a mapping <span class="math">\(g\)</span> with properties that lead to SNNs. They cannot be derived with (scaled) ReLUs, sigmoid units, <span class="math">\(tanh\)</span> units and leaky ReLUs.</li>
+<li>For weight initialization <span class="math">\(\omega=0\)</span> and <span class="math">\(\tau=1\)</span> for all units in higher layer is proposed. <br/>
+<img alt="alt" src="/images/papers/selfNeural1.jpg"/> </li>
 </ul>
 </li>
-<li>Closure properties of grasps<ul>
-<li>Contact modelling the grap</li>
+<li>New Dropout techniques are introduced.</li>
+<li>Benchmarks compared for UCI repository datasets, outperforming FNNs with and without normalization techniques, such as batch, layer and weight normalization or specialized architectures such as ResNets.</li>
+<li>Also proved that SNNs do not face vanishing and exploding gradients problem and therefore work well for architectures with many layers.</li>
+<li>The best performaing SNNs are typically very deep in contrast to other FNNs.</li>
 </ul>
-</li>
-<li>Force Analysis</li>
-<li>Contact model<ul>
-<li>Kinematics of contact</li>
-<li>Contact compliance</li>
-</ul>
-</li>
-<li>Measures of grasp performance</li>
-<li>Grasping and the kinematics of the hand</li>
-<li>Dynamics</li>
-</ul>
-<h3 id="mobile-robots_1"><strong>Mobile Robots</strong></h3>
-<h4 id="modular-and-reconfigurable-mobile-robots"><strong>Modular and Reconfigurable Mobile Robots</strong></h4>
-<p><a href="http://128.173.188.245/publications/J13_Modular_Robots_JRAS.pdf"><em>Source</em></a> </p>
+<h4 id="understanding-deep-learning-requires-rethinking-generalization"><strong>Understanding deep learning requires rethinking generalization</strong></h4>
+<p><em>Chiyuan Zhang, Samy Bengio, Moritz Hardt, Benjamin Recht, Oriol Vinyals : Feb 2017</em> <br/>
+<a href="https://arxiv.org/abs/1611.03530"><em>Source</em></a> </p>
 <ul>
-<li>Classification<ul>
-<li><img alt="alt" src="/images/papers/modularBots1.jpg"/></li>
-</ul>
-</li>
-<li>Modular robots with mobile configuration change(MCC)<ul>
-<li>S-bots<ul>
-<li><img alt="alt" src="/images/papers/modularBots2.jpg"/></li>
-</ul>
-</li>
-<li>Uni-Rovers<ul>
-<li><img alt="alt" src="/images/papers/modularBots3.jpg"/></li>
-</ul>
-</li>
-<li>JL-I and JL-II<ul>
-<li><img alt="alt" src="/images/papers/modularBots4.jpg"/></li>
-</ul>
-</li>
-<li>Millibots<ul>
-<li><img alt="alt" src="/images/papers/modularBots5.jpg"/></li>
-</ul>
-</li>
-<li>AMOEBA<ul>
-<li><img alt="alt" src="/images/papers/modularBots6.jpg"/></li>
+<li>Neural networks have far more often trainable parameters than the number of samples they are trained on. Even then they exhibit small <em>generalization errorr</em> i.e. difference between "training error" and "test error".</li>
+<li><strong>Effective Capacity Of Neural Networks</strong><ul>
+<li><strong>Randomization tests.</strong> Standard architectures were trained on a copy of data where the true labels were replaced by random labels. </li>
+<li><em>Deep neural networks easily fit random labels</em> i.e. the they achieve 2 test error.</li>
+<li>The test error was of course no better than random chance as there was no correlation between the training and test labels.</li>
+<li>Also replacing the true images with random pixels(Gaussian noise), we observe that CNNs continue to fit the data with zero training error.
+<img alt="alt" src="/images/papers/nnGeneralization1.jpg"/> </li>
+<li>This has the following implications:<ul>
+<li>The effective capacity of neural networks is sufficient for memorizing the entire dataset.</li>
+<li>Even optimization on random labels remains easy. In fact, training time increases only by a small constant factor compared with training on the true labels.</li>
+<li>Randomizing the labels is solely a data transformation, leaving all other properties of the learning problem unchanged.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>Modular robots with whole body locomotion(WBL)<ul>
-<li>Whole body locomotion in chain architecture<ul>
-<li>CONRO/PolyBot<ul>
-<li><img alt="alt" src="/images/papers/modularBots7.jpg"/></li>
-</ul>
-</li>
-<li>GZ-I</li>
-<li>CKBot<ul>
-<li><img alt="alt" src="/images/papers/modularBots8.jpg"/></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Whole body locomotion in a lattice architecture<ul>
-<li>Macro robots in a lattice architecture<ul>
-<li><em>Crystalline</em><ul>
-<li><img alt="alt" src="/images/papers/modularBots9.jpg"/></li>
-</ul>
-</li>
-<li><em>Odin</em> <ul>
-<li><img alt="alt" src="/images/papers/modularBots10.jpg"/></li>
-</ul>
-</li>
-<li><em>I-Cubes</em><ul>
-<li><img alt="alt" src="/images/papers/modularBots11.jpg"/></li>
-</ul>
-</li>
-<li><em>Catoms</em><ul>
-<li><img alt="alt" src="/images/papers/modularBots12.jpg"/></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Mini robots in a lattice archtecture<ul>
-<li><img alt="alt" src="/images/papers/modularBots13.jpg"/></li>
-</ul>
-</li>
-<li>Reconfigurable mechanisms in a lattice architecture<ul>
-<li><img alt="alt" src="/images/papers/modularBots14.jpg"/></li>
-</ul>
-</li>
-<li>Whole body locomotion in a hybrid architecture<ul>
-<li>M-TRAN/iMobot<ul>
-<li><img alt="alt" src="/images/papers/modularBots15.jpg"/></li>
-</ul>
-</li>
-<li>Molecubes</li>
-<li>ATRON<ul>
-<li><img alt="alt" src="/images/papers/modularBots16.jpg"/></li>
-</ul>
-</li>
-<li>YaMOR</li>
-<li>SuperBot<ul>
-<li><img alt="alt" src="/images/papers/modularBots17.jpg"/></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="bio-robots_1"><strong>Bio Robots</strong></h3>
-<h4 id="openratslam-on-open-source-brain-based-slam-system"><strong>OpenRatSLAM : on open source brain-based SLAM system</strong></h4>
-<p><em>Feb 2013</em> <br/>
-<a href="http://static.springer.com/sgw/documents/1388513/application/pdf/10-3.pdf"><em>Source</em></a> </p>
-<ul>
-<li><em>RatSLAM, OpenRatSLAM, SLAM, Navigation, Mapping, Brain-based, Appearance-based, ROS, Open-source, Hippocampus</em></li>
-<li>RatSLAM is a navigation system based on the neural processes underlying navigation in the rodent brain, capable of operating with low resolution monocular image data. This paper describes OpenRatSLAM, an open source version of RatSLAM with bindings to ROS   </li>
-<li>SLAM(Simultaneous Localization and Mapping) , at the core based on SIFT or SURF features.</li>
-<li>This implementation is based on RatSLAM, leveraging tools like OpenCV and ROS. </li>
-<li>Modular, detailed, integrated with ROS and <em>rviz</em>, works online and offline.</li>
-<li>RatSLAM<ul>
-<li><img alt="alt" src="/images/papers/ratSlam1.jpg"/></li>
-<li><em>Pose Cells, Local View Cells and Experience Map</em></li>
-</ul>
-</li>
-<li>OpenRatSLAM, <a href="https://code.google.com/archive/p/ratslam">code</a><ul>
-<li><img alt="alt" src="/images/papers/ratSlam2.jpg"/></li>
-<li>Pose Cell Network : represents pose in response to odometric and local view connections. This also makes decisions about the experience map node and link creation.</li>
-<li>Local View Cells : determines whether a scene is novel or familiar by image comparison techniques. Mostly based on template matching.</li>
-<li>Experience map : manages graph building, graph relaxation and path planning.</li>
-<li>Visual Odometry : For image only datasets, provides an odometric estimate based on changes in the visual scene. </li>
-</ul>
-</li>
-<li>OpenRatSLAM parameters and tuning<ul>
-<li><img alt="alt" src="/images/papers/ratSlam3.jpg"/> <img alt="alt" src="/images/papers/ratSlam4.jpg"/></li>
-<li>Iterative tuning by minimizing loss.</li>
-</ul>
-</li>
-<li>Using OpenRatSLAM<ul>
-<li>Examples of datasets this is used with, and some results.</li>
-</ul>
-</li>
-<li>Future work</li>
-<li><a href="https://www.youtube.com/watch?v=-0XSUi69Yvs">Watch In Action</a></li>
-</ul>
-<h4 id="biologically-inspired-approaches-to-robotics"><strong>Biologically Inspired App<em>roaches</em> to Robotics</strong></h4>
-<p><em>March 1997</em> <br/>
-<a href="http://pdfs.semanticscholar.org/501b/9eb3c085a66abe4bdd56043fc802c21d0526.pdf"><em>Source</em></a> </p>
-<ul>
-<li>Big gap between fantasy and reality in terms of Autonomous Robots.</li>
-<li>Inspirations from <em>insects</em> : agility, adaptability, simplicity</li>
-<li>Focuses on <em>walking</em> like an insect.</li>
-<li>From Biology to Robotics<ul>
-<li>Studies done at various levels of integration and inspiration.</li>
-</ul>
-</li>
-<li>Distributed Gait Control</li>
-<li>A Distributed Neural Network Controller<ul>
-<li><img alt="alt" src="/images/papers/bioRobots1.jpg"/></li>
-</ul>
-</li>
-<li>A Stick Insect Controller<ul>
-<li><img alt="alt" src="/images/papers/bioRobots2.jpg"/></li>
-</ul>
-</li>
-<li>Evolved Locomotion Controllers<ul>
-<li>Use genetic algorithms to evolve the neural networks for controlling the locomotion.</li>
-</ul>
-</li>
-<li>Rough Terrain Locomotion</li>
-</ul>
-<h4 id="the-first-takeoff-of-a-biologically-inspired-at-scale-robotic-insect"><strong>The First Takeoff of a Biologically Inspired At-Scale Robotic Insect</strong></h4>
-<p><em>April 2008</em> <br/>
-<a href="http://www.micro.seas.harvard.edu/papers/TRO08_Wood.pdf"><em>Source</em></a> </p>
-<ul>
-<li><em>Actuators, aerial robotics, biologically inspired robotics, microrobotics</em></li>
-<li>Goal is to create an insect-sized, <em>truly micro</em> air vehicle.<ul>
-<li>Harvard Microrobotic Fly</li>
-<li><img alt="alt" src="/images/papers/insect1.jpg"/></li>
-<li>Fig. (a) Conceptual drawing highlighting the four primary mechanical and aero-mechanical components.   </li>
-<li>Fig. (b) First insect-scale flying robot able to takeoff.</li>
-</ul>
-</li>
-<li>INSECT-FLIGHT<ul>
-<li>Dipteran thoracic mechanics is discussed.</li>
-</ul>
-</li>
-<li>Creation of a Robotic Insect<ul>
-<li>Actuation<ul>
-<li>Using peizoceramic materials.</li>
-</ul>
-</li>
-<li>Transmission</li>
-<li>Airfoils </li>
-</ul>
-</li>
-<li><a href="https://www.youtube.com/watch?v=olqaMw8bIb8">Watch In Action</a></li>
-</ul>
-<h4 id="towards-dynamic-trot-gait-locomotion-design-control-and-experiments-with-cheetah-cub-a-compliant-quadruped-robot"><strong>Towards Dynamic Trot Gait Locomotion&mdash;Design, Control, and Experiments with Cheetah-cub, a Compliant Quadruped Robot</strong></h4>
-<p><em>July 2013</em> <br/>
-<a href="https://infoscience.epfl.ch/record/184991/files/Draft1sprowitz2013.pdf"><em>Source</em></a> </p>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=_luhn7TLfWU">Watch In Action</a></li>
+<li><strong>The role of regularization</strong></li>
+<li><em>Explicit regularization may improve generalization performance, but is neither necessary not by itself sufficient for controlling generalization error.</em></li>
+<li><span class="math">\(l_2\)</span> regularization sometimes even helps optimization, illustrating its poorly understoof nature in deep learning.
+<img alt="alt" src="/images/papers/nnGeneralization2.jpg"/> </li>
+<li><strong>Finite sample expressivity</strong></li>
+<li><strong>Theorem 1.</strong> <em>There exists a two-layer neural network with ReLU activations and <span class="math">\(2n+d\)</span> weights that can represent any function on a sample of size <span class="math">\(n\)</span> in <span class="math">\(d\)</span> dimensions.</em> </li>
+<li><strong>Implicit Regularization : An Appeal To Linear Models</strong></li>
+<li>Arguments showing that it is not necessarily easy to understand the source of generalization for linear models either.</li>
+<li>Do all global minima generalize equally well? Is there a way to determine when one global minimum will generalize whereas another will not? In case of a linear model, even the curvature of the loss function would be the same.</li>
 <li></li>
 </ul>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "left",
+        indent = "0em",
+        linebreak = "true";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}</script>
 
             
             </div>
             <!-- /.entry-content -->
 <section class="well" id="related-posts">
-    <h4>Part 2 of the Research Notes series</h4>
+    <h4>Part 5 of the Research Notes series</h4>
        <h5>Previous articles</h5>
        <ul>
            <li><a href="/posts/research/research-notes-machine-learning/">Research Notes - Machine Learning</a></li>
-       </ul>
-       <h5>Next articles</h5>
-       <ul>
+           <li><a href="/posts/research/research-notes-robotics/">Research Notes - Robotics</a></li>
            <li><a href="/posts/research/research-notes-machine-learning-part-2/">Research Notes - Machine Learning, Part 2</a></li>
+           <li><a href="/posts/research/research-notes-machine-learning-part-3/">Research Notes - Machine Learning, Part 3</a></li>
        </ul>
 </section>
     <hr />
@@ -416,7 +312,7 @@ nitishpuri.github.io            </a>
     <li class="list-group-item tag-3">
       <a href="/tag/data-science/">data-science</a>
     </li>
-    <li class="list-group-item tag-3">
+    <li class="list-group-item tag-2">
       <a href="/tag/deep-learning/">deep-learning</a>
     </li>
     <li class="list-group-item tag-1">
@@ -446,6 +342,9 @@ nitishpuri.github.io            </a>
     <li class="list-group-item tag-3">
       <a href="/tag/sketch/">sketch</a>
     </li>
+    <li class="list-group-item tag-3">
+      <a href="/tag/style-transfer/">style-transfer</a>
+    </li>
   </ul>
 </li>
 <!-- End Sidebar/Tag Cloud -->
@@ -456,11 +355,7 @@ nitishpuri.github.io            </a>
   <ul class="list-group">
     <li class="list-group-item">
       <h5></i>Previous article</h5>
-      <a href="/posts/research/research-notes-machine-learning/">Research Notes - Machine Learning</a>
-    </li>
-    <li class="list-group-item">
-      <h5>Next article</h5>
-      <a href="/posts/research/research-notes-machine-learning-part-2/">Research Notes - Machine Learning, Part 2</a>
+      <a href="/posts/research/research-notes-machine-learning-part-3/">Research Notes - Machine Learning, Part 3</a>
     </li>
   </ul>
 </li>
