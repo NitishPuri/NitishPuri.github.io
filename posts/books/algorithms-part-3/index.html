@@ -140,22 +140,22 @@ Or, <em>Adjacency List</em>, <br/>
 <span class="math">\(|V|\)</span> linked lists, one per vertex. The list for <em>u</em> holds the names of vertices to which <em>u</em>, has an outgoing edge. </p>
 <h3 id="depth-first-search-in-undirected-graphs">Depth first search in undirected Graphs</h3>
 <p><strong>Exploring mazes</strong> <br/>
-<img alt="alt" src="/images/algdg/3_maze.png"/> </p>
+<img alt="" src="/images/algdg/3_maze.png"/> </p>
 <p>So, we need to simulate a piece of chalk(to check whether the node has been visited), and a string(to retrace our steps back home). <br/>
 The analogs that we have are, <em>a boolean flag</em> as a chalk, and <em>a stack</em> as a string(in this case its the recursive system stack). <br/>
-<img alt="alt" src="/images/algdg/3_maze2.png"/> <br/>
-<img alt="alt" src="/images/algdg/3_dfs.png"/> <br/>
+<img alt="" src="/images/algdg/3_maze2.png"/> <br/>
+<img alt="" src="/images/algdg/3_dfs.png"/> <br/>
 Running time, <span class="math">\(O(|V| + |E|)\)</span></p>
 <p><em>Connectivity in undirected graphs</em> <br/>
-<img alt="alt" src="/images/algdg/3_cc.png"/> <br/>
+<img alt="" src="/images/algdg/3_cc.png"/> <br/>
 Identify and assign different integers to the different connected components in a undirected Graph.   </p>
 <p><em>Previsit and Postvisit orderings</em> <br/>
-<img alt="alt" src="/images/algdg/3_previsit.png"/> </p>
+<img alt="" src="/images/algdg/3_previsit.png"/> </p>
 <p><strong>Property :</strong> <em>For any node <span class="math">\(u\)</span> and <span class="math">\(v\)</span>, the two intervals <span class="math">\([pre(u), post(u)]\)</span> and <span class="math">\([pre(v), post(v)]\)</span> are either disjoint or one is contained within the other.</em> </p>
 <h3 id="depth-first-search-in-directed-graphs">Depth-First search in Directed Graphs</h3>
 <h4 id="types-of-edges">Types of edges</h4>
-<p><img alt="alt" src="/images/algdg/3_edges.png"/> <br/>
-<img alt="alt" src="/images/algdg/3_edges2.png"/> </p>
+<p><img alt="" src="/images/algdg/3_edges.png"/> <br/>
+<img alt="" src="/images/algdg/3_edges2.png"/> </p>
 <h4 id="directed-acyclic-graphs">Directed Acyclic Graphs</h4>
 <p><strong>Property :</strong> <em>A directed graph has a cycle if and only if its depth-first search reveals a back edge.</em> <br/>
 <strong>Property :</strong> <em>In a dag, every edge leads to a vertex with a lower <span class="math">\(post\)</span> number.</em> <br/>
@@ -163,7 +163,7 @@ Identify and assign different integers to the different connected components in 
 <h3 id="strongly-connected-components_1">Strongly Connected Components</h3>
 <h4 id="defining-connectivity-for-directed-graphs">Defining connectivity for directed graphs</h4>
 <p>Two nodes <em>u</em> and <em>v</em> of a directed graph are <em>connected</em> if there is ap path from <em>u</em> to <em>v</em> and a path from <em>v</em> to <em>u</em>. <br/>
-<img alt="alt" src="/images/algdg/3_dag.png"/> <br/>
+<img alt="" src="/images/algdg/3_dag.png"/> <br/>
 This relation partitions <em>V</em> into disjoint sets that we call <em>strongly connected components</em>.The graph above has five of them.   </p>
 <p><strong>Property :</strong> <em>Every directed graph is a dag of its strongly connected components.</em> </p>
 <h4 id="an-efficient-algorithm">An efficient algorithm</h4>
@@ -184,19 +184,19 @@ How do we continue once the first component has been discovered.   </p>
 <h3 id="distances">Distances</h3>
 <p>The <em>distance</em> between two nodes is the length of the shortest path between them.   </p>
 <h3 id="breadth-first-search">Breadth first search</h3>
-<p><img alt="alt" src="/images/algdg/4_breadth.png"/> </p>
+<p><img alt="" src="/images/algdg/4_breadth.png"/> </p>
 <h3 id="dijkstras-algorithm">Dijkstra's algorithm</h3>
 <h4 id="an-adaptation-of-breadth-first-search">An adaptation of breadth-first search</h4>
 <p><em>For any edge <span class="math">\(e = (u,v) \text{ of } E\)</span>, replace it by <span class="math">\(l_e\)</span> edges of length 1, by adding <span class="math">\(l_e - 1\)</span> dummy nodes between <span class="math">\(u\)</span> and <span class="math">\(v\)</span>.</em> </p>
 <p>Therefore, we can compute distances in graph by running BFS on the new graph.   </p>
 <p>We can do this by setting an estimated time of arrival for each new node in the frontier. <br/>
 The nodes are then  being processed on the basis of earliest time. The right data structure to do this is a <em>priority queue</em>(usually implemented by a <em>heap</em>).   </p>
-<p><img alt="alt" src="/images/algdg/4_dijkstra.png"/> <br/>
-<img alt="alt" src="/images/algdg/4_dijkstra2.png"/> </p>
+<p><img alt="" src="/images/algdg/4_dijkstra.png"/> <br/>
+<img alt="" src="/images/algdg/4_dijkstra2.png"/> </p>
 <h4 id="running-time">Running time</h4>
 <p><span class="math">\(O(|V| + |E|)\log|V|\)</span> </p>
 <p><em>Which heap is best ?</em> <br/>
-<img alt="alt" src="/images/algdg/4_heap.png"/> </p>
+<img alt="" src="/images/algdg/4_heap.png"/> </p>
 <h3 id="priority-queue-implementations_1">Priority Queue Implementations</h3>
 <h4 id="array">Array</h4>
 <p>Simplest implementation of a priority queue is as an unordered array of key values for all potential elements.   </p>
@@ -207,11 +207,11 @@ the root always contains the smallest element.   </p>
 <h4 id="d-ary-heap">d-ary heap</h4>
 <p>Identical to a binary heap, except that the nodes have <em>d</em> children instead of just two.</p>
 <h3 id="shortest-paths-in-the-presence-of-negative-edges_1">Shortest paths in the presence of negative edges</h3>
-<p><img alt="alt" src="/images/algdg/4_neg.png"/> </p>
+<p><img alt="" src="/images/algdg/4_neg.png"/> </p>
 <p><strong>Note :</strong> <em>The presence of a negative cycle means we cannot answer the question of shortest paths in the given graph.</em> <br/>
-<img alt="alt" src="/images/algdg/4_bell.png"/> </p>
+<img alt="" src="/images/algdg/4_bell.png"/> </p>
 <h3 id="shortest-paths-in-dags">Shortest paths in dags</h3>
-<p><img alt="alt" src="/images/algdg/4_dags.png"/> </p>
+<p><img alt="" src="/images/algdg/4_dags.png"/> </p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "left",
         indent = "0em",
@@ -365,13 +365,13 @@ the root always contains the smallest element.   </p>
 <li class="list-group-item">
   <a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
   <ul class="list-group list-inline tagcloud" id="tags">
-    <li class="list-group-item tag-1">
+    <li class="list-group-item tag-2">
       <a href="/tag/algorithms/">algorithms</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="/tag/blogging/">blogging</a>
     </li>
-    <li class="list-group-item tag-3">
+    <li class="list-group-item tag-2">
       <a href="/tag/data-science/">data-science</a>
     </li>
     <li class="list-group-item tag-2">

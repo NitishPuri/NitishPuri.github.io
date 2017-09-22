@@ -143,7 +143,7 @@ nitishpuri.github.io            </a>
 <a href="https://arxiv.org/abs/1311.2524"><em>Source</em></a> </p>
 <ul>
 <li>Introduces R-CNN, Regions with CNN. Bridging the gap between image classification and object detection.
-<img alt="alt" src="/images/papers/rcnn1.jpg"/></li>
+<img alt="" src="/images/papers/rcnn1.jpg"/></li>
 <li><strong>Object detection with R-CNN</strong></li>
 <li><em>Region proposals.</em> Uses <a href="https://ivi.fnwi.uva.nl/isis/publications/bibtexbrowser.php?key=UijlingsIJCV2013&amp;bib=all.bib">selective search</a>.</li>
 <li>Propose a bunch of boxes in the image and see if any of them actually correspond to an object.</li>
@@ -151,7 +151,7 @@ nitishpuri.github.io            </a>
 <li>These test time detections are highly parallel and the costs can amortized costs are hence low.</li>
 <li>Training is done by <em>supervised pre-training</em> followed by <em>domain-specific fine-tuning</em></li>
 <li>Finally, R-CNN runs a simpler linear regression on the region proposal to generate tighter bounding box coordinates to get our final results.
-<img alt="alt" src="/images/papers/rcnn2.jpg"/></li>
+<img alt="" src="/images/papers/rcnn2.jpg"/></li>
 </ul>
 <h4 id="fast-r-cnn"><strong>Fast R-CNN</strong></h4>
 <p><em>Ross Girshick : Sep 2015</em> <br/>
@@ -168,9 +168,9 @@ nitishpuri.github.io            </a>
 </ul>
 </li>
 <li><strong>Architecture</strong>
-<img alt="alt" src="/images/papers/fastRcnn1.jpg"/></li>
+<img alt="" src="/images/papers/fastRcnn1.jpg"/></li>
 <li>The RoI pooling layer : Run the CNN just once per image and then find a way to share that computation across the ~2000 proposals.
-<img alt="alt" src="/images/papers/fastRcnn2.jpg"/></li>
+<img alt="" src="/images/papers/fastRcnn2.jpg"/></li>
 <li>Initializing from pre-trained networks. with some modifications.</li>
 <li>Fine tuning for detection.<ul>
 <li>Hierarchical sampling.</li>
@@ -189,20 +189,20 @@ nitishpuri.github.io            </a>
 <ul>
 <li>Eliminating the bottleneck, region proposals as inputs.</li>
 <li>Introduces <em>Region Proposal Networks</em> (RPNs) that share convolutional layers with object detection networks.
-<img alt="alt" src="/images/papers/fasterRcnn1.jpg"/> <br/>
-<img alt="alt" src="/images/papers/fasterRcnn2.jpg"/> </li>
+<img alt="" src="/images/papers/fasterRcnn1.jpg"/> <br/>
+<img alt="" src="/images/papers/fasterRcnn2.jpg"/> </li>
 <li>While training we alternate between the region proposal task and object detection task while keeping the proposals fixed. <br/>
-<img alt="alt" src="/images/papers/fasterRcnn3.jpg"/> </li>
+<img alt="" src="/images/papers/fasterRcnn3.jpg"/> </li>
 </ul>
 <h4 id="mask-r-cnn"><strong>Mask R-CNN</strong></h4>
 <p><em>Kaiming He, Georgia Gkioxari, Piotr Doll&aacute;r, Ross Girshick : Apr 2017</em> <br/>
 <em>Facebook AI Research</em> <br/>
 <a href="https://arxiv.org/abs/1703.06870"><em>Source</em></a> <br/>
 <a href="https://github.com/CharlesShang/FastMaskRCNN"><em>Implementation</em></a> </p>
-<p><img alt="alt" src="/images/papers/maskRcnn1.jpg"/> </p>
+<p><img alt="" src="/images/papers/maskRcnn1.jpg"/> </p>
 <ul>
 <li>Extends Faster R-CNN by adding another branch that predicts the object mask along with the bounding boxes. <br/>
-<img alt="alt" src="/images/papers/maskRcnn1.jpg"/> </li>
+<img alt="" src="/images/papers/maskRcnn1.jpg"/> </li>
 <li>Faster R-CNN does not provide pixel-to-pixel alignment between network inputs and outputs.</li>
 <li>To fix this a layer <em>RoIAlign</em> is proposed which replaces <em>RoIPool</em> layer used previously.   </li>
 <li>The first stage is identical to Faster R-CNN.</li>
@@ -210,9 +210,9 @@ nitishpuri.github.io            </a>
 <li>Multi-task loss is used : <span class="math">\(L = L_{cls} + L_{bbox} + L_{mask}\)</span>.</li>
 <li>Masks are generated for every class without competition among classes. This <em>decouples</em> mask and class prediction.</li>
 <li>Different architectures are used as  convolutional <em>backbone</em>, ResNet and ResNeXt
-<img alt="alt" src="/images/papers/maskRcnn2.jpg"/> <br/>
-<img alt="alt" src="/images/papers/maskRcnn3.jpg"/> <br/>
-<img alt="alt" src="/images/papers/maskRcnn4.jpg"/> </li>
+<img alt="" src="/images/papers/maskRcnn2.jpg"/> <br/>
+<img alt="" src="/images/papers/maskRcnn3.jpg"/> <br/>
+<img alt="" src="/images/papers/maskRcnn4.jpg"/> </li>
 </ul>
 <h4 id="a-review-of-deep-learning-techniques-applied-to-semantic-segmentation"><strong>A Review of Deep Learning Techniques Applied to Semantic Segmentation</strong></h4>
 <p><em>Alberto Garcia-Garcia, Sergio Orts-Escolano, Sergiu Oprea, Victor Villena-Martinez, Jose Garcia-Rodriguez : Apr 2017</em>
@@ -406,13 +406,13 @@ nitishpuri.github.io            </a>
 <li class="list-group-item">
   <a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
   <ul class="list-group list-inline tagcloud" id="tags">
-    <li class="list-group-item tag-1">
+    <li class="list-group-item tag-2">
       <a href="/tag/algorithms/">algorithms</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="/tag/blogging/">blogging</a>
     </li>
-    <li class="list-group-item tag-3">
+    <li class="list-group-item tag-2">
       <a href="/tag/data-science/">data-science</a>
     </li>
     <li class="list-group-item tag-2">

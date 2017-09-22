@@ -186,7 +186,7 @@ nitishpuri.github.io            </a>
 <strong>Factoring</strong> : Given a number N, express it as a product of its prime factors. <em>Hard</em> <br/>
 <strong>Primality</strong> : Given a number N, determine whether it is a prime. <em>Easy</em> </p>
 <h3 id="basic-arithmetic">Basic Arithmetic</h3>
-<p><img alt="alt" src="/images/algdg/1_base.png"/> </p>
+<p><img alt="" src="/images/algdg/1_base.png"/> </p>
 <ul>
 <li><em>Addition</em> <br/>
 The sum of any three single-digit numbers is at most two digits long. <br/>
@@ -206,10 +206,10 @@ To multiply <code>x</code> and <code>y</code>, create an array of intermediate s
 </li>
 <li>
 <p>Another fascinating algorithm for multiplication: <br/>
-<img alt="alt" src="/images/algdg/1_mult.png"/>
-<img alt="alt" src="/images/algdg/1_mult2.png"/> <br/>
+<img alt="" src="/images/algdg/1_mult.png"/>
+<img alt="" src="/images/algdg/1_mult2.png"/> <br/>
 However, running time = <span class="math">\(O(n^2)\)</span> , n = number of bits. <br/>
-<img alt="alt" src="/images/algdg/1_div.png"/> </p>
+<img alt="" src="/images/algdg/1_div.png"/> </p>
 </li>
 </ul>
 </li>
@@ -220,8 +220,8 @@ However, running time = <span class="math">\(O(n^2)\)</span> , n = number of bit
 <li>Modular arithmetic is a system for dealing with restricted ranges of integers.   </li>
 <li>
 <p>Another interpretation is that modular arithmetic deals with all the integers, but divides into N equivalence classes, each of the form <span class="math">\(\{i+kN:k\in \mathbb Z\},  i \in [0, N-1]\)</span>. <br/>
-<img alt="alt" src="/images/algdg/1_subs.png"/> <br/>
-<img alt="alt" src="/images/algdg/1_comp.png"/> </p>
+<img alt="" src="/images/algdg/1_subs.png"/> <br/>
+<img alt="" src="/images/algdg/1_comp.png"/> </p>
 </li>
 <li>
 <p><strong>Modular addition and multiplication</strong> <br/>
@@ -232,12 +232,12 @@ However, running time = <span class="math">\(O(n^2)\)</span> , n = number of bit
 <li>
 <p><strong>Modular exponentiation</strong> <br/>
     We want to compute <span class="math">\(x^y \pmod N\)</span>. <br/>
-<img alt="alt" src="/images/algdg/1_modex.png"/> <br/>
+<img alt="" src="/images/algdg/1_modex.png"/> <br/>
     Let <em>n</em> be the size(bits) of <em>x, y and N</em>. As with multiplication, the algorithm will halt after at most <em>n</em> recursive calls, and during each call it multiplies n-bit numbers, for a total running time of <span class="math">\(O(n^3)\)</span>.   </p>
 </li>
 <li>
 <p><strong>Euclid's algorithm for G.C.D</strong> <br/>
-<img alt="alt" src="/images/algdg/1_gcd.png"/> <br/>
+<img alt="" src="/images/algdg/1_gcd.png"/> <br/>
 <strong>Eculid's rule :</strong> If x and y are positive integers with <span class="math">\(x &gt;= y\)</span> , then <span class="math">\(gcd(x, y) = gcd(x \pmod y, y)\)</span>. <br/>
 Also, if <span class="math">\(a &gt; b\)</span>, then <span class="math">\(a \pmod b &lt; a/2\)</span>. <br/>
 This means after any two consecutive iterations, both arguments are at the very least reduced to half.If they are initially n-bit, base case will be reached in at most <em>2n</em> recursive calls. And each call involves a quadratic-time division. Running time <span class="math">\(= O(n^3)\)</span>.   </p>
@@ -245,7 +245,7 @@ This means after any two consecutive iterations, both arguments are at the very 
 <li>
 <p><strong>An extension to Euclid's algorithm</strong>
     A small extension to Euclid's algorithm is the key to dividing in the modular world.  <br/>
-<img alt="alt" src="/images/algdg/1_gcd2.png"/> </p>
+<img alt="" src="/images/algdg/1_gcd2.png"/> </p>
 </li>
 <li><strong>Modular division</strong> <br/>
 <em>x</em> is the <em>multiplicative inverse</em> of <em>a modulo N</em>, if <span class="math">\(ax == 1 \pmod N\)</span> <br/>
@@ -254,16 +254,16 @@ When <span class="math">\(gcd(a, N) = 1\)</span>, we say <em>a</em> and <em>N</e
 The extended Euclid's algorithm gives us integers <em>x</em> and <em>y</em> such that <span class="math">\(ax + Ny = 1\)</span>, which means <span class="math">\(ax \equiv 1 (mod N)\)</span> . Thus x is a's sought <em>inverse</em>.   </li>
 </ul>
 <p><strong>Modular Division Theorem</strong> , <code>a</code> has multiplicative inverse modulo <code>N</code>, if and only if they are relatively prime, and it can be found by running extended Euclid theorem in time <span class="math">\(O(n^3)\)</span>. <br/>
-<img alt="alt" src="/images/algdg/1_isprime.png"/> </p>
+<img alt="" src="/images/algdg/1_isprime.png"/> </p>
 <ul>
 <li><strong>Primality Testing</strong> <br/>
-<img alt="alt" src="/images/algdg/1_fermat.png"/> <br/>
-<img alt="alt" src="/images/algdg/1_isprime2.png"/> <br/>
+<img alt="" src="/images/algdg/1_fermat.png"/> <br/>
+<img alt="" src="/images/algdg/1_isprime2.png"/> <br/>
 Here the theorem does not say anything about what happens if number is not prime. <br/>
 In fact, for some composite numbers, <em>Pr(Algorithm returns yes when N is not prime) &lt;= 1/2</em>
 We can thus choose <em>k</em> different random integers to test for primality testing, reducing Pr to <span class="math">\(1/2^k\)</span>.   <ul>
 <li><strong>Generating random primes</strong> <br/>
-<img alt="alt" src="/images/algdg/1_lgprime.png"/> <br/>
+<img alt="" src="/images/algdg/1_lgprime.png"/> <br/>
     Due to such abundance of prime numbers, prime number generation is easy.   <ul>
 <li>Generate a random n-bit number.</li>
 <li>Check for primality.</li>
@@ -280,9 +280,9 @@ We can thus choose <em>k</em> different random integers to test for primality te
 <li><em>RSA</em> <br/>
 Public key cryptography <br/>
 Based heavily upon number theory. <br/>
-<img alt="alt" src="/images/algdg/1_rsa1.png"/> <br/>
-<img alt="alt" src="/images/algdg/1_rsa3.png"/> <br/>
-<img alt="alt" src="/images/algdg/1_rsa2.png"/> </li>
+<img alt="" src="/images/algdg/1_rsa1.png"/> <br/>
+<img alt="" src="/images/algdg/1_rsa3.png"/> <br/>
+<img alt="" src="/images/algdg/1_rsa2.png"/> </li>
 </ul>
 <h3 id="universal-hashing">Universal Hashing</h3>
 <ul>
@@ -290,9 +290,9 @@ Based heavily upon number theory. <br/>
 Give a <code>key</code> to any <code>value</code>. <br/>
 <em>Hash function :</em> How to define the mapping between <code>key</code> and <code>value</code>.   </li>
 <li><strong>Families of Hash Functions</strong> <br/>
-<img alt="alt" src="/images/algdg/1_hash1.png"/> <br/>
-<img alt="alt" src="/images/algdg/1_hash2.png"/> <br/>
-<img alt="alt" src="/images/algdg/1_hash3.png"/> </li>
+<img alt="" src="/images/algdg/1_hash1.png"/> <br/>
+<img alt="" src="/images/algdg/1_hash2.png"/> <br/>
+<img alt="" src="/images/algdg/1_hash3.png"/> </li>
 </ul>
 <p>A family of hash functions with this property is called <em>universal</em> .</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
@@ -445,13 +445,13 @@ Give a <code>key</code> to any <code>value</code>. <br/>
 <li class="list-group-item">
   <a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
   <ul class="list-group list-inline tagcloud" id="tags">
-    <li class="list-group-item tag-1">
+    <li class="list-group-item tag-2">
       <a href="/tag/algorithms/">algorithms</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="/tag/blogging/">blogging</a>
     </li>
-    <li class="list-group-item tag-3">
+    <li class="list-group-item tag-2">
       <a href="/tag/data-science/">data-science</a>
     </li>
     <li class="list-group-item tag-2">

@@ -139,7 +139,7 @@ The tree with minimum total weight is then known as <em>minimum spanning tree</e
 <h4 id="a-greedy-approach">A greedy approach</h4>
 <p><em>Kruskal's algorithm</em> <br/>
 Repeatedly add the next lightest edge that doesn't produce a cycle. <br/>
-<img alt="alt" src="/images/algdg/5_kruskal.png"/> </p>
+<img alt="" src="/images/algdg/5_kruskal.png"/> </p>
 <h4 id="the-cut-property">The cut property</h4>
 <p><strong>Cut Property</strong> <em>Suppose edges <span class="math">\(X\)</span> are part of a minimum spanning tree of <span class="math">\(G = (V, E)\)</span>. Pick any subset of nodes S for which <span class="math">\(X\)</span> does not cross between <span class="math">\(S\)</span> and <span class="math">\(V-S\)</span>, and let <span class="math">\(e\)</span> be the lightest edge across this partition. Then <span class="math">\(X \cup \{e\}\)</span> is part of some <span class="math">\(MST\)</span>.</em> </p>
 <h4 id="kruskals-algorithm">Kruskal's algorithm</h4>
@@ -147,10 +147,10 @@ Repeatedly add the next lightest edge that doesn't produce a cycle. <br/>
 <p><code>makeset(x)</code>: create a singelton set containing just <code>x</code>. <br/>
 <code>find(x)</code> : to which set does <code>x</code> belong. <br/>
 <code>union(x,y)</code> : merge the sets containing <code>x</code> and <code>y</code>.   </p>
-<p><img alt="alt" src="/images/algdg/5_kruskal2.png"/> </p>
+<p><img alt="" src="/images/algdg/5_kruskal2.png"/> </p>
 <h4 id="a-data-structure-for-disjoint-sets">A data structure for disjoint sets</h4>
 <p><strong>Union by rank</strong> <br/>
-<img alt="alt" src="/images/algdg/5_union.png"/> <br/>
+<img alt="" src="/images/algdg/5_union.png"/> <br/>
 </p>
 <div class="math">$$\underline{procedure\, makeset(x)}\\
 \pi(x) = x \\
@@ -194,7 +194,7 @@ X = X \cup \{e\}
 $$</div>
 <p> <br/>
 Alternative to Kruskal's algorithmfor finding Minimum Spanning Trees. 
-<img alt="alt" src="/images/algdg/5_prim.png"/> <br/>
+<img alt="" src="/images/algdg/5_prim.png"/> <br/>
 This is very similar to Dijkstra, only that the priorities are decided differently.   </p>
 <h3 id="huffman-coding_1">Huffman coding</h3>
 <p>Variable length encoding of symbols, depending on frequency of the particular symbol. <br/>
@@ -261,7 +261,7 @@ answers to subproblems to figure out larger ones, until the whole lot of them is
 programming we are not given a dag, it is <em>implicit</em>. Its nodes are the subproblems we define, and its
 edges are the dependencies between the subproblems.   </p>
 <h3 id="longest-increasing-subsequence">Longest increasing subsequence</h3>
-<p><img alt="alt" src="/images/algdg/6_subseq1.png"/> </p>
+<p><img alt="" src="/images/algdg/6_subseq1.png"/> </p>
 <p>The problem can be represented as a DAG, containing all possible transitions; establish a node <span class="math">\(i\)</span> 
 for each element <span class="math">\(a_i\)</span>, and add directed edges <span class="math">\((i,j)\)</span> whenever it is possible for <span class="math">\(a_i\)</span> and
 <span class="math">\(a_j\)</span> to be consecutive elements in an increasing subsequence, that is, whenever <span class="math">\(i &lt; j\)</span> and <span class="math">\(a_i &lt; a_j\)</span>.   </p>
@@ -286,7 +286,7 @@ For that we need to express <span class="math">\(E(i,j)\)</span> in terms of sma
 <span class="math">\(E(i,j) = min\{1 + E(i-1, j), 1 + E(i, j-1), diff(i,j) + E(i-1, j-1)\}\)</span> <br/>
 where, <span class="math">\(diff(i,j)\)</span> is 0 if <span class="math">\(x[i] = y[i]\)</span>, and <span class="math">\(1\)</span> otherwise.   </p>
 <p>The above relation forms a table, which can easily be computed in time <span class="math">\(O(mn)\)</span>.<br/>
-<img alt="alt" src="/images/algdg/6_subprob.png"/> </p>
+<img alt="" src="/images/algdg/6_subprob.png"/> </p>
 <h3 id="knapsack_1">Knapsack</h3>
 <p>A burglar wants to find out which items to carry, considering the weight and cost where he can carry up to a fixed amount of weight, maximizing the cost of items.   </p>
 <h4 id="knapsack-with-repetition">Knapsack with repetition</h4>
@@ -316,7 +316,7 @@ $$</div>
 <p>Matrix multiplication is not commutative, but is associative. <br/>
 Which means, <span class="math">\(A \times (B \times C) = (A \times B) \times C\)</span>.   </p>
 <p>Thus, we can compute product of four different matrices in many different ways, Some of the ways are much better(computationally) than others. <br/>
-<img alt="alt" src="/images/algdg/6_mat1.png"/> </p>
+<img alt="" src="/images/algdg/6_mat1.png"/> </p>
 <h3 id="shortest-paths">Shortest Paths</h3>
 <h4 id="shortest-reliable-paths">Shortest reliable paths</h4>
 <p>Suppose we want the shortest path from <span class="math">\(s\)</span> to <span class="math">\(t\)</span> that uses at most <span class="math">\(k\)</span> edges.   </p>
@@ -332,7 +332,7 @@ We can start with just two starting nodes, and gradually expand the set of possi
 More concretely, number the vertices in <span class="math">\(V\)</span> as <span class="math">\(\{1...n\}\)</span> and let, <span class="math">\(dist(1,j,k)\)</span> denote the length of
 shortest path from <span class="math">\(i\)</span> to <span class="math">\(j\)</span> in which only nodes <span class="math">\(\{1,2...k\}\)</span> can be used as intermediates.   </p>
 <p>Initially, <span class="math">\(dist(1,j,0)\)</span> is the length of the direct edges between <span class="math">\(i\)</span> and <span class="math">\(j\)</span> if one exists, and is <span class="math">\(\inf\)</span> otherwise.   </p>
-<p><img alt="alt" src="/images/algdg/6_allpair.png"/> </p>
+<p><img alt="" src="/images/algdg/6_allpair.png"/> </p>
 <p>This, using <span class="math">\(k\)</span> gives us a shorter path from <span class="math">\(i\)</span> to <span class="math">\(j\)</span> if and only if <br/>
 <span class="math">\(dist(i,k,k-1) + dist(k,j,k-1) &lt; dist(i,j,k-1)\)</span>,   </p>
 <p>in which case <span class="math">\(dist(i,j,k)\)</span> should be updated accordingly. <br/>
@@ -529,13 +529,13 @@ Start by rooting the tree at any node <span class="math">\(r\)</span>. Now, each
 <li class="list-group-item">
   <a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
   <ul class="list-group list-inline tagcloud" id="tags">
-    <li class="list-group-item tag-1">
+    <li class="list-group-item tag-2">
       <a href="/tag/algorithms/">algorithms</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="/tag/blogging/">blogging</a>
     </li>
-    <li class="list-group-item tag-3">
+    <li class="list-group-item tag-2">
       <a href="/tag/data-science/">data-science</a>
     </li>
     <li class="list-group-item tag-2">

@@ -144,7 +144,7 @@ nitishpuri.github.io            </a>
 <p>Here is the updated linear program, <br/>
 </p>
 <div class="math">$$max\; x_1 + 6x_2+13x_3 \\ x_1 \leq 200 \\ x_2 \leq 300 \\ x_1 + x_2 + x_3 \leq 400 \\ x_2 + 3x_3 \leq 600 \\ x_1, x_2, x_3 \geq 0$$</div>
-<p><img alt="alt" src="/images/algdg/7_duality.png"/> </p>
+<p><img alt="" src="/images/algdg/7_duality.png"/> </p>
 <p><strong>Example : Production planning</strong> <br/>
 An example with large number of variables and constraints.   </p>
 <p><em>Integer Linear Programming is hard</em> </p>
@@ -170,7 +170,7 @@ This is called a <em>slack variable</em> for the inequality. As justification, o
 This way <span class="math">\(x\)</span> can take on any real value by appropriately adjusting the new variables. More precisely, any feasible solution to the original LP involving <span class="math">\(x\)</span> can be mapped to a feasible solution to the new LP involving <span class="math">\(x^+, x^-\)</span>, and vice-versa.   </p>
 <h3 id="flows-in-networks">Flows in Networks</h3>
 <p><strong>Shipping Oil</strong> </p>
-<p><img alt="alt" src="/images/algdg/7_network1.png"/> </p>
+<p><img alt="" src="/images/algdg/7_network1.png"/> </p>
 <p><strong>Maximizing flow</strong> <br/>
 1. It doesn't violate edge capacities, <span class="math">\(0 &lt; f_e &lt; c_e\)</span> for all <span class="math">\(e \in E\)</span>.
 2. For all nodes <span class="math">\(u\)</span> except <span class="math">\(s\)</span> and <span class="math">\(t\)</span>, the amount of flow entering <span class="math">\(u\)</span> equals the amount leaving <span class="math">\(u\)</span>:
@@ -181,17 +181,17 @@ This way <span class="math">\(x\)</span> can take on any real value by appropria
 1. <span class="math">\((u,v)\)</span> is in the original network, and is not yet at full capacity.
 2. The reverse edge <span class="math">\((u,v)\)</span> is in the original network, and there is some flow along it.   </p>
 <h3 id="bipartite-matching">Bipartite Matching</h3>
-<p><img alt="alt" src="/images/algdg/7_bipartite1.png"/> <br/>
-<img alt="alt" src="/images/algdg/7_bipartite2.png"/> </p>
+<p><img alt="" src="/images/algdg/7_bipartite1.png"/> <br/>
+<img alt="" src="/images/algdg/7_bipartite2.png"/> </p>
 <h3 id="duality">Duality</h3>
 <p>Turns out, every linear maximization problem has a <em>dual</em> minimization problem. <br/>
-<img alt="alt" src="/images/algdg/7_duality2.png"/> <br/>
-<img alt="alt" src="/images/algdg/7_duality3.png"/> </p>
+<img alt="" src="/images/algdg/7_duality2.png"/> <br/>
+<img alt="" src="/images/algdg/7_duality3.png"/> </p>
 <p><strong>Duality theorem :</strong> <em>If a linear program has a bounded optimum, then so does its dual, and the two optimum values coincide.</em> </p>
 <h3 id="zero-sum-games">Zero Sum Games</h3>
 <p>Various conflict situations in life can be represented by matrix games. <br/>
 For ex. rock-paper-scissors can be specified by the payoff matrix . <br/>
-<img alt="alt" src="/images/algdg/7_zerogame1.png"/> </p>
+<img alt="" src="/images/algdg/7_zerogame1.png"/> </p>
 <p>Now, if they play repeatedly, they have to employ a <em>mixed strategy</em>, which can be specified by the vector <span class="math">\(\mathbf x = (x_1, x_2, x_3)\)</span> for first player and <span class="math">\(\mathbf y = (y_1, y_2, y_3)\)</span> for the two players. <br/>
 Therefore, for any given round, the expected payoff is <br/>
 </p>
@@ -199,9 +199,10 @@ Therefore, for any given round, the expected payoff is <br/>
 <p>Row wants to <em>maximize</em> this, while Column wants to <em>minimize</em> it.   </p>
 <p>If both Row and Column force a <em>"completely random strategy"</em> , both of them will get an expected payoff of zero. This is in fact a consequence of linear programming duality.</p>
 <h3 id="the-simplex-algorithm">The simplex algorithm</h3>
-<p><code>Let v be any vertex of the feasible region.   
+<div class="highlight"><pre><span></span>Let v be any vertex of the feasible region.   
 while there is a neighbor v' of v with better objective value:   
-    set v = v'</code></p>
+    set v = v'   
+</pre></div>
 <p>Any setting of the <span class="math">\(x_i\)</span>'s can be represented by an <span class="math">\(n\)</span>-tuple of real numbers and plotted in <span class="math">\(n\)</span>-dimensional space. A linear equation involving the <span class="math">\(x_i\)</span>'s defines a <em>hyperplane</em> in this same space <span class="math">\(\mathbb R^n\)</span> and the corresponding linear equality defines a <em>half-space</em>, all points that are either precisely on the hyperplane or lie on one particular side of it. Finally, the feasible region of the linear program is specified by a set of inequalities and is therefore the intersection of the corresponding half-spaces, a convex polyhedron.   </p>
 <p><strong>Verices and neighbors in n-dimensional space</strong> <br/>
 Each vertex is the unique point at which some subset of hyperplanes meet. <br/>
@@ -212,7 +213,7 @@ Alternatively,  <br/>
 On each iteration, simplex has two tasks: <br/>
 1. Check whether the current vertex is optimal(and is so, halt).
 2. Determine where to move next.
-<img alt="alt" src="/images/algdg/7_simplex1.png"/></p>
+<img alt="" src="/images/algdg/7_simplex1.png"/></p>
 <p><strong>Loose ends</strong> <br/>
 <em>The starting vertex</em>, turns out finding a starting vertex can be <em>reduced</em> to an LP and solved by <em>simplex</em>. <br/>
 <em>Degeneracy</em>, geometrically, this means that the vertex is at the intersection of more than <span class="math">\(n\)</span> faces of polyhedron(say <span class="math">\(n+1\)</span>). Algebraically, it means that if we choose any one of the <span class="math">\(n+1\)</span> sets of <span class="math">\(n\)</span> inequalities and solve the corresponding system of <span class="math">\(n\)</span> linear equations in <span class="math">\(n\)</span> unknowns, we'll get the same solution in all <span class="math">\(n+1\)</span> cases. <br/>
@@ -240,9 +241,9 @@ The paradox deepened: A problem with two algorithms, one that is efficient in th
 <li><code>NOT</code> gates have indegree 1.</li>
 </ul>
 <p>For example,   </p>
-<p><img alt="alt" src="/images/algdg/7_circuit1.png"/> </p>
+<p><img alt="" src="/images/algdg/7_circuit1.png"/> </p>
 <p>This an be reduced to an LP by the following substitutions, <br/>
-<img alt="alt" src="/images/algdg/7_circuit2.png"/> </p>
+<img alt="" src="/images/algdg/7_circuit2.png"/> </p>
 <p>And, <span class="math">\(0 \geq x_g \geq 1\)</span>, for all the gates.   </p>
 <p>We don,t need to maximize anything, we just need to find out <span class="math">\(x_g\)</span> corresponding to the output gate.   </p>
 <p>This is the most general problem that can be solved in polynomial time. Hence, the fact that <code>CIRCUIT VALUE</code> reduces to LP means that all problems that can be solved in polynomial time!</p>
@@ -399,13 +400,13 @@ The paradox deepened: A problem with two algorithms, one that is efficient in th
 <li class="list-group-item">
   <a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
   <ul class="list-group list-inline tagcloud" id="tags">
-    <li class="list-group-item tag-1">
+    <li class="list-group-item tag-2">
       <a href="/tag/algorithms/">algorithms</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="/tag/blogging/">blogging</a>
     </li>
-    <li class="list-group-item tag-3">
+    <li class="list-group-item tag-2">
       <a href="/tag/data-science/">data-science</a>
     </li>
     <li class="list-group-item tag-2">

@@ -139,7 +139,7 @@ nitishpuri.github.io            </a>
 <ul>
 <li>In fine art, especially painting, humans have mastered the skill to create unique visual experiences through composing a complex interplay between the content and style of an image. Thus far the algorithmic basis of this process is unknown and there exists no artificial system with similar capabilities.</li>
 <li>Then we came across Deep Neural Networks.
-<img alt="alt" src="/images/papers/styleTransfer1.jpg"/></li>
+<img alt="" src="/images/papers/styleTransfer1.jpg"/></li>
 <li><em>Higher</em> layers in the network capture the high-level <em>content</em> in terms of objects and their arrangement in the input image. We represent these feature responses as <em>content representation</em>.
 <div class="math">$$\mathcal L_{content}(\vec p,\vec x,l) = \frac12\sum_{i,j}{(F^l_{ij} - P^l_{ij})^2}$$</div>
 </li>
@@ -150,9 +150,9 @@ nitishpuri.github.io            </a>
 <li>So, we can manipulate both <em>content</em> and <em>style</em> separately.</li>
 <li>The images are synthesised by finding an image that simultaneously matches the content representation of the photograph and the style representation of the respective piece of art.
 <div class="math">$$\mathcal L_{total}(\vec p,\vec a,\vec x) = \alpha\mathcal L_{content}(\vec p,\vec x) + \beta\mathcal L_{style}(\vec a,\vec x)$$</div>
-<img alt="alt" src="/images/papers/styleTransfer2.jpg"/>
-<img alt="alt" src="/images/papers/styleTransfer3.jpg"/>
-<img alt="alt" src="/images/papers/styleTransfer4.jpg"/></li>
+<img alt="" src="/images/papers/styleTransfer2.jpg"/>
+<img alt="" src="/images/papers/styleTransfer3.jpg"/>
+<img alt="" src="/images/papers/styleTransfer4.jpg"/></li>
 <li><em>Gallleries</em><ul>
 <li><a href="http://kylemcdonald.net/stylestudies/">Style Transfer Studies</a></li>
 </ul>
@@ -165,7 +165,7 @@ nitishpuri.github.io            </a>
 <h4 id="improving-the-neural-algorithm-of-artistic-style"><strong>Improving the Neural Algorithm of Artistic Style</strong></h4>
 <p><em>Roman Novak, Yalroslav Nikulin : May 2016</em> <br/>
 <a href="https://arxiv.org/abs/1605.04603"><em>Source</em></a> <br/>
-<img alt="alt" src="/images/papers/improvedStyle1.jpg"/> </p>
+<img alt="" src="/images/papers/improvedStyle1.jpg"/> </p>
 <ul>
 <li>Objectives addressed in this paper:<ul>
 <li>Similar areas of the content image should be repainted in a similar way.</li>
@@ -215,16 +215,16 @@ nitishpuri.github.io            </a>
 </ul>
 </li>
 <li><strong>Experiments</strong>
-<img alt="alt" src="/images/papers/improvedStyle2.jpg"/> <br/>
-<img alt="alt" src="/images/papers/improvedStyle3.jpg"/> <br/>
-<img alt="alt" src="/images/papers/improvedStyle4.jpg"/> <br/>
-<img alt="alt" src="/images/papers/improvedStyle5.jpg"/> </li>
+<img alt="" src="/images/papers/improvedStyle2.jpg"/> <br/>
+<img alt="" src="/images/papers/improvedStyle3.jpg"/> <br/>
+<img alt="" src="/images/papers/improvedStyle4.jpg"/> <br/>
+<img alt="" src="/images/papers/improvedStyle5.jpg"/> </li>
 </ul>
 <h4 id="preserving-color-in-neural-artistic-style-transfer"><strong>Preserving Color in Neural Artistic Style Transfer</strong></h4>
 <p><em>Leon A. Gatys, Matthias Bethge, Aaron Hertzmann, Eli Shechtman : Jun 2016</em> <br/>
 <a href="https://arxiv.org/abs/1606.05897"><em>Source</em></a> </p>
-<p><img alt="alt" src="/images/papers/colorTransfer1.jpg"/> <br/>
-<img alt="alt" src="/images/papers/colorTransfer2.jpg"/> </p>
+<p><img alt="" src="/images/papers/colorTransfer1.jpg"/> <br/>
+<img alt="" src="/images/papers/colorTransfer2.jpg"/> </p>
 <ul>
 <li>The original style transfer method also copies the colors of the style image, which might be undesirable in many cases.</li>
 <li><strong>Approach #1: Color histogram matching</strong></li>
@@ -235,20 +235,20 @@ nitishpuri.github.io            </a>
 <li><span class="math">\(\mathbf b=\mu_C- \mathbf A\mu_S\)</span>, where <span class="math">\(\mu_C\)</span> and<span class="math">\(\mu_S\)</span> are mean colors. </li>
 <li><span class="math">\(\mathbf A\Sigma_S \mathbf A^T=\Sigma_C\)</span>, where <span class="math">\(\Sigma_C\)</span> and <span class="math">\(\Sigma_C\)</span> are pixel covariances.</li>
 <li><span class="math">\(\mathbf A\)</span> can be computed using Cholesky decomposition, or by using Image Analogies.
-<img alt="alt" src="/images/papers/colorTransfer3.jpg"/> </li>
+<img alt="" src="/images/papers/colorTransfer3.jpg"/> </li>
 </ul>
 </li>
 <li>Color transfer before style transfer generally gives better results.
-<img alt="alt" src="/images/papers/colorTransfer4.jpg"/> <br/>
-<img alt="alt" src="/images/papers/colorTransfer5.jpg"/> </li>
+<img alt="" src="/images/papers/colorTransfer4.jpg"/> <br/>
+<img alt="" src="/images/papers/colorTransfer5.jpg"/> </li>
 <li><strong>Approach #2: Luminance-only transfer</strong></li>
 <li>This approach is motivated by the observation that visual perception is far more sensitive to change in luminance than in color.</li>
 <li><span class="math">\(L_S\)</span> and <span class="math">\(L_C\)</span> are luminance channels extracted from the style and content images. </li>
 <li>Use a <em>YIQ</em> color space, the color information represented by <em>I</em> and <em>Q</em> channels is combined with <span class="math">\(L_T\)</span> to produce the final output image.</li>
 <li><span class="math">\(L_{S'}=\frac {\sigma_C}{\sigma_S}(L_S - \mu_S) + \mu_C\)</span>
-<img alt="alt" src="/images/papers/colorTransfer6.jpg"/> <br/>
-<img alt="alt" src="/images/papers/colorTransfer7.jpg"/> <br/>
-<img alt="alt" src="/images/papers/colorTransfer8.jpg"/> </li>
+<img alt="" src="/images/papers/colorTransfer6.jpg"/> <br/>
+<img alt="" src="/images/papers/colorTransfer7.jpg"/> <br/>
+<img alt="" src="/images/papers/colorTransfer8.jpg"/> </li>
 <li><strong>Comparison</strong></li>
 <li>Linear color transfer onto the style image, before style transfer.<ul>
 <li>Limited by how well the color transfer from content to style works.</li>
@@ -257,8 +257,8 @@ nitishpuri.github.io            </a>
 <li>Style transfer only in the luminance channel.<ul>
 <li>Preserves the colors of content image perfectly.</li>
 <li>However, dependencies between the luminance and the color channels are lost in the output image.
-<img alt="alt" src="/images/papers/colorTransfer9.jpg"/> <br/>
-<img alt="alt" src="/images/papers/colorTransfer10.jpg"/> </li>
+<img alt="" src="/images/papers/colorTransfer9.jpg"/> <br/>
+<img alt="" src="/images/papers/colorTransfer10.jpg"/> </li>
 </ul>
 </li>
 </ul>
@@ -413,13 +413,13 @@ nitishpuri.github.io            </a>
 <li class="list-group-item">
   <a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
   <ul class="list-group list-inline tagcloud" id="tags">
-    <li class="list-group-item tag-1">
+    <li class="list-group-item tag-2">
       <a href="/tag/algorithms/">algorithms</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="/tag/blogging/">blogging</a>
     </li>
-    <li class="list-group-item tag-3">
+    <li class="list-group-item tag-2">
       <a href="/tag/data-science/">data-science</a>
     </li>
     <li class="list-group-item tag-2">

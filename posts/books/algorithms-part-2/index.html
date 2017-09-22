@@ -147,7 +147,7 @@ since, <br/>
 <span class="math">\(x_Ly_R  + x_Ry_L =  (x_L + x_R ) (y_L + y_R )  - x_Ly_L &ndash; x_Ry_R\)</span>.   </p>
 <p>Resulting algorithm would then be <br/>
 <span class="math">\(T(n) = 3T(n/2) + O(n)\)</span>, which is <span class="math">\(O(n^{1.59})\)</span> </p>
-<p><img alt="alt" src="/images/algdg/2_divide.png"/> </p>
+<p><img alt="" src="/images/algdg/2_divide.png"/> </p>
 <p>Height of the tree <span class="math">\(= \log_2 n\)</span>, since the length of the sub-problem gets halved at every level. <br/>
 Branching factor = 3.   </p>
 <p>So, at any level k we will have <span class="math">\(3^k\)</span>  to solve each of size <span class="math">\(n/2^k\)</span>.   </p>
@@ -155,10 +155,10 @@ Branching factor = 3.   </p>
 <p>Which is a geometric series. So, the sum then approximates to the last term of the series. <br/>
 That is <span class="math">\(O(3^{\log_2 n})\)</span>, which can be written as <span class="math">\(O(n^{\log_2 3})\)</span>, which is about <span class="math">\(O(n^{1.59})\)</span>.   </p>
 <p>Can we do better ??? using <em>Fast Fourier Transforms</em> discussed later.   </p>
-<p><img alt="alt" src="/images/algdg/2_dividemul.png"/> </p>
+<p><img alt="" src="/images/algdg/2_dividemul.png"/> </p>
 <h3 id="recurrence-relations">Recurrence relations</h3>
 <p>Consider this recurrence tree. <br/>
-<img alt="alt" src="/images/algdg/2_recur.png"/> </p>
+<img alt="" src="/images/algdg/2_recur.png"/> </p>
 <p><strong>Master's Theorem :</strong><br/>
 If <span class="math">\(T(n) = aT(\lceil n/b \rceil) + O(n^d)\)</span> for some constants <span class="math">\(a &gt; 0, b &gt; 1\)</span>, and <span class="math">\(d \ge 0\)</span>, then   </p>
 <div class="math">$$ T(n) = \begin{cases}
@@ -166,20 +166,20 @@ If <span class="math">\(T(n) = aT(\lceil n/b \rceil) + O(n^d)\)</span> for some 
  O(n^d\log n), \text{ if } d = \log_b a \\
  O(n^{\log_b a}), \text{ if } d &lt; \log_b a 
  \end{cases}$$</div>
-<p><img alt="alt" src="/images/algdg/2_binary.png"/> </p>
+<p><img alt="" src="/images/algdg/2_binary.png"/> </p>
 <h3 id="mergesort">Mergesort</h3>
 <p>Sort an array by recursively sorting each half and merging the results. <br/>
-<img alt="alt" src="/images/algdg/2_merge.png"/> </p>
-<p><img alt="alt" src="/images/algdg/2_merge2.png"/> </p>
+<img alt="" src="/images/algdg/2_merge.png"/> </p>
+<p><img alt="" src="/images/algdg/2_merge2.png"/> </p>
 <p>Since merge does constant amount of work per recursive call, overall time is <br/>
 </p>
 <div class="math">$$ T(n) = 2T(n/2) + O(n), \text{   or  } O(n\log n)$$</div>
 <p> <br/>
 Here is an iterative version using a Queue. <br/>
-<img alt="alt" src="/images/algdg/2_merge3.png"/> </p>
+<img alt="" src="/images/algdg/2_merge3.png"/> </p>
 <h3 id="medians">Medians</h3>
 <p>Median = 50th percentile of a list of numbers. <br/>
-<img alt="alt" src="/images/algdg/2_medians.png"/> <br/>
+<img alt="" src="/images/algdg/2_medians.png"/> <br/>
 <em>A randomized divide-and-conquer algorithm for selection</em> <br/>
 For any number <code>v</code>, Split <code>S</code> into three categories: elements smaller than <code>v</code> <span class="math">\((S_L)\)</span>, equal to <code>v</code> <span class="math">\((S_v)\)</span> , greater than <code>v</code> <span class="math">\((S_R)\)</span> , then
 </p>
@@ -190,9 +190,9 @@ For any number <code>v</code>, Split <code>S</code> into three categories: eleme
  \end{cases}$$</div>
 <p>The three sub-lists can be computed in linear time, even in place.  <br/>
 How to pick <code>v</code> ? Randomly from <code>S</code>. <br/>
-<img alt="alt" src="/images/algdg/2_unix.png"/> </p>
+<img alt="" src="/images/algdg/2_unix.png"/> </p>
 <h3 id="matrix-multiplication">Matrix multiplication</h3>
-<p><img alt="alt" src="/images/algdg/2_matmul.png"/> <br/>
+<p><img alt="" src="/images/algdg/2_matmul.png"/> <br/>
 Symbolically, <br/>
 </p>
 <div class="math">$$ Z_{ij} = \sum_{k=1}^n X_{ik}Y_{kj}$$</div>
@@ -230,12 +230,12 @@ $$</div>
 2. The values <span class="math">\(A(x_0), A(x_1), ..., A(x_d)\)</span> </p>
 <p>Now, taking in consideration the second form, the product has a degree <span class="math">\(2d\)</span>, and is completely determined by its values at <span class="math">\(2d+1\)</span> points. <br/>
 Since, those values are just products of the two polynomials at the given point. Thus, polynomial multiplication takes linear time in the value representation. <br/>
-<img alt="alt" src="/images/algdg/2_poly1.png"/> <br/>
-<img alt="alt" src="/images/algdg/2_poly2.png"/> </p>
+<img alt="" src="/images/algdg/2_poly1.png"/> <br/>
+<img alt="" src="/images/algdg/2_poly2.png"/> </p>
 <p><em>Evaluation by divide-and-conquer</em> <br/>
 <strong>The Trick</strong> : Choose the n points to be selected as positive-negative pairs, then the computations needed to be done overlap a lot. <br/>
 Specifically, <br/>
-<img alt="alt" src="/images/algdg/2_eval.png"/> <br/>
+<img alt="" src="/images/algdg/2_eval.png"/> <br/>
 if we could then recurse, we would have, <br/>
 </p>
 <div class="math">$$T(n) = 2T(n/2) + O(n), \text{which is } O(n\log n)$$</div>
@@ -244,7 +244,7 @@ But, recursing it at the second level and beyond seems impossible. Unless, of-co
 To get positive-negative pairs at subsequent levels, we can use the roots of <span class="math">\(z^n = 1\)</span> <br/>
 Which are, <span class="math">\(1, \omega, \omega^2, ... \omega^{n-1}, \text{ where, } \omega = e^{2\pi i/n}\)</span> </p>
 <p>So, if we choose these numbers, at every successive level of recursion we have pairs of positive-negative numbers <br/>
-<img alt="alt" src="/images/algdg/2_fft2.png"/></p>
+<img alt="" src="/images/algdg/2_fft2.png"/></p>
 <p><strong>Interpolation</strong> <br/>
 </p>
 <div class="math">$$\langle \text{values} \rangle = FFT(\langle \text{coefficients} \rangle, \omega)$$</div>
@@ -255,8 +255,8 @@ Which are, <span class="math">\(1, \omega, \omega^2, ... \omega^{n-1}, \text{ wh
 <p><strong>A closer look at the fast Fourier Transform</strong> <br/>
 The FFT takes as input a vector <span class="math">\(a = (a_0, ... a_{n-1})\)</span> and a complex number <span class="math">\(\omega\)</span> whose powers are the complex root of unity. <br/>
 It multiplies this vector with the Matrix <span class="math">\(M_n(\omega)\)</span>, which has <span class="math">\((j, k)_{th}\)</span> entry (starting row and column count at zero) <span class="math">\(\omega^{jk}\)</span>.
-<img alt="alt" src="/images/algdg/2_fft3.png"/> <br/>
-<img alt="alt" src="/images/algdg/2_fft4.png"/> </p>
+<img alt="" src="/images/algdg/2_fft3.png"/> <br/>
+<img alt="" src="/images/algdg/2_fft4.png"/> </p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "left",
         indent = "0em",
@@ -410,13 +410,13 @@ It multiplies this vector with the Matrix <span class="math">\(M_n(\omega)\)</sp
 <li class="list-group-item">
   <a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
   <ul class="list-group list-inline tagcloud" id="tags">
-    <li class="list-group-item tag-1">
+    <li class="list-group-item tag-2">
       <a href="/tag/algorithms/">algorithms</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="/tag/blogging/">blogging</a>
     </li>
-    <li class="list-group-item tag-3">
+    <li class="list-group-item tag-2">
       <a href="/tag/data-science/">data-science</a>
     </li>
     <li class="list-group-item tag-2">

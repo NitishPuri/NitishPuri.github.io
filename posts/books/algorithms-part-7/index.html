@@ -131,13 +131,13 @@ nitishpuri.github.io            </a>
                 <h2 id="chapter-10-quntized-algorithms">Chapter 10: Quntized Algorithms</h2>
 <p><em>There is a catch ofcourse: this algorithm needs a <strong>quantum computer</strong> to execute.</em> </p>
 <h3 id="qubits-superposition-and-measurment"><strong>Qubits, superposition and measurment</strong></h3>
-<p><img alt="alt" src="/images/algdg/10_quant1.png"/> </p>
+<p><img alt="" src="/images/algdg/10_quant1.png"/> </p>
 <p>Such a superposition is the basic unit of encoded information in quantum computers. It is called a <em>qubit</em>.   </p>
 <p>This linear superposition is however private  to the electron. For us to get a glimpse of the electron's state, we must make a <em>measurment</em>, and when we do get a single bit of information, 0 or 1.   </p>
-<p><img alt="alt" src="/images/algdg/10_quant2.png"/> </p>
+<p><img alt="" src="/images/algdg/10_quant2.png"/> </p>
 <p>How do we encode <span class="math">\(n\)</span> bits of information? We could choose <span class="math">\(k=2^n\)</span> levels of the hydrogen atom. But a more promising option is to use <span class="math">\(n\)</span> qubits.   </p>
-<p><img alt="alt" src="/images/algdg/10_quant3.png"/> <br/>
-<img alt="alt" src="/images/algdg/10_quant4.png"/> </p>
+<p><img alt="" src="/images/algdg/10_quant3.png"/> <br/>
+<img alt="" src="/images/algdg/10_quant4.png"/> </p>
 <p>In this phenomenon lies the basic motivation for quantum computation. After all, if Nature is so extravagant at the quantum level, why should we base our computers on classical physics? Why not tap into this massive amount of effort being expended at the quantum level?   </p>
 <p>But there is a fundamental problem: this exponentially large linear superposition is the private world of the electrons. Measuring the system only reveals <span class="math">\(n\)</span> bits of information. As before, the probability that the outcome is a particular 500-bit string <span class="math">\(x\)</span> is <span class="math">\(|\alpha_x|^2\)</span>. And the new state after measurement is just <span class="math">\(|x&gt;\)</span>.   </p>
 <h3 id="the-plan"><strong>The plan</strong></h3>
@@ -153,7 +153,7 @@ If the input is an <span class="math">\(n\)</span>-bit string <span class="math"
 </ul>
 <h3 id="the-quantum-fourier-transform"><strong>The Quantum Fourier Transform</strong></h3>
 <p>The FFT, <br/>
-<img alt="alt" src="/images/algdg/10_quant5.png"/> </p>
+<img alt="" src="/images/algdg/10_quant5.png"/> </p>
 <p>where <span class="math">\(\omega\)</span> is a complex <span class="math">\(M\)</span>th root of unity(the extra factor of <span class="math">\(\sqrt{M}\)</span> has the effect of ensuring that is the <span class="math">\(|\alpha_i|^2\)</span> add up to 1, then so do the <span class="math">\(|\beta_i|^2\)</span>). Although the proceeding equation suggests an <span class="math">\(O(M^2)\)</span> algorithm, the classical <em>FFT</em> is able to perform this calculation in just <span class="math">\(O(M\log{M})\)</span> steps, and it is this speedup that has the profound effect of making digital signal processing practically feasible. We will now see that quantum computers can implement the FFT <em>exponentially</em> faster, in <span class="math">\(O(\log^2M)\)</span> time!   </p>
 <p>But waut, how can any algorithm take time less than <span class="math">\(M\)</span>, the length of the input? The point is that we can encode the input in a superposition of just <span class="math">\(m = \log{M}\)</span> qubits; after all, this superposition of <span class="math">\(2m\)</span> amplitude values.   </p>
 <p>Starting from this input superposition <span class="math">\(\alpha\)</span> , the <em>quantum Fourier transform(QFT)</em> manipulates it appropriately in <span class="math">\(m = \log M\)</span> stages. At each stage the superposition evolves so that it
@@ -165,33 +165,33 @@ system. <br/>
 Thus the only way to get our hands on this result is by measuring it! And measuring the state of the system only yields <span class="math">\(m = \log M\)</span> classical bits: specifically, the output is index <span class="math">\(j\)</span> with probability <span class="math">\(|\beta_j|^2\)</span>. <br/>
 So, instead of QFT, it would be more accurate to call this algorithm <em>quantum Fourier sampling</em>. Moreover, even though we have confined our attention to the case <span class="math">\(M = 2m\)</span> in this
 section, the algorithm can be implemented for arbitrary values of M, and can be summarized as follows:</p>
-<p><img alt="alt" src="/images/algdg/10_quant6.png"/> </p>
+<p><img alt="" src="/images/algdg/10_quant6.png"/> </p>
 <p>Quantum Fourier sampling is basically a quick way of getting a very rough idea about the output of the classical FFT, just detecting one of the larger components of the answer vector. <br/>
 In fact, we don&rsquo;t even see the value of that component&mdash;we only see its index. How can we use such meager information? In which applications of the FFT is just the index of the large components enough? This is what we explore next.   </p>
 <h3 id="periodicity"><strong>Periodicity</strong></h3>
 <p>Suppose that the input to the QFT, <span class="math">\(\alpha = (\alpha_0, \alpha_1,... , \alpha_{M&minus;1})\)</span>, is such that <span class="math">\(\alpha_i = \alpha_j\)</span> whenever <span class="math">\(i \equiv j \pmod k\)</span>, where <span class="math">\(k\)</span> is a particular integer that divides <span class="math">\(M\)</span>. That is, the array <span class="math">\(\alpha\)</span> consists of <span class="math">\(M/k\)</span> repetitions of some sequence <span class="math">\((\alpha_0, \alpha_1,..., \alpha_{k&minus;1})\)</span> of length k. Moreover, suppose that exactly one of the <span class="math">\(k\)</span> numbers <span class="math">\(\alpha_0,... , \alpha_{k&minus;1}\)</span> is nonzero, say <span class="math">\(\alpha_j\)</span>. Then we say that <span class="math">\(\alpha\)</span> is <em>periodic with period <span class="math">\(k\)</span> and offset <span class="math">\(j\)</span></em>.   </p>
-<p><img alt="alt" src="/images/algdg/10_quant7.png"/> </p>
+<p><img alt="" src="/images/algdg/10_quant7.png"/> </p>
 <p>It turns out that if the input vector is periodic, we can use quantum Fourier sampling to compute its period! This is based on the following fact, proved in the next lines:   </p>
 <p>Suppose the input to quantum Fourier sampling is periodic with period <span class="math">\(k\)</span>, for some <span class="math">\(k\)</span> that divides <span class="math">\(M\)</span>. Then the output will be a multiple of <span class="math">\(M/k\)</span>, and it is equally likely to be any of the <span class="math">\(k\)</span> multiples of <span class="math">\(M/k\)</span>.   </p>
 <p>Now a little thought tells us that by repeating the sampling a few times (repeatedly preparing the periodic superposition and doing Fourier sampling), and then taking the greatest common divisor of all the indices returned, we will with very high probability get the number <span class="math">\(M/k\)</span> &mdash; and from it the period <span class="math">\(k\)</span> of the input!   </p>
-<p><img alt="alt" src="/images/algdg/10_quant8.png"/> </p>
+<p><img alt="" src="/images/algdg/10_quant8.png"/> </p>
 <h3 id="quantum-circuits"><strong>Quantum Circuits</strong></h3>
 <p>So quantum computers can carry out a Fourier transform exponentially faster than classical computers. But what do these computers actually look like? What is a quantum circuit made up of, and exactly how does it compute Fourier transforms so quickly?   </p>
 <p><strong>Elementary quantum gates</strong> </p>
 <p>An elementary quantum operation is analogous to an elementary gate like the <code>AND</code> or <code>NOT</code>
 gate in a classical circuit. It operates upon either a single qubit or two qubits. One of the most
 important examples is the <em>Hadamard gate</em>, denoted by <span class="math">\(H\)</span>, which operates on a single qubit.</p>
-<p><img alt="alt" src="/images/algdg/10_quant9.png"/> </p>
+<p><img alt="" src="/images/algdg/10_quant9.png"/> </p>
 <p>Notice that in either case, measuring the resulting qubit yields <span class="math">\(0\)</span> with probability <span class="math">\(1/2\)</span> and <span class="math">\(1\)</span> with probability <span class="math">\(1/2\)</span>. But what happens if the input to the Hadamard gate is an arbitrary superposition <span class="math">\(\alpha_0 |0&gt; + \alpha_1 |1&gt;\)</span> ? The answer, dictated by the linearity of quantum physics, is the superposition <span class="math">\(\alpha_0H( 0 ) + \alpha_1H( 1 ) = \alpha_0\sqrt2 \alpha_1 |0&gt; + \alpha_0\sqrt{&minus;2} \alpha_1 |1&gt;\)</span> . And so, if we apply the Hadamard gate to the output of a Hadamard gate, it restores the qubit to its original state!   </p>
 <p>Another basic gate is the <em>controlled-NOT</em>, or <em>CNOT</em>. It operates upon two qubits, with the first acting as a control qubit and the second as the target qubit. The <em>CNOT</em> gate flips the second bit if and only if the first qubit is a 1. Thus CNOT( 00 ) = 00 and CNOT( 10 ) = 11 :   </p>
-<p><img alt="alt" src="/images/algdg/10_quant10.png"/> </p>
+<p><img alt="" src="/images/algdg/10_quant10.png"/> </p>
 <p>Yet another basic gate, the controlled phase gate, is described below in the subsection describing the quantum circuit for the QFT.</p>
 <p>Now let us consider the following question: Suppose we have a quantum state on n qubits, <span class="math">\(\alpha = P_x\in\{0,1\}_n \alpha_x x\)</span> . How many of these <span class="math">\(2n\)</span> amplitudes change if we apply the Hadamard gate to only the first qubit? The surprising answer is&mdash;all of them! The new superposition becomes <span class="math">\(\beta = P_x\in\{0,1\}_n \beta_x x\)</span> , where <span class="math">\(\beta_0y = \alpha_0y\sqrt{2} + \alpha_1y and \beta_1y = \alpha_0y\sqrt{&minus;2}\alpha_1y\)</span> . Looking at the results more closely, the quantum operation on the first qubit deals with each <span class="math">\(n &minus; 1\)</span> bit suffix <span class="math">\(y\)</span> separately. Thus the pair of amplitudes <span class="math">\(\alpha_0y\)</span> and <span class="math">\(\alpha_1y\)</span> are transformed into <span class="math">\((\alpha_0y + \alpha_1y)/\sqrt2\)</span> and <span class="math">\((\alpha_0y &minus;\alpha_1y)/\sqrt2\)</span>. This is exactly the feature that will give us an exponential speedup in the quantum Fourier transform.   </p>
 <p><strong>Two basic types of quantum circuits</strong> </p>
 <p>A quantum circuit takes some number n of qubits as input, and outputs the same number of qubits. In the diagram these n qubits are carried by the n wires going from left to right. The quantum circuit consists of the application of a sequence of elementary quantum gates (of the kind described above) to single qubits and pairs of qubits. At a high level, there are two basic functionalities of quantum circuits that we use in the design of quantum algorithms:</p>
 <p><strong>Quantum Fourier Transform</strong> These quantum circuits take as input n qubits in some state <span class="math">\(\alpha\)</span> and output the state <span class="math">\(\alpha\)</span> resulting from applying the QFT to <span class="math">\(\alpha\)</span>.
 <strong>Classical Functions</strong> Consider a function f with n input bits and m output bits, and suppose we have a classical circuit that outputs f(x). Then there is a quantum circuit that, on input consisting of an n-bit string x padded with m 0&rsquo;s, outputs x and f(x):</p>
-<p><img alt="alt" src="/images/algdg/10_quant11.png"/> </p>
+<p><img alt="" src="/images/algdg/10_quant11.png"/> </p>
 <p>Understanding quantum circuits at this high level is sufficient to follow the rest of this chapter. The next subsection on quantum circuits for the QFT can therefore be safely skipped by anyone not wanting to delve into these details.</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "left",
@@ -343,13 +343,13 @@ important examples is the <em>Hadamard gate</em>, denoted by <span class="math">
 <li class="list-group-item">
   <a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
   <ul class="list-group list-inline tagcloud" id="tags">
-    <li class="list-group-item tag-1">
+    <li class="list-group-item tag-2">
       <a href="/tag/algorithms/">algorithms</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="/tag/blogging/">blogging</a>
     </li>
-    <li class="list-group-item tag-3">
+    <li class="list-group-item tag-2">
       <a href="/tag/data-science/">data-science</a>
     </li>
     <li class="list-group-item tag-2">

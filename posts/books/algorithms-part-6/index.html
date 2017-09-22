@@ -189,7 +189,7 @@ We want to find n disjoint triplets.   </p>
 <p><em>SUBSET SUM</em>, Find a subset of a given set of integers that add up yo exactly <span class="math">\(W\)</span>.   </p>
 <h3 id="np-complete-problems_1"><strong>NP-complete problems</strong></h3>
 <p><strong>Hard problems, easy problems</strong> <br/>
-<img alt="alt" src="/images/algdg/8_nph1.png"/> </p>
+<img alt="" src="/images/algdg/8_nph1.png"/> </p>
 <p>The various problems on the right can be solved by different types of algorithms, these problems are easy for a variety of reasons. <br/>
 In contrast, the problems on the left are <strong>all difficult for the same reasons!</strong> <br/>
 They are all the same problem, just in different disguises! They are all <em>equivalent</em>.   </p>
@@ -201,9 +201,9 @@ The class of all search problems that can be solved in polynomial time is denote
 <strong>NP</strong> = nondeterministic polynomial time</p>
 <h4 id="reductions-again"><strong>Reductions, again</strong></h4>
 <p>A reduction from search problem <strong>A</strong> to search problem <strong>B</strong> is a polynomial time algorithm <strong>f</strong> that transforms any instance <strong>I</strong> of <strong>A</strong> into an instance <strong>f(I)</strong> of <strong>B</strong>., together with another polynomial time algorithm <strong>h</strong> that maps any solution <strong>S</strong> of <strong>f(I)</strong> back into a solution <strong>h(S)</strong> of <strong>I</strong> .   </p>
-<p><img alt="alt" src="/images/algdg/8_nph2.png"/> </p>
+<p><img alt="" src="/images/algdg/8_nph2.png"/> </p>
 <p>A search problem is <strong>NP-complete</strong> if all other search problems reduce to it. <br/>
-<img alt="alt" src="/images/algdg/8_nph3.png"/> </p>
+<img alt="" src="/images/algdg/8_nph3.png"/> </p>
 <h4 id="factoring"><strong>Factoring</strong></h4>
 <p>The task of finding all prime factors of a given integer. <br/>
 The difficulty in factoring is of a different nature than that of the other hard search problems. <br/>
@@ -211,11 +211,11 @@ Nobody believes that factoring is <strong>NP-complete</strong>. <br/>
 One difference, the definition does not contain the clause, "or report that none exist". A number can always be factored into primes. <br/>
 Another difference, factoring succumbs to the power of <em>quantum computation</em>. while other NP-complete problems do not seem to.   </p>
 <h3 id="the-reductions_1"><strong>The Reductions</strong></h3>
-<p><img alt="alt" src="/images/algdg/8_nph4.png"/> </p>
+<p><img alt="" src="/images/algdg/8_nph4.png"/> </p>
 <div class="math">$$\underline{\mathrm{RUDRATA}(s,t)\mathrm{-PATH} \to \mathrm{RUDRATA\,CYCLE}}$$</div>
 <p> <br/>
-<img alt="alt" src="/images/algdg/8_nph5.png"/> <br/>
-<img alt="alt" src="/images/algdg/8_nph6.png"/> </p>
+<img alt="" src="/images/algdg/8_nph5.png"/> <br/>
+<img alt="" src="/images/algdg/8_nph6.png"/> </p>
 <div class="math">$$\underline{\mathrm{3SAT} \to \mathrm{INDEPENDENT\,SET}}$$</div>
 <p> <br/>
 <em>3SAT</em> , example <br/>
@@ -223,7 +223,7 @@ Another difference, factoring succumbs to the power of <em>quantum computation</
 <div class="math">$$(\bar x \lor y \lor \bar z)(x \lor \bar y \lor z)(x \lor y \lor z)(z \lor \bar x)(\bar x \lor \bar y)$$</div>
 <p><em>INDEPENDENT SET</em>, <br/>
 a graph and a number g. <br/>
-<img alt="alt" src="/images/algdg/8_nph7.png"/> </p>
+<img alt="" src="/images/algdg/8_nph7.png"/> </p>
 <p>The above graph has been constructed as follows   </p>
 <ul>
 <li>Graph <span class="math">\(G\)</span> has a triangle for each clause(or just an edge, if the clause has two literals), with vertices labeled by the clause's literals, and has additional edges between any two vertices that represent opposite literals.   </li>
@@ -239,7 +239,7 @@ with, <br/>
 </p>
 <div class="math">$$(a_1 \lor a_2 \lor y_1)(\bar y_1 \lor a_3 \lor y_3)(\bar y_2 \lor a_4 \lor y_3)...(\bar y_{k-3} \lor a_{k-1} \lor a_k ),$$</div>
 <p>
-<img alt="alt" src="/images/algdg/8_nph8.png"/> </p>
+<img alt="" src="/images/algdg/8_nph8.png"/> </p>
 <div class="math">$$\underline{\mathrm{INDEPENDENT\,SET} \to \mathrm{VERTEX\,COVER}}$$</div>
 <p> <br/>
 Some reductions rely on ingenuity to relate two very different problems. Others simply record the fact that one problem is a thin disguise of another. To reduce <span class="math">\(\mathrm{INDEPENDENT\,SET}\)</span> to <span class="math">\(\mathrm{VERTEX\,COVER}\)</span> we just need to notice that a set of nodes <span class="math">\(S\)</span> is a vertex cover of graph <span class="math">\(G = (V,E)\)</span> (that is <span class="math">\(S\)</span> touches every edge in <span class="math">\(E\)</span>) if and only if the remaining nodes, <span class="math">\(V-S\)</span>, are an independent set of <span class="math">\(G\)</span>.   </p>
@@ -251,11 +251,11 @@ Then, a set of nodes is an Independent set in <span class="math">\(G\)</span>, i
 Therefore, the solution to both is identical.   </p>
 <div class="math">$$\underline{\mathrm{3SAT} \to \mathrm{3D\,MATCHING}}$$</div>
 <p> <br/>
-<img alt="alt" src="/images/algdg/8_nph9.png"/> <br/>
+<img alt="" src="/images/algdg/8_nph9.png"/> <br/>
 = a boolean variable.   </p>
 <div class="math">$$\underline{\mathrm{3D\,MATCHING} \to \mathrm{ZOE}}$$</div>
 <p> <br/>
-<img alt="alt" src="/images/algdg/8_nph10.png"/> </p>
+<img alt="" src="/images/algdg/8_nph10.png"/> </p>
 <div class="math">$$\underline{\mathrm{ZOE} \to \mathrm{SUBSET\,SUM}}$$</div>
 <p> <br/>
 When we look at a <span class="math">\(\mathrm{ZOE}\)</span>(like the one shown above), we are looking for a set of columns of <span class="math">\(A\)</span> that, added together, make up the all-1'a vector. But if we think of the columns as binary integers(read from top to bottom), we are looking for a  subset of the integers that add up to the binary integers with all 1's , i.e. 511. And this is an instance of <span class="math">\(\mathrm{SUBSET\,SUM}\)</span>. The reduction is complete!   </p>
@@ -271,7 +271,7 @@ Think of the column vectors not as integers in base 2, but as integers in base <
 <p><strong>Backtracking</strong> <br/>
 Based on the observation that it is often possible to reject a solution by looking at just a small part of it.   </p>
 <p>An example SAT problem. <br/>
-<img alt="alt" src="/images/algdg/9_back1.png"/> </p>
+<img alt="" src="/images/algdg/9_back1.png"/> </p>
 <p>The associated algorithm, <br/>
 </p>
 <div class="math">$$
@@ -311,7 +311,7 @@ At each step of the branch-and-bound algorithm, we extend a particular partial s
 <li>The minimum spanning tree of <span class="math">\(V-S\)</span>.   </li>
 </ol>
 <p>(Do you see why?) And this lower bound can be computed quickly by a minimum spanning tree algorithm.  <br/>
-<img alt="alt" src="/images/algdg/9_back2.png"/> </p>
+<img alt="" src="/images/algdg/9_back2.png"/> </p>
 <h3 id="approximation-algorithms"><strong>Approximation algorithms</strong></h3>
 <p>Approximation factor, <br/>
 </p>
@@ -321,7 +321,7 @@ At each step of the branch-and-bound algorithm, we extend a particular partial s
 Input: \text{ An undirected graph } G = (V,E)\\
 Output: \text{ A subset of the vertices } S \subseteq V \text{ that touches every edge.}\\
 Goal: \text{ Minimize } |S|$$</div>
-<p><img alt="alt" src="/images/algdg/9_back3.png"/> </p>
+<p><img alt="" src="/images/algdg/9_back3.png"/> </p>
 <div class="math">$$Find\,a\,maximal\,matching\, M \subseteq E\\
 Return\; S = \{all\,endpoints\,of\,edges\,in\,M\}$$</div>
 <h4 id="clustering"><strong>Clustering</strong></h4>
@@ -341,7 +341,7 @@ Assume that we have such distances and they satisfy these metric properties.   <
 </p>
 <div class="math">$$max_j max_{x_a,x_b \in C_j} d(x_a, x_b)$$</div>
 <p>.   </p>
-<p><img alt="alt" src="/images/algdg/9_back4.png"/> </p>
+<p><img alt="" src="/images/algdg/9_back4.png"/> </p>
 <p><em>Pick any point <span class="math">\(\mu_1 \in X\)</span> as the first cluster center.</em> <br/>
 <em>for <span class="math">\(i = 2\)</span> to <span class="math">\(k\)</span>:</em> <br/>
 <em><span class="math">\(\quad\)</span> Let <span class="math">\(\mu_i\)</span> be the point in <span class="math">\(X\)</span> <span class="math">\(that\)</span> <span class="math">\(is\)</span> farthest from <span class="math">\(\mu_1...\mu_{i-1}\)</span></em> <br/>
@@ -371,18 +371,18 @@ If the dustances in a TSP satisfy the triangle inequality metric, we can approxi
 <p>Notion of neighborhood of solutions in the search space of <span class="math">\((n-1)!\)</span> different tours ?   </p>
 <p>2-change neighborhood of tour <span class="math">\(s\)</span> : set of tours that can be obtained by removing two edges of <span class="math">\(s\)</span> and then putting in two edges. <br/>
 <span class="math">\(O(n^2)\)</span> neighbors.   </p>
-<p><img alt="alt" src="/images/algdg/9_back5.png"/> <br/>
-<img alt="alt" src="/images/algdg/9_back6.png"/> </p>
+<p><img alt="" src="/images/algdg/9_back5.png"/> <br/>
+<img alt="" src="/images/algdg/9_back6.png"/> </p>
 <p>In general, the search space might be riddled with local optima, and some of them may be of very poor quality. The hope is that with a judicious choice of neighborhood structures, most local optima will be reasonable. Whether this is the reality or merely misplaced faith, it is an empirical fact that local searcg algorithms are the tp performers on a broad range of optimization problems. Let's look at another such example.   </p>
 <h4 id="graph-partitioning"><strong>Graph partitioning</strong></h4>
 <p><em>Input:</em> An undirected graph <span class="math">\(G = (V,E)\)</span> with non-negative edge weights; a real number <span class="math">\(\alpha \in (0,1/2)\)</span>. <br/>
 <em>Output :</em> A partition of the vertices into two groups <span class="math">\(A\)</span> and <span class="math">\(B\)</span>, each of size at least <span class="math">\(\alpha|V|\)</span>. <br/>
 <em>Goal :</em> Minimize the capacity of the cut <span class="math">\((A,B)\)</span>.   </p>
-<p><img alt="alt" src="/images/algdg/9_back7.png"/> <br/>
+<p><img alt="" src="/images/algdg/9_back7.png"/> <br/>
 We need to decide upon a neighborhood structure for our problem, and there is one obvious way to do this. Let <span class="math">\((A,B)\)</span>, with <span class="math">\(|A|=|B|\)</span>, be a candidate solution, we will define its neighbors to be all solutions obtainable by swapping on ee pair of vertices across the cut, that is, all solutions of the form <span class="math">\((A-\{a\}+\{b\}, B-\{b\}+\{a\})\)</span> where <span class="math">\(a\in A\)</span> and <span class="math">\(b \in B\)</span>. Here's an example of a local move. <br/>
-<img alt="alt" src="/images/algdg/9_back8.png"/> </p>
+<img alt="" src="/images/algdg/9_back8.png"/> </p>
 <p>We now have a reasonable local search procedures, and we could just stop here. But there is still a lot of room for improvement in terms of the <em>quality</em> of the solutions produced. The search space includes some local optima that are quite far from the global solution. Here's one which has cost 2. <br/>
-<img alt="alt" src="/images/algdg/9_back9.png"/> <br/>
+<img alt="" src="/images/algdg/9_back9.png"/> <br/>
 What can be done about such suboptimal solutions? We could expand the neighborhood size to allow two swaps at a time, but this particular bad instance would still stubbornly resist. Instead, let's look at some other generic schemes for improving local search procedures.   </p>
 <h4 id="dealing-with-local-optima"><strong>Dealing with local optima</strong></h4>
 <p><strong>Randomization and restarts</strong> </p>
@@ -398,7 +398,7 @@ What can be done about such suboptimal solutions? We could expand the neighborho
 The trick is to start <span class="math">\(T\)</span> large and then gradually reduce it to zero. Thus initially, the local search can wander around quite freely, with only a mild preference for low-cost solutions. As time foes on, this preference becomes stronger, and the system mostly sticks to the lower-cost region of the search space, with occasional excursions out of it to escape local optima. Eventually, when the temperature drops further, the system converges on a solution. <br/>
 Simulated annealing is inspired by the physics of crystallization. When a substance is to be crystallized, it starts in liquid state, with its particles in relatively unconstrained motion. Then it is slowly cooled, and as this happens, the particles gradually move into more regular configurations. This regularity becomes more and more pronounced until finally a crystal lattice is formed. <br/>
 The benefits of simulated annealing comes at a significant cost: because of the changing temperature and the initial freedom of movement, many more local moves are needed until convergence. Moreover, it is quite an art to choose a good timetable by which to decrease the temperature, called <em>annealing schedule</em>. But in many cases where the quality of solutions improves significantly. the tradeoff is worthwhile.   </p>
-<p><img alt="alt" src="/images/algdg/9_back9.png"/> </p>
+<p><img alt="" src="/images/algdg/9_back9.png"/> </p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "left",
         indent = "0em",
@@ -552,13 +552,13 @@ The benefits of simulated annealing comes at a significant cost: because of the 
 <li class="list-group-item">
   <a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
   <ul class="list-group list-inline tagcloud" id="tags">
-    <li class="list-group-item tag-1">
+    <li class="list-group-item tag-2">
       <a href="/tag/algorithms/">algorithms</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="/tag/blogging/">blogging</a>
     </li>
-    <li class="list-group-item tag-3">
+    <li class="list-group-item tag-2">
       <a href="/tag/data-science/">data-science</a>
     </li>
     <li class="list-group-item tag-2">

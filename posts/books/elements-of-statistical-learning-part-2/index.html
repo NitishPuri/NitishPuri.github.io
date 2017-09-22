@@ -13,13 +13,13 @@
 
         <meta name="author" content="Trevor Hastie, Robert Tibshirani, Jerome Friedman" />
         <meta name="keywords" content="data-science,notes" />
-        <meta name="description" content="Chapter 7-11 of Elements Of Statistical Learning" />
+        <meta name="description" content="Chapter 7-13 of Elements Of Statistical Learning" />
 
         <meta property="og:site_name" content="nitishpuri.github.io" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Elements Of Statistical Learning, Part 2"/>
         <meta property="og:url" content="/posts/books/elements-of-statistical-learning-part-2/"/>
-        <meta property="og:description" content="Chapter 7-11 of Elements Of Statistical Learning"/>
+        <meta property="og:description" content="Chapter 7-13 of Elements Of Statistical Learning"/>
         <meta property="article:published_time" content="2017-09-15" />
             <meta property="article:section" content="books" />
             <meta property="article:tag" content="data-science" />
@@ -124,7 +124,7 @@ nitishpuri.github.io            </a>
                 
                 <p>Contents:</p>
                 <nav class="toc">
-                  <div id="toc"><ul><li><a class="toc-href" href="#chapter-7-model-assessment-and-selection" title="Chapter 7: Model Assessment and Selection">Chapter 7: Model Assessment and Selection</a></li><li><a class="toc-href" href="#chapter-8-model-inference-and-averaging" title="Chapter 8: Model Inference and Averaging">Chapter 8: Model Inference and Averaging</a></li></ul></div>
+                  <div id="toc"><ul><li><a class="toc-href" href="#chapter-7-model-assessment-and-selection" title="Chapter 7: Model Assessment and Selection">Chapter 7: Model Assessment and Selection</a></li><li><a class="toc-href" href="#chapter-8-model-inference-and-averaging" title="Chapter 8: Model Inference and Averaging">Chapter 8: Model Inference and Averaging</a></li><li><a class="toc-href" href="#chapter-9-additive-models-trees-and-related-methods" title="Chapter 9: Additive Models, Trees, and Related Methods">Chapter 9: Additive Models, Trees, and Related Methods</a></li><li><a class="toc-href" href="#chapter-10-boosting-and-additive-trees" title="Chapter 10: Boosting and Additive Trees">Chapter 10: Boosting and Additive Trees</a></li><li><a class="toc-href" href="#chapter-11-neural-networks" title="Chapter 11: Neural Networks">Chapter 11: Neural Networks</a></li><li><a class="toc-href" href="#chapter-12-support-vector-machines-and-flexible-discriminants" title="Chapter 12: Support Vector Machines and Flexible Discriminants">Chapter 12: Support Vector Machines and Flexible Discriminants</a></li><li><a class="toc-href" href="#chapter-13-prototype-methods-and-nearest-neighbors" title="Chapter 13: Prototype Methods and Nearest-Neighbors">Chapter 13: Prototype Methods and Nearest-Neighbors</a></li></ul></div>
                 </nav>
                 <hr>
                 
@@ -132,10 +132,10 @@ nitishpuri.github.io            </a>
 <ul>
 <li>Introduction</li>
 <li>Bias, Variance and Model Complexity
-<img alt="alt" src="/images/esl/7_bias_var.png"/>
-<img alt="alt" src="/images/esl/7_cross_val.png"/></li>
+<img alt="" src="/images/esl/7_bias_var.png"/>
+<img alt="" src="/images/esl/7_cross_val.png"/></li>
 <li>The Bias-Variance Decomposition
-<img alt="alt" src="/images/esl/7_bias_var_trade.png"/><ul>
+<img alt="" src="/images/esl/7_bias_var_trade.png"/><ul>
 <li>Example : Bias-Variance Tradeoff</li>
 </ul>
 </li>
@@ -158,6 +158,102 @@ nitishpuri.github.io            </a>
 <li>Conditional or Expected Test Error? ☠ </li>
 </ul>
 <h2 id="chapter-8-model-inference-and-averaging">Chapter 8: Model Inference and Averaging</h2>
+<ul>
+<li>Introduction: Provides a general exposition of maximum likelihood approach and the Bayesian method of inference.   </li>
+<li>The Bootstrap and Maximum Likelihood<ul>
+<li>A <em>model-free, non-parametric</em> method for prediction.</li>
+</ul>
+</li>
+<li>Bayesian Methods</li>
+<li>Relationship Between the Bootstrap and Bayesian Inference ☠ </li>
+<li>The EM Algorithm</li>
+<li>The EM algorithm in General ☠</li>
+<li>MCMC(Markov Chain Monte-Carlo) for sampling from the Posterior </li>
+<li>Bagging</li>
+<li>Stochastic Search : Bumping</li>
+</ul>
+<h2 id="chapter-9-additive-models-trees-and-related-methods">Chapter 9: Additive Models, Trees, and Related Methods</h2>
+<ul>
+<li>Generalized Additive Models<ul>
+<li>Provides an extension to linear models, making them more flexible while retaining much of their interpretability.</li>
+</ul>
+</li>
+<li>Tree Based Methods<ul>
+<li>Regression and Classification trees.</li>
+<li>Gini index and Cross Entropy loss</li>
+<li>Overfitting</li>
+<li>Lack of smoothness</li>
+</ul>
+</li>
+<li>PRIM(Patient Rule Induction Method) : Bump Hunting</li>
+<li>MARS: Multivariate Adaptive Regression Splines</li>
+<li>Hierarchical Mixture of Experts</li>
+</ul>
+<h2 id="chapter-10-boosting-and-additive-trees">Chapter 10: Boosting and Additive Trees</h2>
+<ul>
+<li>Boosting Methods<ul>
+<li>Combines the output of many <em>"weak"</em> classifiers to produce a powerful <em>"committee"</em>. </li>
+<li>AdaBoost</li>
+</ul>
+</li>
+<li>Boosting Fits an Additive Model</li>
+<li>"Off the Shelf" Procedures for Data Mining</li>
+<li>Boosting Trees</li>
+<li>Numerical Optimization via Gradient Boosting</li>
+<li>Regularization<ul>
+<li>Shrinkage</li>
+<li>Subsampling</li>
+</ul>
+</li>
+</ul>
+<h2 id="chapter-11-neural-networks">Chapter 11: Neural Networks</h2>
+<ul>
+<li>Projection Pursuit Regression</li>
+<li>Neural Networks</li>
+<li>Fitting Neural Networks</li>
+<li>Issues in Training Neural Nets<ul>
+<li>Initizlization</li>
+<li>Overfitting</li>
+<li>Scaling of the Inputs</li>
+<li>Number of hidden units and layers</li>
+<li>Multiple Minima</li>
+</ul>
+</li>
+<li>Performance comparion </li>
+<li>Computational Considerations</li>
+</ul>
+<h2 id="chapter-12-support-vector-machines-and-flexible-discriminants">Chapter 12: Support Vector Machines and Flexible Discriminants</h2>
+<ul>
+<li>The Support Vector Classifier<ul>
+<li>maximizing margin.</li>
+<li>Computing the Support Vector Classifier ☠</li>
+</ul>
+</li>
+<li>Support Vector Machines and Kernals<ul>
+<li>Computing the SVM for Classification</li>
+<li>The SVM as a Penalization Method</li>
+<li>Function Estimation and Reproducing Kernals ☠</li>
+<li>SVMs and the Curse of Dimensionality</li>
+<li>A Path Algorithm for the SVM Classifier ☠</li>
+<li>Support Vector Machines for Regression </li>
+<li>Regression and Kernals</li>
+</ul>
+</li>
+<li>Generalizing Linear Discriminant Analysis</li>
+<li>Flexible Discriminant Analysis</li>
+<li>Penalized Discriminant Analysis</li>
+</ul>
+<h2 id="chapter-13-prototype-methods-and-nearest-neighbors">Chapter 13: Prototype Methods and Nearest-Neighbors</h2>
+<ul>
+<li>Prototype Methods<ul>
+<li>K-means Clustering</li>
+<li>Learning Vector Quantization</li>
+<li>Gaussian Mixtures</li>
+<li>k-Nearest-Neighbors Classifiers</li>
+</ul>
+</li>
+<li>Adaptive Nearest-Neighbors Methods</li>
+</ul>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "left",
         indent = "0em",
@@ -221,6 +317,10 @@ nitishpuri.github.io            </a>
        <h5>Previous articles</h5>
        <ul>
            <li><a href="/posts/books/elements-of-statistical-learning-part-1/">Elements Of Statistical Learning, Part 1</a></li>
+       </ul>
+       <h5>Next articles</h5>
+       <ul>
+           <li><a href="/posts/books/elements-of-statistical-learning-part-3/">Elements Of Statistical Learning, Part 3</a></li>
        </ul>
 </section>
     <hr />
@@ -303,13 +403,13 @@ nitishpuri.github.io            </a>
 <li class="list-group-item">
   <a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
   <ul class="list-group list-inline tagcloud" id="tags">
-    <li class="list-group-item tag-1">
+    <li class="list-group-item tag-2">
       <a href="/tag/algorithms/">algorithms</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="/tag/blogging/">blogging</a>
     </li>
-    <li class="list-group-item tag-3">
+    <li class="list-group-item tag-2">
       <a href="/tag/data-science/">data-science</a>
     </li>
     <li class="list-group-item tag-2">
@@ -359,6 +459,10 @@ nitishpuri.github.io            </a>
     <li class="list-group-item">
       <h5></i>Previous article</h5>
       <a href="/posts/books/elements-of-statistical-learning-part-1/">Elements Of Statistical Learning, Part 1</a>
+    </li>
+    <li class="list-group-item">
+      <h5>Next article</h5>
+      <a href="/posts/books/elements-of-statistical-learning-part-3/">Elements Of Statistical Learning, Part 3</a>
     </li>
   </ul>
 </li>
