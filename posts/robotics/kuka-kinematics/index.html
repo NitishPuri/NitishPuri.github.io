@@ -12,15 +12,19 @@
 <link rel="canonical" href="/posts/robotics/kuka-kinematics/">
 
         <meta name="author" content="Nitish Puri" />
-        <meta name="description" content="https://github.com/NitishPuri/RoboND-Kinematics-Project/blob/master/writeup.md" />
+        <meta name="keywords" content="udacity,robotics,projects" />
+        <meta name="description" content="Picking and placing objects is something that we as humans take for granted. That&#39;s not the case for our mechanical(and electronic) friends. They have to 1. Calculate an optimal collision-free path from the source to target location. 2. Perform inverse kinematics to control the joints on your arm. 3 …" />
 
         <meta property="og:site_name" content="nitishpuri.github.io" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Kuka Kinematics"/>
         <meta property="og:url" content="/posts/robotics/kuka-kinematics/"/>
-        <meta property="og:description" content="https://github.com/NitishPuri/RoboND-Kinematics-Project/blob/master/writeup.md"/>
+        <meta property="og:description" content="Picking and placing objects is something that we as humans take for granted. That&#39;s not the case for our mechanical(and electronic) friends. They have to 1. Calculate an optimal collision-free path from the source to target location. 2. Perform inverse kinematics to control the joints on your arm. 3 …"/>
         <meta property="article:published_time" content="2017-08-08" />
             <meta property="article:section" content="robotics" />
+            <meta property="article:tag" content="udacity" />
+            <meta property="article:tag" content="robotics" />
+            <meta property="article:tag" content="projects" />
             <meta property="article:author" content="Nitish Puri" />
 
 
@@ -106,6 +110,12 @@ nitishpuri.github.io            </a>
 
 
 
+<span class="label label-default">Tags</span>
+	<a href="/tag/udacity/">udacity</a>
+        /
+	<a href="/tag/robotics/">robotics</a>
+        /
+	<a href="/tag/projects/">projects</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
@@ -119,9 +129,332 @@ nitishpuri.github.io            </a>
     </div>
     <!-- AddThis Button END -->
                 
+                <p>Contents:</p>
+                <nav class="toc">
+                  <div id="toc"><ul><li><a class="toc-href" href="#denavit-hartenberg-analysis" title="Denavit&ndash;Hartenberg Analysis">Denavit&ndash;Hartenberg Analysis</a></li><li><a class="toc-href" href="#now-the-ik-part" title="Now the IK part.">Now the IK part.</a></li><li><a class="toc-href" href="#next-steps" title="Next Steps">Next Steps</a></li></ul></div>
+                </nav>
+                <hr>
                 
-                <!-- https://github.com/HbirdJ/RoboND-Kinematics-Project -->
-<p>https://github.com/NitishPuri/RoboND-Kinematics-Project/blob/master/writeup.md</p>
+                <p>Picking and placing objects is something that we as humans take for granted. That's not the case for our mechanical(and electronic) friends. They have to 
+1. Calculate an optimal collision-free path from the source to target location.
+2. Perform inverse kinematics to control the joints on your arm.
+3. Pick the object cleanly,without knocking over other objects in your path(well, this one doesn't always go very well for us either).</p>
+<p>One of the most challenging projects that I did in my Udacity Robotics Nanodegree program was to control a 6-jointed robot arm to <code>pick</code> and <code>place</code> an object.    </p>
+<p><img alt="" src="/images/kuka/kuka1.jpg"/> </p>
+<p>I was given a trajectory that the arm should follow to reach the object, pick up and drop it at a given location. My job was to perform <em>inverse kinematic analysis</em> to calculate the joint positions that will move the gripper along the requested path.    </p>
+<p>Enter math.   </p>
+<p><img alt="" src="/images/kuka/annotated_image.jpg"/> <br/>
+<strong>Fig. 1</strong> : Shows the link frames(coordinate systems) choosen according to Modified DH convention discussed next. <span class="math">\(O_i\)</span> is the origin for link <span class="math">\(i\)</span> frame, and <span class="math">\(X_i\)</span>, <span class="math">\(Z_i\)</span> are the <span class="math">\(X\)</span> and <span class="math">\(Z\)</span> axis correspondingly, and <span class="math">\(Z\)</span> represents the axis of rotation(translation in case of prismatic joints). Since we are using a right handed coordinate system, <span class="math">\(Y_i\)</span> can be calculated accordingly.</p>
+<p>Here is a diagram of the gripper showing the degrees of freedom that the arm has, along with their reference frames. Computing through these transformations can become complex and tedious really fast. So, we use a convention.</p>
+<h3 id="denavit-hartenberg-analysis">Denavit&ndash;Hartenberg Analysis</h3>
+<p>The <a href="https://en.wikipedia.org/wiki/Denavit%E2%80%93Hartenberg_parameters">Denavit&ndash;Hartenberg(DH)</a> 
+convention is a commonly used system for selecting the <code>frames of reference</code> in robotics applications. They are particularly designed to cut out the number of free parameters required to specify the whole system. Here is an illustration,   </p>
+<p><img alt="" src="/images/kuka/dh-convention.jpg"/>
+<strong>Fig. 2 :</strong> Modified DH convention axes assignment and parameters.</p>
+<p>Here, <br/>
+<em> <span class="math">\(d_i\)</span> : Link offset, distance between <span class="math">\(X_{i-1}\)</span> and <span class="math">\(X_i\)</span>, measured along <span class="math">\(Z_{i-1}\)</span>, variable in prismatic joints.
+</em> <span class="math">\(\alpha_{i-1}\)</span> : Angle between <span class="math">\(Z_{i-1}\)</span> and <span class="math">\(Z_i\)</span>, measured along <span class="math">\(X_i\)</span>.
+<em> <span class="math">\(a_{i-1}\)</span> : Link length, distance between <span class="math">\(Z_{i-1}\)</span> and <span class="math">\(Z_i\)</span>, measured along <span class="math">\(Z_{i-1}\)</span>.
+</em> <span class="math">\(\theta_i\)</span> : Joint angle, Angle between <span class="math">\(X_{i-1}\)</span> and <span class="math">\(X_i\)</span>, measured along <span class="math">\(Z_i\)</span>, variable in revolute joints.</p>
+<p>So, according to this convention, the total transform between links <span class="math">\(L_{i-1}\)</span> and <span class="math">\(L_i\)</span> can be thought of as a <em>roation</em> by <span class="math">\(\alpha_{i-1}\)</span> along <span class="math">\(X_{i-1}\)</span>, <em>translation</em> by <span class="math">\(\alpha_{i-1}\)</span> along <span class="math">\(X_{i-1}\)</span>, <em>rotation</em> by <span class="math">\(\theta_i\)</span> along <span class="math">\(Z_i\)</span>, and finally <em>translation</em> by <span class="math">\(d_i\)</span> along <span class="math">\(Z_i\)</span>. That is,   </p>
+<div class="math">$$ T_{i-1}^{i} = R(x{i-1},, \alpha_{i-1}) \cdot T(x_{i-1}, a_{i-1}) \cdot R(z_i, \theta_i) \cdot T(z_i, d_i)$$</div>
+<p>Which, when expanded analytically, turns out to be,   </p>
+<div class="math">$$\begin{eqnarray} T_{i-1}^{i} = \begin{bmatrix}   
+ cos(\theta_i) &amp; -sin(\theta_i) &amp; 0 &amp; a_{i-1} \\   
+ sin(\theta_i)cos(\alpha{i-1}) &amp; cos(\theta_i)cos(\alpha{i-1}) &amp; -sin(\alpha{i-1}) &amp; -sin(\alpha{i-1})d_i \\   
+ sin(\theta_i)sin(\alpha{i-1}) &amp; cos(\theta_i)sin(\alpha{i-1}) &amp; cos(\alpha{i-1}) &amp; cos(\alpha{i-1})d_i \\   
+ 0 &amp; 0 &amp; 0 &amp; 1   
+\end{bmatrix} \end{eqnarray}$$</div>
+<p>Now, we can apply this convention to our robotic arm and find out all the required parameters for further analysis. Here are the model specifications and final DH-parameters, <br/>
+<img alt="" src="/images/kuka/urdf_annotation.jpg"/> </p>
+<table>
+<thead>
+<tr>
+<th><span class="math">\(Link_i\)</span></th>
+<th><span class="math">\(\alpha_{i-1}\)</span></th>
+<th><span class="math">\(a_{i-1}\)</span></th>
+<th><span class="math">\(d_i\)</span></th>
+<th>$\theta_i</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.75</td>
+<td>q1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>-pi/2</td>
+<td>0.35</td>
+<td>0</td>
+<td>q2 - pi/2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>1.25</td>
+<td>0</td>
+<td>q3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>-p1/2</td>
+<td>-0.054</td>
+<td>1.50</td>
+<td>q4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>pi/2</td>
+<td>0</td>
+<td>0</td>
+<td>q5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>-pi/2</td>
+<td>0</td>
+<td>0</td>
+<td>q6</td>
+</tr>
+<tr>
+<td>7(G)</td>
+<td>0</td>
+<td>0</td>
+<td>0.303</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Referring back to the transformation equation (1), transformation between two links can be defined separately, we use <a href="http://www.sympy.org/en/index.html">sympy</a> for symbolic computation, simplification and substitution.    </p>
+<div class="highlight"><pre><span></span><span class="c1"># Create transformation matrix between two links </span>
+<span class="c1"># according to Modified DH convention with given parameters  </span>
+<span class="k">def</span> <span class="nf">createMatrix</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+    <span class="n">mat</span> <span class="o">=</span>  <span class="n">Matrix</span><span class="p">([[</span>            <span class="n">cos</span><span class="p">(</span><span class="n">q</span><span class="p">),</span>           <span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">q</span><span class="p">),</span>           <span class="mi">0</span><span class="p">,</span>             <span class="n">a</span><span class="p">],</span>
+                   <span class="p">[</span> <span class="n">sin</span><span class="p">(</span><span class="n">q</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">q</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span> <span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span> <span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">*</span><span class="n">d</span><span class="p">],</span>
+                   <span class="p">[</span> <span class="n">sin</span><span class="p">(</span><span class="n">q</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">q</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span>  <span class="n">cos</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span>  <span class="n">cos</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">*</span><span class="n">d</span><span class="p">],</span>
+                   <span class="p">[</span>                 <span class="mi">0</span><span class="p">,</span>                 <span class="mi">0</span><span class="p">,</span>           <span class="mi">0</span><span class="p">,</span>             <span class="mi">1</span><span class="p">]])</span>
+
+    <span class="k">return</span> <span class="n">mat</span>
+</pre></div>
+<p>Also, total homogenous transform between <em>base_link</em> and <em>gripper_link</em> can be computed as, <br/>
+</p>
+<div class="math">$$T_0^G = T_0^1*T_1^2*T_2^3*T_3^4*T_4^5*T_5^6*T_6^G$$</div>
+<p>And, finally, the same total transform can also be computed given the <em>gripper_link</em> position and orientation w.r.t. <em>base_link</em>.Given,   </p>
+<div class="highlight"><pre><span></span><span class="n">pg_0</span>  <span class="o">=</span> <span class="p">[</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">pz</span><span class="p">]</span> <span class="c1"># End effector position.</span>
+<span class="n">p_quat</span> <span class="o">=</span> <span class="p">[</span><span class="n">qx</span><span class="p">,</span> <span class="n">qy</span><span class="p">,</span> <span class="n">qz</span><span class="p">,</span> <span class="n">qw</span><span class="p">]</span> <span class="c1"># End effector orientation as a quaternion.</span>
+
+<span class="c1"># R0_g = end-effector(gripper) rotation transformation(4X4)</span>
+<span class="n">R0_g</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">transformations</span><span class="o">.</span><span class="n">quaternion_matrix</span><span class="p">(</span><span class="n">p_quat</span><span class="p">)</span>
+<span class="n">D0_g</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">transformations</span><span class="o">.</span><span class="n">translation_matrix</span><span class="p">(</span><span class="n">pg_0</span><span class="p">)</span>
+
+<span class="n">T_total</span> <span class="o">=</span> <span class="n">R0_g</span><span class="o">*</span><span class="n">D0_g</span>
+</pre></div>
+<p>Now, the total transform computed previously, <span class="math">\(T_0^G\)</span> is <em>gripper_link</em> transform specified in DH convention(<em>yellow</em>). However, the transform calculated from <em>gripper_link</em> position and orientation is in URDF frame(<em>green</em>). These are shown in the following image, <br/>
+<img alt="total-transform-corretion" src="/images/kuka/total-transform-corretion.jpg"/> </p>
+<p>So, we need to correct <code>T0_G</code> transform  by rotating by <code>pi</code> along <code>Z</code>, and then by <code>-pi/2</code> along <code>Y</code>. Thus,  <br/>
+<code>T_total = T0_G*rot_z(pi)*rot_y(-pi/2)</code> </p>
+<h3 id="now-the-ik-part">Now the IK part.</h3>
+<p>The  last three joints <code>q4, q5, q6</code> don't affect the position of Wrist Center(<code>O5</code>), hereby referred to as <code>WC</code> position.(this can be confirmed by running the Forward kinematics demo.) This is very convenient for us in decoupling the IK problem into a position and orientation problem where we can first compute the position of the <code>WC</code>(which gives us the first three joint angles <code>q1, q2, q3</code>) and orientation of the wrist , which gives us the last three joints <code>q4, q5, q6</code>. Detailed explanation follows,   </p>
+<ul>
+<li>Given End effector position and orientation, we calculate the the wrist center as follows,</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># rwc_0 = wrist-center position w.r.t. base_link(O_0)</span>
+<span class="n">rwc_0</span> <span class="o">=</span> <span class="n">pg_0</span> <span class="o">-</span> <span class="p">(</span><span class="n">d_g</span><span class="o">*</span><span class="p">(</span><span class="n">R0_g</span><span class="o">*</span><span class="n">z_g</span><span class="p">))</span>
+</pre></div>
+<p>Where, <br/>
+<code>pg_0</code> = End effector position received. <br/>
+<code>p_quat</code> = End effector orientation received as quaternion. <br/>
+<code>d_g = s[d7]</code> = Displacement of end-effector from wrist center(along z). <br/>
+<code>R0_g = tf.transformations.quaternion_matrix(p_quat)</code> = End effector rotation matrix. <br/>
+<code>z_g = rot_z(pi)*rot_y(-pi/2)*([0, 0, 1])</code> = gripper frame z axis in DH convention.   </p>
+<p>So, the above equation displaces <code>pg_0</code> by <code>-d_g</code> in the z direction.</p>
+<ul>
+<li>Calculate <code>q1</code> given <code>WC</code>. <br/>
+<img alt="Theta 1" src="/images/kuka/theta1.png"/> <br/>
+<strong>Fig. 7 :</strong> Oblique view of the arm, when <code>q1 != 0</code>, all other angles are assumed zero.</li>
+</ul>
+<p>From the above image, <code>q1</code> can be calculated by projecting <code>WC</code> on <code>X0-Y0</code> plane and calculating angular displacement from <code>X0</code>. i.e.   </p>
+<div class="highlight"><pre><span></span>theta1 = atan2(rwc_0[1], rwc_0[0])
+</pre></div>
+<ul>
+<li>Calculate <code>O2</code> position according to calculated <code>q1</code>.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># position of O2 w.r.t. base_link in zero configuration, i.e. when q1 = 0</span>
+<span class="n">pO2_0</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="n">s</span><span class="p">[</span><span class="n">a1</span><span class="p">]],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="n">d1</span><span class="p">]]])</span>
+<span class="c1"># Rotate pO2_0 w.r.t. Z by theta1</span>
+<span class="n">pO2_0</span> <span class="o">=</span> <span class="n">rot_z</span><span class="p">(</span><span class="n">theta1</span><span class="p">)</span><span class="o">*</span> <span class="n">pO2_0</span>
+</pre></div>
+<ul>
+<li>Consider <code>triangle(O2, O3, WC)</code>. <br/>
+<em>Note :</em> Points <code>O0</code>, <code>O1</code>, <code>O2</code>, <code>O3</code> and <code>O5/WC</code> now lie in the same plane, defined by rotatingplane <code>X0Z0</code> about <code>Z0</code>. <br/>
+<img alt="theta23" src="/images/kuka/theta23.png"/> <br/>
+<strong>Fig. 8 :</strong> Schematic of arm in the plane containing triangle <code>O2</code>, <code>O3</code>, <code>WC</code>. Various angles required dimensions are also shown.   </li>
+</ul>
+<p>In the figure, position <code>O2</code>, <code>WC</code> are known and length <code>A</code>, <code>B</code> and <code>C</code> are known. </p>
+<div class="highlight"><pre><span></span><span class="c1"># O2 , WC are known</span>
+<span class="c1"># O3 = unknown</span>
+<span class="c1"># Distance between O2 and O3 = a2(in figure 1)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">a2</span><span class="p">]</span>
+
+<span class="c1"># Distance between O2 and O5/WC</span>
+<span class="n">pO2towc_0</span> <span class="o">=</span> <span class="n">rwc_0</span> <span class="o">-</span> <span class="n">pO2_0</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">pO2towc_0</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span>
+
+<span class="c1"># Distance between O3 and O5/WC = (d4^2 + a3^2) in figure 1</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">d4</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="n">d4</span><span class="p">]</span> <span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="n">a3</span><span class="p">]</span><span class="o">*</span><span class="n">s</span><span class="p">[</span><span class="n">a3</span><span class="p">])</span> 
+
+<span class="c1"># Offset angle between the Y3 axis line(O3, O5), -q31 in figure</span>
+<span class="n">beta_prime</span> <span class="o">=</span> <span class="n">atan2</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">a3</span><span class="p">],</span> <span class="n">s</span><span class="p">[</span><span class="n">d4</span><span class="p">])</span>   <span class="c1"># From Fig. 1</span>
+</pre></div>
+<p>Now, we can apply <em>Law of cosines</em> in <span class="math">\(\Delta(O_2, O_3, O_5)\)</span>.      </p>
+<div class="highlight"><pre><span></span>In any triangle(A, B, C)
+c.c = a.a + b.b - 2.a.b.cos(alpha),
+where alpha = angle(BAC) and `.` represents multiplication
+</pre></div>
+<p>So, </p>
+<div class="highlight"><pre><span></span><span class="c1"># applying cosine rule `C^2 = A^2 + B^2 -2ABcos(gamma)`</span>
+<span class="c1"># angle(O3, O2, O5), q21 in figure.</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="nb">float</span><span class="p">((</span><span class="n">A</span><span class="o">*</span><span class="n">A</span> <span class="o">+</span> <span class="n">B</span><span class="o">*</span><span class="n">B</span> <span class="o">-</span> <span class="n">C</span><span class="o">*</span><span class="n">C</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">A</span><span class="o">*</span><span class="n">B</span><span class="p">)))</span>
+
+<span class="c1"># angle(O2, O3, O5), q32 in figure </span>
+<span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="nb">float</span><span class="p">((</span><span class="n">A</span><span class="o">*</span><span class="n">A</span> <span class="o">+</span> <span class="n">C</span><span class="o">*</span><span class="n">C</span> <span class="o">-</span> <span class="n">B</span><span class="o">*</span><span class="n">B</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">A</span><span class="o">*</span><span class="n">C</span><span class="p">)))</span>
+</pre></div>
+<ul>
+<li>Find <code>theta2</code> <br/>
+Next, we need to compute <code>theta2</code>, which can be thought of as the angle between <code>link 2</code> direction i.e. <code>dir(O2, O3)</code> and <code>X2</code>. Also, <code>dir(O2, O3)</code> can be calculated by rotating <code>dir(O2, WC)</code> by <code>-gamma</code> along <code>Z2</code>. <br/>
+We can get <code>X2</code> and <code>Z2</code> by substituting <code>q1=theta1</code> (calculated above) in <code>T0_2</code> and multiplying the result by X(1, 0, 0) and Z(0, 0, 1) respectively. <em>Note :</em> <code>T0_2 = T0_1*T1_2</code>. <br/>
+So,   </li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># z_2prime is the Z2 axis when q1 = theta1, this does not depend upon q2 </span>
+<span class="n">z_2prime</span> <span class="o">=</span> <span class="n">T0_2</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">q1</span><span class="p">:</span><span class="n">theta1</span><span class="p">})</span><span class="o">.</span><span class="n">dot</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="c1"># Rotate pO2towc_0 by gamma along z_2prime</span>
+<span class="n">z2_rotation</span> <span class="o">=</span>  <span class="n">tf</span><span class="o">.</span><span class="n">transformations</span><span class="o">.</span><span class="n">rotation_matrix</span><span class="p">(</span><span class="o">-</span><span class="n">gamma</span><span class="p">,</span> <span class="n">z_2prime</span><span class="p">)</span>
+<span class="c1"># quaternion_about_axis(gamma, z_2prime[0:3])</span>
+<span class="c1"># tf.transformations.quaternion_from_matrix(z2_rotation)</span>
+<span class="n">a_dir</span> <span class="o">=</span> <span class="n">z2_rotation</span> <span class="o">*</span> <span class="n">pO2towc_0</span>
+<span class="n">a_dir</span> <span class="o">=</span> <span class="n">a_dir</span><span class="o">.</span><span class="n">normalized</span><span class="p">()</span>
+
+<span class="c1"># Compute theta2</span>
+<span class="n">X2_prime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">T0_2</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">q1</span><span class="p">:</span><span class="n">theta1</span><span class="p">,</span> <span class="n">q2</span><span class="p">:</span><span class="mi">0</span><span class="p">})</span><span class="o">.</span><span class="n">dot</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">theta2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X2_prime</span><span class="p">,</span> <span class="n">a_dir</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span> <span class="p">))</span>
+</pre></div>
+<ul>
+<li>Find <code>theta3</code> <br/>
+<code>theta3</code> is simply the deviation of <code>angle(O2, O3, WC)</code> from <code>pi/2 - q31</code>.i.e. <br/>
+<code>theta3 = (pi/2 - q31) - q32</code>, But <code>q31 = -beta_prime</code> and <code>q32 = beta</code>, So,   </li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">theta3</span> <span class="o">=</span> <span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">beta_prime</span><span class="p">)</span> <span class="o">-</span> <span class="n">beta</span>
+</pre></div>
+<ul>
+<li>Now, we need to calculate <code>q4, q5, q6</code>. For this we calculate the rotation matrix <code>R3_6</code> from our total transform and calculated angles <em>numerically</em>(from end effector position/rotation) and <em>symbolically</em>(from DH parameters). We then compare the two representations to calculate plausible values of the last three joint angles. So,   </li>
+</ul>
+<p><strong>Symbolically :</strong> Just combine the symbollic transformations for individual links from link 3 to 6.</p>
+<div class="highlight"><pre><span></span><span class="c1"># Extract the rotation component of the matrix,cos that's what we want</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">R3_6_sym</span> <span class="o">=</span> <span class="p">(</span><span class="n">T3_4</span><span class="o">*</span><span class="n">T4_5</span><span class="o">*</span><span class="n">T5_6</span><span class="p">)[:</span><span class="mi">3</span><span class="p">,:</span><span class="mi">3</span><span class="p">]</span> 
+<span class="p">[[</span><span class="o">-</span><span class="n">s4s6</span> <span class="o">+</span><span class="n">c4c5c6</span><span class="p">,</span><span class="o">-</span><span class="n">s4c6</span> <span class="o">-</span><span class="n">s6c4c5</span><span class="p">,</span><span class="o">-</span><span class="n">s5c4</span><span class="p">],</span>
+ <span class="p">[</span>         <span class="n">s5c6</span><span class="p">,</span>        <span class="o">-</span><span class="n">s5s6</span><span class="p">,</span>   <span class="n">c5</span><span class="p">],</span>
+ <span class="p">[</span><span class="o">-</span><span class="n">s4c5c6</span> <span class="o">-</span><span class="n">s6c4</span><span class="p">,</span> <span class="n">s4s6c5</span> <span class="o">-</span><span class="n">c4c6</span><span class="p">,</span> <span class="n">s4s5</span><span class="p">]]</span>
+<span class="c1"># Where, s = sin, c =cos, 4,5,6 = q4,q5,q6</span>
+<span class="c1"># So that, -s5c6 = -sin(q5)cos(q6)</span>
+</pre></div>
+<p><strong>Numerically :</strong> </p>
+<div class="highlight"><pre><span></span><span class="c1"># Calculate R3_6</span>
+<span class="n">R0_g</span><span class="p">(</span><span class="n">corrected</span><span class="p">)</span> <span class="o">=</span> <span class="n">R0_6</span><span class="o">*</span><span class="n">R_corr</span>
+<span class="c1"># Where</span>
+<span class="n">R_corr</span> <span class="o">=</span> <span class="n">rot_z</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">rot_y</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># So</span>
+<span class="n">R0_g</span> <span class="o">=</span> <span class="n">R0_3</span><span class="o">*</span><span class="n">R3_6</span><span class="o">*</span><span class="n">R_corr</span>
+<span class="n">R0_3</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">R0_g</span><span class="o">*</span><span class="n">R_corr</span><span class="o">.</span><span class="n">T</span> <span class="o">=</span> <span class="n">R3_6</span>
+
+<span class="c1"># And,</span>
+<span class="n">R0_3</span> <span class="o">=</span> <span class="n">T0_3</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>   <span class="c1"># Extract the rotation matrix</span>
+<span class="n">R3_6</span> <span class="o">=</span> <span class="n">R0_3</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">*</span> <span class="n">Matrix</span><span class="p">(</span><span class="n">R0_g</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">R_corr</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+</pre></div>
+<p>Finally we can evaluate this Matrix numerically by substituting <code>q1, q2 and q3</code> calculated above</p>
+<div class="highlight"><pre><span></span>R3_6 = R3_6.subs({q1: theta1, q2:theta2, q3: theta3})
+</pre></div>
+<p>Now, we need to select suitable terms from the matrix to compute <code>q4, q5, q6</code>.
+We just follow the strategy of selecting the simplest terms to give to <code>atan2</code> function for a given angle. i.e. <br/>
+<code>theta4 = atan2(R3_6[2,2], -R3_6[0, 2])</code>, Since, <br/>
+<code>R3_6[2,2]/-R3_6[0, 2] = sin(q4)sin(q5)/sin(q5)cos(q4) = tan(q4)</code> </p>
+<p><code>theta5 = atan2(sqrt(R3_6[0, 2]*R3_6[0, 2] + R3_6[2, 2]*R3_6[2, 2]), R3_6[1, 2])</code>, Since, <br/>
+<code>sqrt(R3_6[0, 2]*R3_6[0, 2] + R3_6[2, 2]*R3_6[2, 2]) = sin(q5)</code>, <br/>
+<code>sqrt(R3_6[0, 2]*R3_6[0, 2] + R3_6[2, 2]*R3_6[2, 2])/R3_6[1,2] = sin(q5)/cos(q5) = tan(q5)</code> </p>
+<p>And finally, 
+<code>theta6 = atan2(-R3_6[1,1], R3_6[1, 0])</code>, Since, <br/>
+<code>-R3_6[1,1]/-R3_6[1, 0] = sin(q5)sin(q6)/sin(q5)cos(q6) = tan(q6)</code> </p>
+<p>This completes the Inverse Kinematic Analysis of the Kuka arm.   </p>
+<p><em>Computing Errors :</em> </p>
+<p>Since all these computations are done numerically, they are bound to accumulate error, here is a plot showing the error in positions generated by the results of IK during a sample trajectory. <br/>
+<img alt="" src="/images/kuka/errors2.png"/> </p>
+<p>Such low error values show the stability of the computed trajectory using the analysis discussed above. <br/>
+All of the code and more explanations can be found at my <a href="https://github.com/NitishPuri/RoboND-Kinematics-Project">github repository</a>.</p>
+<p><a href="https://youtu.be/-LHU5dD4I-s">Here is <em>badly edited</em> video of the <em>awesome</em> robot in action.</a></p>
+<h3 id="next-steps">Next Steps</h3>
+<ul>
+<li>This was a really good learning experience as well as a refresher for me. I got very familiar to the <em>ROS</em> and <em>RViz</em> interface, played with <em>Gazebo</em> and reinforced my knowledge of <em>kinematics</em>. And I got to introduced <em>sympy</em>, which now I absolutely love for its simplicity and power.   </li>
+<li>That said and done, its time to apply this experience on an actual robotic arm. So stay tuned for that...!!!</li>
+</ul>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "left",
+        indent = "0em",
+        linebreak = "true";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
 
             
             </div>
@@ -242,7 +575,10 @@ nitishpuri.github.io            </a>
     <li class="list-group-item tag-4">
       <a href="/tag/philosophy/">philosophy</a>
     </li>
-    <li class="list-group-item tag-3">
+    <li class="list-group-item tag-4">
+      <a href="/tag/projects/">projects</a>
+    </li>
+    <li class="list-group-item tag-2">
       <a href="/tag/robotics/">robotics</a>
     </li>
     <li class="list-group-item tag-3">
@@ -250,6 +586,9 @@ nitishpuri.github.io            </a>
     </li>
     <li class="list-group-item tag-3">
       <a href="/tag/style-transfer/">style-transfer</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="/tag/udacity/">udacity</a>
     </li>
   </ul>
 </li>
