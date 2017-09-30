@@ -126,22 +126,27 @@ nitishpuri.github.io            </a>
     </div>
     <!-- AddThis Button END -->
 <section class="well" id="related-posts">
-    <h4>Part 2 of the Robotics series</h4>
+    <h4>Part 3 of the Robotics series</h4>
        <h5>Previous articles</h5>
        <ul>
+           <li><a href="/posts/robotics/robotics-research/">Robotics Research</a></li>
            <li><a href="/posts/robotics/biologically-inspired-robots/">Biologically Inspired Robots</a></li>
+       </ul>
+       <h5>Next articles</h5>
+       <ul>
+           <li><a href="/posts/robotics/soft-robotics/">Soft Robotics</a></li>
        </ul>
 </section>
                 
                 <p>Contents:</p>
                 <nav class="toc">
-                  <div id="toc"><ul><li><a class="toc-href" href="#robotics" title="Robotics">Robotics</a><ul><li><a class="toc-href" href="#ros" title="ROS">ROS</a><ul><li><a class="toc-href" href="#tf-the-transform-library" title="tf: The Transform Library">tf: The Transform Library</a></li></ul></li><li><a class="toc-href" href="#robot-grasping_1" title="Robot Grasping">Robot Grasping</a><ul><li><a class="toc-href" href="#robotic-grasping-and-contact-a-review" title="Robotic Grasping and Contact: A Review">Robotic Grasping and Contact: A Review</a></li></ul></li><li><a class="toc-href" href="#mobile-robots_1" title="Mobile Robots">Mobile Robots</a><ul><li><a class="toc-href" href="#modular-and-reconfigurable-mobile-robots" title="Modular and Reconfigurable Mobile Robots">Modular and Reconfigurable Mobile Robots</a></li></ul></li></ul></li></ul></div>
+                  <div id="toc"><ul><li><a class="toc-href" href="#robotics" title="Robotics">Robotics</a><ul><li><a class="toc-href" href="#kinematics" title="Kinematics">Kinematics</a><ul><li><a class="toc-href" href="#tf-the-transform-library" title="tf: The Transform Library">tf: The Transform Library</a></li><li><a class="toc-href" href="#solving-kinematics-problems-of-a-6-dof-robot-manipulator" title="Solving Kinematics Problems of a 6-DOF Robot Manipulator">Solving Kinematics Problems of a 6-DOF Robot Manipulator</a></li></ul></li><li><a class="toc-href" href="#robot-grasping_1" title="Robot Grasping">Robot Grasping</a><ul><li><a class="toc-href" href="#robotic-grasping-and-contact-a-review" title="Robotic Grasping and Contact: A Review">Robotic Grasping and Contact: A Review</a></li></ul></li><li><a class="toc-href" href="#mobile-robots_1" title="Mobile Robots">Mobile Robots</a><ul><li><a class="toc-href" href="#modular-and-reconfigurable-mobile-robots" title="Modular and Reconfigurable Mobile Robots">Modular and Reconfigurable Mobile Robots</a></li></ul></li></ul></li></ul></div>
                 </nav>
                 <hr>
                 
                 <p>Very minimal notes on some papers or articles that I recently read. Mainly for logging purposes.</p>
 <h2 id="robotics"><strong>Robotics</strong></h2>
-<h3 id="ros"><strong>ROS</strong></h3>
+<h3 id="kinematics"><strong>Kinematics</strong></h3>
 <h4 id="tf-the-transform-library"><strong><em>tf</em>: The Transform Library</strong></h4>
 <p><em>Tully Foote</em> <br/>
 <em>Open Source Robotics Foundation</em> </p>
@@ -169,6 +174,19 @@ nitishpuri.github.io            </a>
 <li><strong>Extensions :</strong></li>
 <li>Support for velocity.</li>
 <li>Transforming data in time.</li>
+</ul>
+<h4 id="solving-kinematics-problems-of-a-6-dof-robot-manipulator">Solving Kinematics Problems of a 6-DOF Robot Manipulator</h4>
+<p><em>Computer Science Department, The University of Georgia : 2015</em> <br/>
+<a href="https://www.google.com/url?q=https%3A%2F%2Fwww.researchgate.net%2Ffile.PostFileLoader.html%3Fid%3D57cd4b20615e274c742de265%26assetKey%3DAS%253A402906919522304%25401473071903479&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNF8-U-44kQLISfar99yrIFTYElU9w"><em>Source</em></a> </p>
+<ul>
+<li>An analytical approach for solving forward kinematics problem of a serial robot manipulator with six degrees of freedom and a specific combination of joints and links to formulate the position of gripper by a given set of joint angles. <br/>
+<img alt="" src="/images/papers/kuka_1.jpg"/> </li>
+<li>The functional state of each joint related to its successive joint in the design of this robot is as follows: <br/>
+<div class="math">$$ R_1 \bot R_2 \parallel R_3 \bot R_4 \bot R_5 \bot R_6 $$</div>
+<br/>
+in which <span class="math">\(R\)</span> indicates a revolute joint and the indices describe the position of the joint relative to the base of the robot.   </li>
+<li>Uses D-H parameter convention for assigning coordinate frames.</li>
+<li>D-H parameter analysis for Kuka KR60 can be found <a href="/posts/robotics/inverse-kinematics-on-kuka-arm-using-ros-and-python/">here</a></li>
 </ul>
 <h3 id="robot-grasping_1"><strong>Robot Grasping</strong></h3>
 <h4 id="robotic-grasping-and-contact-a-review"><strong>Robotic Grasping and Contact: A Review</strong></h4>
@@ -348,13 +366,6 @@ nitishpuri.github.io            </a>
             
             </div>
             <!-- /.entry-content -->
-<section class="well" id="related-posts">
-    <h4>Part 2 of the Robotics series</h4>
-       <h5>Previous articles</h5>
-       <ul>
-           <li><a href="/posts/robotics/biologically-inspired-robots/">Biologically Inspired Robots</a></li>
-       </ul>
-</section>
     <hr />
     <!-- AddThis Button BEGIN -->
     <div class="addthis_toolbox addthis_default_style">
@@ -503,6 +514,10 @@ nitishpuri.github.io            </a>
     <li class="list-group-item">
       <h5></i>Previous article</h5>
       <a href="/posts/robotics/biologically-inspired-robots/">Biologically Inspired Robots</a>
+    </li>
+    <li class="list-group-item">
+      <h5>Next article</h5>
+      <a href="/posts/robotics/soft-robotics/">Soft Robotics</a>
     </li>
   </ul>
 </li>

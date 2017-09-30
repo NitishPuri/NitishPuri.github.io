@@ -20,7 +20,7 @@
         <meta property="og:title" content="Fundamentals of Computer Graphics"/>
         <meta property="og:url" content="/posts/books/fundamentals-of-computer-graphics/"/>
         <meta property="og:description" content="Index notes on Fundamentals of Computer Graphics"/>
-        <meta property="article:published_time" content="2017-08-18" />
+        <meta property="article:published_time" content="2017-08-17" />
             <meta property="article:section" content="books" />
                 <meta property="article:subcategory" content="books/fund-comp-graphics" />
             <meta property="article:tag" content="graphics" />
@@ -97,7 +97,7 @@ nitishpuri.github.io            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-08-18T00:00:00+05:30"> Fri 18 August 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-08-17T00:00:00+05:30"> Thu 17 August 2017</time>
     </span>
 
 
@@ -134,230 +134,20 @@ nitishpuri.github.io            </a>
     <h4>Part 1 of the Fundamentals of Computer Graphics series</h4>
        <h5>Next articles</h5>
        <ul>
+           <li><a href="/posts/books/fundamentals-of-computer-graphics-part-1/">Fundamentals of Computer Graphics, Part 1</a></li>
            <li><a href="/posts/books/fundamentals-of-computer-graphics-part-2/">Fundamentals of Computer Graphics, Part 2</a></li>
        </ul>
 </section>
                 
-                <p>Contents:</p>
-                <nav class="toc">
-                  <div id="toc"><ul><li><a class="toc-href" href="#chapter-1-introduction" title="Chapter 1: Introduction">Chapter 1: Introduction</a><ul><li><a class="toc-href" href="#graphics-areas" title="Graphics Areas">Graphics Areas</a></li><li><a class="toc-href" href="#major-applications" title="Major Applications">Major Applications</a></li><li><a class="toc-href" href="#graphics-apis" s'="" title="Graphics API">Graphics API's</a></li><li><a class="toc-href" href="#graphics-pipeline" title="Graphics Pipeline">Graphics Pipeline</a></li><li><a class="toc-href" href="#numerical-issues" title="Numerical Issues">Numerical Issues</a></li><li><a class="toc-href" href="#efficiency" title="Efficiency">Efficiency</a></li><li><a class="toc-href" href="#designing-and-coding-graphics-programs" title="Designing and Coding Graphics programs">Designing and Coding Graphics programs</a></li></ul></li><li><a class="toc-href" href="#chapter-2-miscellaneous-math_1" title="Chapter 2 : Miscellaneous&nbsp;Math">Chapter 2 : Miscellaneous&nbsp;Math</a><ul><li><a class="toc-href" href="#sets-and-mappings" title="Sets and Mappings">Sets and Mappings</a></li><li><a class="toc-href" href="#quadratic-equations" title="Quadratic Equations">Quadratic Equations</a></li><li><a class="toc-href" href="#trigonometry" title="Trigonometry">Trigonometry</a></li><li><a class="toc-href" href="#vectors" title="Vectors">Vectors</a></li><li><a class="toc-href" href="#curves-and-surfaces" title="Curves and surfaces">Curves and surfaces</a></li><li><a class="toc-href" href="#linear-interpolation" title="Linear interpolation">Linear interpolation</a></li><li><a class="toc-href" href="#triangles" title="Triangles">Triangles</a></li></ul></li><li><a class="toc-href" href="#chapter-3-raster-images_1" title="Chapter 3: Raster Images">Chapter 3: Raster Images</a><ul><li><a class="toc-href" href="#raster-devices" title="Raster Devices">Raster Devices</a></li><li><a class="toc-href" href="#images-pixels-and-geometry" title="Images, Pixels and Geometry">Images, Pixels and Geometry</a></li><li><a class="toc-href" href="#rgb-color" title="RGB Color">RGB Color</a></li><li><a class="toc-href" href="#alpha-compositing" title="Alpha Compositing">Alpha Compositing</a></li></ul></li><li><a class="toc-href" href="#chapter-4-ray-tracing_1" title="Chapter 4 : Ray Tracing">Chapter 4 : Ray Tracing</a></li></ul></div>
-                </nav>
-                <hr>
                 
-                <h2 id="chapter-1-introduction">Chapter 1: Introduction</h2>
-<h3 id="graphics-areas">Graphics Areas</h3>
-<p>Core areas:</p>
-<ul>
-<li>Modeling</li>
-<li>Rendering</li>
-<li>Animation</li>
+                <ul>
+<li><a href="/posts/books/fundamentals-of-computer-graphics-part-1/">Fundamentals of Computer Graphics : Chapter 1 - 4</a></li>
+<li><a href="/posts/books/fundamentals-of-computer-graphics-part-2/">Fundamentals of Computer Graphics : Chapter 5 - 6</a></li>
 </ul>
-<p>Other related ares:
-- User interaction
-- Virtual reality
-- Visualization
-- Image processing
-- 3D scanning
-- Computational photography</p>
-<h3 id="major-applications">Major Applications</h3>
-<ul>
-<li>Video Games</li>
-<li>Cartoons</li>
-<li>Visual Effects</li>
-<li>Animated Films</li>
-<li>CAD/CAM</li>
-<li>Simulation</li>
-<li>Medical Imaging</li>
-<li>Information visualization</li>
-</ul>
-<h3 id="graphics-apis">Graphics API's</h3>
-<p>Need to deal with at least two different API's : Graphics API and a User Interface API</p>
-<h3 id="graphics-pipeline">Graphics Pipeline</h3>
-<p>A special software/hardware subsystem that efficiently draws 3D primitives in perspective.
-Usually optimized for processing triangles with shared vertices. <br/>
-Basic operations map 3D vertex locations to 2D screen positions and shade the triangles so that they both look realistic and appear in proper back to front order.   </p>
-<p>Although drawing from back to front was once one of the most challenging research issues in <em>Computer Graphics</em>, now it is almost always solved by <em>z-buffer</em>.   </p>
-<p>It turns out that the geometric manipulation used in the graphics pipeline can be accomplished almost entirely in a 4D coordinate space composed of three traditional geometric coordinates and a fourth <em>homogeneous coordinate</em> that helps with perspective viewing. These 4D vectors are manipulated using 4 X 4 matrices and 4-vectors. The pipeline, therefore consists of machinery for effectively processing and composing such matrices and vectors. <br/>
-This 4D coordinate system is certainly the biggest intellectual hurdle to jump when first learning computer graphics.   </p>
-<h3 id="numerical-issues">Numerical Issues</h3>
-<p>IEEE Floating point standards, allows programmer to make many convenient assumptions about numeric conditions to be handled.   </p>
-<p>Three special values: infinity, -infinity and NaN   </p>
-<h3 id="efficiency">Efficiency</h3>
-<p>There are no magic rules...   </p>
-<ul>
-<li>Write the code in a straightforward way. Compute results on the fly.</li>
-<li>Compile in optimized code.</li>
-<li>Use profiling tools to find bottlenecks</li>
-<li>Examine data structures to look for ways to improve locality. If possible make data unit sizes match to cache/page size on the target architecture.</li>
-<li>If profiling reveals bottleneck in computations, examine the assembly code generated by the compiler. rewrite the source code to solve any problems.</li>
-</ul>
-<h3 id="designing-and-coding-graphics-programs">Designing and Coding Graphics programs</h3>
-<p><em>Class Design</em>, vector2, vector3, hvector, rgb, transform, image,   </p>
-<p><em>Float vs Double</em>,   </p>
-<p><em>Debugging Graphics Programs</em>,   </p>
-<p><em>The Scientific method</em>, Look at the output, develop a  hypothesis, test it, fix it. <br/>
-<em>Images as coded debugging output</em>, <br/>
-<em>Data visualization for debugging</em> </p>
-<h2 id="chapter-2-miscellaneous-math_1">Chapter 2 : Miscellaneous&nbsp;Math</h2>
-<p>The cleaner the math, The cleaner the code.</p>
-<h3 id="sets-and-mappings">Sets and Mappings</h3>
-<p><em>Mappings</em> as in Functions.   </p>
-<p>Cartesian product, Common sets and notations such as real numbers, non-negative real numbers, ordered pairs in real 2D plane, points in n-dimensional Cartesian space, integers, the set of 3D points on the unit sphere.   </p>
-<p>Inverse mappings and bisections.   </p>
-<p>Intervals, open and closed, <br/>
-set operations on intervals.   </p>
-<p>Logarithms.   </p>
-<h3 id="quadratic-equations">Quadratic Equations</h3>
-<h3 id="trigonometry">Trigonometry</h3>
-<p>Angles, Trigonometric functions, Pythagorean theorem, polar coordinates. <br/>
-<em>Useful identities</em>, Shifting identities, Pythagorean identities, Addition and subtraction identities, half-angle identities, product indentions, Law of sines, cosines and tangents, area of triangle.   </p>
-<h3 id="vectors">Vectors</h3>
-<p>A vector describes a length and a direction.   </p>
-<p>Vector operations,  Cartesian coordinates.   </p>
-<p>Dot product, cross product.   </p>
-<p>Orthogonal bases and coordinate frames.   </p>
-<h3 id="curves-and-surfaces">Curves and surfaces</h3>
-<p>2D Implicit curves, Gradient, derivatives.   </p>
-<p>Implicit lines, curves,   </p>
-<p>3D surfaces, surface normal, planes, 3D Quadric surfaces.   </p>
-<p>2D Parametric curves, 3D parametric curves   </p>
-<h3 id="linear-interpolation">Linear interpolation</h3>
-<h3 id="triangles">Triangles</h3>
-<p>Barycentric coordinates, 2D triangles, 3D triangles.   </p>
-<h2 id="chapter-3-raster-images_1">Chapter 3: Raster Images</h2>
-<p>Pixel : Picture element</p>
-<p>Raster is just a 2D array of pixels.</p>
-<p>Images can also be in vector format. Such images are resolution independent and are used where precession is important and photographic images and complex shading is not needed.</p>
-<h3 id="raster-devices">Raster Devices</h3>
-<ul>
-<li>Output<ul>
-<li>Display<ul>
-<li>Transmissive: Liquid Crystal Display(LCD)</li>
-<li>Emissive : Light Emitting Diode (LED)</li>
-</ul>
-</li>
-<li>Hardcopy<ul>
-<li>Binary : Ink-jet</li>
-<li>Continuous tone : Dye sublimation printer</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Input<ul>
-<li>2D array sensor : digital camera</li>
-<li>iD array sensor : flatbed scanner</li>
-</ul>
-</li>
-</ul>
-<p><strong>Displays</strong> </p>
-<p><em>Emissive :</em> Use pixels that directly emit controllable amounts of light. <br/>
-<em>Transmissive :</em> Requires a light source to illuminate them. Generally a backlight in case of LCD, or a lamp in case of a projector.   </p>
-<p>Screen resolution.</p>
-<p><strong>Hardcopy Devices</strong> </p>
-<p>Ink jet printer, thermal dye transfer, pixel density   </p>
-<p><strong>Input Devices</strong> </p>
-<p>Camera, Scanner   </p>
-<h3 id="images-pixels-and-geometry">Images, Pixels and Geometry</h3>
-<p>Image as a function(mapping) from coordinate space to pixel value.</p>
-<p><strong>Pixel Values :</strong> <br/>
- Pixel value ranges and different image formats like   </p>
-<ul>
-<li><em>1-bit grayscale :</em> text and other images where intermediate grays are not desired (high resolution required);   </li>
-<li><em>8-bit RGB fixed-range color (24 bits total per pixel) :</em>  web and email applications, consumer photographs;   </li>
-<li><em>8- or 10-bit fixed-range RGB (24&ndash;30 bits/pixel) :</em> digital interfaces to computer displays;   </li>
-<li><em>12- to 14-bit fixed-range RGB (36&ndash;42 bits/pixel) :</em> raw camera images for professional photography;   </li>
-<li><em>16-bit fixed-range RGB (48 bits/pixel) :</em> professional photography and printing; intermediate format for image processing of fixed-range images;   </li>
-<li><em>16-bit fixed-range grayscale (16 bits/pixel) :</em> radiology and medical imaging;   </li>
-<li><em>16-bit &ldquo;half-precision&rdquo; floating-point RGB :</em> HDR images; intermediate format for real-time rendering;   </li>
-<li><em>32-bit floating-point RGB :</em> general-purpose intermediate format for software rendering and processing of HDR images.   </li>
-</ul>
-<p><strong>Resulting artifacts</strong>,   </p>
-<ul>
-<li><em>Clipping:</em> When pixels that would otherwise be brighter than the maximum value set are clipped too the maximum value.   </li>
-<li>Quantization/Banding:* When formats with fixed precession are used, it causes visible jumps in intensity or color.   </li>
-</ul>
-<p><strong>Monitor intensities and Gamma</strong> </p>
-<p>displayed intensity = (maximum intensity)<span class="math">\(\alpha_{\gamma}\)</span>,   </p>
-<h3 id="rgb-color">RGB Color</h3>
-<p><img alt="" src="/images/fundcg/3_color.png"/> <br/>
-<img alt="" src="/images/fundcg/3_color2.png"/> </p>
-<h3 id="alpha-compositing">Alpha Compositing</h3>
-<p>Blending for partially covering pixels and transparent pixes.   </p>
-<p><strong>Image Storage</strong> </p>
-<p>lossless vs lossy formats.   </p>
-<ul>
-<li><em>jpeg :</em> lossy, compresses based on thresholds in human visual system. Works well for natural images.</li>
-<li><em>tiff :</em> binary images, lossless compressed, 8 or 16 bit RGB</li>
-<li><em>ppm :</em> lossless, uncompressed, 8-bit RGB,</li>
-<li><em>png :</em> set of lossless formats, good set of open source management tools.</li>
-</ul>
-<h2 id="chapter-4-ray-tracing_1">Chapter 4 : Ray Tracing</h2>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "left",
-        indent = "0em",
-        linebreak = "true";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
 
             
             </div>
             <!-- /.entry-content -->
-<section class="well" id="related-posts">
-    <h4>Part 1 of the Fundamentals of Computer Graphics series</h4>
-       <h5>Next articles</h5>
-       <ul>
-           <li><a href="/posts/books/fundamentals-of-computer-graphics-part-2/">Fundamentals of Computer Graphics, Part 2</a></li>
-       </ul>
-</section>
     <hr />
     <!-- AddThis Button BEGIN -->
     <div class="addthis_toolbox addthis_default_style">
@@ -505,7 +295,7 @@ set operations on intervals.   </p>
   <ul class="list-group">
     <li class="list-group-item">
       <h5>Next article</h5>
-      <a href="/posts/books/fundamentals-of-computer-graphics-part-2/">Fundamentals of Computer Graphics, Part 2</a>
+      <a href="/posts/books/fundamentals-of-computer-graphics-part-1/">Fundamentals of Computer Graphics, Part 1</a>
     </li>
   </ul>
 </li>
