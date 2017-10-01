@@ -141,7 +141,7 @@ nitishpuri.github.io            </a>
                 
                 <p>Contents:</p>
                 <nav class="toc">
-                  <div id="toc"><ul><li><a class="toc-href" href="#chapter-5-linear-algebra" title="Chapter 5 : Linear Algebra">Chapter 5 : Linear Algebra</a><ul><li><a class="toc-href" href="#determinants" title="Determinants">Determinants</a></li><li><a class="toc-href" href="#matrices" title="Matrices">Matrices</a></li><li><a class="toc-href" href="#computing-with-matrices-and-determinants" title="Computing with Matrices and Determinants">Computing with Matrices and Determinants</a></li><li><a class="toc-href" href="#eigenvalues-and-matrix-diagonalization" title="Eigenvalues and Matrix Diagonalization">Eigenvalues and Matrix Diagonalization</a></li></ul></li><li><a class="toc-href" href="#chapter-6-transformation-matrices_1" title="Chapter 6: Transformation Matrices">Chapter 6: Transformation Matrices</a><ul><li><a class="toc-href" href="#2d-linear-transformations" title="2D Linear Transformations">2D Linear Transformations</a></li></ul></li></ul></div>
+                  <div id="toc"><ul><li><a class="toc-href" href="#chapter-5-linear-algebra" title="Chapter 5 : Linear Algebra">Chapter 5 : Linear Algebra</a><ul><li><a class="toc-href" href="#determinants" title="Determinants">Determinants</a></li><li><a class="toc-href" href="#matrices" title="Matrices">Matrices</a></li><li><a class="toc-href" href="#computing-with-matrices-and-determinants" title="Computing with Matrices and Determinants">Computing with Matrices and Determinants</a></li><li><a class="toc-href" href="#eigenvalues-and-matrix-diagonalization" title="Eigenvalues and Matrix Diagonalization">Eigenvalues and Matrix Diagonalization</a></li></ul></li><li><a class="toc-href" href="#chapter-6-transformation-matrices_1" title="Chapter 6: Transformation Matrices">Chapter 6: Transformation Matrices</a><ul><li><a class="toc-href" href="#2d-linear-transformations" title="2D Linear Transformations">2D Linear Transformations</a></li><li><a class="toc-href" href="#3d-linear-transformations" title="3D Linear Transformations">3D Linear Transformations</a><ul><li><a class="toc-href" href="#arbitrary-3d-rotations" title="Arbitrary 3D Rotations">Arbitrary 3D Rotations</a></li><li><a class="toc-href" href="#transforming-normal-vectors" title="Transforming Normal Vectors">Transforming Normal Vectors</a></li></ul></li><li><a class="toc-href" href="#translation-and-affine-transformations_1" title="Translation and Affine Transformations">Translation and Affine Transformations</a></li><li><a class="toc-href" href="#inverses-of-transformation-matrices" title="Inverses of Transformation Matrices">Inverses of Transformation Matrices</a></li><li><a class="toc-href" href="#coordinate-transformations" title="Coordinate Transformations">Coordinate Transformations</a></li></ul></li></ul></div>
                 </nav>
                 <hr>
                 
@@ -274,6 +274,49 @@ Also, <br/>
 <div class="math">$$\mathbf{A} = \mathbf{USV}^T$$</div>
 <p>In summary, every matrix can be decomposed via SVD into a rotation times a scale times another rotation. Only symmetric matrices can be decomposed via eigenvalue diagonalization into a rotation times a scale times the inverse-rotation, and such matrices are a simple scale in an arbitrary direction. The SVD of a symmetric matrix will yield the same triple product as eigenvalue decomposition via a slightly more complex algebraic manipulation.</p>
 <p><strong>Paeth Decomposition of Rotations</strong> </p>
+<div class="math">$$\begin{bmatrix} cos\phi &amp; -sin\phi \\ sin\phi &amp; cos\phi\end{bmatrix}  = \begin{bmatrix}1 &amp; \frac{cos{\phi}-1}{sin\phi} \\ 0 &amp; 1\end{bmatrix} \begin{bmatrix}1 &amp; 0 \\ sin\phi &amp; 1\end{bmatrix}
+\begin{bmatrix}1 &amp; \frac{cos{\phi}-1}{sin\phi} \\ 0 &amp; 1\end{bmatrix}$$</div>
+<p><img alt="" src="/images/fundcg/6_decomp2.png"/> </p>
+<h3 id="3d-linear-transformations">3D Linear Transformations</h3>
+<p><strong>Scaling</strong> </p>
+<div class="math">$$ \mbox{scale}(s_x, s_y, s_z) = \begin{bmatrix} s_x &amp; 0 &amp; 0\\ 0 &amp; s_y &amp; 0\\ 0 &amp; 0 &amp; s_z\end{bmatrix}$$</div>
+<p><strong>Rotation</strong> </p>
+<div class="math">$$ \begin{eqnarray} \mbox{rotate-z}(\phi) &amp; = &amp;\begin{bmatrix} cos\,\phi &amp; -sin\,\phi &amp; 0\\ sin\,\phi &amp; cos\,\phi &amp; 0 \\ 0 &amp; 0 &amp; 1\end{bmatrix} \\
+\mbox{rotate-x}(\phi) &amp; = &amp; \begin{bmatrix} 1 &amp; 0 &amp; 0\\ 0 &amp; cos\,\phi &amp; -sin\,\phi \\ 0 &amp; sin\,\phi &amp; cos\,\phi\end{bmatrix} \\
+\mbox{rotate-y}(\phi) &amp; = &amp; \begin{bmatrix} cos\,\phi &amp; -sin\,\phi &amp; 0\\ sin\,\phi &amp; cos\,\phi &amp; 0 \\ 0 &amp; 0 &amp; 1\end{bmatrix}\end{eqnarray}$$</div>
+<p><strong>Shear</strong> </p>
+<div class="math">$$ \begin{eqnarray} \mbox{shear-z}(d_x, d_z) &amp; = &amp;\begin{bmatrix} 1 &amp; d_y &amp; d_z\\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1\end{bmatrix} \end{eqnarray}$$</div>
+<p>As with 2D transforms, any 3D transformation matrix can be decomposed using SVD into a rotation, scale, and another rotation. Any symmetric 3D matrix has an eigenvalue decomposition into rotation, scale, and inverse-rotation. Finally, a 3D rotation can be decomposed into a product of 3D shear matrices.</p>
+<h4 id="arbitrary-3d-rotations">Arbitrary 3D Rotations</h4>
+<div class="math">$$ \begin{eqnarray} \mathbf{R}_{uvw} &amp; = &amp;\begin{bmatrix} x_u &amp; y_u &amp; z_u\\ x_v &amp; y_v &amp; z_v \\ x_w &amp; y_w &amp; z_w\end{bmatrix} \end{eqnarray} $$</div>
+<p> <br/>
+</p>
+<div class="math">$$\mathbf{u}\cdot\mathbf{u} =\mathbf{v}\cdot\mathbf{v} = \mathbf{w}\cdot\mathbf{w}  = 1\\ 
+\mathbf{u}\cdot\mathbf{v} =\mathbf{v}\cdot\mathbf{w} = \mathbf{w}\cdot\mathbf{u}  = 0$$</div>
+<p> <br/>
+</p>
+<div class="math">$$\mathbf{R}_{uvw}\mathbf{u} = \begin{bmatrix}\mathbf{u}\cdot\mathbf{u} \\ \mathbf{v}\cdot\mathbf{u} \\ \mathbf{w}\cdot\mathbf{u}\end{bmatrix} = \begin{bmatrix} 1 \\ 0 \\ 0\end{bmatrix} = x$$</div>
+<h4 id="transforming-normal-vectors">Transforming Normal Vectors</h4>
+<p>Surface normal vectors are perpendicular to the tangent plane of a surface. These normals do not transform the way we would like when the underlying surface is transformed.   </p>
+<p><img alt="" src="/images/fundcg/6_normal.png"/> </p>
+<div class="math">$$ \mathbf{n}_N = (\mathbf{n}^T\mathbf{M}^{-1})^T = (\mathbf{M}^{-1})^T\mathbf{n}$$</div>
+<h3 id="translation-and-affine-transformations_1">Translation and Affine Transformations</h3>
+<div class="math">$$ \begin{bmatrix}x'\\y'\\1\end{bmatrix} = \begin{bmatrix}m_{11} &amp; m_{12} &amp; x_t \\ m_{21} &amp; m_{22} &amp; y_t \\ 0 &amp; 0 &amp; 1 \end{bmatrix}\begin{bmatrix}x \\ y\\1\end{bmatrix} = \begin{bmatrix}m_{11}x + m_{12}y + x_t \\ m_{21}x + m_{22}y + y_t \\  1 \end{bmatrix}$$</div>
+<p>For vectors that represent directions,   </p>
+<div class="math">$$ \begin{bmatrix}1 &amp; 0 &amp; x_t \\ 0 &amp; 1 &amp; y_t \\ 0 &amp; 0 &amp; 1 \end{bmatrix}\begin{bmatrix}x \\ y\\0\end{bmatrix} = \begin{bmatrix}x \\ y \\  0 \end{bmatrix}$$</div>
+<p>It is interesting to note that if we multiply an arbitrary matrix composed of scales, shears, and rotations with a simple translation (translation comes second), we get   </p>
+<div class="math">$$ \begin{bmatrix}1 &amp; 0 &amp; 0 &amp; x_t \\ 0 &amp; 1 &amp; 0&amp; y_t \\ 0 &amp; 0 &amp; 1 &amp; z_t \\ 0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}\begin{bmatrix}a_{11} &amp; a_{12} &amp; a_{13} &amp; 0 \\ a_{21} &amp; a_{22} &amp; a_{23} &amp; 0\\ a_{31} &amp; a_{32} &amp; a_{33} &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix} = \begin{bmatrix}a_{11} &amp; a_{12} &amp; a_{13} &amp; x_t \\ a_{21} &amp; a_{22} &amp; a_{23} &amp; y_t\\ a_{31} &amp; a_{32} &amp; a_{33} &amp; z_t \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}$$</div>
+<p>Thus, we can look at any matrix and think of it as a scaling/rotation part and a translation part because the components are nicely separated from each other. An important class of transforms are <em>rigid-body transforms</em>. These are composed only of translations and rotations, so they have no stretching or shrinking of the objects. Such transforms will have a pure rotation for the <span class="math">\(a_{ij}\)</span> above.   </p>
+<h3 id="inverses-of-transformation-matrices">Inverses of Transformation Matrices</h3>
+<div class="math">$$ \begin{array}0 \mathbf{M} &amp;= &amp;\mathbf{R}_1\mbox{scale}(\sigma_1, \sigma_2, \sigma_3)\mathbf{R}_2,\\
+\mathbf{M}^{-1} &amp; = &amp;\mathbf{R}_2^{T}\mbox{scale}(1/\sigma_1, 1/\sigma_2, 1/\sigma_3)\mathbf{R}_1^{T} \end{array}$$</div>
+<h3 id="coordinate-transformations">Coordinate Transformations</h3>
+<p>All of the previous discussion has been in terms of using transformation matrices to move points around. We can also think of them as simply changing the coordinate system in which the point is represented. For example, in Figure 6.19, we see two ways to visualize a movement. In different contexts, either interpretation may be more suitable.   </p>
+<p>For example, a driving game may have a model of a city and a model of a car. If the player is presented with a view out the windshield, objects inside the car are always drawn in the same place on the screen, while the streets and buildings appear to move backward as the player drives. On each frame, we apply a transformation to these objects that moves them farther back than on the previous frame. One way to think of this operation is simply that it moves the buildings backward; another way to think of it is that the buildings are staying put but the coordinate system in which we want to draw them&mdash;which is attached to the car&mdash;is moving. In the second interpretation, the transformation is changing  the coordinates of the city geometry, expressing them as coordinates in the car&rsquo;s coordinate system. Both ways will lead to exactly the same matrix that is applied to the geometry outside the car.</p>
+<p><img alt="" src="/images/fundcg/6_coord1.png"/> </p>
+<p><em>Coordinate frame</em>,   </p>
+<div class="math">$$ \mathbf{p } + u\mathbf{u} + v\mathbf{v} + w\mathbf{w}$$</div>
+<div class="math">$$  \mathbf{p}_{xy} = \begin{bmatrix}\mathbf{u} &amp; \mathbf{v} &amp; \mathbf{e} \\ 0 &amp; 0 &amp; 1\end{bmatrix} \mathbf{p}_{uv}$$</div>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "left",
         indent = "0em",
