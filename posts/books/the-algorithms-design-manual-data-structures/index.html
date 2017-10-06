@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="english" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>The Algorithms Design Manual, Data structures - nitishpuri.github.io</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="/posts/books/the-algorithms-design-manual-data-structures/">
+
+        <meta name="author" content="Nitish Puri" />
+        <meta name="keywords" content="algorithms,programming,book,notes" />
+        <meta name="description" content="How to design algorithms???" />
+
+        <meta property="og:site_name" content="nitishpuri.github.io" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="The Algorithms Design Manual, Data structures"/>
+        <meta property="og:url" content="/posts/books/the-algorithms-design-manual-data-structures/"/>
+        <meta property="og:description" content="How to design algorithms???"/>
+        <meta property="article:published_time" content="2017-10-02" />
+            <meta property="article:section" content="books" />
+                <meta property="article:subcategory" content="books/algorithms-design-manual" />
+            <meta property="article:tag" content="algorithms" />
+            <meta property="article:tag" content="programming" />
+            <meta property="article:tag" content="book" />
+            <meta property="article:tag" content="notes" />
+            <meta property="article:author" content="Nitish Puri" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link href="/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+        <link href="/static/custom.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+nitishpuri.github.io            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/pages/bio/">Bio</a></li>
+                    <li><a href="/pages/gallery/">Gallery</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+              <li><a href="/archives/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/posts/books/the-algorithms-design-manual-data-structures/"
+                       rel="bookmark"
+                       title="Permalink to The Algorithms Design Manual, Data structures">
+                        The Algorithms Design Manual, Data structures
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-10-02T00:00:00+05:30"> Mon 02 October 2017</time>
+    </span>
+
+
+            <span class="label label-default">By</span>
+            <a href="/author/nitish-puri.html"><i class="fa fa-user"></i> Nitish Puri</a>
+
+        <span class="label label-default">Category</span>
+        <a href="/category/books/">books</a>
+
+            <a href="/category/books/algorithms-design-manual/">/algorithms-design-manual</a>
+        
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/algorithms/">algorithms</a>
+        /
+	<a href="/tag/programming/">programming</a>
+        /
+	<a href="/tag/book/">book</a>
+        /
+	<a href="/tag/notes/">notes</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+
+    <hr />
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style">
+            <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+            <a class="addthis_button_tweet"></a>
+            <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    </div>
+    <!-- AddThis Button END -->
+<section class="well" id="related-posts">
+    <h4>Part 2 of the The Algorithms Design Manual series</h4>
+       <h5>Previous articles</h5>
+       <ul>
+           <li><a href="/posts/books/the-algorithms-design-manual/">The Algorithms Design Manual</a></li>
+       </ul>
+       <h5>Next articles</h5>
+       <ul>
+           <li><a href="/posts/books/the-algorithms-design-manual-numerical-problems/">The Algorithms Design Manual, Numerical Problems</a></li>
+       </ul>
+</section>
+                
+                <p>Contents:</p>
+                <nav class="toc">
+                  <div id="toc"><ul><li><a class="toc-href" href="#data-structures" title="Data Structures">Data Structures</a><ul><li><a class="toc-href" href="#dictionaries" title="Dictionaries">Dictionaries</a></li><li><a class="toc-href" href="#priority-queues" title="Priority Queues">Priority Queues</a></li><li><a class="toc-href" href="#suffix-trees-and-arrays" title="Suffix Trees and Arrays">Suffix Trees and Arrays</a></li><li><a class="toc-href" href="#graph-data-structures" title="Graph Data Structures">Graph Data Structures</a></li><li><a class="toc-href" href="#set-data-structures" title="Set data structures">Set data structures</a></li><li><a class="toc-href" href="#kd-trees" title="Kd-Trees">Kd-Trees</a></li></ul></li></ul></div>
+                </nav>
+                <hr>
+                
+                <h2 id="data-structures">Data Structures</h2>
+<h3 id="dictionaries">Dictionaries</h3>
+<p><img alt="" src="/images/algdm/12_dict1.png"/> </p>
+<p><strong>Input Description :</strong> A set of <span class="math">\(n\)</span> records, each identified by one or more fields. <br/>
+<strong>Problem description :</strong> Build and maintain a data structure to efficiently locate, insert, and delete the record associated with any query key <span class="math">\(q\)</span>.   </p>
+<ul>
+<li>It is more important to avoid using a bad data structure than to identify the single best option available.   </li>
+<li>Questions to ask:<ul>
+<li>How many items will you have in your data structure?</li>
+<li>Do you know the relative frequencies of insert, delete, and search operations?</li>
+<li>Can we assume that the access pattern for keys will be uniform and random?</li>
+<li>Is it critical that individual operations be fast, or only that the total amount of work done over the entire program be minimized?</li>
+</ul>
+</li>
+<li>Under the hood:<ul>
+<li><em>Unsorted linked lists or arrays: For small data sets.</em></li>
+<li><em>Sorted linked lists or arrays</em></li>
+<li><em>Hash tables</em><ul>
+<li>How do I deal with collisions? Open addressing or bucketing?</li>
+<li>How big should the table be? At least as big as <span class="math">\(m\)</span>, the number of items you expect to put in the table, it better be <em>prime</em>.</li>
+<li>What hash functions should I choose?  For strings,  <br/>
+<div class="math">$$H(S,j) = \sum_{i=0}^{m-1}\alpha^{m-(i+1)}\times char(s_{i+j})\mod{m}$$</div>
+<span class="math">\(\alpha\)</span> is the size of the alphabet, <span class="math">\(char(x)\)</span> maps a character to its ASCII code.
+This can be computer efficiently as, <br/>
+<div class="math">$$H(S,j+1) = (H(S,j) - \alpha^{m-1}char(s_j))\alpha + s_{j+m}$$</div>.
+In the end, make sure that the distribution is as <em>uniform</em> as possible.        </li>
+</ul>
+</li>
+<li><em>Binary search trees</em><ul>
+<li>Elegant data structures that support fast insertions, deletions and queries.</li>
+<li>Do I need self balancing trees? <em>Red-black trees</em>, <em>splay trees</em>.</li>
+<li>Use the best implementations!!</li>
+</ul>
+</li>
+<li><em>B-trees</em><ul>
+<li>For data sets so large that they will not fit in the memory.</li>
+<li>Uses caches and secondary storage.</li>
+<li>Look for <em>Cache-oblivious algorithms</em></li>
+</ul>
+</li>
+<li><em>Skip lists</em><ul>
+<li>Somewhat of a cult data structure.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Implementations</strong><ul>
+<li><a href="http://www.cplusplus.com/reference/map/map/">C++ : <code>std::map</code></a><ul>
+<li>Implemented as <em>Binary Search Tree</em>.</li>
+</ul>
+</li>
+<li>LEDA<ul>
+<li>hashing, perfect hashing, B-trees, red-black trees, random search trees, skip lists.</li>
+</ul>
+</li>
+<li>Java Collections and Data Structures Library in Java</li>
+</ul>
+</li>
+<li><em>Related :</em> Sorting, searching</li>
+</ul>
+<h3 id="priority-queues">Priority Queues</h3>
+<p><img alt="" src="/images/algdm/12_pqueue1.png"/> </p>
+<p><strong>Input description:</strong> A set of records with numerically or otherwise totally-ordered keys. <br/>
+<strong>Problem description:</strong> Build and maintain a data structure for providing quick access to the smallest or largest key in the set.   </p>
+<ul>
+<li>Very useful in simulations(as future events ordered by time).</li>
+<li>Not required if insertions, deletions and queries are not intermixed.</li>
+<li>Questions to ask:<ul>
+<li>What other operations do you need?</li>
+<li>Do you know the maximum data structure size in advance?</li>
+<li>Might you change the priority of the elements already in the queue?</li>
+</ul>
+</li>
+<li>Choices:<ul>
+<li><em>Sorted array or list</em></li>
+<li><em>Binary heaps</em></li>
+<li><em>Bounded height priority queue</em><ul>
+<li>Useful for small, discrete range of keys.</li>
+</ul>
+</li>
+<li><em>Binary Search trees</em><ul>
+<li>Very useful when you need more dictionary operations or the size is unbounded.</li>
+</ul>
+</li>
+<li><em>Fibonacci and pairing heaps</em><ul>
+<li>Speed up <em>decrease-key</em> operation.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Implementations</strong><ul>
+<li><a href="http://www.cplusplus.com/reference/queue/priority_queue/">C++ STL <code>std::priority_queue</code></a><ul>
+<li>Uses a <code>std::vector</code> or <code>std::dequeue</code>.</li>
+</ul>
+</li>
+<li>LEDA<ul>
+<li>Binary heaps, Fibonacci heaps, pairing heaps, Emde-Boas trees and bounded height priority queues</li>
+</ul>
+</li>
+<li>Java Collections : <code>java.util.PriorityQueue</code></li>
+</ul>
+</li>
+<li><em>Related :</em> <a href="#dictionaries">Dictionaries</a>, sorting, shortest path.</li>
+</ul>
+<h3 id="suffix-trees-and-arrays">Suffix Trees and Arrays</h3>
+<p><img alt="" src="/images/algdm/12_suffix1.png"/></p>
+<p><strong>Input description:</strong> A reference string <span class="math">\(S\)</span>. <br/>
+<strong>Problem description:</strong> Build a data structure to quickly find all places where an arbitrary query string <span class="math">\(q\)</span> occurs in <span class="math">\(S\)</span>.    </p>
+<ul>
+<li>Phenomenally useful for solving string problems.</li>
+<li>A <em>suffix tree</em> is simply a <em>trie</em> of all the proper suffixes of <span class="math">\(S\)</span>.</li>
+<li>Can be constructed in <span class="math">\(O(n)\)</span> by making clever use of pointers!!</li>
+<li>What can you do with it?<ul>
+<li>Find all occurrences of <span class="math">\(q\)</span> as a substring of <span class="math">\(S\)</span> in <span class="math">\(O(|q|+k)\)</span>, where <span class="math">\(k\)</span> is the number of occurrences.</li>
+<li>Longest substring common to a set of strings.</li>
+<li>Find the longest palindrome in <span class="math">\(S\)</span>.</li>
+</ul>
+</li>
+<li>They get even better when used as <em>suffix arrays</em>.</li>
+<li><strong>Implementations</strong><ul>
+<li>C implementation by <em>Schurmann and Stoye</em>.</li>
+<li>Many C/C++ implementations in <a href="http://pizzachili.di.unipi.it/"><em>Pizza&amp;Chili</em> corpus</a></li>
+<li>Java<ul>
+<li><code>BioJava::SuffixTree</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>Related :</em> String Matching, Text Compression, Longest Common Substring</li>
+</ul>
+<h3 id="graph-data-structures">Graph Data Structures</h3>
+<p><img alt="" src="/images/algdm/12_graph1.png"/> </p>
+<p><strong>Input description:</strong> A graph <span class="math">\(G\)</span>. <br/>
+<strong>Problem description:</strong> Represent the graph <span class="math">\(G\)</span> using a flexible, efficient data structure.</p>
+<ul>
+<li><em>Adjacency matrices</em> and <em>adjacency lists</em>.</li>
+<li>For <em>most</em> things, adjacency lists are the way to go, unless the graphs are very small or very dense.</li>
+<li>Questions to ask:<ul>
+<li>How big will your graph be?</li>
+<li>How dense will your graph be?</li>
+<li>Which algorithms will you be implementing?</li>
+<li>Will you be modifying the graph over the course of your application?</li>
+</ul>
+</li>
+<li>Prefer existing implementations.</li>
+<li>Graphs have different flavors, like <em>Planar graphs</em>, <em>Hypergraphs</em>, <em>hierarchical graphs</em>(representation). </li>
+<li><strong>Implementation</strong><ul>
+<li>C++ : LEDA, Boost</li>
+<li>Java : JUNG, Data Structures Library(JDSL), JGraphT</li>
+<li>Stanford Graphbase</li>
+</ul>
+</li>
+<li><em>Related :</em> <a href="#set-data-structures">Set data structures</a>, graph partition</li>
+</ul>
+<h3 id="set-data-structures">Set data structures</h3>
+<p><img alt="" src="/images/algdm/12_set1.png"/></p>
+<p><strong>Input description:</strong> A universe of items <span class="math">\(U = \{u_1, \ldots , u_n}\\)</span> on which is defined a collection of subsets <span class="math">\(S = \{S_1, \ldots , S_m\}\)</span>. <br/>
+<strong>Problem description:</strong> Represent each subset so as to efficiently <span class="math">\((1)\)</span> test whether <span class="math">\(u_i \in S_j\)</span>, <span class="math">\((2)\)</span> compute the union or intersection of <span class="math">\(S_i\)</span> and <span class="math">\(S_j\)</span>, and <span class="math">\((3)\)</span> insert or delete members of <span class="math">\(S\)</span>.   </p>
+<ul>
+<li>In mathematical terms, unordered collection of objects drawn from a fixed universal set.</li>
+<li>Uses a single <em>canonical order</em> for implementations, typically sorted.</li>
+<li>Distinguished from dictionaries(no fixed universal set) and strings(order is important).</li>
+<li><em>Multisets</em> : An element can occur more than once.</li>
+<li>A system of subsets can also be represented as a <em>hypergraph</em>.</li>
+<li>Representations:<ul>
+<li><em>Bit vectors</em> : For a fixed universal set. Space efficient, fast intersection and union. Not very good for sparse subsets.</li>
+<li><em>Containers and dictionaries</em></li>
+<li><em>Bloom filters</em> : Bit vectors with hashing.</li>
+</ul>
+</li>
+<li><em>Set partition</em> : When an item can be in only one set.</li>
+<li>Representations for <em>set partition</em> structures:<ul>
+<li><em>Collection of containers</em> : Membership testing is costly.</li>
+<li><em>Generalized bit vector</em> : Union, intersection takes <span class="math">\(O(n),\; n = |U|\)</span>.</li>
+<li><em>Dictionary with a subset attribute</em> : : Union, intersection are slow.</li>
+<li><em>Union-find data structures</em> : Awesome asymptotic performance!!! Even better with <em>path compression</em>. Does not allow breaking subsets created by unions.</li>
+</ul>
+</li>
+<li><strong>Implementations</strong><ul>
+<li>C++ STL <code>set</code> and <code>multiset</code>. LEDA.</li>
+<li>Java Collections <code>HashSet</code> and <code>TreeSet</code></li>
+</ul>
+</li>
+<li><em>Related :</em> Generating subsets, generating partitions, set cover, minimum spanning tree.</li>
+</ul>
+<h3 id="kd-trees">Kd-Trees</h3>
+<p><img alt="" src="/images/algdm/12_kdtree1.png"/> </p>
+<p><strong>Input description:</strong> A set <span class="math">\(S\)</span> of <span class="math">\(n\)</span> points or more complicated geometric objects in <span class="math">\(k\)</span> dimensions. <br/>
+<strong>Problem description:</strong> Construct a tree that partitions space by half-planes such that each object is contained in its own box-shaped region.   </p>
+<ul>
+<li>Spatial data structures that hierarchically decompose space into a small number of cells, each containing a few representatives from an input set of points.</li>
+<li>Flavors differ in how the splitting plane is selected:<ul>
+<li>Cycling through the dimensions</li>
+<li>Cutting along the largest dimension</li>
+<li><em>Quadtrees</em> or <em>Octtrees</em> : Cutting (axes-parallel planes) simultaneously along all the dimensions.</li>
+<li><em>BSP-trees</em> : General(arbitrary) cutting planes to carve up cells. More complicated to work with.</li>
+<li><em>R-trees</em> : Objects are partitioned into (possibly overlapping) boxes.</li>
+</ul>
+</li>
+<li>Advantages :<ul>
+<li>Point location.</li>
+<li>Nearest neighbor search.</li>
+<li>Range search</li>
+<li>Partial key search</li>
+</ul>
+</li>
+<li>Effective upto say <code>20</code> dimensions.</li>
+<li><strong>Implementations</strong><ul>
+<li><a href="https://arxiv.org/abs/physics/0408067">KDTREE2 : C++ and Fortran</a> </li>
+<li><a href="http://www.terralib.org/">Terralib : C++</a></li>
+</ul>
+</li>
+<li><em>Related :</em> Nearest-neighbor search, point location, range search.</li>
+</ul>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "left",
+        indent = "0em",
+        linebreak = "true";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+            
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style">
+            <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+            <a class="addthis_button_tweet"></a>
+            <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    </div>
+    <!-- AddThis Button END -->
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'nitishpuri'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://www.facebook.com/npuri1903"><i class="fa fa-facebook-square fa-lg"></i> Facebook</a></li>
+    <li class="list-group-item"><a href="https://github.com/nitishpuri"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
+    <li class="list-group-item"><a href="https://www.linkedin.com/in/nitishpuri/"><i class="fa fa-linkedin-square fa-lg"></i> Linkedin</a></li>
+    <li class="list-group-item"><a href="https://www.instagram.com/purinitish/"><i class="fa fa-instagram fa-lg"></i> Instagram</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Categories -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4>
+  <ul class="list-group" id="categories">
+    <li class="list-group-item">
+      <a href="/category/articles/"><i class="fa fa-folder-open fa-lg"></i>articles</a>
+    </li>
+    <li class="list-group-item">
+      <a href="/category/books/"><i class="fa fa-folder-open fa-lg"></i>books</a>
+    </li>
+    <li class="list-group-item">
+      <a href="/category/gallery/"><i class="fa fa-folder-open fa-lg"></i>gallery</a>
+    </li>
+    <li class="list-group-item">
+      <a href="/category/machine-intelligence/"><i class="fa fa-folder-open fa-lg"></i>machine-intelligence</a>
+    </li>
+    <li class="list-group-item">
+      <a href="/category/robotics/"><i class="fa fa-folder-open fa-lg"></i>robotics</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Categories -->
+
+<!-- Sidebar/Tag Cloud -->
+<li class="list-group-item">
+  <a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+  <ul class="list-group list-inline tagcloud" id="tags">
+    <li class="list-group-item tag-2">
+      <a href="/tag/algorithms/">algorithms</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="/tag/blogging/">blogging</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="/tag/book/">book</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="/tag/data-science/">data-science</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="/tag/deep-learning/">deep-learning</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="/tag/design/">design</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="/tag/gallery/">gallery</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="/tag/generative/">generative</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="/tag/graphics/">graphics</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="/tag/image-segmentation/">image-segmentation</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="/tag/jekyll/">jekyll</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="/tag/notes/">notes</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="/tag/opengl/">opengl</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="/tag/philosophy/">philosophy</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="/tag/programming/">programming</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="/tag/projects/">projects</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="/tag/robotics/">robotics</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="/tag/sketch/">sketch</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="/tag/style-transfer/">style-transfer</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="/tag/udacity/">udacity</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Tag Cloud -->
+
+<!-- Sidebar/Series -->
+<li class="list-group-item">
+  <h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Series</span></h4>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <h5></i>Previous article</h5>
+      <a href="/posts/books/the-algorithms-design-manual/">The Algorithms Design Manual</a>
+    </li>
+    <li class="list-group-item">
+      <h5>Next article</h5>
+      <a href="/posts/books/the-algorithms-design-manual-numerical-problems/">The Algorithms Design Manual, Numerical Problems</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Series -->
+
+
+<!-- Sidebar/Github -->
+<li class="list-group-item">
+  <h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub Repos</span></h4>
+  <div id="gh_repos">
+    <p class="list-group-item">Status updating...</p>
+  </div>
+</li>
+<!-- End Sidebar/Github -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2017 Nitish Puri
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.english"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.english">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+
+<!-- GitHub JS Code -->
+<script type="text/javascript">
+$(document).ready(function () {
+  if (!window.jXHR) {
+    var jxhr = document.createElement('script');
+    jxhr.type = 'text/javascript';
+    jxhr.src = '/theme/js/jXHR.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(jxhr, s);
+  }
+
+  github.showRepos({
+    user: 'nitishpuri',
+    count: 5,
+    skip_forks: true,
+    target: '#gh_repos'
+  });
+});
+</script>
+<script src="/theme/js/github.js" type="text/javascript"></script>
+<!-- End GitHub JS Code -->
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'nitishpuri'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-103032011-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59bc69ad3aa13e47"></script>
+</body>
+</html>

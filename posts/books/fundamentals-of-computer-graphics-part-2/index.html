@@ -13,13 +13,13 @@
 
         <meta name="author" content="Peter Shirley" />
         <meta name="keywords" content="graphics,notes,programming" />
-        <meta name="description" content="Index notes on Fundamentals of Computer Graphics" />
+        <meta name="description" content="Linear Algebra, Transformation Matrices and View Transformations" />
 
         <meta property="og:site_name" content="nitishpuri.github.io" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Fundamentals of Computer Graphics, Part 2"/>
         <meta property="og:url" content="/posts/books/fundamentals-of-computer-graphics-part-2/"/>
-        <meta property="og:description" content="Index notes on Fundamentals of Computer Graphics"/>
+        <meta property="og:description" content="Linear Algebra, Transformation Matrices and View Transformations"/>
         <meta property="article:published_time" content="2017-08-19" />
             <meta property="article:section" content="books" />
                 <meta property="article:subcategory" content="books/fund-comp-graphics" />
@@ -137,11 +137,15 @@ nitishpuri.github.io            </a>
            <li><a href="/posts/books/fundamentals-of-computer-graphics/">Fundamentals of Computer Graphics</a></li>
            <li><a href="/posts/books/fundamentals-of-computer-graphics-part-1/">Fundamentals of Computer Graphics, Part 1</a></li>
        </ul>
+       <h5>Next articles</h5>
+       <ul>
+           <li><a href="/posts/books/fundamentals-of-computer-graphics-part-3/">Fundamentals of Computer Graphics, Part 3</a></li>
+       </ul>
 </section>
                 
                 <p>Contents:</p>
                 <nav class="toc">
-                  <div id="toc"><ul><li><a class="toc-href" href="#chapter-5-linear-algebra" title="Chapter 5 : Linear Algebra">Chapter 5 : Linear Algebra</a><ul><li><a class="toc-href" href="#determinants" title="Determinants">Determinants</a></li><li><a class="toc-href" href="#matrices" title="Matrices">Matrices</a></li><li><a class="toc-href" href="#computing-with-matrices-and-determinants" title="Computing with Matrices and Determinants">Computing with Matrices and Determinants</a></li><li><a class="toc-href" href="#eigenvalues-and-matrix-diagonalization" title="Eigenvalues and Matrix Diagonalization">Eigenvalues and Matrix Diagonalization</a></li></ul></li><li><a class="toc-href" href="#chapter-6-transformation-matrices_1" title="Chapter 6: Transformation Matrices">Chapter 6: Transformation Matrices</a><ul><li><a class="toc-href" href="#2d-linear-transformations" title="2D Linear Transformations">2D Linear Transformations</a></li><li><a class="toc-href" href="#3d-linear-transformations" title="3D Linear Transformations">3D Linear Transformations</a><ul><li><a class="toc-href" href="#arbitrary-3d-rotations" title="Arbitrary 3D Rotations">Arbitrary 3D Rotations</a></li><li><a class="toc-href" href="#transforming-normal-vectors" title="Transforming Normal Vectors">Transforming Normal Vectors</a></li></ul></li><li><a class="toc-href" href="#translation-and-affine-transformations_1" title="Translation and Affine Transformations">Translation and Affine Transformations</a></li><li><a class="toc-href" href="#inverses-of-transformation-matrices" title="Inverses of Transformation Matrices">Inverses of Transformation Matrices</a></li><li><a class="toc-href" href="#coordinate-transformations" title="Coordinate Transformations">Coordinate Transformations</a></li></ul></li></ul></div>
+                  <div id="toc"><ul><li><a class="toc-href" href="#chapter-5-linear-algebra" title="Chapter 5 : Linear Algebra">Chapter 5 : Linear Algebra</a><ul><li><a class="toc-href" href="#determinants" title="Determinants">Determinants</a></li><li><a class="toc-href" href="#matrices" title="Matrices">Matrices</a></li><li><a class="toc-href" href="#computing-with-matrices-and-determinants" title="Computing with Matrices and Determinants">Computing with Matrices and Determinants</a></li><li><a class="toc-href" href="#eigenvalues-and-matrix-diagonalization" title="Eigenvalues and Matrix Diagonalization">Eigenvalues and Matrix Diagonalization</a></li></ul></li><li><a class="toc-href" href="#chapter-6-transformation-matrices_1" title="Chapter 6: Transformation Matrices">Chapter 6: Transformation Matrices</a><ul><li><a class="toc-href" href="#2d-linear-transformations" title="2D Linear Transformations">2D Linear Transformations</a></li><li><a class="toc-href" href="#3d-linear-transformations" title="3D Linear Transformations">3D Linear Transformations</a><ul><li><a class="toc-href" href="#arbitrary-3d-rotations" title="Arbitrary 3D Rotations">Arbitrary 3D Rotations</a></li><li><a class="toc-href" href="#transforming-normal-vectors" title="Transforming Normal Vectors">Transforming Normal Vectors</a></li></ul></li><li><a class="toc-href" href="#translation-and-affine-transformations_1" title="Translation and Affine Transformations">Translation and Affine Transformations</a></li><li><a class="toc-href" href="#inverses-of-transformation-matrices" title="Inverses of Transformation Matrices">Inverses of Transformation Matrices</a></li><li><a class="toc-href" href="#coordinate-transformations" title="Coordinate Transformations">Coordinate Transformations</a></li></ul></li><li><a class="toc-href" href="#chapter-7-viewing_1" title="Chapter 7 : Viewing">Chapter 7 : Viewing</a><ul><li><a class="toc-href" href="#viewing-transformations" title="Viewing Transformations">Viewing Transformations</a><ul><li><a class="toc-href" href="#the-viewport-transformation" title="The Viewport Transformation">The Viewport Transformation</a></li><li><a class="toc-href" href="#the-orthographic-projection-transformation" title="The Orthographic Projection Transformation">The Orthographic Projection Transformation</a></li><li><a class="toc-href" href="#the-camera-transformation" title="The Camera Transformation">The Camera Transformation</a></li></ul></li><li><a class="toc-href" href="#projective-transformations_1" title="Projective Transformations">Projective Transformations</a></li><li><a class="toc-href" href="#perspective-projection" title="Perspective Projection">Perspective Projection</a></li><li><a class="toc-href" href="#some-properties-of-the-perspective-transform" title="Some Properties of the Perspective Transform">Some Properties of the Perspective Transform</a></li><li><a class="toc-href" href="#field-of-view" title="Field-of-View">Field-of-View</a></li></ul></li></ul></div>
                 </nav>
                 <hr>
                 
@@ -317,6 +321,78 @@ Also, <br/>
 <p><em>Coordinate frame</em>,   </p>
 <div class="math">$$ \mathbf{p } + u\mathbf{u} + v\mathbf{v} + w\mathbf{w}$$</div>
 <div class="math">$$  \mathbf{p}_{xy} = \begin{bmatrix}\mathbf{u} &amp; \mathbf{v} &amp; \mathbf{e} \\ 0 &amp; 0 &amp; 1\end{bmatrix} \mathbf{p}_{uv}$$</div>
+<h2 id="chapter-7-viewing_1">Chapter 7 : Viewing</h2>
+<p><img alt="" src="/images/fundcg/7_view1.png"/> </p>
+<h3 id="viewing-transformations">Viewing Transformations</h3>
+<ul>
+<li>A <em>camera transformation</em> or <em>eye transformation</em>, which is a rigid body transformation that places the camera at the origin in a convenient orientation. It depends only on the position and orientation, or pose, of the camera.</li>
+<li>A <em>projection transformation</em>, which projects points from camera space so that all visible points fall in the range &minus;1 to 1 in x and y. It depends only on the type of projection desired.</li>
+<li>A <em>viewport transformation</em> or <em>windowing transformation</em>, which maps this unit image rectangle to the desired rectangle in pixel coordinates. It depends only on the size and position of the output image.</li>
+</ul>
+<p><img alt="" src="/images/fundcg/7_view2.png"/> </p>
+<h4 id="the-viewport-transformation">The Viewport Transformation</h4>
+<div class="math">$$ \mathbf{M}_{vp} = \begin{bmatrix}\frac{n_x}2 &amp; 0 &amp; 0 &amp; \frac{n_x-1}2 \\ 0 &amp; \frac{n_y}2 &amp; 0 &amp; \frac{n_y-1}2 \\ 0 &amp; 0 &amp; 1 
+ &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}$$</div>
+<h4 id="the-orthographic-projection-transformation">The Orthographic Projection Transformation</h4>
+<p><img alt="" src="/images/fundcg/7_ortho1.png"/> </p>
+<div class="math">$$ \mathbf{M}_{ortho} = \begin{bmatrix} \frac2{r-l}  &amp; 0 &amp; 0 &amp; -\frac{r+l}{r-l} \\ 0 &amp; \frac{2}{t-b} &amp; 0 &amp; -\frac{t+b}{t-b} \\ 0 &amp; 0 &amp; \frac{2}{n-f} &amp; -\frac{n+f}{n-f} \\ 0 &amp; 0 &amp; 0 &amp;1\end{bmatrix} $$</div>
+<div class="math">$$ \begin{bmatrix}  x_{pixel} \\ y_{pixel} \\ z_{canonical} \\ 1\end{bmatrix}  = (\mathbf{M}_{vp}\mathbf{M}_{ortho}) \begin{bmatrix} x \\ y \\ z \\ 1\end{bmatrix}$$</div>
+<h4 id="the-camera-transformation">The Camera Transformation</h4>
+<p><img alt="" src="/images/fundcg/7_camera.png"/> </p>
+<ul>
+<li>the eye position <span class="math">\(\mathbf{e}\)</span>,</li>
+<li>the gaze direction <span class="math">\(\mathbf{g}\)</span>,</li>
+<li>the view-up vector <span class="math">\(\mathbf{t}\)</span>.   </li>
+</ul>
+<div class="math">$$ \begin{array}1 \mathbf{w} &amp;=&amp; -\frac{\mathbf{g}}{||\mathbf{g}||} \\
+\mathbf{u} &amp; = &amp; \frac{\mathbf{t} \times \mathbf{w}}{|| \mathbf{t} \times \mathbf{w}||} \\ 
+\mathbf{v} &amp; = &amp; \mathbf{w} \times \mathbf{u} \end{array}$$</div>
+<div class="math">$$ \begin{array}0 \mathbf{M}_{cam} &amp;=&amp; \begin{bmatrix} \mathbf{u} &amp; \mathbf{v} &amp; \mathbf{w} &amp; \mathbf{e} \\ 0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}^{-1} \\ &amp;=&amp; \begin{bmatrix} x_u &amp; y_u &amp; z_u &amp; 0 \\ x_v &amp; v_v &amp; z_V &amp; 0 \\ x_w &amp; y_w &amp; z_w &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp;1 \end{bmatrix} \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; -x_e \\ 0 &amp; 1 &amp; 0 &amp;-y_e \\ 0 &amp; 0 &amp; 1 &amp; -z_e \\ 0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}\end{array}$$</div>
+<p><em>The algorithm:</em> </p>
+<div class="math">$$ construct \;\mathbf{M}_{vp}\\
+construct\;\mathbf{M}_{ortho}\\
+construct\;\mathbf{M}_{cam} \\
+\mathbf{M} = \mathbf{M}_{vp}\mathbf{M}_{ortho}\mathbf{M}_{cam}\\
+\mathbf{for}\; each \;line \;segment (a_i, b_i) \;\mathbf{do}:\\
+\quad     \mathbf{p} = \mathbf{Ma}_i \\ 
+\quad     \mathbf{q} = \mathbf{Mb}_i \\ 
+\quad     drawline(x_p, y_p, x_q, y_q)$$</div>
+<h3 id="projective-transformations_1">Projective Transformations</h3>
+<div class="math">$$ y_s = \frac{d}{z}y$$</div>
+<p><img alt="" src="/images/fundcg/7_project1.png"/> </p>
+<div class="math">$$ \begin{bmatrix} \bar x \\ \bar y \\ \bar z \\ \bar w\end{bmatrix}  = \begin{bmatrix} a_1 &amp; b_1 &amp; c_1 &amp; d_1 \\ a_2 &amp; b_2 &amp; c_2 &amp; d_2 \\a_3 &amp; b_3 &amp; c_3 &amp; d_3 \\ e &amp; f &amp; g &amp; h \\\end{bmatrix} \begin{bmatrix} z \\ y \\ z \\ 1\end{bmatrix}$$</div>
+<div class="math">$$ (x', y', z') = (\bar x/\bar w, \bar y/\bar w, \bar z/\bar w) $$</div>
+<h3 id="perspective-projection">Perspective Projection</h3>
+<div class="math">$$ \mathbf{P} = \begin{bmatrix}  n &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; n &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; n+f &amp; -fn \\0 &amp; 0 &amp; 1 &amp; 0\end{bmatrix} $$</div>
+<p>The first, second, and fourth rows simply implement the perspective equation. The third row, as in the orthographic and viewport matrices, is designed to bring the <em>z</em>-coordinate &ldquo;along for the ride&rdquo; so that we can use it later for hidden surface removal. In the perspective projection, though, the addition of a non-constant denominator prevents us from actually preserving the value of <em>z</em>&mdash;it&rsquo;s actually impossible to keep <em>z</em> from changing while getting <em>x</em> and <em>y</em> to do what we need them to do. Instead we&rsquo;ve opted to keep <em>z</em> unchanged for points on the near or far planes.   </p>
+<div class="math">$$ \mathbf{P}\begin{bmatrix}  x \\ y \\ z \\ 1 \end{bmatrix}  =  \begin{bmatrix}  x \\ y \\ z\frac{n+f}{n} - f \\ \frac z n \end{bmatrix} \sim \begin{bmatrix}  \frac {nx}z \\ \frac{ny}z \\ n+f -\frac{fn}z \\ 1 \end{bmatrix}  $$</div>
+<p><img alt="" src="/images/fundcg/7_persp1.png"/> <br/>
+<img alt="" src="/images/fundcg/7_persp2.png"/> </p>
+<p>As you can see, <em>x</em> and <em>y</em> are scaled and, more importantly, divided by <em>z</em>. Because both <em>n</em> and <em>z</em> (inside the view volume) are negative, there are no <em>&ldquo;flips&rdquo;</em> in <em>x</em> and <em>y</em>. Although it is not obvious (see the exercise at the end of the chapter), the transform also preserves the relative order of <em>z</em> values between <span class="math">\(z = n\)</span> and <span class="math">\(z = f\)</span>, allowing us to do depth ordering after this matrix is applied. This will be important later when we do hidden surface elimination. <br/>
+Sometimes we will want to take the inverse of <span class="math">\(\mathbf{P}\)</span>, for example to bring a screen coordinate plus <span class="math">\(z\)</span> back to the original space, as we might want to do for picking. The inverse is   </p>
+<div class="math">$$ \mathbf{P}^{-1} = \begin{bmatrix} \frac 1 n &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; \frac 1 n &amp; 0 &amp; 0  \\ 
+0 &amp; 0 &amp; 0 &amp; 1 \\0 &amp; 0 &amp; -\frac 1 {fn} &amp; \frac{n+f}{fn}\end{bmatrix}$$</div>
+<p>or,   </p>
+<div class="math">$$ \mathbf{P}^{-1} = \begin{bmatrix} f &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; f &amp; 0 &amp; 0  \\ 
+0 &amp; 0 &amp; 0 &amp; fn \\0 &amp; 0 &amp; -1  &amp; n+f\end{bmatrix}$$</div>
+<div class="math">$$ \mathbf{M}_{per} = \mathbf{M}_{ortho}\mathbf{P} $$</div>
+<p>So, the full set of matrices for perspective viewing is,   </p>
+<div class="math">$$ \mathbf{M}  = \mathbf{M}_{vp}\mathbf{M}_{ortho}\mathbf{P}\mathbf{M}_{cam} $$</div>
+<p>The resulting algorithm is,   </p>
+<div class="math">$$ compute\;\mathbf{M}_{vp} \\
+compute\;\mathbf{M}_{per} \\ 
+compute\; \mathbf{M}_{cam} \\
+\mathbf{M} = \mathbf{M}_{vp}\mathbf{M}_{per}\mathbf{M}_{cam} \\
+\mathbf{for}\; each \;line \;segment \;(\mathbf{a}_i, \mathbf{b}_i) \mathbf{do}: \\
+\quad    \mathbf{p} = \mathbf{Ma}_i \\ 
+\quad     \mathbf{q} = \mathbf{Mb}_i \\
+\quad      drawline(x_p/w_p, y_p/w_p, x_q/w_q, y_q/w_q)$$</div>
+<div class="math">$$ \begin{array}0 \mathbf{M}_{per} &amp;=&amp; \begin{bmatrix} \frac{2n}{r-l}  &amp; 0 &amp; \frac{l+r}{l-r} &amp; 0 \\ 0 &amp; \frac{2n}{t-b} &amp; \frac{b+t}{b-t} &amp; 0 \\ 0 &amp; 0 &amp; \frac{f+n}{n-f} &amp; \frac{2fn}{f-n} \\ 0 &amp; 0 &amp; 1 &amp;0\end{bmatrix} \\ 
+\mathbf{M}_{OpenGL} &amp;=&amp; \begin{bmatrix} \frac{2|n|}{r-l}  &amp; 0 &amp; \frac{r+l}{r-l} &amp; 0 \\ 0 &amp; \frac{2|n|}{t-b} &amp; \frac{t+b}{t-b} &amp; 0 \\ 0 &amp; 0 &amp; \frac{|n|+|f|}{|n|-|f|} &amp; \frac{2|f||n|}{|n|-|f|} \\ 0 &amp; 0 &amp; -1 &amp;0\end{bmatrix}  \end{array}$$</div>
+<h3 id="some-properties-of-the-perspective-transform">Some Properties of the Perspective Transform</h3>
+<p>An important property of the perspective transform is that it takes lines to lines and planes to planes. In addition, it takes line segments in the view volume to line segments in the canonical volume.   </p>
+<h3 id="field-of-view">Field-of-View</h3>
+<p><img alt="" src="/images/fundcg/7_fov.png"/> </p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "left",
         indent = "0em",
@@ -462,6 +538,9 @@ Also, <br/>
     <li class="list-group-item tag-4">
       <a href="/tag/blogging/">blogging</a>
     </li>
+    <li class="list-group-item tag-3">
+      <a href="/tag/book/">book</a>
+    </li>
     <li class="list-group-item tag-2">
       <a href="/tag/data-science/">data-science</a>
     </li>
@@ -524,6 +603,10 @@ Also, <br/>
     <li class="list-group-item">
       <h5></i>Previous article</h5>
       <a href="/posts/books/fundamentals-of-computer-graphics-part-1/">Fundamentals of Computer Graphics, Part 1</a>
+    </li>
+    <li class="list-group-item">
+      <h5>Next article</h5>
+      <a href="/posts/books/fundamentals-of-computer-graphics-part-3/">Fundamentals of Computer Graphics, Part 3</a>
     </li>
   </ul>
 </li>
