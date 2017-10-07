@@ -144,7 +144,7 @@ nitishpuri.github.io            </a>
                 
                 <p>Contents:</p>
                 <nav class="toc">
-                  <div id="toc"><ul><li><a class="toc-href" href="#numerical-problems" title="Numerical Problems">Numerical Problems</a><ul><li><a class="toc-href" href="#solving-linear-equations" title="Solving Linear Equations">Solving Linear Equations</a></li></ul></li></ul></div>
+                  <div id="toc"><ul><li><a class="toc-href" href="#numerical-problems" title="Numerical Problems">Numerical Problems</a><ul><li><a class="toc-href" href="#solving-linear-equations" title="Solving Linear Equations">Solving Linear Equations</a></li><li><a class="toc-href" href="#bandwidth-reduction" title="Bandwidth Reduction">Bandwidth Reduction</a></li><li><a class="toc-href" href="#matrix-multiplication" title="Matrix Multiplication">Matrix Multiplication</a></li><li><a class="toc-href" href="#determinants-and-permanents" title="Determinants and Permanents">Determinants and Permanents</a></li><li><a class="toc-href" href="#constrained-and-unconstrained-optimization" title="Constrained and Unconstrained Optimization">Constrained and Unconstrained Optimization</a></li></ul></li></ul></div>
                 </nav>
                 <hr>
                 
@@ -159,6 +159,88 @@ nitishpuri.github.io            </a>
 <p><img alt="" src="/images/algdm/13_linear1.png"/> </p>
 <p><strong>Input description:</strong> An <span class="math">\(m \times n\)</span> matrix <span class="math">\(A\)</span> and an <span class="math">\(m \times 1\)</span> vector <span class="math">\(b\)</span>, together representing <span class="math">\(m\)</span> linear equations on <span class="math">\(n\)</span> variables. <br/>
 <strong>Problem description:</strong> What is the vector <span class="math">\(x\)</span> such that <span class="math">\(A \cdot  x = b\)</span>?</p>
+<ul>
+<li>Naive algorithm using <em>Gaussian Elimination</em> is <span class="math">\(O(n^3)\)</span>.</li>
+<li>Issues to worry about,<ul>
+<li>Are roundoff errors and numerical stability affecting my solution? Use library routines.</li>
+<li>Which routine in the library should I use? Reduce to special form for faster implementations.</li>
+<li>Is my system sparse? Use specialized algorithms for faster implementations.</li>
+<li>Will I be solving many systems using the same coefficient matrix? Use LU Decomposition.
+<div class="math">$$A \cdot x = (L \cdot U) \cdot x = L \cdot (U \cdot x) = b$$</div>
+<br/>
+This gives a solution in two <span class="math">\(O(n^2)\)</span> since backsubstitution gives solves triangular system of equations in quadratic time instead of <span class="math">\(O(n^3)\)</span>, after <span class="math">\(LU\)</span> decomposition has been done in <span class="math">\(O(n^3)\)</span>.</li>
+</ul>
+</li>
+<li><strong>Implementations</strong> <ul>
+<li><strong>LAPACK</strong>(C/C++)</li>
+<li><strong>JScience, JAMA</strong>(Java)</li>
+</ul>
+</li>
+<li><em>Related</em> : <a href="#matrix-multiplication">Matrix multipplication</a>, <a href="#determinants-and-permanents">determinant/permanent</a></li>
+</ul>
+<h3 id="bandwidth-reduction">Bandwidth Reduction</h3>
+<p><img alt="" src="/images/algdm/13_bandwidth.png"/> </p>
+<p><strong>Input description:</strong> A graph <span class="math">\(G = (V,E)\)</span>, representing an <span class="math">\(n \times n\)</span> matrix <span class="math">\(M\)</span> of zero and non-zero elements. <br/>
+<strong>Problem description:</strong> Which permutation <span class="math">\(p\)</span> of the vertices minimizes the length
+of the longest edge when the vertices are ordered on a line&mdash;i.e. , minimizes
+<span class="math">\(max(i,j) \in E |p(i) &minus; p(j)|\)</span>?   </p>
+<ul>
+<li>Applied to matrices bandwidth reduction permutes the rows and columns of a sparse matrix to minimize the distance <span class="math">\(b\)</span> of any non-zero entry from the center diagonal.</li>
+<li>Gaussian elimination can be performed in <span class="math">\(O(nb^2)\)</span> on matrices of bandwidth <span class="math">\(b\)</span>. This is a big win over <span class="math">\(O(n^3)\)</span> if <span class="math">\(b &lt;&lt; n\)</span>.</li>
+<li>An example on graphs<ul>
+<li>Arranging <span class="math">\(n\)</span> circuit components in a line to minimize the length of the longest wire(and hence time delay) is a bandwidth problem.</li>
+<li>A hypertext application with links on a magnetic tape, we need to store linked objects near each other to minimize search time.</li>
+<li>More general formulations of rectangular circuit layouts and disks inherit the same hardness and heuristics.</li>
+</ul>
+</li>
+<li>Variations<ul>
+<li>In <em>linear arrangement</em>, we seek to minimize the sum of the lengths of the edges. </li>
+<li>In <em>profile minimization</em>, we seek to minimize the sum of one way distances for each vertex <span class="math">\(v\)</span> the length of the longest edge whose other vertex is the left of <span class="math">\(v\)</span>.</li>
+</ul>
+</li>
+<li>Unfortunately, this is NP-complete, even for a tree, thus or only options are a brute-force search or heuristics.</li>
+<li>Heuristic in worst case <span class="math">\(O(n^3)\)</span>, close to linear in practice.</li>
+<li>Brute-force in <span class="math">\(n!\)</span> possible permutations.</li>
+<li><strong>Implementations</strong><ul>
+<li><a href="http://www.mfn.unipmn.it/&sim;manzini/bandmin">Del Corso and Manzini&rsquo;s code</a> for exact solutions to bandwidth problems.</li>
+<li>More references in the book.</li>
+</ul>
+</li>
+<li><em>Related</em> : <a href="#solving-linear-equations">Solving linear equations</a>, <a href="/posts/books/the-algorithms-design-manual/#topological-sort">topological sort</a></li>
+</ul>
+<h3 id="matrix-multiplication">Matrix Multiplication</h3>
+<p><img alt="" src="/images/algdm/13_matmul.png"/> </p>
+<p><strong>Input description:</strong> An <span class="math">\(x \times y\)</span> matrix <span class="math">\(A\)</span> and a <span class="math">\(y \times z\)</span> matrix <span class="math">\(B\)</span>. <br/>
+<strong>Problem description:</strong> Compute the <span class="math">\(x \times z\)</span> matrix <span class="math">\(A \times B\)</span>.   </p>
+<ul>
+<li>A fundamental problem in linear algebra.</li>
+<li>Multiplication can done in arbitrary order, with varying costs in <span class="math">\(O(xyz)\)</span>, but minimum can not be predicted.</li>
+<li>With bandwidth-<span class="math">\(b\)</span> matrices, a speedup of <span class="math">\(O(xbz)\)</span> can be achieved.</li>
+<li>Strassen's algorithm using divide-and-conquer runs in <span class="math">\(O(n^{2.81})\)</span>, but is only practically useful for <span class="math">\(n &gt; 100\)</span>.</li>
+<li>For long chains on matrix multiplications, dynamic programming can be used to optimize the parenthesization to minimize the dimensions of intermediate results.</li>
+<li><em>Related</em> : <a href="#solving-linear-equations">Solving linear equations</a>, <a href="{filename}algorithm-design-manual1.md#shortest-path#shortest-path">shortest path</a>.</li>
+</ul>
+<h3 id="determinants-and-permanents">Determinants and Permanents</h3>
+<p><img alt="" src="/images/algdm/13_determinants.png"/> </p>
+<p><strong>Input description:</strong> An <span class="math">\(n \times n\)</span> matrix <span class="math">\(M\)</span>. <br/>
+<strong>Problem description:</strong> What is the determinant <span class="math">\(|M|\)</span> or permanent <span class="math">\(perm(M)\)</span> of the matrix <span class="math">\(M\)</span>?   </p>
+<ul>
+<li>Used to solve a variety of problems.<ul>
+<li>Testing if a matrix is <em>singular</em>, i.e. the matrix has no inverse, iff <span class="math">\(|M|=0\)</span>.</li>
+<li>Test whether a set of points lie in a plane, iff <span class="math">\(|M|=0\)</span>.</li>
+<li>Test whether a point lies in the left or right side of a line or a plane. </li>
+<li>Compute area or volume of a triangle, tetrahedron or other simplicial complex.
+<div class="math">$$|M| = \sum_{i=1}^{n!}(-1)^{sign(\pi_i)} \prod_{j=1}^n M[j,\pi_j]$$</div>
+</li>
+</ul>
+</li>
+<li>This is <span class="math">\(O(n!)\)</span>. However can be done faster using LU decomposition in <span class="math">\(O(n^3)\)</span>.</li>
+<li>Closely related, <em>permanent</em>, counts the number of perfect matchings in <span class="math">\(G\)</span>, represented by its adjacency matrix <span class="math">\(M\)</span>.
+<div class="math">$$perm(M) = \sum_{i=1}^{n!} \prod_{j=1}^n M[j, \pi_j] $$</div>
+However, calculating this is NP-hard.</li>
+<li><em>Related</em> : <a href="#solving-linear-equations">Solving linear equations</a>, <a href="">matching</a>, <a href="">geometric primitives</a>.</li>
+</ul>
+<h3 id="constrained-and-unconstrained-optimization">Constrained and Unconstrained Optimization</h3>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "left",
         indent = "0em",
