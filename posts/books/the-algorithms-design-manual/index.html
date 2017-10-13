@@ -139,12 +139,17 @@ nitishpuri.github.io            </a>
        <ul>
            <li><a href="/posts/books/the-algorithms-design-manual-data-structures/">The Algorithms Design Manual, Data structures</a></li>
            <li><a href="/posts/books/the-algorithms-design-manual-numerical-problems/">The Algorithms Design Manual, Numerical Problems</a></li>
+           <li><a href="/posts/books/the-algorithms-design-manual-combinatorial-problems/">The Algorithms Design Manual, Combinatorial Problems</a></li>
+           <li><a href="/posts/books/the-algorithms-design-manual-graph-problemspolynomial-time/">The Algorithms Design Manual, Graph Problems(Polynomial-Time)</a></li>
+           <li><a href="/posts/books/the-algorithms-design-manual-graph-problemshard-problems/">The Algorithms Design Manual, Graph Problems(Hard Problems)</a></li>
+           <li><a href="/posts/books/the-algorithms-design-manual-computational-geometry/">The Algorithms Design Manual, Computational Geometry</a></li>
+           <li><a href="/posts/books/the-algorithms-design-manual-set-and-string-problems/">The Algorithms Design Manual, Set and String Problems</a></li>
        </ul>
 </section>
                 
                 <p>Contents:</p>
                 <nav class="toc">
-                  <div id="toc"><ul><li><a class="toc-href" href="#how-to-design-algorithms" title="How to design algorithms?">How to design algorithms?</a><ul><li><a class="toc-href" href="#using-the-right-stuff" right="" stuff'.,..'="" the="" title="Using ">Using 'The right stuff'.,..</a></li></ul></li><li><a class="toc-href" href="#a-catalog-of-algorithmic-problems_1" title="A Catalog of Algorithmic Problems">A Catalog of Algorithmic Problems</a><ul><li><a class="toc-href" href="#data-structures" title="Data Structures">Data Structures</a></li><li><a class="toc-href" href="#numerical-problems" title="Numerical Problems">Numerical Problems</a></li></ul></li></ul></div>
+                  <div id="toc"><ul><li><a class="toc-href" href="#how-to-design-algorithms" title="How to design algorithms?">How to design algorithms?</a><ul><li><a class="toc-href" href="#using-the-right-stuff" right="" stuff'.,..'="" the="" title="Using ">Using 'The right stuff'.,..</a></li></ul></li><li><a class="toc-href" href="#a-catalog-of-algorithmic-problems_1" title="A Catalog of Algorithmic Problems">A Catalog of Algorithmic Problems</a><ul><li><a class="toc-href" href="#data-structures" title="Data Structures">Data Structures</a></li><li><a class="toc-href" href="#numerical-problems" title="Numerical Problems">Numerical Problems</a></li><li><a class="toc-href" href="#combinatorial-problems" title="Combinatorial Problems">Combinatorial Problems</a></li><li><a class="toc-href" href="#graph-problems-polynomial-time" title="Graph Problems : Polynomial-Time">Graph Problems : Polynomial-Time</a></li><li><a class="toc-href" href="#graph-problems-hard-problems" title="Graph Problems : Hard Problems">Graph Problems : Hard Problems</a></li><li><a class="toc-href" href="#computational-geometry" title="Computational Geometry">Computational Geometry</a></li><li><a class="toc-href" href="#set-and-string-problems" title="Set and String Problems">Set and String Problems</a></li></ul></li></ul></div>
                 </nav>
                 <hr>
                 
@@ -154,63 +159,98 @@ nitishpuri.github.io            </a>
 <li>Do I really understand the problem?<ul>
 <li>What exactly does the input consist of?</li>
 <li>What exactly are the desired results or outputs?</li>
-<li>Can I construct an input example small enough to solve by hand? What happens when I try to solve it?</li>
-<li>How important is it to my application that i always find the optimal answer? Can I settle for something close to the optimal answer? </li>
-<li>How large is a typical instance of my problem? Will I be working on 10 items? 1,000 items? 1,000,000 items?</li>
-<li>How important is speed in my application? Must the problem be solved within one second?One minute? One hour? One day?</li>
-<li>How much time and effort can I invest in implementation? Will I be limited to simple algorithms that can be coded up in a day, or do I have the freedom to experiment with a couple of approaches and see which is best?</li>
-<li>Am I trying to solve a numerical problem? A graph algorithm problem? A geometric problem? A string problem? A set problem? Which formulation seems easiest?</li>
+<li>Can I construct an input example small enough to solve by hand? What happens when I try 
+to solve it?</li>
+<li>How important is it to my application that i always find the optimal answer? Can I 
+settle for something close to the optimal answer? </li>
+<li>How large is a typical instance of my problem? Will I be working on 10 items? 1,000 
+items? 1,000,000 items?</li>
+<li>How important is speed in my application? Must the problem be solved within one second?
+One minute? One hour? One day?</li>
+<li>How much time and effort can I invest in implementation? Will I be limited to simple 
+algorithms that can be coded up in a day, or do I have the freedom to experiment with a 
+couple of approaches and see which is best?</li>
+<li>Am I trying to solve a numerical problem? A graph algorithm problem? A geometric problem?
+A string problem? A set problem? Which formulation seems easiest?</li>
 </ul>
 </li>
 <li>Can I find a simple algorithm or heuristic for my problem?<ul>
-<li>Will brute force solve my problem <em>correctly</em> by searching through all subsets or arrangements and picking the best one?<ul>
+<li>Will brute force solve my problem <em>correctly</em> by searching through all subsets or 
+arrangements and picking the best one?<ul>
 <li>If so, why am I sure this algorithm always gives the correct answer?</li>
 <li>How do I measure the quality of a solution once I construct it?</li>
-<li>Does this simple, slow solution run in polynomial or exponential time? Is my problem small enough that this brute-force solution will suffice?</li>
-<li>Am I certain that my problem is sufficiently well defined to actually <em>have</em> a correct solution?</li>
+<li>Does this simple, slow solution run in polynomial or exponential time? Is my problem 
+small enough that this brute-force solution will suffice?</li>
+<li>Am I certain that my problem is sufficiently well defined to actually <em>have</em> a 
+correct solution?</li>
 </ul>
 </li>
-<li>Can I solve my problem by repeatedly trying some simple rule,, like picking the biggest item first? the smallest item first? A random item first?<ul>
-<li>If so, on what types of inputs does this heuristic work well? Do these correspond to the data that might arise in my application?</li>
-<li>On what types of inputs does this heuristic work badly? If no such examples can be found, can I show that it always works well?</li>
-<li>How fast does my heuristic come up with an answer? Does it have a simple implementation?</li>
+<li>Can I solve my problem by repeatedly trying some simple rule,, like picking the biggest 
+item first? the smallest item first? A random item first?<ul>
+<li>If so, on what types of inputs does this heuristic work well? Do these correspond to 
+the data that might arise in my application?</li>
+<li>On what types of inputs does this heuristic work badly? If no such examples can be 
+found, can I show that it always works well?</li>
+<li>How fast does my heuristic come up with an answer? Does it have a simple 
+implementation?</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>Is my problem in the catalog of algorithmic problems in the back of <em>this</em> book? <ul>
 <li>What is known about the problem? Is there an implementation available that I can use?</li>
-<li>Did I look into the right place for my problem? Did I browse through all pictures? Did I look in the index under all possible keywords?</li>
-<li>Are there relevant resources available on the World Wide Web? Did I do a Google web and Google Scholar search? Did I go to the page associated with <em>this</em> book?</li>
+<li>Did I look into the right place for my problem? Did I browse through all pictures? Did I 
+look in the index under all possible keywords?</li>
+<li>Are there relevant resources available on the World Wide Web? Did I do a Google web and 
+Google Scholar search? Did I go to the page associated with <em>this</em> book?</li>
 </ul>
 </li>
 <li>Are there special cases of the problem that I know how to solve?<ul>
 <li>Can I solve the problem efficiently if I ignore some of the input parameters?</li>
-<li>Does the problem become easier to solve when I set some of the input parameters to trivial values, such as 0 or 1?</li>
+<li>Does the problem become easier to solve when I set some of the input parameters to trivial 
+values, such as 0 or 1?</li>
 <li>Can I simplify the problem to the point where I <em>can</em> solve it efficiently?</li>
 <li>Why can't this special case algorithm be generalized to a wider class of inputs?</li>
 <li>Is my problem a special case of a more general problem in the catalog?</li>
 </ul>
 </li>
 <li>Which of the standard algorithm design paradigms are most relevant to my problem?<ul>
-<li>Is there a set of items that can be sorted by size or some key? Does this sorted order make it easier to find the answer?</li>
-<li>Is there a way to split the problem in two smaller problems, perhaps by doing a binary search? How about partitioning the elements into big and small, or left and right? Does this suggest a divide-a-conquer algorithm?</li>
-<li>Do the input objects or desired solution have a natural left-to-right order, such as characters in a string, elements of a permutation, or leaves of a tree? Can I use dynamic programming to exploit this order?</li>
-<li>Are there certain operations being done repeatedly, such as searching, or finding the largest/smallest element? Can I use a data structure to speed up these queries? What about a dictionary/hash table or a heap/priority queue?</li>
-<li>Can I use random sampling to select which object to pick next? What about constructing many random configurations and picking the best one? Can I use some kind of directed randomness like simulated annealing to zoom in on the best solution?</li>
+<li>Is there a set of items that can be sorted by size or some key? Does this sorted order 
+make it easier to find the answer?</li>
+<li>Is there a way to split the problem in two smaller problems, perhaps by doing a binary 
+search? How about partitioning the elements into big and small, or left and right? Does this 
+suggest a divide-a-conquer algorithm?</li>
+<li>Do the input objects or desired solution have a natural left-to-right order, such as 
+characters in a string, elements of a permutation, or leaves of a tree? Can I use dynamic 
+programming to exploit this order?</li>
+<li>Are there certain operations being done repeatedly, such as searching, or finding the 
+largest/smallest element? Can I use a data structure to speed up these queries? What about a 
+dictionary/hash table or a heap/priority queue?</li>
+<li>Can I use random sampling to select which object to pick next? What about constructing 
+many random configurations and picking the best one? Can I use some kind of directed 
+randomness like simulated annealing to zoom in on the best solution?</li>
 <li>Can I formulate my problem as a linear program? How about an integer program?</li>
-<li>Does my problem seem something like satisfiability, the travelling salesman problem, or some other NP-complete problem? Might the problem be NP-complete problem? Might the problem be NP-complete and thus not have an efficient algorithm? Is it in the problem list in the back of <em>Garey and Johnson</em>?</li>
+<li>Does my problem seem something like satisfiability, the travelling salesman problem, or 
+some other NP-complete problem? Might the problem be NP-complete problem? Might the problem 
+be NP-complete and thus not have an efficient algorithm? Is it in the problem list in the 
+back of <em>Garey and Johnson</em>?</li>
 </ul>
 </li>
 <li>Am I sill stumped?<ul>
 <li>Am I willing to spend money to hire an expert to tell me what to do? </li>
-<li>Why don't I go back to the beginning and work through these questions again? Did any of my answers change during my latest trip through the list? <code>Backtrack!!</code></li>
+<li>Why don't I go back to the beginning and work through these questions again? Did any of my 
+answers change during my latest trip through the list? <code>Backtrack!!</code></li>
 </ul>
 </li>
 </ol>
 <h3 id="a-catalog-of-algorithmic-problems_1">A Catalog of Algorithmic Problems</h3>
 <h4 id="data-structures"><a href="/posts/books/the-algorithms-design-manual-data-structures/">Data Structures</a></h4>
 <h4 id="numerical-problems"><a href="/posts/books/the-algorithms-design-manual-numerical-problems/">Numerical Problems</a></h4>
+<h4 id="combinatorial-problems"><a href="/posts/books/the-algorithms-design-manual-combinatorial-problems/">Combinatorial Problems</a></h4>
+<h4 id="graph-problems-polynomial-time"><a href="/posts/books/the-algorithms-design-manual-graph-problemspolynomial-time/">Graph Problems : Polynomial-Time</a></h4>
+<h4 id="graph-problems-hard-problems"><a href="/posts/books/the-algorithms-design-manual-graph-problemshard-problems/">Graph Problems : Hard Problems</a></h4>
+<h4 id="computational-geometry"><a href="/posts/books/the-algorithms-design-manual-computational-geometry/">Computational Geometry</a></h4>
+<h4 id="set-and-string-problems"><a href="/posts/books/the-algorithms-design-manual-set-and-string-problems/">Set and String Problems</a></h4>
 
             
             </div>
@@ -295,13 +335,13 @@ nitishpuri.github.io            </a>
 <li class="list-group-item">
   <a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
   <ul class="list-group list-inline tagcloud" id="tags">
-    <li class="list-group-item tag-2">
+    <li class="list-group-item tag-1">
       <a href="/tag/algorithms/">algorithms</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="/tag/blogging/">blogging</a>
     </li>
-    <li class="list-group-item tag-3">
+    <li class="list-group-item tag-2">
       <a href="/tag/book/">book</a>
     </li>
     <li class="list-group-item tag-2">
@@ -322,7 +362,7 @@ nitishpuri.github.io            </a>
     <li class="list-group-item tag-2">
       <a href="/tag/graphics/">graphics</a>
     </li>
-    <li class="list-group-item tag-4">
+    <li class="list-group-item tag-3">
       <a href="/tag/image-segmentation/">image-segmentation</a>
     </li>
     <li class="list-group-item tag-4">
@@ -337,7 +377,7 @@ nitishpuri.github.io            </a>
     <li class="list-group-item tag-3">
       <a href="/tag/philosophy/">philosophy</a>
     </li>
-    <li class="list-group-item tag-2">
+    <li class="list-group-item tag-1">
       <a href="/tag/programming/">programming</a>
     </li>
     <li class="list-group-item tag-4">

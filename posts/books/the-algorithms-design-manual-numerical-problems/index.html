@@ -140,11 +140,19 @@ nitishpuri.github.io            </a>
            <li><a href="/posts/books/the-algorithms-design-manual/">The Algorithms Design Manual</a></li>
            <li><a href="/posts/books/the-algorithms-design-manual-data-structures/">The Algorithms Design Manual, Data structures</a></li>
        </ul>
+       <h5>Next articles</h5>
+       <ul>
+           <li><a href="/posts/books/the-algorithms-design-manual-combinatorial-problems/">The Algorithms Design Manual, Combinatorial Problems</a></li>
+           <li><a href="/posts/books/the-algorithms-design-manual-graph-problemspolynomial-time/">The Algorithms Design Manual, Graph Problems(Polynomial-Time)</a></li>
+           <li><a href="/posts/books/the-algorithms-design-manual-graph-problemshard-problems/">The Algorithms Design Manual, Graph Problems(Hard Problems)</a></li>
+           <li><a href="/posts/books/the-algorithms-design-manual-computational-geometry/">The Algorithms Design Manual, Computational Geometry</a></li>
+           <li><a href="/posts/books/the-algorithms-design-manual-set-and-string-problems/">The Algorithms Design Manual, Set and String Problems</a></li>
+       </ul>
 </section>
                 
                 <p>Contents:</p>
                 <nav class="toc">
-                  <div id="toc"><ul><li><a class="toc-href" href="#numerical-problems" title="Numerical Problems">Numerical Problems</a><ul><li><a class="toc-href" href="#solving-linear-equations" title="Solving Linear Equations">Solving Linear Equations</a></li><li><a class="toc-href" href="#bandwidth-reduction" title="Bandwidth Reduction">Bandwidth Reduction</a></li><li><a class="toc-href" href="#matrix-multiplication" title="Matrix Multiplication">Matrix Multiplication</a></li><li><a class="toc-href" href="#determinants-and-permanents" title="Determinants and Permanents">Determinants and Permanents</a></li><li><a class="toc-href" href="#constrained-and-unconstrained-optimization" title="Constrained and Unconstrained Optimization">Constrained and Unconstrained Optimization</a></li></ul></li></ul></div>
+                  <div id="toc"><ul><li><a class="toc-href" href="#numerical-problems" title="Numerical Problems">Numerical Problems</a><ul><li><a class="toc-href" href="#solving-linear-equations" title="Solving Linear Equations">Solving Linear Equations</a></li><li><a class="toc-href" href="#bandwidth-reduction" title="Bandwidth Reduction">Bandwidth Reduction</a></li><li><a class="toc-href" href="#matrix-multiplication" title="Matrix Multiplication">Matrix Multiplication</a></li><li><a class="toc-href" href="#determinants-and-permanents" title="Determinants and Permanents">Determinants and Permanents</a></li><li><a class="toc-href" href="#constrained-and-unconstrained-optimization" title="Constrained and Unconstrained Optimization">Constrained and Unconstrained Optimization</a></li><li><a class="toc-href" href="#linear-programming" title="Linear Programming">Linear Programming</a></li><li><a class="toc-href" href="#random-number-generation" title="Random Number Generation">Random Number Generation</a></li><li><a class="toc-href" href="#factoring-and-primality-testing" title="Factoring and Primality Testing">Factoring and Primality Testing</a></li><li><a class="toc-href" href="#arbitrary-precision-arithmetic" title="Arbitrary Precision Arithmetic">Arbitrary Precision Arithmetic</a></li><li><a class="toc-href" href="#knapsack-problem" title="Knapsack Problem">Knapsack Problem</a></li><li><a class="toc-href" href="#discrete-fourier-transform" title="Discrete Fourier Transform">Discrete Fourier Transform</a></li></ul></li></ul></div>
                 </nav>
                 <hr>
                 
@@ -206,7 +214,7 @@ of the longest edge when the vertices are ordered on a line&mdash;i.e. , minimiz
 <li>More references in the book.</li>
 </ul>
 </li>
-<li><em>Related</em> : <a href="#solving-linear-equations">Solving linear equations</a>, <a href="/posts/books/the-algorithms-design-manual/#topological-sort">topological sort</a></li>
+<li><em>Related</em> : <a href="#solving-linear-equations">Solving linear equations</a>, <a href="/posts/books/the-algorithms-design-manual-graph-problemspolynomial-time/#topological-sort">topological sort</a></li>
 </ul>
 <h3 id="matrix-multiplication">Matrix Multiplication</h3>
 <p><img alt="" src="/images/algdm/13_matmul.png"/> </p>
@@ -218,7 +226,7 @@ of the longest edge when the vertices are ordered on a line&mdash;i.e. , minimiz
 <li>With bandwidth-<span class="math">\(b\)</span> matrices, a speedup of <span class="math">\(O(xbz)\)</span> can be achieved.</li>
 <li>Strassen's algorithm using divide-and-conquer runs in <span class="math">\(O(n^{2.81})\)</span>, but is only practically useful for <span class="math">\(n &gt; 100\)</span>.</li>
 <li>For long chains on matrix multiplications, dynamic programming can be used to optimize the parenthesization to minimize the dimensions of intermediate results.</li>
-<li><em>Related</em> : <a href="#solving-linear-equations">Solving linear equations</a>, <a href="{filename}algorithm-design-manual1.md#shortest-path#shortest-path">shortest path</a>.</li>
+<li><em>Related</em> : <a href="#solving-linear-equations">Solving linear equations</a>, <a href="{filename}algorithm-design-manual5.md#shortest-path#shortest-path">shortest path</a>.</li>
 </ul>
 <h3 id="determinants-and-permanents">Determinants and Permanents</h3>
 <p><img alt="" src="/images/algdm/13_determinants.png"/> </p>
@@ -238,9 +246,161 @@ of the longest edge when the vertices are ordered on a line&mdash;i.e. , minimiz
 <li>Closely related, <em>permanent</em>, counts the number of perfect matchings in <span class="math">\(G\)</span>, represented by its adjacency matrix <span class="math">\(M\)</span>.
 <div class="math">$$perm(M) = \sum_{i=1}^{n!} \prod_{j=1}^n M[j, \pi_j] $$</div>
 However, calculating this is NP-hard.</li>
-<li><em>Related</em> : <a href="#solving-linear-equations">Solving linear equations</a>, <a href="">matching</a>, <a href="">geometric primitives</a>.</li>
+<li><em>Related</em> : <a href="#solving-linear-equations">Solving linear equations</a>, <a href="/posts/books/the-algorithms-design-manual-graph-problemspolynomial-time/#matching">matching</a>, <a href="/posts/books/the-algorithms-design-manual-computational-geometry/#robust-geometric-primitives">geometric primitives</a>.</li>
 </ul>
 <h3 id="constrained-and-unconstrained-optimization">Constrained and Unconstrained Optimization</h3>
+<p><img alt="" src="/images/algdm/13_optim.png"/></p>
+<p><strong>Input description:</strong> A function <span class="math">\(f(x_1, \ldots , x_n)\)</span>.  <br/>
+<strong>Problem description:</strong> What point <span class="math">\(p = (p_1, \ldots , p_n)\)</span> maximizes (or minimizes) the
+function <span class="math">\(f\)</span>?   </p>
+<ul>
+<li>Optimization arises whenever there is an objective function that must be tuned for optimal performance.</li>
+<li>Pattern recognition to energy/potential minimization</li>
+<li>Questions to ask,<ul>
+<li>Am I doing constrained ot unconstrained optimization? </li>
+<li>Is the function I am trying to optimize described by a formula?</li>
+<li>Is it expensive to compute the function at a given point?</li>
+<li>How many dimensions do we have? How many do we need?</li>
+<li>How smooth is my function?</li>
+</ul>
+</li>
+<li>Variations of gradient descent and simulated annealing</li>
+<li><em>Related</em> : <a href="#linear-programming">Linear programming</a>, <a href="/posts/books/the-algorithms-design-manual-combinatorial-problems/#satisfiability">satisfiability</a></li>
+</ul>
+<h3 id="linear-programming">Linear Programming</h3>
+<p><img alt="" src="/images/algdm/13_linearprog.png"/> </p>
+<p><strong>Input description:</strong> A set <span class="math">\(S\)</span> of </p>
+<div class="math">$$ linear inequalities on $m$ variables   
+$$</div>
+<p>S_i := \sum_{j=1}^m c_{ij} \cdot x_j \ge b_i, 1 \le i \le n<span class="math">\($
+and a linear optimization function $f(X) = \sum_{j=1}^m c_j \cdot x_j\)</span>. <br/>
+<strong>Problem description:</strong> Which variable assignment <span class="math">\(X'\)</span> maximizes the objective function <span class="math">\(f\)</span> while satisfying all inequalities <span class="math">\(S\)</span>?   </p>
+<ul>
+<li>Most important problem in mathematical optimization and operations research.<ul>
+<li>Resource allocation</li>
+<li>Approximating the solution of inconsistent equations.</li>
+<li>Graph algorithms : Many can be solved using linear programming, most of the rest can be solved using <em>Integer linear programming</em>.</li>
+</ul>
+</li>
+<li>The <em>simplex</em> method.</li>
+<li>While a simple algorithm, needs considerable <em>art</em> and the right data structures for large sparse systems.</li>
+<li>Also used, <em>interior-point</em> methods.</li>
+<li>Commercial solutions are of much higher quality than free/open source solutions.</li>
+<li>Questions to ask,<ul>
+<li>Do any variables have integrality constraints? Although it is NP-complete, reasonable programs are available.</li>
+<li>Do I have more variables or constraints? If there are more constraints than variables, consider solving the <em>dual</em> LP, which would be much easier.</li>
+<li>What if my optimization function or constraints are not linear? Although fast implementations exist(for quadratic programming), but this is NP-complete.</li>
+<li>What if my model does not match the input format of my LP solver? Map your problem to <em>standard forms</em>.</li>
+</ul>
+</li>
+<li><strong>Implementations</strong><ul>
+<li><a href="https://projects.coin-or.org/Clp">COIN OR</a></li>
+<li><a href="https://www.gnu.org/software/glpk/">GNU Linear Programming Kit: GLPK</a></li>
+</ul>
+</li>
+<li><em>Related</em> : <a href="#constrained-and-unconstrained-optimization">Constrained and Unconstrained optimization</a>, <a href="/posts/books/the-algorithms-design-manual-graph-problemspolynomial-time/#network-flow">network flow</a></li>
+</ul>
+<h3 id="random-number-generation">Random Number Generation</h3>
+<p><img alt="" src="/images/algdm/13_random.png"/></p>
+<p><strong>Input description:</strong> Nothing, or perhaps a seed. <br/>
+<strong>Problem description:</strong> Generate a sequence of random integers.   </p>
+<ul>
+<li>Discrete event simulations, passwords and cryptographic keys, randomized algorithms for graph and geometric problems.<blockquote>
+<p>Anyone who considers arithmetical methods of producing random digits is , of course, in a state of sin. -- Von Neumann.</p>
+</blockquote>
+</li>
+<li>However, we can create <em>pseudorandom</em> numbers.</li>
+<li>Questions to ask,<ul>
+<li>Should my program use the same <em>random</em> numbers each time it runs?</li>
+<li>How good is my compiler's built-in random number generator?</li>
+<li>What if I must implement my own random-number generator?
+<div class="math">$$R_n = (aR_{n-1} + c) \mod m$$</div>
+</li>
+<li>What if I don't want such large numbers?</li>
+<li>What if I need non-uniformly distributed random numbers?</li>
+<li>How long should I run my Monte-Carlo simulation to get the best results?    </li>
+</ul>
+</li>
+<li><em>Related</em> : <a href="#constrained-and-unconstrained-optimization">Constrained and unconstrained optimization</a>, <a href="#generating-permutations">generating permutations</a>, <a href="#generating-subsets">generating subsets</a>, <a href="#generating-partitions">generating partitions</a>.</li>
+</ul>
+<h3 id="factoring-and-primality-testing">Factoring and Primality Testing</h3>
+<p><img alt="" src="/images/algdm/13_prime.png"/></p>
+<p><strong>Input description:</strong> An integer <span class="math">\(n\)</span>. <br/>
+<strong>Problem description:</strong> Is <span class="math">\(n\)</span> a prime number, and if not what are its factors?   </p>
+<ul>
+<li>Long suspected of being only of mathematical interest, these problems have surprisingly many applications.</li>
+<li>The RSA, has tables, games.</li>
+<li>Several algorithms and implementations exist for generating and testing prime numbers and factoring(exponential).</li>
+<li><em>Related</em> : <a href="/posts/books/the-algorithms-design-manual-set-and-string-problems/#cryptography">Cryptography</a>, <a href="#arbitrary-precision-arithmetic">high precision arithmetic</a></li>
+</ul>
+<h3 id="arbitrary-precision-arithmetic">Arbitrary Precision Arithmetic</h3>
+<p><img alt="" src="/images/algdm/13_arbitprec.png"/></p>
+<p><strong>Input description:</strong> Two very large integers, <span class="math">\(x\)</span> and <span class="math">\(y\)</span>. <br/>
+<strong>Problem description:</strong> What is <span class="math">\(x + y\)</span>, <span class="math">\(x &minus; y\)</span>, <span class="math">\(x \times y\)</span>, and <span class="math">\(x/y\)</span>?</p>
+<ul>
+<li>Many applications require much larger integers than that can fit into a 32-bit integer.</li>
+<li>Questions to ask,<ul>
+<li>Am I solving a problem instance requiring large integers, or do I have an embedded application?</li>
+<li>Do I need high- or arbitrary-precision arithmetic? </li>
+<li>What base should I do arithmetic in?</li>
+<li>How low-level are you willing to get for fast computation?</li>
+</ul>
+</li>
+<li>The basic operations,<ul>
+<li>Addition</li>
+<li>Subtraction</li>
+<li>Multiplication</li>
+<li>Division</li>
+<li>Exponentiation</li>
+</ul>
+</li>
+<li><em>Related</em> : <a href="#factoring-and-primality-testing">Factoring Integers</a>, <a href="/posts/books/the-algorithms-design-manual-set-and-string-problems/#cryptographhy">cryptography</a></li>
+</ul>
+<h3 id="knapsack-problem">Knapsack Problem</h3>
+<p><img alt="" src="/images/algdm/13_knapsack.png"/> </p>
+<p><strong>Input description:</strong> A set of items <span class="math">\(S = \{1, \cdots , n\}\)</span>, where item <span class="math">\(i\)</span> has size <span class="math">\(s_i\)</span> and value <span class="math">\(v_i\)</span>. A knapsack capacity is <span class="math">\(C\)</span>. <br/>
+<strong>Problem description:</strong> Find the subset <span class="math">\(S' \subset S\)</span> that maximizes the value of <span class="math">\(\sum_{i \in S'}v_i\)</span>, given that <span class="math">\(\sum_{i \in S'}s_i \le C\)</span>; i.e. , all the items fit in a knapsack of size <span class="math">\(C\)</span>.   </p>
+<ul>
+<li>Resource allocation and financial constraints.</li>
+<li>Variations<ul>
+<li><span class="math">\(0/1\)</span> problem, where objects can not be broken arbitarily. This makes it hard.</li>
+</ul>
+</li>
+<li>Questions to consider,<ul>
+<li>Does every item have the same cost/value or the same size? This becomes easy</li>
+<li>Does each item have the same &ldquo;price per pound&rdquo;? NP-complete, but still is considered "easy". Also called <em>subset problem</em>. <em>Integer partition</em> becomes a special case.</li>
+<li>Are all the sizes relatively small integers? Can be solved in <span class="math">\(O(nC)\)</span>, $C = $ capacity. </li>
+<li>What if I have multiple knapsacks? Bin-packing problem.</li>
+</ul>
+</li>
+<li>Greedy heuristics often give "good" approximations.<ul>
+<li>Based on <em>'price per pound'</em>.</li>
+<li>Convert weights to integers using <em>scaling</em>.</li>
+</ul>
+</li>
+<li><em>Related</em> : <a href="#bin-packing">Bin packing</a>, <a href="#linear-programming">integer programming</a></li>
+</ul>
+<h3 id="discrete-fourier-transform">Discrete Fourier Transform</h3>
+<p><img alt="" src="/images/algdm/13_fft.png"/> </p>
+<p><strong>Input description:</strong> A sequence of <span class="math">\(n\)</span> real or complex values <span class="math">\(h_i, 0 \le i \le n &minus; 1\)</span>, sampled at uniform intervals from a function <span class="math">\(h\)</span>. <br/>
+<strong>Problem description:</strong> The discrete Fourier transform <span class="math">\(H_m = \sum_{k=0}^{n-1} h_k e^{2\pi ikm/n\)</span>} for <span class="math">\(0 \le m \le n &minus; 1\)</span>.   </p>
+<ul>
+<li>Electric engineers eat these for breakfast.</li>
+<li>They provide a way to transform samples of a time series into the <em>frequency domain</em>.</li>
+<li>Appplications include,<ul>
+<li>Filtering</li>
+<li>Image compression</li>
+<li>Convolution and deconvolution</li>
+<li>Computing the correlation of functions
+<div class="math">$$z(t) = \int_{-\inf}^{\inf}f(\tau)g(t + \tau)d\tau$$</div>
+</li>
+</ul>
+</li>
+<li>Naive implementation works in <span class="math">\(O(n^2)\)</span>. </li>
+<li>The fast Fourier transform(FFT) computes discrete fourier transform in <span class="math">\(O(n \log n)\)</span>.</li>
+<li>Often implemented in hardware for real time performance.</li>
+<li><em>Related</em> : <a href="/posts/books/the-algorithms-design-manual-set-and-string-problems/#text-compression">Data compression</a>, <a href="#arbitrary-precision-arithmetic">high-precision arithmetic</a></li>
+</ul>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "left",
         indent = "0em",
@@ -380,13 +540,13 @@ However, calculating this is NP-hard.</li>
 <li class="list-group-item">
   <a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
   <ul class="list-group list-inline tagcloud" id="tags">
-    <li class="list-group-item tag-2">
+    <li class="list-group-item tag-1">
       <a href="/tag/algorithms/">algorithms</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="/tag/blogging/">blogging</a>
     </li>
-    <li class="list-group-item tag-3">
+    <li class="list-group-item tag-2">
       <a href="/tag/book/">book</a>
     </li>
     <li class="list-group-item tag-2">
@@ -407,7 +567,7 @@ However, calculating this is NP-hard.</li>
     <li class="list-group-item tag-2">
       <a href="/tag/graphics/">graphics</a>
     </li>
-    <li class="list-group-item tag-4">
+    <li class="list-group-item tag-3">
       <a href="/tag/image-segmentation/">image-segmentation</a>
     </li>
     <li class="list-group-item tag-4">
@@ -422,7 +582,7 @@ However, calculating this is NP-hard.</li>
     <li class="list-group-item tag-3">
       <a href="/tag/philosophy/">philosophy</a>
     </li>
-    <li class="list-group-item tag-2">
+    <li class="list-group-item tag-1">
       <a href="/tag/programming/">programming</a>
     </li>
     <li class="list-group-item tag-4">
@@ -451,6 +611,10 @@ However, calculating this is NP-hard.</li>
     <li class="list-group-item">
       <h5></i>Previous article</h5>
       <a href="/posts/books/the-algorithms-design-manual-data-structures/">The Algorithms Design Manual, Data structures</a>
+    </li>
+    <li class="list-group-item">
+      <h5>Next article</h5>
+      <a href="/posts/books/the-algorithms-design-manual-combinatorial-problems/">The Algorithms Design Manual, Combinatorial Problems</a>
     </li>
   </ul>
 </li>

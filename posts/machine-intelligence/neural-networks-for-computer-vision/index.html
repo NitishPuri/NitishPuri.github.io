@@ -137,19 +137,19 @@ nitishpuri.github.io            </a>
            <li><a href="/posts/machine-intelligence/style-transfer-part-2/">Style Transfer, Part 2</a></li>
            <li><a href="/posts/machine-intelligence/neural-network-architectures/">Neural Network Architectures</a></li>
            <li><a href="/posts/machine-intelligence/object-detection-and-image-segmentation/">Object Detection and Image Segmentation</a></li>
+           <li><a href="/posts/machine-intelligence/object-detection-and-image-segmentation-part-2/">Object Detection and Image Segmentation, Part 2</a></li>
        </ul>
 </section>
                 
                 <p>Contents:</p>
                 <nav class="toc">
-                  <div id="toc"><ul><li><a class="toc-href" href="#deep-learning" title="Deep Learning">Deep Learning</a><ul><li><a class="toc-href" href="#image-recognition" title="Image Recognition">Image Recognition</a><ul><li><a class="toc-href" href="#very-deep-convolutional-networks-for-large-scale-image-recognition" title="Very Deep Convolutional Networks For Large-Scale Image Recognition">Very Deep Convolutional Networks For Large-Scale Image Recognition</a></li><li><a class="toc-href" href="#going-deeper-with-convolutions" title="Going Deeper with Convolutions">Going Deeper with Convolutions</a></li><li><a class="toc-href" href="#deep-residual-learning-for-image-recognition" title="Deep Residual Learning for Image Recognition">Deep Residual Learning for Image Recognition</a></li><li><a class="toc-href" href="#rethinking-the-inception-architecture-for-computer-vision" title="Rethinking the Inception Architecture for Computer Vision">Rethinking the Inception Architecture for Computer Vision</a></li><li><a class="toc-href" href="#inception-v4-inception-resnet-and-the-impact-of-residual-connections-on-learning" title="Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning">Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning</a></li></ul></li><li><a class="toc-href" href="#deep-visualization_1" title="Deep Visualization">Deep Visualization</a><ul><li><a class="toc-href" href="#visualizing-and-understanding-convolutional-networks" title="Visualizing and Understanding Convolutional Networks">Visualizing and Understanding Convolutional Networks</a></li><li><a class="toc-href" href="#multifaceted-feature-visualization-uncovering-the-different-types-of-features-learned-by-each-neuron-in-deep-neural-networks" title="Multifaceted Feature Visualization: Uncovering the Different Types of Features Learned By Each Neuron in Deep Neural Networks">Multifaceted Feature Visualization: Uncovering the Different Types of Features Learned By Each Neuron in Deep Neural Networks</a></li></ul></li></ul></li></ul></div>
+                  <div id="toc"><ul><li><a class="toc-href" href="#image-recognition" title="Image Recognition">Image Recognition</a><ul><li><a class="toc-href" href="#very-deep-convolutional-networks-for-large-scale-image-recognition" title="Very Deep Convolutional Networks For Large-Scale Image Recognition">Very Deep Convolutional Networks For Large-Scale Image Recognition</a></li><li><a class="toc-href" href="#going-deeper-with-convolutions" title="Going Deeper with Convolutions">Going Deeper with Convolutions</a></li><li><a class="toc-href" href="#deep-residual-learning-for-image-recognition" title="Deep Residual Learning for Image Recognition">Deep Residual Learning for Image Recognition</a></li><li><a class="toc-href" href="#rethinking-the-inception-architecture-for-computer-vision" title="Rethinking the Inception Architecture for Computer Vision">Rethinking the Inception Architecture for Computer Vision</a></li><li><a class="toc-href" href="#inception-v4-inception-resnet-and-the-impact-of-residual-connections-on-learning" title="Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning">Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning</a></li><li><a class="toc-href" href="#xception-deep-learning-with-depthwise-separable-convolutions" title="Xception: Deep Learning with Depthwise Separable Convolutions">Xception: Deep Learning with Depthwise Separable Convolutions</a></li></ul></li><li><a class="toc-href" href="#deep-visualization_1" title="Deep Visualization">Deep Visualization</a><ul><li><a class="toc-href" href="#visualizing-and-understanding-convolutional-networks" title="Visualizing and Understanding Convolutional Networks">Visualizing and Understanding Convolutional Networks</a></li><li><a class="toc-href" href="#multifaceted-feature-visualization-uncovering-the-different-types-of-features-learned-by-each-neuron-in-deep-neural-networks" title="Multifaceted Feature Visualization: Uncovering the Different Types of Features Learned By Each Neuron in Deep Neural Networks">Multifaceted Feature Visualization: Uncovering the Different Types of Features Learned By Each Neuron in Deep Neural Networks</a></li><li><a class="toc-href" href="#how-transferable-are-features-in-deep-neural-networks" title="How transferable are features in deep neural networks?">How transferable are features in deep neural networks?</a></li></ul></li></ul></div>
                 </nav>
                 <hr>
                 
                 <p>Very minimal notes on some papers or articles that I recently read. Mainly for logging purposes.</p>
-<h2 id="deep-learning"><strong>Deep Learning</strong></h2>
-<h3 id="image-recognition"><strong>Image Recognition</strong></h3>
-<h4 id="very-deep-convolutional-networks-for-large-scale-image-recognition"><strong>Very Deep Convolutional Networks For Large-Scale Image Recognition</strong></h4>
+<h2 id="image-recognition">Image Recognition</h2>
+<h3 id="very-deep-convolutional-networks-for-large-scale-image-recognition">Very Deep Convolutional Networks For Large-Scale Image Recognition</h3>
 <p><em>Karen Simonyan, Andrew Zisserman : Apr 2015</em> <br/>
 <a href="https://arxiv.org/abs/1409.1556"><em>Source</em></a> <br/>
 <a href="https://github.com/KaimingHe/resnet-1k-layers"><em>Implementation</em></a> </p>
@@ -161,7 +161,7 @@ nitishpuri.github.io            </a>
 <li>Optimise multinomial logistic regression objective using mini-batch gradient descent with momentum.</li>
 <li>At the end introduces ensemble models by averaging softmax predictions from multiple models.</li>
 </ul>
-<h4 id="going-deeper-with-convolutions"><strong>Going Deeper with Convolutions</strong></h4>
+<h3 id="going-deeper-with-convolutions">Going Deeper with Convolutions</h3>
 <p><em>Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke, Andrew Rabinovich : Sep 2014</em> <br/>
 <em>Google DeepMind</em> <br/>
 <a href="https://arxiv.org/abs/1409.4842"><em>Source</em></a></p>
@@ -176,7 +176,7 @@ nitishpuri.github.io            </a>
 <li>22 trainable Layers(100 total layers), low memory footprint.</li>
 <li>Auxillary classifiers are used to allow for efficient gradient propagation. These are used only at training time.</li>
 </ul>
-<h4 id="deep-residual-learning-for-image-recognition"><strong>Deep Residual Learning for Image Recognition</strong></h4>
+<h3 id="deep-residual-learning-for-image-recognition">Deep Residual Learning for Image Recognition</h3>
 <p><em>Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun : Dec 2015</em> <br/>
 <em>Microsoft Research</em> <br/>
 <a href="https://arxiv.org/abs/1512.03385"><em>Source</em></a></p>
@@ -192,7 +192,7 @@ nitishpuri.github.io            </a>
 <li>The model shows <em>no optimization difficulty</em> even with &gt; 1000 layers..!!</li>
 <li>Finally discusses improvements for detection and localization tasks.</li>
 </ul>
-<h4 id="rethinking-the-inception-architecture-for-computer-vision"><strong>Rethinking the Inception Architecture for Computer Vision</strong></h4>
+<h3 id="rethinking-the-inception-architecture-for-computer-vision">Rethinking the Inception Architecture for Computer Vision</h3>
 <p><em>Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jonathon Shlens, Zbigniew Wojna : Dec 2015</em> <br/>
 <em>Google DeepMind</em> <br/>
 <a href="https://arxiv.org/abs/1512.00567"><em>Source</em></a> </p>
@@ -218,7 +218,7 @@ nitishpuri.github.io            </a>
 <img alt="" src="/images/papers/reInception2.jpg"/>
 <img alt="" src="/images/papers/reInception3.jpg"/></li>
 </ul>
-<h4 id="inception-v4-inception-resnet-and-the-impact-of-residual-connections-on-learning"><strong>Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning</strong></h4>
+<h3 id="inception-v4-inception-resnet-and-the-impact-of-residual-connections-on-learning">Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning</h3>
 <p><em>Christian Szegedy, Sergey Ioffe, Vincent Vanhoucke, Alex Alemi : Aug 2016</em> <br/>
 <em>Google DeepMind</em> <br/>
 <a href="https://arxiv.org/abs/1602.07261"><em>Source</em></a> </p>
@@ -226,8 +226,18 @@ nitishpuri.github.io            </a>
 <li>Combining <strong>Residual networks with Inception architecture</strong>.</li>
 <li>Uniform Inception-v4 blocks are introduced for cleaner architecture. </li>
 </ul>
-<h3 id="deep-visualization_1"><strong>Deep Visualization</strong></h3>
-<h4 id="visualizing-and-understanding-convolutional-networks"><strong>Visualizing and Understanding Convolutional Networks</strong></h4>
+<h3 id="xception-deep-learning-with-depthwise-separable-convolutions">Xception: Deep Learning with Depthwise Separable Convolutions</h3>
+<p><em>Fran&ccedil;ois Chollet : Apr 2017</em> <br/>
+<a href="https://arxiv.org/abs/1610.02357"><em>Source</em></a> <br/>
+<em>Google Inc.</em> </p>
+<ul>
+<li>Building on top of the <em>inception</em> modules.</li>
+<li>An attempt to make things efficient by decoupling operations for cross-channel correlations and spatial correlations.</li>
+<li>This introduces the <em>Depthwise separable convolutions</em>.</li>
+<li>The <em>Xception</em> architecture then takes these layers and builds a complete network for ImageNet task, with better reported performane than <em>Inception v3</em>.</li>
+</ul>
+<h2 id="deep-visualization_1">Deep Visualization</h2>
+<h3 id="visualizing-and-understanding-convolutional-networks">Visualizing and Understanding Convolutional Networks</h3>
 <p><em>Matthew D Zeiler, Rob Fergus L : Nov 2013</em> <br/>
 <a href="https://arxiv.org/abs/1311.2901"><em>Source</em></a> </p>
 <ul>
@@ -247,7 +257,7 @@ nitishpuri.github.io            </a>
 <img alt="" src="/images/papers/visnet8.jpg"/></li>
 <li>Correspondence Analysis  </li>
 </ul>
-<h4 id="multifaceted-feature-visualization-uncovering-the-different-types-of-features-learned-by-each-neuron-in-deep-neural-networks"><strong>Multifaceted Feature Visualization: Uncovering the Different Types of Features Learned By Each Neuron in Deep Neural Networks</strong></h4>
+<h3 id="multifaceted-feature-visualization-uncovering-the-different-types-of-features-learned-by-each-neuron-in-deep-neural-networks">Multifaceted Feature Visualization: Uncovering the Different Types of Features Learned By Each Neuron in Deep Neural Networks</h3>
 <p><em>Anh Nguyen, Jason Yosinski, Jeff Clune : May 2016</em> <br/>
 <a href="https://arxiv.org/abs/1602.03616"><em>Source</em></a> </p>
 <ul>
@@ -269,6 +279,88 @@ nitishpuri.github.io            </a>
 <img alt="" src="/images/papers/multiVis4.jpg"/></li>
 <li>Discusses various optimization techniques to produce better images in detail : center biased regularization, mean image initialization.</li>
 </ul>
+<h3 id="how-transferable-are-features-in-deep-neural-networks">How transferable are features in deep neural networks?</h3>
+<p><em>Jason Yosinski, Jeff Clune, Yoshua Bengio, Hod Lipson : Nov 2014</em> <br/>
+<a href="https://arxiv.org/abs/1411.1792"><em>Source</em></a></p>
+<ul>
+<li>First-layer features always resembles either <em>Gabor filters</em> or color blobs.</li>
+<li>We also often use the initial layers of a network to initialize other networks(for a  different task) in <em>transfer learning</em>. This raises a few questions,
+    *Can we quantify the degree to which a particular layer is general or specific?<ul>
+<li>Does the transition occur suddenly at a single layer, or is it spread out over several layers?</li>
+<li>Where does this transition take place: near the first, middle, or last layer of the network? <br/>
+<img alt="" src="/images/papers/transfer1.png"/> <br/>
+Figure 1: Overview of the experimental treatments and controls. <em>Top two rows</em>: The base networks
+are trained using standard supervised backprop on only half of the ImageNet dataset (first row: A
+half, second row: B half). The labeled rectangles (e.g. <span class="math">\(W_{A1}\)</span>) represent the weight vector learned for that layer, with the color indicating which dataset the layer was originally trained on. The vertical, ellipsoidal bars between weight vectors represent the activations of the network at each layer. <em>Third row</em>: In the <em>selffer</em> network control, the first <span class="math">\(n\)</span> weight layers of the network (in this example, <span class="math">\(n = 3\)</span>) are copied from a base network (e.g. one trained on dataset B), the upper <span class="math">\(8 &minus; n\)</span> layers are randomly initialized, and then the entire network is trained on that same dataset (in this example, dataset B).
+The first n layers are either locked during training (&ldquo;frozen&rdquo; selffer treatment <span class="math">\(B3B\)</span>) or allowed to learn (&ldquo;fine-tuned&rdquo; selffer treatment <span class="math">\(B3B^+\)</span>). This treatment reveals the occurrence of <em>fragile coadaptation</em>, when neurons on neighboring layers co-adapt during training in such a way that cannot be rediscovered when one layer is frozen. <em>Fourth row</em>: The <em>transfer</em> network experimental treatment is the same as the selffer treatment, except that the first n layers are copied from a network trained on one dataset (e.g. A) and then the entire network is trained on the other dataset (e.g. B). This treatment tests the extent to which the features on layer n are general or specific.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="/images/papers/transfer2.png"/> <br/>
+<img alt="" src="/images/papers/transfer3.png"/> <br/>
+Figure 2: The results from this paper&rsquo;s main experiment. <em>Top</em>: Each marker in the figure represents the average accuracy over the validation set for a trained network. The white circles 
+above <span class="math">\(n = 0\)</span> represent the accuracy of baseB. There are eight points, because we tested on four separate random A/B splits. Each dark blue dot represents a BnB network. Light blue points 
+represent BnB+ networks, or fine-tuned versions of BnB. Dark red diamonds are AnB networks, and 
+light red diamonds are the fine-tuned AnB+ versions. Points are shifted slightly left or right 
+for visual clarity. <em>Bottom</em>: Lines connecting the means of each treatment. </p>
+<ul>
+<li>Conclusively, <em>transfer</em> learning can be very effective for lower layers for general dissimilar objectives, and for higher layers as well in case of similar objectives.</li>
+</ul>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "left",
+        indent = "0em",
+        linebreak = "true";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
 
             
             </div>
@@ -353,13 +445,13 @@ nitishpuri.github.io            </a>
 <li class="list-group-item">
   <a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
   <ul class="list-group list-inline tagcloud" id="tags">
-    <li class="list-group-item tag-2">
+    <li class="list-group-item tag-1">
       <a href="/tag/algorithms/">algorithms</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="/tag/blogging/">blogging</a>
     </li>
-    <li class="list-group-item tag-3">
+    <li class="list-group-item tag-2">
       <a href="/tag/book/">book</a>
     </li>
     <li class="list-group-item tag-2">
@@ -380,7 +472,7 @@ nitishpuri.github.io            </a>
     <li class="list-group-item tag-2">
       <a href="/tag/graphics/">graphics</a>
     </li>
-    <li class="list-group-item tag-4">
+    <li class="list-group-item tag-3">
       <a href="/tag/image-segmentation/">image-segmentation</a>
     </li>
     <li class="list-group-item tag-4">
@@ -395,7 +487,7 @@ nitishpuri.github.io            </a>
     <li class="list-group-item tag-3">
       <a href="/tag/philosophy/">philosophy</a>
     </li>
-    <li class="list-group-item tag-2">
+    <li class="list-group-item tag-1">
       <a href="/tag/programming/">programming</a>
     </li>
     <li class="list-group-item tag-4">
