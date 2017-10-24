@@ -211,9 +211,9 @@ the universal set&mdash;i.e. , <span class="math">\( \cup_{i=1}^{|T|} T_i = U\)<
 <ul>
 <li>A fundamental problem because we live in an error-prone world.</li>
 <li>Dynamic programming provides the basic approach. <span class="math">\(D[i,j]\)</span> = cost of editing <span class="math">\(i\)</span> characters of string <span class="math">\(p\)</span> into first <span class="math">\(j\)</span> characters of text <span class="math">\(t\)</span>. The recurrence selected the minimum of,<ul>
-<li>if <span class="math">\(p_i = t_j\)</span> then <span class="math">\(D[i-1, j-1]\)</span> else $D[i-1, j-1] + $ substitution cost.</li>
-<li><span class="math">\(D[i-1, j] + $ deletion cost of $p_j\)</span>.</li>
-<li><span class="math">\(D[i, j+1] + $ deletion cost of $t_j\)</span>.</li>
+<li>if <span class="math">\(p_i = t_j\)</span> then <span class="math">\(D[i-1, j-1]\)</span> else <span class="math">\(D[i-1, j-1] +\)</span> substitution cost.</li>
+<li><span class="math">\(D[i-1, j] +\)</span> deletion cost of <span class="math">\(p_j\)</span>.</li>
+<li><span class="math">\(D[i, j+1] +\)</span> deletion cost of <span class="math">\(t_j\)</span>.</li>
 </ul>
 </li>
 <li>Several issues remain however,<ul>

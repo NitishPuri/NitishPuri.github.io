@@ -143,13 +143,13 @@ nitishpuri.github.io            </a>
                 
                 <p>Contents:</p>
                 <nav class="toc">
-                  <div id="toc"><ul><li><a class="toc-href" href="#image-recognition" title="Image Recognition">Image Recognition</a><ul><li><a class="toc-href" href="#very-deep-convolutional-networks-for-large-scale-image-recognition" title="Very Deep Convolutional Networks For Large-Scale Image Recognition">Very Deep Convolutional Networks For Large-Scale Image Recognition</a></li><li><a class="toc-href" href="#going-deeper-with-convolutions" title="Going Deeper with Convolutions">Going Deeper with Convolutions</a></li><li><a class="toc-href" href="#deep-residual-learning-for-image-recognition" title="Deep Residual Learning for Image Recognition">Deep Residual Learning for Image Recognition</a></li><li><a class="toc-href" href="#rethinking-the-inception-architecture-for-computer-vision" title="Rethinking the Inception Architecture for Computer Vision">Rethinking the Inception Architecture for Computer Vision</a></li><li><a class="toc-href" href="#inception-v4-inception-resnet-and-the-impact-of-residual-connections-on-learning" title="Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning">Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning</a></li><li><a class="toc-href" href="#xception-deep-learning-with-depthwise-separable-convolutions" title="Xception: Deep Learning with Depthwise Separable Convolutions">Xception: Deep Learning with Depthwise Separable Convolutions</a></li></ul></li><li><a class="toc-href" href="#deep-visualization_1" title="Deep Visualization">Deep Visualization</a><ul><li><a class="toc-href" href="#visualizing-and-understanding-convolutional-networks" title="Visualizing and Understanding Convolutional Networks">Visualizing and Understanding Convolutional Networks</a></li><li><a class="toc-href" href="#multifaceted-feature-visualization-uncovering-the-different-types-of-features-learned-by-each-neuron-in-deep-neural-networks" title="Multifaceted Feature Visualization: Uncovering the Different Types of Features Learned By Each Neuron in Deep Neural Networks">Multifaceted Feature Visualization: Uncovering the Different Types of Features Learned By Each Neuron in Deep Neural Networks</a></li><li><a class="toc-href" href="#how-transferable-are-features-in-deep-neural-networks" title="How transferable are features in deep neural networks?">How transferable are features in deep neural networks?</a></li></ul></li></ul></div>
+                  <div id="toc"><ul><li><a class="toc-href" href="#image-recognition" title="Image Recognition">Image Recognition</a><ul><li><a class="toc-href" href="#very-deep-convolutional-networks-for-large-scale-image-recognition" title="  Very Deep Convolutional Networks For Large-Scale Image Recognition">  Very Deep Convolutional Networks For Large-Scale Image Recognition</a></li><li><a class="toc-href" href="#going-deeper-with-convolutions" title="  Going Deeper with Convolutions">  Going Deeper with Convolutions</a></li><li><a class="toc-href" href="#deep-residual-learning-for-image-recognition" title="  Deep Residual Learning for Image Recognition">  Deep Residual Learning for Image Recognition</a></li><li><a class="toc-href" href="#rethinking-the-inception-architecture-for-computer-vision" title="  Rethinking the Inception Architecture for Computer Vision">  Rethinking the Inception Architecture for Computer Vision</a></li><li><a class="toc-href" href="#inception-v4-inception-resnet-and-the-impact-of-residual-connections-on-learning" title="  Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning">  Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning</a></li><li><a class="toc-href" href="#xception-deep-learning-with-depthwise-separable-convolutions" title="  Xception: Deep Learning with Depthwise Separable Convolutions">  Xception: Deep Learning with Depthwise Separable Convolutions</a></li></ul></li><li><a class="toc-href" href="#deep-visualization_1" title="Deep Visualization">Deep Visualization</a><ul><li><a class="toc-href" href="#visualizing-and-understanding-convolutional-networks" title="  Visualizing and Understanding Convolutional Networks">  Visualizing and Understanding Convolutional Networks</a></li><li><a class="toc-href" href="#multifaceted-feature-visualization-uncovering-the-different-types-of-features-learned-by-each-neuron-in-deep-neural-networks" title="  Multifaceted Feature Visualization: Uncovering the Different Types of Features Learned By Each Neuron in Deep Neural Networks">  Multifaceted Feature Visualization: Uncovering the Different Types of Features Learned By Each Neuron in Deep Neural Networks</a></li><li><a class="toc-href" href="#how-transferable-are-features-in-deep-neural-networks" title="  How transferable are features in deep neural networks?">  How transferable are features in deep neural networks?</a></li></ul></li></ul></div>
                 </nav>
                 <hr>
                 
                 <p>Very minimal notes on some papers or articles that I recently read. Mainly for logging purposes.</p>
 <h2 id="image-recognition">Image Recognition</h2>
-<h3 id="very-deep-convolutional-networks-for-large-scale-image-recognition">Very Deep Convolutional Networks For Large-Scale Image Recognition</h3>
+<h3 id="very-deep-convolutional-networks-for-large-scale-image-recognition"><a name="vgg1"> </a> Very Deep Convolutional Networks For Large-Scale Image Recognition</h3>
 <p><em>Karen Simonyan, Andrew Zisserman : Apr 2015</em> <br/>
 <a href="https://arxiv.org/abs/1409.1556"><em>Source</em></a> <br/>
 <a href="https://github.com/KaimingHe/resnet-1k-layers"><em>Implementation</em></a> </p>
@@ -161,7 +161,7 @@ nitishpuri.github.io            </a>
 <li>Optimise multinomial logistic regression objective using mini-batch gradient descent with momentum.</li>
 <li>At the end introduces ensemble models by averaging softmax predictions from multiple models.</li>
 </ul>
-<h3 id="going-deeper-with-convolutions">Going Deeper with Convolutions</h3>
+<h3 id="going-deeper-with-convolutions"><a name="inception1"> </a> Going Deeper with Convolutions</h3>
 <p><em>Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke, Andrew Rabinovich : Sep 2014</em> <br/>
 <em>Google DeepMind</em> <br/>
 <a href="https://arxiv.org/abs/1409.4842"><em>Source</em></a></p>
@@ -176,7 +176,7 @@ nitishpuri.github.io            </a>
 <li>22 trainable Layers(100 total layers), low memory footprint.</li>
 <li>Auxillary classifiers are used to allow for efficient gradient propagation. These are used only at training time.</li>
 </ul>
-<h3 id="deep-residual-learning-for-image-recognition">Deep Residual Learning for Image Recognition</h3>
+<h3 id="deep-residual-learning-for-image-recognition"><a name="resnet1"> </a> Deep Residual Learning for Image Recognition</h3>
 <p><em>Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun : Dec 2015</em> <br/>
 <em>Microsoft Research</em> <br/>
 <a href="https://arxiv.org/abs/1512.03385"><em>Source</em></a></p>
@@ -192,7 +192,7 @@ nitishpuri.github.io            </a>
 <li>The model shows <em>no optimization difficulty</em> even with &gt; 1000 layers..!!</li>
 <li>Finally discusses improvements for detection and localization tasks.</li>
 </ul>
-<h3 id="rethinking-the-inception-architecture-for-computer-vision">Rethinking the Inception Architecture for Computer Vision</h3>
+<h3 id="rethinking-the-inception-architecture-for-computer-vision"><a name="inception2"> </a> Rethinking the Inception Architecture for Computer Vision</h3>
 <p><em>Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jonathon Shlens, Zbigniew Wojna : Dec 2015</em> <br/>
 <em>Google DeepMind</em> <br/>
 <a href="https://arxiv.org/abs/1512.00567"><em>Source</em></a> </p>
@@ -218,7 +218,7 @@ nitishpuri.github.io            </a>
 <img alt="" src="/images/papers/reInception2.jpg"/>
 <img alt="" src="/images/papers/reInception3.jpg"/></li>
 </ul>
-<h3 id="inception-v4-inception-resnet-and-the-impact-of-residual-connections-on-learning">Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning</h3>
+<h3 id="inception-v4-inception-resnet-and-the-impact-of-residual-connections-on-learning"><a name="inception4"> </a> Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning</h3>
 <p><em>Christian Szegedy, Sergey Ioffe, Vincent Vanhoucke, Alex Alemi : Aug 2016</em> <br/>
 <em>Google DeepMind</em> <br/>
 <a href="https://arxiv.org/abs/1602.07261"><em>Source</em></a> </p>
@@ -226,7 +226,7 @@ nitishpuri.github.io            </a>
 <li>Combining <strong>Residual networks with Inception architecture</strong>.</li>
 <li>Uniform Inception-v4 blocks are introduced for cleaner architecture. </li>
 </ul>
-<h3 id="xception-deep-learning-with-depthwise-separable-convolutions">Xception: Deep Learning with Depthwise Separable Convolutions</h3>
+<h3 id="xception-deep-learning-with-depthwise-separable-convolutions"><a name="xception"> </a> Xception: Deep Learning with Depthwise Separable Convolutions</h3>
 <p><em>Fran&ccedil;ois Chollet : Apr 2017</em> <br/>
 <a href="https://arxiv.org/abs/1610.02357"><em>Source</em></a> <br/>
 <em>Google Inc.</em> </p>
@@ -237,7 +237,7 @@ nitishpuri.github.io            </a>
 <li>The <em>Xception</em> architecture then takes these layers and builds a complete network for ImageNet task, with better reported performane than <em>Inception v3</em>.</li>
 </ul>
 <h2 id="deep-visualization_1">Deep Visualization</h2>
-<h3 id="visualizing-and-understanding-convolutional-networks">Visualizing and Understanding Convolutional Networks</h3>
+<h3 id="visualizing-and-understanding-convolutional-networks"><a name="vis1"> </a> Visualizing and Understanding Convolutional Networks</h3>
 <p><em>Matthew D Zeiler, Rob Fergus L : Nov 2013</em> <br/>
 <a href="https://arxiv.org/abs/1311.2901"><em>Source</em></a> </p>
 <ul>
@@ -257,7 +257,7 @@ nitishpuri.github.io            </a>
 <img alt="" src="/images/papers/visnet8.jpg"/></li>
 <li>Correspondence Analysis  </li>
 </ul>
-<h3 id="multifaceted-feature-visualization-uncovering-the-different-types-of-features-learned-by-each-neuron-in-deep-neural-networks">Multifaceted Feature Visualization: Uncovering the Different Types of Features Learned By Each Neuron in Deep Neural Networks</h3>
+<h3 id="multifaceted-feature-visualization-uncovering-the-different-types-of-features-learned-by-each-neuron-in-deep-neural-networks"><a name="vis2"> </a> Multifaceted Feature Visualization: Uncovering the Different Types of Features Learned By Each Neuron in Deep Neural Networks</h3>
 <p><em>Anh Nguyen, Jason Yosinski, Jeff Clune : May 2016</em> <br/>
 <a href="https://arxiv.org/abs/1602.03616"><em>Source</em></a> </p>
 <ul>
@@ -279,7 +279,7 @@ nitishpuri.github.io            </a>
 <img alt="" src="/images/papers/multiVis4.jpg"/></li>
 <li>Discusses various optimization techniques to produce better images in detail : center biased regularization, mean image initialization.</li>
 </ul>
-<h3 id="how-transferable-are-features-in-deep-neural-networks">How transferable are features in deep neural networks?</h3>
+<h3 id="how-transferable-are-features-in-deep-neural-networks"><a name="transfer1"> </a> How transferable are features in deep neural networks?</h3>
 <p><em>Jason Yosinski, Jeff Clune, Yoshua Bengio, Hod Lipson : Nov 2014</em> <br/>
 <a href="https://arxiv.org/abs/1411.1792"><em>Source</em></a></p>
 <ul>
