@@ -20,7 +20,7 @@
         <meta property="og:title" content="Mobile Robots"/>
         <meta property="og:url" content="/posts/robotics/mobile-robots/"/>
         <meta property="og:description" content="Minimal notes on some papers or articles that I recently read. Mainly for logging."/>
-        <meta property="article:published_time" content="2017-09-15" />
+        <meta property="article:published_time" content="2017-11-17" />
             <meta property="article:section" content="robotics" />
             <meta property="article:tag" content="notes" />
             <meta property="article:tag" content="robotics" />
@@ -60,6 +60,7 @@ nitishpuri.github.io            </a>
             <ul class="nav navbar-nav">
                     <li><a href="/pages/bio/">Bio</a></li>
                     <li><a href="/pages/gallery/">Gallery</a></li>
+                    <li><a href="/pages/books/">Books</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><span>
@@ -95,7 +96,7 @@ nitishpuri.github.io            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-09-15T00:00:00+05:30"> Fri 15 September 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-11-17T00:00:00+05:30"> Fri 17 November 2017</time>
     </span>
 
 
@@ -126,21 +127,18 @@ nitishpuri.github.io            </a>
     </div>
     <!-- AddThis Button END -->
 <section class="well" id="related-posts">
-    <h4>Part 3 of the Robotics series</h4>
+    <h4>Part 4 of the Robotics series</h4>
        <h5>Previous articles</h5>
        <ul>
            <li><a href="/posts/robotics/robotics-research/">Robotics Research</a></li>
            <li><a href="/posts/robotics/biologically-inspired-robots/">Biologically Inspired Robots</a></li>
-       </ul>
-       <h5>Next articles</h5>
-       <ul>
            <li><a href="/posts/robotics/soft-robotics/">Soft Robotics</a></li>
        </ul>
 </section>
                 
                 <p>Contents:</p>
                 <nav class="toc">
-                  <div id="toc"><ul><li><a class="toc-href" href="#kinematics" title="Kinematics">Kinematics</a><ul><li><a class="toc-href" href="#tf-the-transform-library" title="  tf: The Transform Library">  tf: The Transform Library</a></li><li><a class="toc-href" href="#solving-kinematics-problems-of-a-6-dof-robot-manipulator" title="  Solving Kinematics Problems of a 6-DOF Robot Manipulator">  Solving Kinematics Problems of a 6-DOF Robot Manipulator</a></li></ul></li><li><a class="toc-href" href="#robot-grasping_1" title="Robot Grasping">Robot Grasping</a><ul><li><a class="toc-href" href="#robotic-grasping-and-contact-a-review" title="  Robotic Grasping and Contact: A Review">  Robotic Grasping and Contact: A Review</a></li><li><a class="toc-href" href="#universal-robotic-gripper-based-on-the-jamming-of-granular-material" title="  Universal robotic gripper based on the jamming of granular material">  Universal robotic gripper based on the jamming of granular material</a></li><li><a class="toc-href" href="#dex-net-20-deep-learning-to-plan-robust-grasps-with-synthetic-point-clouds-and-analytic-grasp-metrics" title="  Dex-Net 2.0: Deep Learning to Plan Robust Grasps with Synthetic Point Clouds and Analytic Grasp Metrics">  Dex-Net 2.0: Deep Learning to Plan Robust Grasps with Synthetic Point Clouds and Analytic Grasp Metrics</a></li></ul></li><li><a class="toc-href" href="#mobile-robots_1" title="Mobile Robots">Mobile Robots</a><ul><li><a class="toc-href" href="#modular-and-reconfigurable-mobile-robots" title="  Modular and Reconfigurable Mobile Robots">  Modular and Reconfigurable Mobile Robots</a></li></ul></li><li><a class="toc-href" href="#swarm-intelligence_1" title="Swarm Intelligence">Swarm Intelligence</a><ul><li><a class="toc-href" href="#swarm-intelligence-and-its-applications-in-swarm-robotics" title="  Swarm Intelligence and Its Applications in Swarm Robotics">  Swarm Intelligence and Its Applications in Swarm Robotics</a></li></ul></li></ul></div>
+                  <div id="toc"><ul><li><a class="toc-href" href="#kinematics" title="Kinematics">Kinematics</a><ul><li><a class="toc-href" href="#tf-the-transform-library" title="  tf: The Transform Library">  tf: The Transform Library</a></li><li><a class="toc-href" href="#solving-kinematics-problems-of-a-6-dof-robot-manipulator" title="  Solving Kinematics Problems of a 6-DOF Robot Manipulator">  Solving Kinematics Problems of a 6-DOF Robot Manipulator</a></li></ul></li><li><a class="toc-href" href="#robot-grasping_1" title="Robot Grasping">Robot Grasping</a><ul><li><a class="toc-href" href="#robotic-grasping-and-contact-a-review" title="  Robotic Grasping and Contact: A Review">  Robotic Grasping and Contact: A Review</a></li><li><a class="toc-href" href="#universal-robotic-gripper-based-on-the-jamming-of-granular-material" title="  Universal robotic gripper based on the jamming of granular material">  Universal robotic gripper based on the jamming of granular material</a></li><li><a class="toc-href" href="#dex-net-20-deep-learning-to-plan-robust-grasps-with-synthetic-point-clouds-and-analytic-grasp-metrics" title="  Dex-Net 2.0: Deep Learning to Plan Robust Grasps with Synthetic Point Clouds and Analytic Grasp Metrics">  Dex-Net 2.0: Deep Learning to Plan Robust Grasps with Synthetic Point Clouds and Analytic Grasp Metrics</a></li><li><a class="toc-href" href="#learning-hand-eye-coordination-for-robotic-grasping-with-deep-learning-and-large-scale-data-collection" title=" Learning Hand-eye Coordination for Robotic Grasping with Deep Learning and Large-scale Data Collection"> Learning Hand-eye Coordination for Robotic Grasping with Deep Learning and Large-scale Data Collection</a></li></ul></li><li><a class="toc-href" href="#mobile-robots_1" title="Mobile Robots">Mobile Robots</a><ul><li><a class="toc-href" href="#modular-and-reconfigurable-mobile-robots" title="  Modular and Reconfigurable Mobile Robots">  Modular and Reconfigurable Mobile Robots</a></li></ul></li><li><a class="toc-href" href="#swarm-intelligence_1" title="Swarm Intelligence">Swarm Intelligence</a><ul><li><a class="toc-href" href="#swarm-intelligence-and-its-applications-in-swarm-robotics" title="  Swarm Intelligence and Its Applications in Swarm Robotics">  Swarm Intelligence and Its Applications in Swarm Robotics</a></li></ul></li></ul></div>
                 </nav>
                 <hr>
                 
@@ -208,9 +206,8 @@ in which <span class="math">\(R\)</span> indicates a revolute joint and the indi
 <li>Contact compliance</li>
 </ul>
 </li>
-<li>Measures of grasp performance</li>
+<li>Measures of grasp performance.</li>
 <li>Grasping and the kinematics of the hand</li>
-<li>Dynamics</li>
 </ul>
 <h3 id="universal-robotic-gripper-based-on-the-jamming-of-granular-material"><a name="grasping2"> </a> Universal robotic gripper based on the jamming of granular material</h3>
 <p><em>Eric Brown et. al</em> <br/>
@@ -227,7 +224,39 @@ Jamming-based grippers for picking up a wide range of objects without the need f
 </ul>
 <h3 id="dex-net-20-deep-learning-to-plan-robust-grasps-with-synthetic-point-clouds-and-analytic-grasp-metrics"><a name="grasping3"> </a> Dex-Net 2.0: Deep Learning to Plan Robust Grasps with Synthetic Point Clouds and Analytic Grasp Metrics</h3>
 <p><em>Jeffrey Mahler et. al</em> <br/>
-<a href="https://arxiv.org/abs/1703.09312"><em>Source</em></a></p>
+<em>Berkley</em> <br/>
+<a href="https://arxiv.org/abs/1703.09312"><em>Source</em></a>
+<a href="http://berkeleyautomation.github.io/dex-net/"><em>Implementation and documentation</em></a> </p>
+<ul>
+<li>Using physics based analyses to compute grasp configurations can be slow and error prone because of precision issues.</li>
+<li>Here we use a CNN on depth images and rendered point cloud data to estimate robust claw grasping configurations.</li>
+<li>Previous related work related to Grasp Planning is discussed.  <br/>
+<img alt="" src="/images/papers/dexnet_1.png"/> <br/>
+<em>Dex-Net 2.0 Architecture. (Center) The Grasp Quality Convolutional Neural Network (GQ-CNN) is trained offline to predict the robustness candidate grasps from depth images using a dataset of 6.7 million synthetic point clouds, grasps, and associated robust grasp metrics computed with DexNet 1.0. (Left) When an object is presented to the robot, a depth camera returns a 3D point cloud, where pairs of antipodal points identify a set of several hundred grasp candidates. (Right) The GQ-CNN rapidly determines the most robust grasp candidate, which is executed with the ABB YuMi robot.</em> </li>
+</ul>
+<p><img alt="" src="/images/papers/dexnet_2.png"/> <br/>
+<em>Graphical model for robust parallel-jaw grasping of objects on a table surface based on point clouds. Blue nodes are variables included in the state representation. Object shapes <span class="math">\(\mathcal{O}\)</span> are uniformly distributed over a discrete set of object models and object poses <span class="math">\(\mathcal T_o\)</span> are distributed over the object&rsquo;s stable poses and a bounded region of a planar surface. Grasps <span class="math">\(\mathbf{u} = (\mathbf{p}, \psi)\)</span> are sampled uniformly from the object surface using antipodality constraints. Given the coefficient of friction <span class="math">\(\gamma\)</span> we evaluate an analytic success metric <span class="math">\(S\)</span> for a grasp on an object. A synthetic 2.5D point cloud <span class="math">\(\mathbf y\)</span> is generated from 3D meshes based on the camera pose <span class="math">\(\mathcal T_c\)</span>, object shape, and pose and corrupted with multiplicative and Gaussian Process noise.</em> </p>
+<p><img alt="" src="/images/papers/dexnet_3.png"/> <br/>
+<em>Dex-Net 2.0 pipeline for training dataset generation. (Left) The database contains 1,500 3D object mesh models. (Top) For each object, we sample hundreds of parallel-jaw grasps to cover the surface and evaluate robust analytic grasp metrics using sampling. For each stable pose of the object we associate a set of grasps that are perpendicular to the table and collision-free for a given gripper model. (Bottom) We also render point clouds of each object in each stable pose, with the planar object pose and camera pose sampled uniformly at random. Every grasp for a given stable pose is associated with a pixel location and orientation in the rendered image. (Right) Each image is rotated, translated, cropped, and scaled to align the grasp pixel location with the image center and the grasp axis with the middle row of the image, creating a 32 &times; 32 grasp image. The full dataset contains over 6.7 million grasp images</em></p>
+<ul>
+<li>The performance of the network is compared with other machine learning models based on random forests and SVM along with previous DL based approaches.</li>
+<li>Some failure modes are identified as being unable to identify thin geometries and some problems with finding collision-free grasps in narrow parts of the object geometry, suggesting that performance can be improved with better depth sensing.</li>
+</ul>
+<h3 id="learning-hand-eye-coordination-for-robotic-grasping-with-deep-learning-and-large-scale-data-collection"><a name="grasping4"> Learning Hand-eye Coordination for Robotic Grasping with Deep Learning and Large-scale Data Collection</a></h3>
+<p><a href="https://people.eecs.berkeley.edu/~svlevine/papers/grasp_iser.pdf"><em>Source</em></a> <br/>
+<em>Sergey Levine, Peter Pastor, Alex Krizhevsky, and Deirdre Quillen</em> <br/>
+<em>Google</em> </p>
+<ul>
+<li>Hand-eye coordination for robot grasping using monocular images.</li>
+<li>
+<p>Consists of two components, first is a CNN to determine if a given motion would produce a successful grasp. <br/>
+<img alt="" src="/images/papers/grasp_1.jpg"/> <br/>
+<em>The architecture of our CNN grasp predictor. The input image <span class="math">\(\mathbf{I}_t\)</span>, as well as the pregrasp image <span class="math">\(\mathbf{I}_0\)</span>, are fed into a <span class="math">\(6 \times 6\)</span> convolution with stride 2, followed by <span class="math">\(3 \times 3\)</span> max-pooling and 6 <span class="math">\(5 \times 5\)</span> convolutions. This is followed by a <span class="math">\(3 \times 3\)</span> max-pooling layer. The motor command <span class="math">\(v_t\)</span> is processed by one fully connected layer, which is then pointwise added to each point in the response map of pool2 by tiling the output over the special dimensions. The result is then processed by 6 <span class="math">\(3 \times 3\)</span> convolutions, <span class="math">\(2 \times 2\)</span> max-pooling, 3 more <span class="math">\(3 \times 3\)</span> convolutions, and two fully connected layers with 64 units, after which the network outputs the probability of a successful grasp through a sigmoid. Each convolution is followed by batch normalization.</em> </p>
+</li>
+<li>
+<p>Second is a continuous servoing mechanism that uses CNN to continuously update the robot's motor channels.</p>
+</li>
+</ul>
 <h2 id="mobile-robots_1">Mobile Robots</h2>
 <h3 id="modular-and-reconfigurable-mobile-robots"><a name="mobile1"> </a> Modular and Reconfigurable Mobile Robots</h3>
 <p><a href="http://128.173.188.245/publications/J13_Modular_Robots_JRAS.pdf"><em>Source</em></a> </p>
@@ -362,7 +391,7 @@ with SI techniques.</li>
 </li>
 <li>Applications of SR<ul>
 <li><em>Foraging</em> : includes collective exploration, path finding, efficient task allocation and collective transport. Examples, Search-and-rescue and terrain sample collection.</li>
-<li><em>Dangerous tasks</em> : Ex. demining.</li>
+<li><em>Dangerous tasks</em> : Ex. mining.</li>
 <li><em>Exploration and mapping</em> : Collective exploration in space, extra-terrestrial planets and human veins and arteries. </li>
 </ul>
 </li>
@@ -576,10 +605,6 @@ with SI techniques.</li>
   <ul class="list-group">
     <li class="list-group-item">
       <h5></i>Previous article</h5>
-      <a href="/posts/robotics/biologically-inspired-robots/">Biologically Inspired Robots</a>
-    </li>
-    <li class="list-group-item">
-      <h5>Next article</h5>
       <a href="/posts/robotics/soft-robotics/">Soft Robotics</a>
     </li>
   </ul>
