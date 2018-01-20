@@ -144,12 +144,13 @@ nitishpuri.github.io            </a>
        <h5>Next articles</h5>
        <ul>
            <li><a href="/posts/books/fundamentals-of-computer-graphics-part-5/">Fundamentals of Computer Graphics, Part 5</a></li>
+           <li><a href="/posts/books/fundamentals-of-computer-graphics-part-6/">Fundamentals of Computer Graphics, Part 6</a></li>
        </ul>
 </section>
                 
                 <p>Contents:</p>
                 <nav class="toc">
-                  <div id="toc"><ul><li><a class="toc-href" href="#chapter-10-surface-shading" title="Chapter 10 : Surface Shading">Chapter 10 : Surface Shading</a><ul><li><a class="toc-href" href="#diffuse-shading" title="Diffuse Shading">Diffuse Shading</a><ul><li><a class="toc-href" href="#lambertian-shading-model" title="Lambertian Shading Model">Lambertian Shading Model</a></li><li><a class="toc-href" href="#ambient-shading" title="Ambient Shading">Ambient Shading</a></li><li><a class="toc-href" href="#vertex-based-diffuse-shading" title="Vertex-Based Diffuse Shading">Vertex-Based Diffuse Shading</a></li></ul></li><li><a class="toc-href" href="#phong-shading_1" title="Phong Shading">Phong Shading</a><ul><li><a class="toc-href" href="#phong-lighting-model" title="Phong Lighting Model">Phong Lighting Model</a></li><li><a class="toc-href" href="#surface-normal-vector-interpolation" title="Surface Normal Vector Interpolation">Surface Normal Vector Interpolation</a></li></ul></li><li><a class="toc-href" href="#artistic-shading_1" title="Artistic Shading">Artistic Shading</a><ul><li><a class="toc-href" href="#line-drawing" title="Line Drawing">Line Drawing</a></li><li><a class="toc-href" href="#cool-to-warm-shading" title="Cool-to-Warm Shading">Cool-to-Warm Shading</a></li></ul></li></ul></li><li><a class="toc-href" href="#chapter-11-texture-mapping_2" title="Chapter 11 : Texture Mapping">Chapter 11 : Texture Mapping</a></li></ul></div>
+                  <div id="toc"><ul><li><a class="toc-href" href="#chapter-10-surface-shading" title="Chapter 10 : Surface Shading">Chapter 10 : Surface Shading</a><ul><li><a class="toc-href" href="#diffuse-shading" title="Diffuse Shading">Diffuse Shading</a><ul><li><a class="toc-href" href="#lambertian-shading-model" title="Lambertian Shading Model">Lambertian Shading Model</a></li><li><a class="toc-href" href="#ambient-shading" title="Ambient Shading">Ambient Shading</a></li><li><a class="toc-href" href="#vertex-based-diffuse-shading" title="Vertex-Based Diffuse Shading">Vertex-Based Diffuse Shading</a></li></ul></li><li><a class="toc-href" href="#phong-shading_1" title="Phong Shading">Phong Shading</a><ul><li><a class="toc-href" href="#phong-lighting-model" title="Phong Lighting Model">Phong Lighting Model</a></li><li><a class="toc-href" href="#surface-normal-vector-interpolation" title="Surface Normal Vector Interpolation">Surface Normal Vector Interpolation</a></li></ul></li><li><a class="toc-href" href="#artistic-shading_1" title="Artistic Shading">Artistic Shading</a><ul><li><a class="toc-href" href="#line-drawing" title="Line Drawing">Line Drawing</a></li><li><a class="toc-href" href="#cool-to-warm-shading" title="Cool-to-Warm Shading">Cool-to-Warm Shading</a></li></ul></li></ul></li><li><a class="toc-href" href="#chapter-11-texture-mapping_2" title="Chapter 11 : Texture Mapping">Chapter 11 : Texture Mapping</a><ul><li><a class="toc-href" href="#3d-texture-mapping" title="3D Texture Mapping">3D Texture Mapping</a><ul><li><a class="toc-href" href="#texture-arrays" title="Texture Arrays">Texture Arrays</a></li><li><a class="toc-href" href="#solid-noise" title="Solid Noise">Solid Noise</a></li><li><a class="toc-href" href="#turbulence" title="Turbulence">Turbulence</a></li></ul></li><li><a class="toc-href" href="#2d-texture-mapping_1" title="2D Texture Mapping">2D Texture Mapping</a></li><li><a class="toc-href" href="#texture-mapping-for-rasterized-triangles" title="Texture Mapping for Rasterized Triangles">Texture Mapping for Rasterized Triangles</a><ul><li><a class="toc-href" href="#perspective-correct-textures" title="Perspective Correct Textures">Perspective Correct Textures</a></li></ul></li><li><a class="toc-href" href="#bump-textures_1" title="Bump Textures">Bump Textures</a></li><li><a class="toc-href" href="#environment-maps" title="Environment Maps">Environment Maps</a></li><li><a class="toc-href" href="#shadow-maps" title="Shadow Maps">Shadow Maps</a></li></ul></li></ul></div>
                 </nav>
                 <hr>
                 
@@ -197,6 +198,104 @@ nitishpuri.github.io            </a>
 <div class="math">$$\begin{align}k_w &amp;= \frac{1 + \mathbf{n.l}}{2}.\\
 c &amp;= k_wc_w + (1 - k_w)c_c \end{align}$$</div>
 <h2 id="chapter-11-texture-mapping_2">Chapter 11 : Texture Mapping</h2>
+<p>The shading models presented in Chapter 10 assume that a diffuse surface has uniform reflectance <span class="math">\(c_r\)</span>. This is fine for surfaces such as blank paper or painted walls, but it is inefficient for objects such as a printed sheet of paper. Such objects have an appearance whose complexity arises from variation in reflectance properties. While we could use such small triangles that the variation is captured by varying the reflectance properties of the triangles, this would be inefficient.   </p>
+<p>Texture mapping can be classified by several different properties:
+1. the dimensionality of the texture function,
+2. the correspondences defined between points on the surface and points in the texture function, and
+3. whether the texture function is primarily procedural or primarily a table look-up.</p>
+<h3 id="3d-texture-mapping">3D Texture Mapping</h3>
+<p><strong>3D Stripe Textures</strong> <br/>
+</p>
+<div class="math">$$RGB\;stripe(\;point\;\mathbf{p} )\\
+\mathbf{if}\;(sin( \pi x_p/w) &gt; 0) \mathbf{then} \\ 
+\quad \mathbf{return}\;c_0 \\
+\mathbf{else} \\
+\quad \mathbf{return}\;c_1 $$</div>
+<p><img alt="" src="/images/fundcg/11_texture1.png"/> </p>
+<h4 id="texture-arrays">Texture Arrays</h4>
+<p><img alt="" src="/images/fundcg/11_texture2.png"/> <br/>
+<img alt="" src="/images/fundcg/11_texture3.png"/> </p>
+<h4 id="solid-noise">Solid Noise</h4>
+<p><strong>Perlin noise.</strong> <br/>
+<img alt="" src="/images/fundcg/11_texture4.png"/> </p>
+<p>Getting a noisy appearance by calling a random number for every point would not be appropriate, because it would just be like <code>white noise</code> in TV static. We would like to make it smoother without losing the random quality. One 
+possibility is to blur white noise, but there is no practical implementation of this. Another possibility is to make a large lattice with a random number at every lattice point, and then interpolate these random points for new points 
+between lattice nodes; this is just a 3D texture array as described in the last section with random numbers in the array. This technique makes the lattice too obvious. Perlin used a variety of tricks to improve this basic lattice 
+technique so the lattice was not so obvious. This results in a rather baroque-looking set of steps, but essentially there are just three changes from linearly interpolating a 3D array of random values. The first change is to use Hermite interpolation to avoid mach bands, just as can be done with regular 
+textures. The second change is the use of random vectors rather than values, with a dot product to derive a random number; this makes the underlying
+grid structure less visually obvious by moving the local minima and maxima off the grid vertices. The third change is to use a 1D array and hashing to create a virtual 3D array of random vectors. This adds computation to lower memory use.</p>
+<div class="math">$$\begin{align}
+n(x, y, z) = \sum_{i = \lfloor x \rfloor}^{\lfloor x \rfloor + 1}\sum_{j = \lfloor y \rfloor}^{\lfloor y \rfloor + 1}\sum_{k = \lfloor z \rfloor}^{\lfloor z \rfloor + 1} \Omega_{ijk}(x - i,, y-j, z-k),
+\end{align}$$</div>
+<p> <br/>
+where <span class="math">\((x, y, z)\)</span> are the Cartesian coorinates of <span class="math">\(\mathbf{x}\)</span>, and    </p>
+<div class="math">$$\begin{align}
+\Omega{ijk}(u, v, w) = \omega(u) \omega(v) \omega(w)(\Gamma_{ijk}\cdot (u, v, w)),
+\end{align}$$</div>
+<p>and <span class="math">\(\omega(t)\)</span> is the cubic weighing function: <br/>
+</p>
+<div class="math">$$\begin{align}
+\omega(t) = \begin{cases}2|t|^3 - 3|t|^2 + 1 &amp; if |t| &lt; 1, \\ 0 &amp; \text{otherwise.}\end{cases}
+\end{align}$$</div>
+<p>The final piece is that <span class="math">\(\Gamma_{ijk}\)</span> is a random unit vector for the lattice point <span class="math">\((x, y, z) = (i, j, k)\)</span>. Since we want any potential <span class="math">\(ijk\)</span>, we use a 
+pseudorandom table: <br/>
+</p>
+<div class="math">$$\begin{align}
+\Gamma_{ijk} = \mathbf{G}(\phi(i + \phi(j + \phi(k)))),
+\end{align}$$</div>
+<p>where <span class="math">\(\mathbf{G}\)</span> is a precomputed array of <span class="math">\(n\)</span> random unit vectors, and <span class="math">\(\phi(i) = P[i \mod n]\)</span> where <span class="math">\(P\)</span> is an array of length <span class="math">\(n\)</span> containing a permutation of the integers <span class="math">\(0\)</span> through <span class="math">\(n-1\)</span>.   </p>
+<h4 id="turbulence"><strong>Turbulence</strong></h4>
+<div class="math">$$\begin{align}
+n_t(\mathbf{x}) = \sum_i \frac{|n(2^i\mathbf{x})|}{2^i}
+\end{align}$$</div>
+<p><img alt="" src="/images/fundcg/11_texture5.png"/> <br/>
+<img alt="" src="/images/fundcg/11_texture6.png"/> </p>
+<h3 id="2d-texture-mapping_1">2D Texture Mapping</h3>
+<p><img alt="" src="/images/fundcg/11_texture7.png"/> </p>
+<h3 id="texture-mapping-for-rasterized-triangles">Texture Mapping for Rasterized Triangles</h3>
+<p><img alt="" src="/images/fundcg/11_texture8.png"/> </p>
+<div class="math">$$\begin{align}
+u(\beta, \gamma) &amp;= u_a + \beta(u_b - u_a) + \gamma(u_c - u_a),\\
+v(\beta, \gamma) &amp;= v_a + \beta(v_b - v_a) + \gamma(v_c - v_a),\\
+\end{align}$$</div>
+<p> <br/>
+<img alt="" src="/images/fundcg/11_texture9.png"/> </p>
+<h4 id="perspective-correct-textures"><strong>Perspective Correct Textures</strong></h4>
+<p><img alt="" src="/images/fundcg/11_texture10.png"/> </p>
+<div class="math">$$
+\mathbf{for\,all}\; x\;\mathbf{do} \\
+\quad \mathbf{for\,all}\; y\;\mathbf{do} \\
+\quad \quad \text{compute } (\alpha, \beta, \gamma)\;\text{for}\;(x, y) \\
+\quad \quad \mathbf{if}\;\alpha\in(0, 1)\,\text{ and } \beta\in(0, 1) and \gamma\in(0, 1)\; \mathbf{then} \\
+\quad \quad\quad \mathbf{t} = \alpha\mathbf{t}_0 + \beta\mathbf{t}_1 + \gamma\mathbf{t}_2 \\ 
+\quad \quad\quad \text{draw pixel }(x, y) \text{with color texture(}\mathbf{t}\text{) for a solid texture} \\
+\quad \quad\quad \text{or with texture}(\beta, \gamma)\text{for a 2D texture}.
+$$</div>
+<p>Corrected with interpolation in screen space,. <br/>
+Compute bounds for <span class="math">\(x = x_i/h_i\)</span> and <span class="math">\(y = y_i/h_i\)</span> </p>
+<div class="math">$$
+\mathbf{for\,all}\;x\;\mathbf{do}\\
+\quad \mathbf{for\,all}\;y\;\mathbf{do}\\
+\quad \quad \text{compute } (\alpha, \beta, \gamma)\;\text{for}\;(x, y) \\
+\quad \quad \mathbf{if}\;\alpha\in(0, 1)\,\text{ and } \beta\in(0, 1) and \gamma\in(0, 1)\; \mathbf{then} \\
+\quad\quad\quad d = h_1h_2 + h_2\beta(h_0-h_1) + h_1\gamma(h_0-h_2) \\
+\quad \quad \quad \beta_w = h_0h_2\beta/d \\
+\quad \quad \quad \gamma_w = h_0h_1\gamma/d \\ 
+\quad \quad \quad \alpha_w = 1 - \beta_w - \gamma_w \\ 
+\quad \quad \quad u = \alpha_wu_0 \beta_wu_1 + \gamma_wu_2\\ 
+\quad \quad \quad v = \alpha_wv_0 \beta_wv_1 + \gamma_wv_2\\ 
+\quad \quad \quad \text{draw pixel }(x, y) \text{ with color texture}(u, v)
+$$</div>
+<h3 id="bump-textures_1">Bump Textures</h3>
+<p>Although we have only discussed changing reflectance using texture, you can also change the surface normal to give an illusion of fine-scale geometry on the surface. We can apply a <strong>bump map</strong> that perturbs the surface normal.   </p>
+<p><img alt="" src="/images/fundcg/11_texture11.png"/>
+<img alt="" src="/images/fundcg/11_texture12.png"/> </p>
+<h3 id="environment-maps">Environment Maps</h3>
+<p>Often we would like to have a texture-mapped background and for objects to have specular reflections of that background. This can be accomplished using <strong>environment maps</strong>. <br/>
+An environment map can be implemented as a background function that takes in a viewing direction <span class="math">\(\mathbf{b}\)</span> and returns a RGB color from a texture map. There are many ways to store environment maps. For example, we can use a spherical table indexed by spherical coordinates. In this section, we will instead describe a cube-based table with six square texture maps, often called a <strong>cube map</strong>.   </p>
+<p><img alt="" src="/images/fundcg/11_texture13.png"/> </p>
+<h3 id="shadow-maps">Shadow Maps</h3>
+<p>The basic observation to be made about a shadow map is that if we rendered the scene using the location of a light source as the eye, the visible surfaces would all be lit, and the hidden surfaces would all be in shadow. This can be used to determine whether a point being rasterized is in shadow.</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "left",
         indent = "0em",
