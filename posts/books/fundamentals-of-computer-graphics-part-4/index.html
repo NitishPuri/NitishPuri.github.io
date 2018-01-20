@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="english" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Fundamentals of Computer Graphics - nitishpuri.github.io</title>
+    <title>Fundamentals of Computer Graphics, Part 4 - nitishpuri.github.io</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,18 +9,18 @@
 
 
 
-<link rel="canonical" href="/posts/books/fundamentals-of-computer-graphics/">
+<link rel="canonical" href="/posts/books/fundamentals-of-computer-graphics-part-4/">
 
         <meta name="author" content="Peter Shirley" />
         <meta name="keywords" content="graphics,notes,programming" />
-        <meta name="description" content="Index notes on Fundamentals of Computer Graphics" />
+        <meta name="description" content="Surface Shading and Texture Mapping" />
 
         <meta property="og:site_name" content="nitishpuri.github.io" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Fundamentals of Computer Graphics"/>
-        <meta property="og:url" content="/posts/books/fundamentals-of-computer-graphics/"/>
-        <meta property="og:description" content="Index notes on Fundamentals of Computer Graphics"/>
-        <meta property="article:published_time" content="2017-08-17" />
+        <meta property="og:title" content="Fundamentals of Computer Graphics, Part 4"/>
+        <meta property="og:url" content="/posts/books/fundamentals-of-computer-graphics-part-4/"/>
+        <meta property="og:description" content="Surface Shading and Texture Mapping"/>
+        <meta property="article:published_time" content="2017-10-20" />
             <meta property="article:section" content="books" />
                 <meta property="article:subcategory" content="books/fund-comp-graphics" />
             <meta property="article:tag" content="graphics" />
@@ -86,10 +86,10 @@ nitishpuri.github.io            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="/posts/books/fundamentals-of-computer-graphics/"
+                    <a href="/posts/books/fundamentals-of-computer-graphics-part-4/"
                        rel="bookmark"
-                       title="Permalink to Fundamentals of Computer Graphics">
-                        Fundamentals of Computer Graphics
+                       title="Permalink to Fundamentals of Computer Graphics, Part 4">
+                        Fundamentals of Computer Graphics, Part 4
                     </a>
                 </h1>
             </header>
@@ -99,7 +99,7 @@ nitishpuri.github.io            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-08-17T00:00:00+05:30"> Thu 17 August 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-10-20T00:00:00+05:30"> Fri 20 October 2017</time>
     </span>
 
 
@@ -133,27 +133,120 @@ nitishpuri.github.io            </a>
     </div>
     <!-- AddThis Button END -->
 <section class="well" id="related-posts">
-    <h4>Part 1 of the Fundamentals of Computer Graphics series</h4>
-       <h5>Next articles</h5>
+    <h4>Part 5 of the Fundamentals of Computer Graphics series</h4>
+       <h5>Previous articles</h5>
        <ul>
+           <li><a href="/posts/books/fundamentals-of-computer-graphics/">Fundamentals of Computer Graphics</a></li>
            <li><a href="/posts/books/fundamentals-of-computer-graphics-part-1/">Fundamentals of Computer Graphics, Part 1</a></li>
            <li><a href="/posts/books/fundamentals-of-computer-graphics-part-2/">Fundamentals of Computer Graphics, Part 2</a></li>
            <li><a href="/posts/books/fundamentals-of-computer-graphics-part-3/">Fundamentals of Computer Graphics, Part 3</a></li>
-           <li><a href="/posts/books/fundamentals-of-computer-graphics-part-4/">Fundamentals of Computer Graphics, Part 4</a></li>
        </ul>
 </section>
                 
+                <p>Contents:</p>
+                <nav class="toc">
+                  <div id="toc"><ul><li><a class="toc-href" href="#chapter-10-surface-shading" title="Chapter 10 : Surface Shading">Chapter 10 : Surface Shading</a><ul><li><a class="toc-href" href="#diffuse-shading" title="Diffuse Shading">Diffuse Shading</a><ul><li><a class="toc-href" href="#lambertian-shading-model" title="Lambertian Shading Model">Lambertian Shading Model</a></li><li><a class="toc-href" href="#ambient-shading" title="Ambient Shading">Ambient Shading</a></li><li><a class="toc-href" href="#vertex-based-diffuse-shading" title="Vertex-Based Diffuse Shading">Vertex-Based Diffuse Shading</a></li></ul></li><li><a class="toc-href" href="#phong-shading_1" title="Phong Shading">Phong Shading</a><ul><li><a class="toc-href" href="#phong-lighting-model" title="Phong Lighting Model">Phong Lighting Model</a></li><li><a class="toc-href" href="#surface-normal-vector-interpolation" title="Surface Normal Vector Interpolation">Surface Normal Vector Interpolation</a></li></ul></li><li><a class="toc-href" href="#artistic-shading_1" title="Artistic Shading">Artistic Shading</a><ul><li><a class="toc-href" href="#line-drawing" title="Line Drawing">Line Drawing</a></li><li><a class="toc-href" href="#cool-to-warm-shading" title="Cool-to-Warm Shading">Cool-to-Warm Shading</a></li></ul></li></ul></li></ul></div>
+                </nav>
+                <hr>
                 
-                <ul>
-<li><a href="/posts/books/fundamentals-of-computer-graphics-part-1/">Fundamentals of Computer Graphics : Chapter 1 - 4</a> <br/>
-    Introduction, Basic Maths, Raster Images and Introduction to Ray Tracing.   </li>
-<li><a href="/posts/books/fundamentals-of-computer-graphics-part-2/">Fundamentals of Computer Graphics : Chapter 5 - 7</a> <br/>
-    Linear Algebra, Transformation Matrices and View Transformations   </li>
-<li><a href="/posts/books/fundamentals-of-computer-graphics-part-3/">Fundamentals of Computer Graphics : Chapter 8 - 9</a> <br/>
-    The Graphics Pipeline and Signal Processing</li>
-<li><a href="/posts/books/fundamentals-of-computer-graphics-part-4/">Fundamentals of Computer Graphics : Chapter 10 - 11</a> <br/>
-    Surface shading and Texture Mapping</li>
-</ul>
+                <h2 id="chapter-10-surface-shading">Chapter 10 : Surface Shading</h2>
+<h3 id="diffuse-shading">Diffuse Shading</h3>
+<p>Many objects in the world have a surface appearance loosely described as &ldquo;matte,&rdquo; indicating that the object is not at all shiny. Examples include paper, unfinished wood, and dry unpolished stones. To a large degree, such objects do not have a color change with a change in viewpoint. For example, if you stare at a particular point on a piece of paper and move while keeping your gaze fixed on that point, the color at that point will stay relatively constant. Such matte objects can be considered as behaving as <strong>Lambertian objects</strong>.   </p>
+<h4 id="lambertian-shading-model"><strong>Lambertian Shading Model</strong></h4>
+<p><img alt="" src="/images/fundcg/10_lamb1.png"/> <img alt="" src="/images/fundcg/10_lamb2.png"/> </p>
+<div class="math">$$\begin{align}c = c_rc_l\text{max}(0, \mathbf{n.l})\end{align}$$</div>
+<h4 id="ambient-shading"><strong>Ambient Shading</strong></h4>
+<div class="math">$$\begin{align}c = c_r (c_a + c_l\text{max}(0, \mathbf{n.l}))\end{align}$$</div>
+<h4 id="vertex-based-diffuse-shading"><strong>Vertex-Based Diffuse Shading</strong></h4>
+<p>If we apply the above equation to an object made up of triangles, it will typically have a faceted appearance. Often, the triangles are an approximation to a smooth surface. To avoid the faceted appearance, we can place surface normal vectors at the vertices of the triangles (Phong, 1975), and apply Equation (10.3) at each of the vertices using the normal vectors at the vertices (see Figure 10.4). This will give a color at each triangle vertex, and this color can be interpolated using the barycentric interpolation described in Section 8.1.2.</p>
+<p><img alt="" src="/images/fundcg/10_phong1.png"/> </p>
+<p>One problem with shading at triangle vertices is that we need to get the normals from somewhere. Many models will come with normals supplied. If you tessellate your own smooth model, you can create normals when you create the triangles. If you are presented with a polygonal model that does not have normals at vertices and you want to shade it smoothly, you can compute normals by a variety of heuristic methods. The simplest is to just average the normals of the triangles that share each vertex and use this average normal at the vertex. This average normal will not automatically be of unit length, so you should convert it to a unit vector before using it for shading.</p>
+<h3 id="phong-shading_1">Phong Shading</h3>
+<p><img alt="" src="/images/fundcg/10_phong2.png"/> </p>
+<p>Some surfaces are essentially like matte surfaces, but they have <strong>highlights</strong>. Examples of such surfaces include polished tile floors, gloss paint, and whiteboards. Highlights move across a surface as the viewpoint moves. This means that we must add a unit vector e toward the eye into our equations. If you look carefully at highlights, you will see that they are really reflections of the light; sometimes these reflections are blurred. The color of these highlights is the color of the light&mdash;the surface color seems to have little effect. This is because the reflection occurs at the object&rsquo;s surface, and the light that penetrates the surface and picks up the object&rsquo;s color is scattered diffusely.   </p>
+<h4 id="phong-lighting-model"><strong>Phong Lighting Model</strong></h4>
+<p>We want to add a fuzzy &ldquo;spot&rdquo; the same color as the light source in the right place. The center of the dot should be drawn where the direction <span class="math">\(e\)</span> to the eye &ldquo;lines&rdquo; up with the natural direction of reflection <span class="math">\(r\)</span> as shown in Figure 10.5. Here &ldquo;lines up&rdquo; is mathematically equivalent to &ldquo;where <span class="math">\(\sigma\)</span> is zero.&rdquo; We would like to have the highlight have some non-zero area, so that the eye sees some highlight wherever <span class="math">\(\sigma\)</span> is small.   </p>
+<div class="math">$$\begin{align}c = c_l\text{max}(0, \mathbf{e.r})^p.\end{align}$$</div>
+<p> <br/>
+<span class="math">\(p\)</span> is the <strong>Phong Exponent</strong>. <br/>
+<img alt="" src="/images/fundcg/10_phong3.png"/> </p>
+<div class="math">$$\begin{align}\mathbf{r} = -\mathbf{l} + 2(\mathbf{l.n})\mathbf{n}\end{align}$$</div>
+<p> <br/>
+<img alt="" src="/images/fundcg/10_phong4.png"/> </p>
+<p>Another heuristic can also be used here,. <br/>
+</p>
+<div class="math">$$\begin{align}\mathbf{h} = \frac{\mathbf{e} + \mathbf{l}}{||\mathbf{e} + \mathbf{l}||}\end{align}$$</div>
+<p> <br/>
+<img alt="" src="/images/fundcg/10_phong5.png"/> </p>
+<div class="math">$$\begin{align}c = c_r (c_a + c_t\text{max}(0, \mathbf{n.l})) +c_lc_p(\mathbf{h.n})^p\end{align}$$</div>
+<h4 id="surface-normal-vector-interpolation"><strong>Surface Normal Vector Interpolation</strong></h4>
+<p>Smooth surfaces with highlights tend to change color quickly compared to Lambertian surfaces with the same geometry. Thus, shading at the normal vectors can generate disturbing artifacts.   </p>
+<p>These problems can be reduced by interpolating the normal vectors across the polygon and then applying Phong shading at each pixel. This allows you to get good images without making the size of the triangles extremely small.   </p>
+<h3 id="artistic-shading_1">Artistic Shading</h3>
+<p>The Lambertian and Phong shading methods are based on heuristics designed to imitate the appearance of objects in the real world.</p>
+<h4 id="line-drawing"><strong>Line Drawing</strong></h4>
+<p>The most obvious thing we see in human drawings that we don&rsquo;t see in real life is <strong>silhouettes</strong>.   </p>
+<p>draw silhouette if <span class="math">\(f_0(\mathbf{e})f_1(\mathbf{e}) \leq 0\)</span>.   </p>
+<p>draw crease if <span class="math">\((\mathbf{n}_0 &middot; \mathbf{n}_1) \leq \text{threshold}\)</span> </p>
+<h4 id="cool-to-warm-shading"><strong>Cool-to-Warm Shading</strong></h4>
+<p><img alt="" src="/images/fundcg/10_art1.png"/> </p>
+<div class="math">$$\begin{align}k_w &amp;= \frac{1 + \mathbf{n.l}}{2}.\\
+c &amp;= k_wc_w + (1 - k_w)c_c \end{align}$$</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "left",
+        indent = "0em",
+        linebreak = "true";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
 
             
             </div>
@@ -307,8 +400,8 @@ nitishpuri.github.io            </a>
   <h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Series</span></h4>
   <ul class="list-group">
     <li class="list-group-item">
-      <h5>Next article</h5>
-      <a href="/posts/books/fundamentals-of-computer-graphics-part-1/">Fundamentals of Computer Graphics, Part 1</a>
+      <h5></i>Previous article</h5>
+      <a href="/posts/books/fundamentals-of-computer-graphics-part-3/">Fundamentals of Computer Graphics, Part 3</a>
     </li>
   </ul>
 </li>
