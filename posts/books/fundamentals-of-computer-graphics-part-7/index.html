@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="english" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Fundamentals of Computer Graphics, Part 7 - nitishpuri.github.io</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="/posts/books/fundamentals-of-computer-graphics-part-7/">
+
+        <meta name="author" content="Peter Shirley" />
+        <meta name="keywords" content="graphics,notes,programming" />
+        <meta name="description" content="Sampling and Curves" />
+
+        <meta property="og:site_name" content="nitishpuri.github.io" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Fundamentals of Computer Graphics, Part 7"/>
+        <meta property="og:url" content="/posts/books/fundamentals-of-computer-graphics-part-7/"/>
+        <meta property="og:description" content="Sampling and Curves"/>
+        <meta property="article:published_time" content="2017-11-30" />
+            <meta property="article:section" content="books" />
+                <meta property="article:subcategory" content="books/fund-comp-graphics" />
+            <meta property="article:tag" content="graphics" />
+            <meta property="article:tag" content="notes" />
+            <meta property="article:tag" content="programming" />
+            <meta property="article:author" content="Peter Shirley" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link href="/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+        <link href="/static/custom.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+nitishpuri.github.io            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/pages/bio/">Bio</a></li>
+                    <li><a href="/pages/gallery/">Gallery</a></li>
+                    <li><a href="/pages/books/">Books</a></li>
+                    <li><a href="https://nitishpuri.github.io/ProcessingExperiments/">Demos</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+              <li><a href="/archives/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/posts/books/fundamentals-of-computer-graphics-part-7/"
+                       rel="bookmark"
+                       title="Permalink to Fundamentals of Computer Graphics, Part 7">
+                        Fundamentals of Computer Graphics, Part 7
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-11-30T00:00:00+05:30"> Thu 30 November 2017</time>
+    </span>
+
+
+            <span class="label label-default">By</span>
+            <a href="/author/peter-shirley.html"><i class="fa fa-user"></i> Peter Shirley</a>
+
+        <span class="label label-default">Category</span>
+        <a href="/category/books/">books</a>
+
+            <a href="/category/books/fund-comp-graphics/">/fund-comp-graphics</a>
+        
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/graphics/">graphics</a>
+        /
+	<a href="/tag/notes/">notes</a>
+        /
+	<a href="/tag/programming/">programming</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+
+    <hr />
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style">
+            <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+            <a class="addthis_button_tweet"></a>
+            <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    </div>
+    <!-- AddThis Button END -->
+<section class="well" id="related-posts">
+    <h4>Part 8 of the Fundamentals of Computer Graphics series</h4>
+       <h5>Previous articles</h5>
+       <ul>
+           <li><a href="/posts/books/fundamentals-of-computer-graphics/">Fundamentals of Computer Graphics</a></li>
+           <li><a href="/posts/books/fundamentals-of-computer-graphics-part-1/">Fundamentals of Computer Graphics, Part 1</a></li>
+           <li><a href="/posts/books/fundamentals-of-computer-graphics-part-2/">Fundamentals of Computer Graphics, Part 2</a></li>
+           <li><a href="/posts/books/fundamentals-of-computer-graphics-part-3/">Fundamentals of Computer Graphics, Part 3</a></li>
+           <li><a href="/posts/books/fundamentals-of-computer-graphics-part-4/">Fundamentals of Computer Graphics, Part 4</a></li>
+           <li><a href="/posts/books/fundamentals-of-computer-graphics-part-5/">Fundamentals of Computer Graphics, Part 5</a></li>
+           <li><a href="/posts/books/fundamentals-of-computer-graphics-part-6/">Fundamentals of Computer Graphics, Part 6</a></li>
+       </ul>
+</section>
+                
+                <p>Contents:</p>
+                <nav class="toc">
+                  <div id="toc"><ul><li><a class="toc-href" href="#chapter-14-sampling" title="Chapter 14 : Sampling">Chapter 14 : Sampling</a><ul><li><a class="toc-href" href="#integration" title="Integration">Integration</a><ul><li><a class="toc-href" href="#measures-and-averages" title="Measures and Averages">Measures and Averages</a></li></ul></li><li><a class="toc-href" href="#continuous-probability_1" title="Continuous Probability">Continuous Probability</a><ul><li><a class="toc-href" href="#one-dimensional-continuous-probability-density-functions" title="One-Dimensional Continuous Probability Density Functions">One-Dimensional Continuous Probability Density Functions</a></li><li><a class="toc-href" href="#one-dimensional-expected-value" title="One-Dimensional Expected Value">One-Dimensional Expected Value</a></li><li><a class="toc-href" href="#multi-dimensional-random-variables" title="Multi-Dimensional Random Variables">Multi-Dimensional Random Variables</a></li><li><a class="toc-href" href="#variance" title="Variance">Variance</a></li><li><a class="toc-href" href="#estimated-means" title="Estimated Means">Estimated Means</a></li></ul></li><li><a class="toc-href" href="#monte-carlo-integration_1" title="Monte Carlo Integration">Monte Carlo Integration</a><ul><li><a class="toc-href" href="#quasi-monte-carlo-integration" title="Quasi&ndash;Monte Carlo Integration">Quasi&ndash;Monte Carlo Integration</a></li></ul></li><li><a class="toc-href" href="#choosing-random-points_1" title="Choosing Random Points">Choosing Random Points</a><ul><li><a class="toc-href" href="#function-inversion" title="Function Inversion">Function Inversion</a></li><li><a class="toc-href" href="#rejection" title="Rejection">Rejection</a></li><li><a class="toc-href" href="#metropolis" title="Metropolis">Metropolis</a></li></ul></li></ul></li></ul></div>
+                </nav>
+                <hr>
+                
+                <h2 id="chapter-14-sampling">Chapter 14 : Sampling</h2>
+<h3 id="integration">Integration</h3>
+<p>Although the words &ldquo;integral&rdquo; and &ldquo;measure&rdquo; often seem intimidating, they relate to some of the most intuitive concepts found in mathematics, and they should not be feared.   </p>
+<p>For example, on the 2D real plane <span class="math">\(R^2\)</span>, we have the area measure <span class="math">\(A\)</span> which assigns a value to a set of points in the plane. Note that <span class="math">\(A\)</span> is just a function that takes pieces of the plane and returns area. This means the 
+domain of <span class="math">\(A\)</span> is all possible subsets of <span class="math">\(R^2\)</span>, which we denote as the power set <span class="math">\(P(R^2)\)</span>. Thus, we can characterize <span class="math">\(A\)</span> in arrow notation:   </p>
+<div class="math">$$\begin{align}
+&amp; A : \mathcal P(\mathbb R^2) \to \mathbb R^+. \\
+&amp; A([a, a+1]\times [b, b + 1]) = 1,
+\end {align}$$</div>
+<p>To be considered a measure, a function has to obey certain area-like properties. <br/>
+For example, we have a function <span class="math">\(\mu : P(S) \to R^+\)</span>. For <span class="math">\(\mu\)</span> to be a measure, the following conditions must be true:   </p>
+<ol>
+<li>The measure of the empty set is zero: <span class="math">\(\mu(\phi) = 0\)</span>,</li>
+<li>The measure of two distinct sets together is the sum of their measure alone.
+This rule with possible intersections is <br/>
+<div class="math">$$\begin{align}
+\mu (A \cup B) = \mu (A) + \mu(B) &minus; \mu(A \cup B),
+\end {align}$$</div>
+<br/>
+where <span class="math">\(\mu\)</span> is the set union operator and <span class="math">\(\mu\)</span> is the set intersection operator.   </li>
+</ol>
+<p>When we actually compute measures, we usually use <em>integration</em>.   </p>
+<div class="math">$$\begin{align}
+A(S) = \int_{x\in S}dA(\mathbf x).
+\end {align}$$</div>
+<h4 id="measures-and-averages"><strong>Measures and Averages</strong></h4>
+<div class="math">$$\begin{align}
+average(f) = \frac{\int_{x \in S}f(\mathbf x)\,d\mu(\mathbf x)}{\int_{x \in S}d\mu(\mathbf x)}.
+\end {align}$$</div>
+<h3 id="continuous-probability_1">Continuous Probability</h3>
+<h4 id="one-dimensional-continuous-probability-density-functions"><strong>One-Dimensional Continuous Probability Density Functions</strong></h4>
+<p>Loosely speaking, a <em>continuous random variable</em> <span class="math">\(x\)</span> is a scalar or vector quantity that &ldquo;randomly&rdquo; takes on some value from the real line <span class="math">\(R = (&minus;\infty, +\infty)\)</span>. The behavior of <span class="math">\(x\)</span> is entirely described by the distribution of values it takes. This distribution of values can be quantitatively described by the <em>probability density function (pdf)</em>, <span class="math">\(p\)</span>, associated with <span class="math">\(x\)</span> (the relationship is denoted <span class="math">\(x \sim p\)</span>). The probability that <span class="math">\(x\)</span> assumes a particular value in some interval <br/>
+<span class="math">\([a, b]\)</span> is given by the following integral:   </p>
+<div class="math">$$\begin{align}
+Probability(x \in [a, b]) = \int_a^b p(x)\,dx.
+\end {align}$$</div>
+<p>The probability distribution function has two characteristics,   </p>
+<div class="math">$$\begin{align}
+p(x) \geq 0\quad \text{(probability is non-negative)}, \\
+\int_{-\infty}^{+\infty}p(x)\,dx = 1 \quad (Probability(x \in \mathbb R) = 1).
+\end {align}$$</div>
+<h4 id="one-dimensional-expected-value"><strong>One-Dimensional Expected Value</strong></h4>
+<p>The average value that a real function <span class="math">\(f\)</span> of a one-dimensional random variable with underlying pdf <span class="math">\(p\)</span> will take on is called its expected value, <span class="math">\(E(f(x))\)</span> (sometimes written <span class="math">\(Ef(x)\)</span>):   </p>
+<div class="math">$$\begin{align}
+E(f(x)) = \int f(x)p(x)dx. \\
+E(x+y) = E(x) + E(y) \\
+\text{also,} \\
+E(f(x) + g(y)) = E(f(x)) + E(g(y)).
+\end {align}$$</div>
+<h4 id="multi-dimensional-random-variables"><strong>Multi-Dimensional Random Variables</strong></h4>
+<p>The discussion of random variables and their expected values extends naturally to multi-dimensional spaces. Most graphics problems will be in such higher dimensional spaces. For example, many lighting problems are phrased on the surface of the hemisphere. Fortunately, if we define a measure <span class="math">\(\mu\)</span> on the space the random variables occupy, everything is very similar to the one-dimensional case.   </p>
+<h4 id="variance"><strong>Variance</strong></h4>
+<p>The variance, <span class="math">\(V (x)\)</span>, of a one-dimensional random variable is, by definition, the expected value of the square of the difference between <span class="math">\(x\)</span> and <span class="math">\(E(x)\)</span>: <br/>
+</p>
+<div class="math">$$\begin{align}
+V(x) \equiv E([x - E(x)]^2) .
+\end {align}$$</div>
+<p>Some algebraic manipulation gives the non-obvious expression: <br/>
+</p>
+<div class="math">$$\begin{align}
+V(x) = E(x^2) - [E(x)]^2 .
+\end {align}$$</div>
+<h4 id="estimated-means"><strong>Estimated Means</strong></h4>
+<p>Many problems involve sums of independent random variables <span class="math">\(x_i\)</span>, where the variables share a common density <span class="math">\(p\)</span>. Such variables are said to be <em>independent identically distributed</em> (iid) random variables. When the sum is divided by the number of variables, we get an estimate of <span class="math">\(E(x)\)</span>:   </p>
+<div class="math">$$\begin{align}
+&amp; E(x) \approx \frac{1}{N}\sum_{i=1}^{N}x_i, \\
+&amp; Probability\left[E(x) = \lim_{N\to\infty}\sum_{i=1}^{N}x_i \right] = 1.
+\end {align}$$</div>
+<h3 id="monte-carlo-integration_1">Monte Carlo Integration</h3>
+<p>In this section, the basic Monte Carlo solution methods for definite integrals are outlined. These techniques are then straightforwardly applied to certain integral problems. All of the basic material of this section is also covered in several of the classic Monte Carlo texts.</p>
+<div class="math">$$\begin{align}
+E(f(x)) = \int_{x\in S}f(x)p(x)d\mu \approx \frac1N\sum_{i=1}^{N}x_i, 
+\end {align}$$</div>
+<h4 id="quasi-monte-carlo-integration"><strong>Quasi&ndash;Monte Carlo Integration</strong></h4>
+<p>A popular method for quadrature is to replace the random points in Monte Carlo integration with <em>quasi-random points</em>. Such points are deterministic, but are in some sense uniform.   </p>
+<p>Quasi-random points can improve performance in many integration applications. Sometimes care must be taken to make sure that they do not introduce aliasing. It is especially nice that, in any application where calls are made to random or stratified points in <span class="math">\([0, 1]^d\)</span>, one can substitute <span class="math">\(d\)</span>-dimensional quasi-random points with no other changes.   </p>
+<h3 id="choosing-random-points_1">Choosing Random Points</h3>
+<p>We often want to generate sets of random or pseudorandom points on the unit square for applications such as distribution ray tracing. There are several methods for doing this, e.g., jittering (see Section 13.4). These methods give us a set of <span class="math">\(N\)</span> reasonably equi-distributed points on the unit square <span class="math">\([0, 1]^2 : (u_1, v_1)\)</span> through <span class="math">\((u_N, v_N)\)</span>.   </p>
+<p>Sometimes, our sampling space may not be square (e.g., a circular lens), or may not be uniform (e.g, a filter function centered on a pixel). It would be nice if we could write a mathematical transformation that would take our equidistributed points <span class="math">\((u_i, v_i)\)</span> as input and output a set of points in our desired sampling space with our desired density. For example, to sample a camera lens, the transformation would take <span class="math">\((u_i, v_i)\)</span> and output <span class="math">\((r_i, \phi_i)\)</span> such that the new points are approximately equidistributed on the disk of the lens. While we might be tempted to use the transform   </p>
+<div class="math">$$\begin{align}
+\varphi_i &amp;= 2\pi\,u_i, \\
+r_i &amp;= v_iR,
+\end {align}$$</div>
+<p>it has a serious problem. While the points do cover the lens, they do so nonuniformly (Figure 14.6). What we need in this case is a transformation that takes equal-area regions to equal-area regions&mdash;one that takes uniform sampling distributions on the square to uniform distributions on the new domain.  <br/>
+There are several ways to generate such non-uniform points or uniform points on non-rectangular domains, and the following sections review the three most often used: function inversion, rejection, and Metropolis.   </p>
+<p><img alt="" src="/images/fundcg/14_sample1.png"/> </p>
+<h4 id="function-inversion"><strong>Function Inversion</strong></h4>
+<p><img alt="" src="/images/fundcg/14_sample2.png"/> </p>
+<h4 id="rejection"><strong>Rejection</strong></h4>
+<p>A <em>rejection</em> method chooses points according to some simple distribution and rejects some of them that are in a more complex distribution.   </p>
+<h4 id="metropolis"><strong>Metropolis</strong></h4>
+<p>The <em>Metropolis</em> method uses random <em>mutations</em> to produce a set of samples with a desired density. This concept is used extensively in the <em>Metropolis Light Transport algorithm</em> referenced in the chapter notes. Suppose we have a random point <span class="math">\(x_0\)</span> in a domain <span class="math">\(S\)</span>. Further, suppose for any point <span class="math">\(x\)</span>, we have a way to generate random <span class="math">\(y \sim p_x\)</span>. We use the marginal notation <span class="math">\(p_x(y) \equiv p(x \to y)\)</span> to denote this density function. Now, suppose we let <span class="math">\(x_1\)</span> be a random point in <span class="math">\(S\)</span> selected with underlying density <span class="math">\(p(x_0 \to x_1)\)</span>. We generate <span class="math">\(x_2\)</span> with density <span class="math">\(p(x_1 \to x_0)\)</span> and so on. In the limit, where we generate an infinite number of samples, it can be proved that the samples will have some underlying density determined by <span class="math">\(p\)</span> regardless of the initial point <span class="math">\(x_0\)</span>.   </p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "left",
+        indent = "0em",
+        linebreak = "true";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+            
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style">
+            <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+            <a class="addthis_button_tweet"></a>
+            <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    </div>
+    <!-- AddThis Button END -->
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'nitishpuri'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://www.facebook.com/npuri1903"><i class="fa fa-facebook-square fa-lg"></i> Facebook</a></li>
+    <li class="list-group-item"><a href="https://github.com/nitishpuri"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
+    <li class="list-group-item"><a href="https://www.linkedin.com/in/nitishpuri/"><i class="fa fa-linkedin-square fa-lg"></i> Linkedin</a></li>
+    <li class="list-group-item"><a href="https://www.instagram.com/purinitish/"><i class="fa fa-instagram fa-lg"></i> Instagram</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Categories -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4>
+  <ul class="list-group" id="categories">
+    <li class="list-group-item">
+      <a href="/category/articles/"><i class="fa fa-folder-open fa-lg"></i>articles</a>
+    </li>
+    <li class="list-group-item">
+      <a href="/category/books/"><i class="fa fa-folder-open fa-lg"></i>books</a>
+    </li>
+    <li class="list-group-item">
+      <a href="/category/gallery/"><i class="fa fa-folder-open fa-lg"></i>gallery</a>
+    </li>
+    <li class="list-group-item">
+      <a href="/category/machine-intelligence/"><i class="fa fa-folder-open fa-lg"></i>machine-intelligence</a>
+    </li>
+    <li class="list-group-item">
+      <a href="/category/robotics/"><i class="fa fa-folder-open fa-lg"></i>robotics</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Categories -->
+
+<!-- Sidebar/Tag Cloud -->
+<li class="list-group-item">
+  <a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+  <ul class="list-group list-inline tagcloud" id="tags">
+    <li class="list-group-item tag-1">
+      <a href="/tag/algorithms/">algorithms</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="/tag/blogging/">blogging</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="/tag/book/">book</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="/tag/data-science/">data-science</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="/tag/deep-learning/">deep-learning</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="/tag/design/">design</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="/tag/gallery/">gallery</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="/tag/generative/">generative</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="/tag/graphics/">graphics</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="/tag/image-segmentation/">image-segmentation</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="/tag/jekyll/">jekyll</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="/tag/notes/">notes</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="/tag/opengl/">opengl</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="/tag/philosophy/">philosophy</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="/tag/programming/">programming</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="/tag/projects/">projects</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="/tag/robotics/">robotics</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="/tag/sketch/">sketch</a>
+    </li>
+    <li class="list-group-item tag-3">
+      <a href="/tag/style-transfer/">style-transfer</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="/tag/udacity/">udacity</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Tag Cloud -->
+
+<!-- Sidebar/Series -->
+<li class="list-group-item">
+  <h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Series</span></h4>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <h5></i>Previous article</h5>
+      <a href="/posts/books/fundamentals-of-computer-graphics-part-6/">Fundamentals of Computer Graphics, Part 6</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Series -->
+
+
+<!-- Sidebar/Github -->
+<li class="list-group-item">
+  <h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub Repos</span></h4>
+  <div id="gh_repos">
+    <p class="list-group-item">Status updating...</p>
+  </div>
+</li>
+<!-- End Sidebar/Github -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2017 Nitish Puri
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.english"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.english">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+
+<!-- GitHub JS Code -->
+<script type="text/javascript">
+$(document).ready(function () {
+  if (!window.jXHR) {
+    var jxhr = document.createElement('script');
+    jxhr.type = 'text/javascript';
+    jxhr.src = '/theme/js/jXHR.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(jxhr, s);
+  }
+
+  github.showRepos({
+    user: 'nitishpuri',
+    count: 5,
+    skip_forks: true,
+    target: '#gh_repos'
+  });
+});
+</script>
+<script src="/theme/js/github.js" type="text/javascript"></script>
+<!-- End GitHub JS Code -->
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'nitishpuri'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-103032011-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59bc69ad3aa13e47"></script>
+</body>
+</html>
