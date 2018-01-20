@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="english" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Fundamentals of Computer Graphics - nitishpuri.github.io</title>
+    <title>Fundamentals of Computer Graphics, Part 5 - nitishpuri.github.io</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,18 +9,18 @@
 
 
 
-<link rel="canonical" href="/posts/books/fundamentals-of-computer-graphics/">
+<link rel="canonical" href="/posts/books/fundamentals-of-computer-graphics-part-5/">
 
         <meta name="author" content="Peter Shirley" />
         <meta name="keywords" content="graphics,notes,programming" />
-        <meta name="description" content="Index notes on Fundamentals of Computer Graphics" />
+        <meta name="description" content="Illustrations" />
 
         <meta property="og:site_name" content="nitishpuri.github.io" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Fundamentals of Computer Graphics"/>
-        <meta property="og:url" content="/posts/books/fundamentals-of-computer-graphics/"/>
-        <meta property="og:description" content="Index notes on Fundamentals of Computer Graphics"/>
-        <meta property="article:published_time" content="2017-08-17" />
+        <meta property="og:title" content="Fundamentals of Computer Graphics, Part 5"/>
+        <meta property="og:url" content="/posts/books/fundamentals-of-computer-graphics-part-5/"/>
+        <meta property="og:description" content="Illustrations"/>
+        <meta property="article:published_time" content="2017-10-20" />
             <meta property="article:section" content="books" />
                 <meta property="article:subcategory" content="books/fund-comp-graphics" />
             <meta property="article:tag" content="graphics" />
@@ -86,10 +86,10 @@ nitishpuri.github.io            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="/posts/books/fundamentals-of-computer-graphics/"
+                    <a href="/posts/books/fundamentals-of-computer-graphics-part-5/"
                        rel="bookmark"
-                       title="Permalink to Fundamentals of Computer Graphics">
-                        Fundamentals of Computer Graphics
+                       title="Permalink to Fundamentals of Computer Graphics, Part 5">
+                        Fundamentals of Computer Graphics, Part 5
                     </a>
                 </h1>
             </header>
@@ -99,7 +99,7 @@ nitishpuri.github.io            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-08-17T00:00:00+05:30"> Thu 17 August 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-10-20T00:00:00+05:30"> Fri 20 October 2017</time>
     </span>
 
 
@@ -133,33 +133,72 @@ nitishpuri.github.io            </a>
     </div>
     <!-- AddThis Button END -->
 <section class="well" id="related-posts">
-    <h4>Part 1 of the Fundamentals of Computer Graphics series</h4>
-       <h5>Next articles</h5>
+    <h4>Part 6 of the Fundamentals of Computer Graphics series</h4>
+       <h5>Previous articles</h5>
        <ul>
+           <li><a href="/posts/books/fundamentals-of-computer-graphics/">Fundamentals of Computer Graphics</a></li>
            <li><a href="/posts/books/fundamentals-of-computer-graphics-part-1/">Fundamentals of Computer Graphics, Part 1</a></li>
            <li><a href="/posts/books/fundamentals-of-computer-graphics-part-2/">Fundamentals of Computer Graphics, Part 2</a></li>
            <li><a href="/posts/books/fundamentals-of-computer-graphics-part-3/">Fundamentals of Computer Graphics, Part 3</a></li>
            <li><a href="/posts/books/fundamentals-of-computer-graphics-part-4/">Fundamentals of Computer Graphics, Part 4</a></li>
-           <li><a href="/posts/books/fundamentals-of-computer-graphics-part-5/">Fundamentals of Computer Graphics, Part 5</a></li>
        </ul>
 </section>
                 
+                <p>Contents:</p>
+                <nav class="toc">
+                  <div id="toc"><ul><li><a class="toc-href" href="#illustrations" title="Illustrations">Illustrations</a><ul><li><a class="toc-href" href="#rgb-color-cube" title="RGB Color Cube">RGB Color Cube</a></li><li><a class="toc-href" href="#barycentric-interpolation" title="Barycentric Interpolation">Barycentric Interpolation</a></li><li><a class="toc-href" href="#shading-models" title="Shading Models">Shading Models</a></li><li><a class="toc-href" href="#total-internal-reflection" title="Total Internal Reflection">Total Internal Reflection</a></li><li><a class="toc-href" href="#depth-of-field-and-caustics" title="Depth of Field and Caustics">Depth of Field and Caustics</a></li><li><a class="toc-href" href="#complex-models-using-blob-tree" title="Complex Models using Blob Tree">Complex Models using Blob Tree</a></li><li><a class="toc-href" href="#vertex-shading" title="Vertex Shading">Vertex Shading</a></li><li><a class="toc-href" href="#fragment-shading" title="Fragment Shading">Fragment Shading</a></li><li><a class="toc-href" href="#the-visible-spectrum" title="The Visible Spectrum">The Visible Spectrum</a></li><li><a class="toc-href" href="#hsv-colorspace" title="HSV Colorspace">HSV Colorspace</a></li><li><a class="toc-href" href="#what-effect-is-this" title="What effect is this?">What effect is this?</a></li><li><a class="toc-href" href="#desaturation" title="Desaturation">Desaturation</a></li><li><a class="toc-href" href="#color-transfer" title="Color Transfer">Color Transfer</a></li><li><a class="toc-href" href="#atmospheric-effects" title="Atmospheric Effects">Atmospheric Effects</a></li><li><a class="toc-href" href="#a-comparison" title="A Comparison">A Comparison</a></li><li><a class="toc-href" href="#motion-blur" title="Motion Blur">Motion Blur</a></li><li><a class="toc-href" href="#ray-tracing" title="Ray Tracing">Ray Tracing</a></li><li><a class="toc-href" href="#subsurface-scattering" title="Subsurface Scattering">Subsurface Scattering</a></li><li><a class="toc-href" href="#photon-mapping" title="Photon Mapping">Photon Mapping</a></li><li><a class="toc-href" href="#caustics-using-photon-tracing" title="Caustics using Photon Tracing">Caustics using Photon Tracing</a></li><li><a class="toc-href" href="#modelling" title="Modelling">Modelling</a></li></ul></li></ul></div>
+                </nav>
+                <hr>
                 
-                <ul>
-<li><a href="/posts/books/fundamentals-of-computer-graphics-part-1/">Fundamentals of Computer Graphics : Chapter 1 - 4</a> <br/>
-    Introduction, Basic Maths, Raster Images and Introduction to Ray Tracing.   </li>
-<li><a href="/posts/books/fundamentals-of-computer-graphics-part-2/">Fundamentals of Computer Graphics : Chapter 5 - 7</a> <br/>
-    Linear Algebra, Transformation Matrices and View Transformations   </li>
-<li><a href="/posts/books/fundamentals-of-computer-graphics-part-3/">Fundamentals of Computer Graphics : Chapter 8 - 9</a> <br/>
-    The Graphics Pipeline and Signal Processing</li>
-<li><a href="/posts/books/fundamentals-of-computer-graphics-part-4/">Fundamentals of Computer Graphics : Chapter 10 - 12</a> <br/>
-    Surface shading and Texture Mapping</li>
-<li><a href="/posts/books/fundamentals-of-computer-graphics-part-5/">Fundamentals of Computer Graphics : Illustrations</a> </li>
-<li><a href="{filename}fund-comp-graphics-6.md">Fundamentals of Computer Graphics : Chapter 10 - 11</a> <br/>
-    Surface shading and Texture Mapping</li>
-<li><a href="{filename}fund-comp-graphics-7.md">Fundamentals of Computer Graphics : Chapter 10 - 11</a> <br/>
-    Surface shading and Texture Mapping</li>
-</ul>
+                <h2 id="illustrations">Illustrations</h2>
+<h3 id="rgb-color-cube">RGB Color Cube</h3>
+<p><img alt="" src="/images/fundcg/IL_1.png"/> </p>
+<h3 id="barycentric-interpolation">Barycentric Interpolation</h3>
+<p><img alt="" src="/images/fundcg/IL_2.png"/> </p>
+<h3 id="shading-models">Shading Models</h3>
+<p><img alt="" src="/images/fundcg/IL_3.png"/> </p>
+<h3 id="total-internal-reflection">Total Internal Reflection</h3>
+<p><img alt="" src="/images/fundcg/IL_4.png"/> </p>
+<h3 id="depth-of-field-and-caustics">Depth of Field and Caustics</h3>
+<p><img alt="" src="/images/fundcg/IL_5.png"/> </p>
+<h3 id="complex-models-using-blob-tree">Complex Models using Blob Tree</h3>
+<p><img alt="" src="/images/fundcg/IL_6.png"/> <br/>
+<img alt="" src="/images/fundcg/IL_7.png"/> </p>
+<h3 id="vertex-shading">Vertex Shading</h3>
+<p><img alt="" src="/images/fundcg/IL_8.png"/> </p>
+<h3 id="fragment-shading">Fragment Shading</h3>
+<p><img alt="" src="/images/fundcg/IL_9.png"/> </p>
+<h3 id="the-visible-spectrum">The Visible Spectrum</h3>
+<p><img alt="" src="/images/fundcg/IL_10.png"/> </p>
+<h3 id="hsv-colorspace">HSV Colorspace</h3>
+<p><img alt="" src="/images/fundcg/IL_11.png"/> <br/>
+<img alt="" src="/images/fundcg/IL_12.png"/> </p>
+<h3 id="what-effect-is-this">What effect is this?</h3>
+<p><img alt="" src="/images/fundcg/IL_13.png"/> </p>
+<h3 id="desaturation">Desaturation</h3>
+<p><img alt="" src="/images/fundcg/IL_14.png"/> </p>
+<h3 id="color-transfer">Color Transfer</h3>
+<p><img alt="" src="/images/fundcg/IL_15.png"/> <br/>
+<img alt="" src="/images/fundcg/IL_16.png"/> <br/>
+<img alt="" src="/images/fundcg/IL_17.png"/> <br/>
+<img alt="" src="/images/fundcg/IL_18.png"/> <br/>
+<img alt="" src="/images/fundcg/IL_19.png"/> </p>
+<h3 id="atmospheric-effects">Atmospheric Effects</h3>
+<p><img alt="" src="/images/fundcg/IL_20.png"/> </p>
+<h3 id="a-comparison">A Comparison</h3>
+<p><img alt="" src="/images/fundcg/IL_21.png"/> </p>
+<h3 id="motion-blur">Motion Blur</h3>
+<p><img alt="" src="/images/fundcg/IL_22.png"/> </p>
+<h3 id="ray-tracing">Ray Tracing</h3>
+<p><img alt="" src="/images/fundcg/IL_23.png"/> </p>
+<h3 id="subsurface-scattering">Subsurface Scattering</h3>
+<p><img alt="" src="/images/fundcg/IL_24.png"/> </p>
+<h3 id="photon-mapping">Photon Mapping</h3>
+<p><img alt="" src="/images/fundcg/IL_25.png"/> </p>
+<h3 id="caustics-using-photon-tracing">Caustics using Photon Tracing</h3>
+<p><img alt="" src="/images/fundcg/IL_26.png"/> </p>
+<h3 id="modelling">Modelling</h3>
+<p><img alt="" src="/images/fundcg/IL_27.png"/> </p>
 
             
             </div>
@@ -313,8 +352,8 @@ nitishpuri.github.io            </a>
   <h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Series</span></h4>
   <ul class="list-group">
     <li class="list-group-item">
-      <h5>Next article</h5>
-      <a href="/posts/books/fundamentals-of-computer-graphics-part-1/">Fundamentals of Computer Graphics, Part 1</a>
+      <h5></i>Previous article</h5>
+      <a href="/posts/books/fundamentals-of-computer-graphics-part-4/">Fundamentals of Computer Graphics, Part 4</a>
     </li>
   </ul>
 </li>
