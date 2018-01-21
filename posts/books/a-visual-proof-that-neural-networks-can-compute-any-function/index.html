@@ -148,7 +148,7 @@ nitishpuri.github.io            </a>
                 
                 <p>Contents:</p>
                 <nav class="toc">
-                  <div id="toc"><ul><li><a class="toc-href" href="#chapter-4-a-visual-proof-that-neural-networks-can-compute-any-function" title="Chapter 4: A visual proof that neural networks can compute any function">Chapter 4: A visual proof that neural networks can compute any function</a><ul><li><a class="toc-href" href="#two-caveats" title="Two Caveats">Two Caveats</a></li></ul></li></ul></div>
+                  <div id="toc"><ul><li><a class="toc-href" href="#chapter-4-a-visual-proof-that-neural-networks-can-compute-any-function" title="Chapter 4: A visual proof that neural networks can compute any function">Chapter 4: A visual proof that neural networks can compute any function</a><ul><li><a class="toc-href" href="#two-caveats" title="Two Caveats">Two Caveats</a></li><li><a class="toc-href" href="#universality-with-one-input-and-one-output" title="Universality with one input and one output">Universality with one input and one output</a></li><li><a class="toc-href" href="#many-input-variables" title="Many input variables">Many input variables</a></li><li><a class="toc-href" href="#extension-beyond-sigmoid-neurons" title="Extension beyond sigmoid neurons">Extension beyond sigmoid neurons</a></li><li><a class="toc-href" href="#fixing-up-the-step-function" title="Fixing up the step function">Fixing up the step function</a></li></ul></li></ul></div>
                 </nav>
                 <hr>
                 
@@ -167,6 +167,109 @@ This result holds even if the function has many inputs, <br/>
 <p>Any process that we can do or imagine can be thought of as a function computation. Universality means that neural networks can do all these things, and many more.   </p>
 <p>So, we know neural networks can compute things, but to find those networks we need learning algorithms!!   </p>
 <h3 id="two-caveats">Two Caveats</h3>
+<p>to the statement "a neural network can compute any function".   </p>
+<ul>
+<li>Firstly, This does not mean that the network can <em>exactly</em> compute any function. We can get an <em>approximation</em> that is as good as we want by increasing the number of hidden neurons.</li>
+<li>Second, the class of functions that can be approximated in this way are the <em>continous</em> functions. However, the network can still compute a <em>continous</em> approximation of the underlying <em>discontinous</em> function.   </li>
+</ul>
+<h3 id="universality-with-one-input-and-one-output">Universality with one input and one output</h3>
+<p>It turns out that this is the core of the problem of universality. Once we've understood this special case it's actually pretty easy to extend to functions with many inputs and many outputs.   </p>
+<p>Here is an output of a single hidden neuron,  <br/>
+<img alt="" src="/images/nnfordl/4_fun3.png"/> </p>
+<p>Now, this single neuron can be treated as a step function with given parameters. <br/>
+<img alt="" src="/images/nnfordl/4_fun4.png"/> </p>
+<p>Working with this would actually be easier than a general sigmoid function. </p>
+<p>With a little bit of work, we can see that the value at which the step occurs is <em>proportional</em> to <span class="math">\(b\)</span> and <em>inversely proportional</em> to <span class="math">\(w\)</span>. <br/>
+In fact, the step is at position <span class="math">\(s = -b/w\)</span>.
+<img alt="" src="/images/nnfordl/4_fun5.png"/> </p>
+<p>Now, it will greatly simplify our lives if we describe the hidden neuron by a single parameter <span class="math">\(s = -b/w\)</span>. <br/>
+<img alt="" src="/images/nnfordl/4_fun6.png"/> </p>
+<p>Up to now we've been focusing on the output from just the top hidden neuron. Let's take a look at the behavior of the entire network. In particular, we'll suppose the hidden neurons are computing step functions parameterized by step points <span class="math">\(s_1\)</span> (top neuron) and <span class="math">\(s_2\)</span> (bottom neuron). And they'll have respective output weights <span class="math">\(w_1\)</span> and <span class="math">\(w_2\)</span>. <br/>
+<img alt="" src="/images/nnfordl/4_fun7.png"/> </p>
+<p><span class="math">\(weighted\,output = w_1a_1 + w_2a_2, $ where $a\)</span>s are the <em>activations</em>.   </p>
+<p>Finally, let's on playing with the values, we can get a <em>bump</em> function, which starts at <span class="math">\(s_1\)</span>, ends at <span class="math">\(s_2\)</span>. <br/>
+<img alt="" src="/images/nnfordl/4_fun8.png"/> </p>
+<p>You'll notice, by the way, that we're using our neurons in a way that can be thought of not just in graphical terms, but in more conventional programming terms, as a kind of if-then-else statement, e.g.:   </p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">input</span> <span class="o">&gt;=</span> <span class="n">step</span> <span class="n">point</span><span class="p">:</span>
+        <span class="n">add</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">the</span> <span class="n">weighted</span> <span class="n">output</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">add</span> <span class="mi">0</span> <span class="n">to</span> <span class="n">the</span> <span class="n">weighted</span> <span class="n">output</span>
+</pre></div>
+<p>Furthur, we can use our <em>bump-making</em> trick to get two bumps, by gluing together pairs of hidden neurons together, <br/>
+<img alt="" src="/images/nnfordl/4_fun9.png"/> </p>
+<p>More, generally, we can have <span class="math">\(N\)</span> peaks/bumps by using <span class="math">\(N\)</span> pairs of hidden neurons.
+<img alt="" src="/images/nnfordl/4_fun10.png"/> </p>
+<p>You may be able to see now where this is going, we are now <em>designing</em> a function by choosing various height values for the intervals.   </p>
+<p>Going back to the function we saw earlier, <br/>
+<img alt="" src="/images/nnfordl/4_fun1.png"/> </p>
+<p>is actually, <br/>
+</p>
+<div class="math">$$\begin{align}f(x) = 0.2 + 0.4x^2+0.3x\sin(15x) + 0.05\cos(50x)\end{align}$$</div>
+<p>That's obviously not a trivial function,   </p>
+<p>n our networks above we've been analyzing the weighted combination <span class="math">\(\sum_j w_ja_j\)</span> output from the hidden neurons. We now know how to get a lot of control over this quantity. But, as I noted earlier, this quantity is not what's output from the network. What's output from the network is <span class="math">\(\sigma(\sum_j w_j a_j + b)\)</span> where <span class="math">\(b\)</span> is the bias on the output neuron. Is there some way we can achieve control over the actual output from the network?   </p>
+<p>The solution is to design a neural network whose hidden layer has a weighted output given by <span class="math">\(\sigma_{&minus;1}\circ\,f(x)\)</span>, where <span class="math">\(\sigma^{-1}\)</span> is just the inverse of the <span class="math">\(\sigma\)</span> function. That is, we want the weighted output from the hidden layer to be: <br/>
+<img alt="" src="/images/nnfordl/4_fun11.png"/> </p>
+<p>If we can compute this function, the output from the network would be a good approximation for <span class="math">\(f(x)\)</span>.   </p>
+<p>With some work, we can get this, minimizing the <em>average deviation</em> between the goal and the network output.  <br/>
+<img alt="" src="/images/nnfordl/4_fun12.png"/> </p>
+<p>This is only a coarse approximation, but we can do much better simply by increasing the number of hidden neurons, allowing more bumps.   </p>
+<p>And, it is possible to convert all the data we found into standard parameterization  used for neural networks.   </p>
+<p>What's more, there was nothing special about our original goal function <span class="math">\(f(x) = 0.2 + 0.4x^2+0.3x\sin(15x) + 0.05\cos(50x)\)</span>.
+We could have used the same procedure for any continuos function from <span class="math">\([0, 1]\)</span> to <span class="math">\([0, 1]\)</span>.   </p>
+<h3 id="many-input-variables">Many input variables</h3>
+<p>We'll start by considering what happens when we have two inputs to a neuron:   </p>
+<p><img alt="" src="/images/nnfordl/4_fun13_1.png"/>
+<img alt="" src="/images/nnfordl/4_fun13.png"/> </p>
+<p>As we can see, with <span class="math">\(w_2 = 0\)</span>, the input <span class="math">\(y\)</span> makes no difference to the output. It's as though there was only one input <span class="math">\(x\)</span>.   </p>
+<p>Now, if you can recall, we are going to create steps, <br/>
+<img alt="" src="/images/nnfordl/4_fun14_1.png"/>
+<img alt="" src="/images/nnfordl/4_fun14.png"/> </p>
+<p>Changing to a simpler parameter,  <br/>
+<img alt="" src="/images/nnfordl/4_fun15_1.png"/>
+<img alt="" src="/images/nnfordl/4_fun15.png"/> </p>
+<p>Ofcourse, it is possible to create this step in the <span class="math">\(y\)</span> direction, <br/>
+<img alt="" src="/images/nnfordl/4_fun16_1.png"/>
+<img alt="" src="/images/nnfordl/4_fun16.png"/> </p>
+<p>Now we are going to create a 3D bump function, <br/>
+<img alt="" src="/images/nnfordl/4_fun17.png"/>
+<img alt="" src="/images/nnfordl/4_fun17_1.png"/> </p>
+<p>And, the same can be made in <span class="math">\(y\)</span> direction, <br/>
+<img alt="" src="/images/nnfordl/4_fun18.png"/>
+<img alt="" src="/images/nnfordl/4_fun18_1.png"/> </p>
+<p>Let's see what happens when we combine the above functions,  <br/>
+<img alt="" src="/images/nnfordl/4_fun19.png"/>
+<img alt="" src="/images/nnfordl/4_fun19_1.png"/> </p>
+<p>This can be tuned to create a <em>tower</em> function, <br/>
+<img alt="" src="/images/nnfordl/4_fun20_1.png"/>
+<img alt="" src="/images/nnfordl/4_fun20.png"/> </p>
+<p>And the <em>towers</em> can be combined to form, <br/>
+<img alt="" src="/images/nnfordl/4_fun21.png"/> </p>
+<p>This, can be expressed as ,   </p>
+<div class="highlight"><pre><span></span> <span class="k">if</span> <span class="n">combined</span> <span class="n">output</span> <span class="kn">from</span> <span class="nn">hidden</span> <span class="nn">neurons</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">:</span>
+        <span class="n">output</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">output</span> <span class="mi">0</span>
+</pre></div>
+<p>The same approach can be extended to higher dimensions(networks with more input variables).   </p>
+<p>Okay, so we now know how to use neural networks to approximate a real-valued function of many variables. What about vector-valued functions <span class="math">\(f(x_1, ... ,x_m) \in R^n\)</span>? Of course, such a function can be regarded as just <span class="math">\(n\)</span> separate real-valued functions, <span class="math">\(f_1(x_1, ... ,x_m),f_2(x_1,...,x_m)\)</span>, and so on. So we create a network approximating <span class="math">\(f_1\)</span>, another network for <span class="math">\(f_2\)</span>, and so on. And then we simply glue all the networks together. So that's also easy to cope with.   </p>
+<h3 id="extension-beyond-sigmoid-neurons">Extension beyond sigmoid neurons</h3>
+<p>We've proved that networks made up of sigmoid neurons can compute any function. Recall that in a sigmoid neuron the inputs <span class="math">\(x_1,x_2,...\)</span> result in the output <span class="math">\(\sigma (\sum_j w_j x_j + b)\)</span>, where <span class="math">\(w_j\)</span> are the weights, <span class="math">\(b\)</span> is the bias, and <span class="math">\(\sigma\)</span> is the sigmoid function:     </p>
+<p><img alt="" src="/images/nnfordl/4_fun22.png"/> </p>
+<p>What if we consider a different type of neuron, one using some other activation function <span class="math">\(s(x)\)</span>: <br/>
+<img alt="" src="/images/nnfordl/4_fun23.png"/> </p>
+<p>This can still produce a step function given appropriate weights, <br/>
+<img alt="" src="/images/nnfordl/4_fun24.png"/> </p>
+<p>So, what properties does <span class="math">\(s(z)\)</span> need to assume that this works. We need to assume that <span class="math">\(s(z)\)</span> is well-defined as <span class="math">\(z \to -\infty\)</span> and <span class="math">\(z \to \infty\)</span>. These two limits are the two values taken on by our step function. We also need to assume that these two limits are different from one another. If they weren't, there would be no step, simple a flat graph!   </p>
+<h3 id="fixing-up-the-step-function">Fixing up the step function</h3>
+<p>Upto this point, we have made some pretty good approximations of the function, but it is only an approximation. 
+There would be a narrow window of failure. </p>
+<p><img alt="" src="/images/nnfordl/4_fun25.png"/> </p>
+<p>Now, these are not terrible failures, we can make the weights of input neurons big enough to make this window smaller.</p>
+<p>Again, let's assume we want to approximate a function <span class="math">\(f\)</span>. We would try to design pur network so that the 
+weighted output from our hidden layer of neurons is <span class="math">\(\sigma^{-1} \circ f(x)\)</span>:  <br/>
+<img alt="" src="/images/nnfordl/4_fun26.png"/> </p>
+<p>Using the technique described earlier, we would use hidden neurons to produce a sequence of bumps like this : <br/>
+<img alt="" src="/images/nnfordl/4_fun27.png"/> </p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "left",
         indent = "0em",

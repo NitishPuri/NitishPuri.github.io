@@ -177,7 +177,7 @@ nitishpuri.github.io            </a>
 <div class="math">$$\begin{align}c = c_l\text{max}(0, \mathbf{e.r})^p.\end{align}$$</div>
 <p> <br/>
 <span class="math">\(p\)</span> is the <strong>Phong Exponent</strong>. <br/>
-<img alt="" src="/images/fundcg/10_phong3.png"/> </p>
+<img alt="" src="/images/fundcg/10_phong3.jpg"/> </p>
 <div class="math">$$\begin{align}\mathbf{r} = -\mathbf{l} + 2(\mathbf{l.n})\mathbf{n}\end{align}$$</div>
 <p> <br/>
 <img alt="" src="/images/fundcg/10_phong4.png"/> </p>
@@ -197,7 +197,7 @@ nitishpuri.github.io            </a>
 <p>draw silhouette if <span class="math">\(f_0(\mathbf{e})f_1(\mathbf{e}) \leq 0\)</span>.   </p>
 <p>draw crease if <span class="math">\((\mathbf{n}_0 &middot; \mathbf{n}_1) \leq \text{threshold}\)</span> </p>
 <h4 id="cool-to-warm-shading"><strong>Cool-to-Warm Shading</strong></h4>
-<p><img alt="" src="/images/fundcg/10_art1.png"/> </p>
+<p><img alt="" src="/images/fundcg/10_art1.jpg"/> </p>
 <div class="math">$$\begin{align}k_w &amp;= \frac{1 + \mathbf{n.l}}{2}.\\
 c &amp;= k_wc_w + (1 - k_w)c_c \end{align}$$</div>
 <h2 id="chapter-11-texture-mapping_2">Chapter 11 : Texture Mapping</h2>
@@ -216,11 +216,11 @@ c &amp;= k_wc_w + (1 - k_w)c_c \end{align}$$</div>
 \quad \mathbf{return}\;c_1 $$</div>
 <p><img alt="" src="/images/fundcg/11_texture1.png"/> </p>
 <h4 id="texture-arrays">Texture Arrays</h4>
-<p><img alt="" src="/images/fundcg/11_texture2.png"/> <br/>
+<p><img alt="" src="/images/fundcg/11_texture2.jpg"/> <br/>
 <img alt="" src="/images/fundcg/11_texture3.png"/> </p>
 <h4 id="solid-noise">Solid Noise</h4>
 <p><strong>Perlin noise.</strong> <br/>
-<img alt="" src="/images/fundcg/11_texture4.png"/> </p>
+<img alt="" src="/images/fundcg/11_texture4.jpg"/> </p>
 <p>Getting a noisy appearance by calling a random number for every point would not be appropriate, because it would just be like <code>white noise</code> in TV static. We would like to make it smoother without losing the random quality. One 
 possibility is to blur white noise, but there is no practical implementation of this. Another possibility is to make a large lattice with a random number at every lattice point, and then interpolate these random points for new points 
 between lattice nodes; this is just a 3D texture array as described in the last section with random numbers in the array. This technique makes the lattice too obvious. Perlin used a variety of tricks to improve this basic lattice 
@@ -251,10 +251,10 @@ pseudorandom table: <br/>
 <div class="math">$$\begin{align}
 n_t(\mathbf{x}) = \sum_i \frac{|n(2^i\mathbf{x})|}{2^i}
 \end{align}$$</div>
-<p><img alt="" src="/images/fundcg/11_texture5.png"/> <br/>
-<img alt="" src="/images/fundcg/11_texture6.png"/> </p>
+<p><img alt="" src="/images/fundcg/11_texture5.jpg"/> <br/>
+<img alt="" src="/images/fundcg/11_texture6.jpg"/> </p>
 <h3 id="2d-texture-mapping_1">2D Texture Mapping</h3>
-<p><img alt="" src="/images/fundcg/11_texture7.png"/> </p>
+<p><img alt="" src="/images/fundcg/11_texture7.jpg"/> </p>
 <h3 id="texture-mapping-for-rasterized-triangles">Texture Mapping for Rasterized Triangles</h3>
 <p><img alt="" src="/images/fundcg/11_texture8.png"/> </p>
 <div class="math">$$\begin{align}

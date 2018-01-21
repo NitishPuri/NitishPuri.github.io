@@ -340,7 +340,7 @@ Ray-object intersection:   </p>
 <p><img alt="" src="/images/fundcg/4_shading1.png"/> </p>
 <h4 id="blinn-phong-shading">Blinn-Phong shading</h4>
 <p>Lambertian shading is view independent. It does not have specular reflections that many surfaces have.   </p>
-<p><img alt="" src="/images/fundcg/4_shading2.png"/> <br/>
+<p><img alt="" src="/images/fundcg/4_shading2.jpg"/> <br/>
 <img alt="" src="/images/fundcg/4_shading3.png"/> </p>
 <div class="math">$$ \begin{array}1 \mathbf{h} &amp;=&amp;  \frac{\mathbf{v} + \mathbf{l}}{||\mathbf{v} + \mathbf{l}||}, \\
  L &amp;=&amp; k_dI\mbox{max}(0, \mathbf{n\cdot l}) + k_sI\mbox{max}(0, \mathbf{n\cdot h})^p\end{array},\\ \text{where},  \\ \, \\ \begin{array}2 h &amp;=&amp; \mbox{half vector.} \\ k_d &amp;=&amp; \mbox{diffuse coefficient, surface color} \\ k_s &amp;=&amp; \mbox{specular coefficient, or specular color} \\ I &amp;=&amp; \mbox{light intensity} \\ L &amp;=&amp; \mbox{pixel color} \\ p &amp;=&amp; \mbox{Phong exponent, (typical values, 10-eggshell, 100 - mildly shiny, 1000 - really glossy, 10000-nearly mirror like)} \end{array}$$</div>
