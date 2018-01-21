@@ -148,7 +148,7 @@ nitishpuri.github.io            </a>
                 
                 <p>Contents:</p>
                 <nav class="toc">
-                  <div id="toc"><ul><li><a class="toc-href" href="#chapter-4-a-visual-proof-that-neural-networks-can-compute-any-function" title="Chapter 4: A visual proof that neural networks can compute any function">Chapter 4: A visual proof that neural networks can compute any function</a><ul><li><a class="toc-href" href="#two-caveats" title="Two Caveats">Two Caveats</a></li><li><a class="toc-href" href="#universality-with-one-input-and-one-output" title="Universality with one input and one output">Universality with one input and one output</a></li><li><a class="toc-href" href="#many-input-variables" title="Many input variables">Many input variables</a></li><li><a class="toc-href" href="#extension-beyond-sigmoid-neurons" title="Extension beyond sigmoid neurons">Extension beyond sigmoid neurons</a></li><li><a class="toc-href" href="#fixing-up-the-step-function" title="Fixing up the step function">Fixing up the step function</a></li></ul></li></ul></div>
+                  <div id="toc"><ul><li><a class="toc-href" href="#chapter-4-a-visual-proof-that-neural-networks-can-compute-any-function" title="Chapter 4: A visual proof that neural networks can compute any function">Chapter 4: A visual proof that neural networks can compute any function</a><ul><li><a class="toc-href" href="#two-caveats" title="Two Caveats">Two Caveats</a></li><li><a class="toc-href" href="#universality-with-one-input-and-one-output" title="Universality with one input and one output">Universality with one input and one output</a></li><li><a class="toc-href" href="#many-input-variables" title="Many input variables">Many input variables</a></li><li><a class="toc-href" href="#extension-beyond-sigmoid-neurons" title="Extension beyond sigmoid neurons">Extension beyond sigmoid neurons</a></li><li><a class="toc-href" href="#fixing-up-the-step-function" title="Fixing up the step function">Fixing up the step function</a></li><li><a class="toc-href" href="#conclusion" title="Conclusion">Conclusion</a></li></ul></li></ul></div>
                 </nav>
                 <hr>
                 
@@ -270,6 +270,14 @@ weighted output from our hidden layer of neurons is <span class="math">\(\sigma^
 <img alt="" src="/images/nnfordl/4_fun26.png"/> </p>
 <p>Using the technique described earlier, we would use hidden neurons to produce a sequence of bumps like this : <br/>
 <img alt="" src="/images/nnfordl/4_fun27.png"/> </p>
+<p>Now, suppose we build another set of hidden neurons to compute the approximation of <span class="math">\(\sigma^{-1} \circ f(x)\)</span>, but with the bases of the bumps <em>shifted</em> by half the width of the bump:
+<img alt="" src="/images/nnfordl/4_fun28.png"/> </p>
+<p>Now, if we combine the two approximations, the overall approximation will still have windows of failure, but these windows would be still smaller. Further, the approximation will be 2 times better in those windows.   </p>
+<p>We can do even better by combining a large number of overlapping approximations.   </p>
+<h3 id="conclusion">Conclusion</h3>
+<p>The above discussion and proof of universality is certainly very crude, however it provides a good intuition.    </p>
+<p>So, this takes off the table the question of whether any particular function is computable using a neural network. 
+The answer is always <em>yes</em>. The right question to ask is, what's a <em>good</em> way to compute the function.   </p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "left",
         indent = "0em",
