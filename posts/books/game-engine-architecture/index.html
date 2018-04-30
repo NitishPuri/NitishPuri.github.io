@@ -133,7 +133,7 @@ nitishpuri.github.io            </a>
                 
                 <p>Contents:</p>
                 <nav class="toc">
-                  <div id="toc"><ul><li><a class="toc-href" href="#foundations" title="Foundations">Foundations</a><ul><li><a class="toc-href" href="#introduction" title="Introduction">Introduction</a></li><li><a class="toc-href" href="#tools-of-the-trade" title="Tools of the Trade">Tools of the Trade</a></li><li><a class="toc-href" href="#fundamentals-of-software-engineering-for-games" title="Fundamentals of Software Engineering for Games">Fundamentals of Software Engineering for Games</a></li><li><a class="toc-href" href="#3d-math-for-games" title="3D Math for Games">3D Math for Games</a></li></ul></li><li><a class="toc-href" href="#low-level-engine-systems_1" title="Low Level Engine Systems">Low Level Engine Systems</a><ul><li><a class="toc-href" href="#engine-support-systems" title="Engine Support Systems">Engine Support Systems</a></li><li><a class="toc-href" href="#resources-and-the-file-system" title="Resources and the File System">Resources and the File System</a></li><li><a class="toc-href" href="#the-game-loop-and-real-time-simulation" title="The Game Loop and Real-Time Simulation">The Game Loop and Real-Time Simulation</a></li></ul></li></ul></div>
+                  <div id="toc"><ul><li><a class="toc-href" href="#foundations" title="Foundations">Foundations</a><ul><li><a class="toc-href" href="#introduction" title="Introduction">Introduction</a></li><li><a class="toc-href" href="#tools-of-the-trade" title="Tools of the Trade">Tools of the Trade</a></li><li><a class="toc-href" href="#fundamentals-of-software-engineering-for-games" title="Fundamentals of Software Engineering for Games">Fundamentals of Software Engineering for Games</a></li><li><a class="toc-href" href="#3d-math-for-games" title="3D Math for Games">3D Math for Games</a></li></ul></li><li><a class="toc-href" href="#low-level-engine-systems_1" title="Low Level Engine Systems">Low Level Engine Systems</a><ul><li><a class="toc-href" href="#engine-support-systems" title="Engine Support Systems">Engine Support Systems</a></li><li><a class="toc-href" href="#resources-and-the-file-system" title="Resources and the File System">Resources and the File System</a></li><li><a class="toc-href" href="#the-game-loop-and-real-time-simulation" title="The Game Loop and Real-Time Simulation">The Game Loop and Real-Time Simulation</a></li><li><a class="toc-href" href="#human-interface-devices-hid" title="Human Interface Devices (HID)">Human Interface Devices (HID)</a></li><li><a class="toc-href" href="#tools-for-debugging-and-development" title="Tools for Debugging and Development">Tools for Debugging and Development</a></li></ul></li><li><a class="toc-href" href="#graphics-motion-and-sound_1" title="Graphics, Motion and Sound">Graphics, Motion and Sound</a><ul><li><a class="toc-href" href="#the-rendering-engine" title="The Rendering Engine">The Rendering Engine</a></li></ul></li></ul></div>
                 </nav>
                 <hr>
                 
@@ -460,7 +460,104 @@ nitishpuri.github.io            </a>
 <li>Fork and Join</li>
 <li>One Thread per Subsystem</li>
 <li>Jobs</li>
+</ul>
+</li>
+<li>Networked Multiplayer Game Loop<ul>
+<li>Client-Server </li>
+<li>Peer to Peer</li>
+<li>Case Study : Quake II</li>
+</ul>
+</li>
+</ul>
+<h3 id="human-interface-devices-hid">Human Interface Devices (HID)</h3>
+<ul>
+<li>Types of Human Interface Devices</li>
+<li>Interfacing with HID<ul>
+<li>Polling</li>
+<li>Interrupts</li>
+<li>Wireless Devices</li>
+</ul>
+</li>
+<li>Types of Inputs<ul>
+<li>Digital Buttons</li>
+<li>Analog Axes and Buttons</li>
+<li>Relative Axes</li>
+<li>Accelerometers</li>
+<li>3D Orientation with the Wiimote or DialShock</li>
+<li>Cameras</li>
+</ul>
+</li>
+<li>Types of Outputs<ul>
+<li>Rumble</li>
+<li>Force-Feedback</li>
+<li>Audio</li>
+<li>Other Inputs and Outputs</li>
+</ul>
+</li>
+<li>Game Engine HID Systems<ul>
+<li>Typical Requirements</li>
+<li>Dead Zone</li>
+<li>Analog Singnal Filtering</li>
+<li>Detecting Input Events<ul>
+<li>Button Up and Button Down</li>
+<li>Chords</li>
+<li>Sequences and Gesture Detection</li>
+</ul>
+</li>
+<li>Managing Multiple HIDs for Multiple Players</li>
+<li>Cross-Platform HID Systems</li>
+<li>Input Remapping</li>
+<li>Context-Sensitive Controls</li>
+<li>Disabling Inputs</li>
+</ul>
+</li>
+<li>Human Interface Devices in Practice</li>
+</ul>
+<h3 id="tools-for-debugging-and-development">Tools for Debugging and Development</h3>
+<ul>
+<li>Logging and Tracing<ul>
+<li>Formatted Output with <code>OutputDebugString()</code></li>
+<li>Verbosity</li>
+<li>Channels</li>
+<li>Mirroring Output to a File</li>
+<li>Crash Reports</li>
+</ul>
+</li>
+<li>Debug Drawing Facilities<ul>
+<li>Debug Drawing API<ul>
+<li>Should be simple, provide functionality to draw various primitives and control there properties.</li>
+<li>Should allow primitives to be drawn from anywhere and in any coordinate space.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In-Game Menus</li>
+<li>In-Game Console</li>
+<li>Debug Cameras and Pausing the Game</li>
+<li>Cheats</li>
+<li>Screenshots and Movie Capture</li>
+<li>In-Game Profiling <ul>
+<li>Hierarchical Profiling<ul>
+<li>Measuring Execution times Hierarchically</li>
+</ul>
+</li>
+<li>Exporting to Excel</li>
+</ul>
+</li>
+<li>In-Game Memory Stats and Leak Detection</li>
+</ul>
+<h2 id="graphics-motion-and-sound_1">Graphics, Motion and Sound</h2>
+<h3 id="the-rendering-engine">The Rendering Engine</h3>
+<ul>
+<li>Foundations of Depth Buffered Triangle Rasterization<ul>
+<li>Describing a Scene : Using surfaces<ul>
+<li>Representations Used by High-End Rendering Packages<ul>
+<li>Parametric surface equations, pathces</li>
 <li></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -605,7 +702,7 @@ nitishpuri.github.io            </a>
     <li class="list-group-item tag-1">
       <a href="/tag/programming/">programming</a>
     </li>
-    <li class="list-group-item tag-4">
+    <li class="list-group-item tag-3">
       <a href="/tag/projects/">projects</a>
     </li>
     <li class="list-group-item tag-2">
@@ -617,7 +714,7 @@ nitishpuri.github.io            </a>
     <li class="list-group-item tag-3">
       <a href="/tag/style-transfer/">style-transfer</a>
     </li>
-    <li class="list-group-item tag-4">
+    <li class="list-group-item tag-3">
       <a href="/tag/udacity/">udacity</a>
     </li>
   </ul>
