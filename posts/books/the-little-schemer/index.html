@@ -133,7 +133,7 @@ nitishpuri.github.io            </a>
                 
                 <p>Contents:</p>
                 <nav class="toc">
-                  <div id="toc"><ul><li><a class="toc-href" href="#1-toys" title="1. Toys">1. Toys</a></li><li><a class="toc-href" href="#2-do-it-do-it-again-and-again-and-again" title="2. Do It, Do It Again, and Again, and Again...">2. Do It, Do It Again, and Again, and Again...</a><ul><li><a class="toc-href" href="#the-first-commandment" title="The First Commandment">The First Commandment</a></li></ul></li><li><a class="toc-href" href="#3-cons-the-magnificent_1" title="3. Cons the Magnificent">3. Cons the Magnificent</a><ul><li><a class="toc-href" href="#the-second-commandment" title="The Second Commandment">The Second Commandment</a></li><li><a class="toc-href" href="#the-third-commandment" title="The Third Commandment">The Third Commandment</a></li><li><a class="toc-href" href="#the-fourth-commandment" title="The Fourth Commandment">The Fourth Commandment</a></li></ul></li><li><a class="toc-href" href="#numbers-games_1" title="Numbers Games">Numbers Games</a></li></ul></div>
+                  <div id="toc"><ul><li><a class="toc-href" href="#1-toys" title="1. Toys">1. Toys</a></li><li><a class="toc-href" href="#2-do-it-do-it-again-and-again-and-again" title="2. Do It, Do It Again, and Again, and Again...">2. Do It, Do It Again, and Again, and Again...</a><ul><li><a class="toc-href" href="#the-first-commandment" title="The First Commandment">The First Commandment</a></li></ul></li><li><a class="toc-href" href="#3-cons-the-magnificent_1" title="3. Cons the Magnificent">3. Cons the Magnificent</a><ul><li><a class="toc-href" href="#the-second-commandment" title="The Second Commandment">The Second Commandment</a></li><li><a class="toc-href" href="#the-third-commandment" title="The Third Commandment">The Third Commandment</a></li><li><a class="toc-href" href="#the-fourth-commandment" title="The Fourth Commandment">The Fourth Commandment</a></li></ul></li><li><a class="toc-href" href="#numbers-games_1" title="Numbers Games">Numbers Games</a><ul><li><a class="toc-href" href="#the-first-commandment_1" title="The First Commandment">The First Commandment</a></li><li><a class="toc-href" href="#the-fourth-commandment_1" title="The Fourth Commandment">The Fourth Commandment</a></li><li><a class="toc-href" href="#the-fifth-commandment" title="The Fifth Commandment">The Fifth Commandment</a></li></ul></li><li><a class="toc-href" full="" href="#oh-my-gawd-its-full-of-stars_1" of="" s="" stars'="" title="Oh My Gawd: It">Oh My Gawd: It's Full of Stars</a><ul><li><a class="toc-href" href="#the-first-commandment_2" title="The First Commandment">The First Commandment</a></li><li><a class="toc-href" href="#the-fourth-commandment_2" title="The Fourth Commandment">The Fourth Commandment</a></li><li><a class="toc-href" href="#the-sixth-commandment" title="The Sixth Commandment">The Sixth Commandment</a></li><li><a class="toc-href" href="#the-seventh-commandment" title="The Seventh Commandment">The Seventh Commandment</a></li><li><a class="toc-href" href="#the-eighth-commandment" title="The Eighth Commandment">The Eighth Commandment</a></li><li><a class="toc-href" href="#the-tenth-commandment" title="The Tenth Commandment">The Tenth Commandment</a></li></ul></li></ul></div>
                 </nav>
                 <hr>
                 
@@ -160,9 +160,11 @@ nitishpuri.github.io            </a>
       <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="k">or </span><span class="p">(</span><span class="nb">eq? </span><span class="p">(</span><span class="nb">car </span><span class="nv">lat</span><span class="p">)</span> <span class="nv">a</span><span class="p">)</span>
                 <span class="p">(</span><span class="nf">member?</span> <span class="nv">a</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lat</span><span class="p">)))))))</span>
 </pre></div>
+<hr/>
 <h3 id="the-first-commandment">The First Commandment</h3>
 <p><em>(preliminary)</em> <br/>
 <strong>Always ask <code>null?</code> as the first question in expressing any function.</strong></p>
+<hr/>
 <h2 id="3-cons-the-magnificent_1">3. Cons the Magnificent</h2>
 <div class="highlight"><pre><span></span><span class="c1">; Remove 'a' from 'lat'</span>
 <span class="c1">; But not quite right.</span>
@@ -174,9 +176,11 @@ nitishpuri.github.io            </a>
               <span class="p">((</span><span class="nb">eq? </span><span class="p">(</span><span class="nb">car </span><span class="nv">lat</span><span class="p">)</span> <span class="nv">a</span><span class="p">)</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lat</span><span class="p">))</span>
               <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nf">rember</span> <span class="nv">a</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lat</span><span class="p">))))))))</span>
 </pre></div>
+<hr/>
 <h3 id="the-second-commandment">The Second Commandment</h3>
-<p><em>(preliminary)</em>
+<p><em>(preliminary)</em> <br/>
 <strong>Use <code>cons</code> to build lists.</strong> </p>
+<hr/>
 <div class="highlight"><pre><span></span><span class="c1">; Fixed by consing the first part of the list</span>
 <span class="p">(</span><span class="k">define </span><span class="nv">rember</span>
   <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">a</span> <span class="nv">lat</span><span class="p">)</span>
@@ -197,9 +201,11 @@ nitishpuri.github.io            </a>
       <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">car </span><span class="nv">lat</span><span class="p">)</span>
                 <span class="p">(</span><span class="nf">rember</span> <span class="nv">a</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lat</span><span class="p">)))))))</span>
 </pre></div>
+<hr/>
 <h3 id="the-third-commandment">The Third Commandment</h3>
-<p><em>(preliminary)</em>
+<p><em>(preliminary)</em> <br/>
 <strong>When building a list, describe the first typical element, and then <code>cons</code> it onto the natural recursion.</strong></p>
+<hr/>
 <div class="highlight"><pre><span></span><span class="c1">; Take all the firsts elements of all the list-elements of 'l'</span>
 <span class="p">(</span><span class="k">define </span><span class="nv">firsts</span>
   <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">l</span><span class="p">)</span>
@@ -219,7 +225,7 @@ nitishpuri.github.io            </a>
                   <span class="p">(</span><span class="nf">insertR</span> <span class="nv">new</span> <span class="nv">old</span>
                           <span class="p">(</span><span class="nb">cdr </span><span class="nv">lat</span><span class="p">)))))))</span>
 </pre></div>
-<div class="highlight"><pre><span></span><span class="nv">:</span> <span class="nv">Insert</span> <span class="ss">'new</span><span class="o">'</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">left</span> <span class="nv">of</span> <span class="ss">'old</span><span class="o">'</span> <span class="nv">in</span> <span class="nv">list</span> <span class="nv">of</span> <span class="nv">atoms</span> <span class="ss">'lat</span><span class="o">'</span>
+<div class="highlight"><pre><span></span><span class="c1">; Insert 'new' to the left of 'old' in list of atoms 'lat'</span>
 <span class="p">(</span><span class="k">define </span><span class="nv">insertL</span>
   <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">new</span> <span class="nv">old</span> <span class="nv">lat</span><span class="p">)</span>
     <span class="p">(</span><span class="nf">cond</span>
@@ -251,8 +257,11 @@ nitishpuri.github.io            </a>
                   <span class="p">(</span><span class="nf">multirember</span> <span class="nv">a</span>
                           <span class="p">(</span><span class="nb">cdr </span><span class="nv">lat</span><span class="p">)))))))</span>
 </pre></div>
+<hr/>
 <h3 id="the-fourth-commandment">The Fourth Commandment</h3>
-<p><strong>Always change at least one argument while recurring. It must be changed to be closer to termination. The changing argument must be tested in the termination condition: when using <code>cdr</code>, test termination with <code>null?</code>.</strong> </p>
+<p><em>(preliminary)</em> <br/>
+<strong>Always change at least one argument while recurring. It must be changed to be closer to termination. The changing argument must be tested in the termination condition: when using <code>cdr</code>, test termination with <code>null?</code>.</strong> </p>
+<hr/>
 <div class="highlight"><pre><span></span><span class="c1">; Substitute 'new' with 'old' in list of atoms 'lat'</span>
 <span class="p">(</span><span class="k">define </span><span class="nv">multisubst</span>
   <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">new</span> <span class="nv">old</span> <span class="nv">lat</span><span class="p">)</span>
@@ -265,6 +274,302 @@ nitishpuri.github.io            </a>
                           <span class="p">(</span><span class="nb">cdr </span><span class="nv">lat</span><span class="p">)))))))</span>
 </pre></div>
 <h2 id="numbers-games_1">Numbers Games</h2>
+<div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define </span><span class="nv">add1</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">n</span><span class="p">)</span>
+    <span class="p">(</span><span class="nb">+ </span><span class="nv">n</span> <span class="mi">1</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="k">define </span><span class="nv">sub1</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">n</span><span class="p">)</span>
+    <span class="p">(</span><span class="nb">- </span><span class="nv">n</span> <span class="mi">1</span><span class="p">)))</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1">;Addition using primitives</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">o+</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">n</span> <span class="nv">m</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="nb">zero? </span><span class="nv">m</span><span class="p">)</span> <span class="nv">n</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nf">add1</span> <span class="p">(</span><span class="nf">o+</span> <span class="nv">n</span> <span class="p">(</span><span class="nf">sub1</span> <span class="nv">m</span><span class="p">)))))))</span>
+
+<span class="c1">;Subtraction using primitives</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">o-</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">n</span> <span class="nv">m</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="nb">zero? </span><span class="nv">m</span><span class="p">)</span> <span class="nv">n</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nf">sub1</span> <span class="p">(</span><span class="nf">o-</span> <span class="nv">n</span> <span class="p">(</span><span class="nf">sub1</span> <span class="nv">m</span><span class="p">)))))))</span>
+</pre></div>
+<hr/>
+<h3 id="the-first-commandment_1">The First Commandment</h3>
+<p><em>(first revision)</em> <br/>
+<strong>When recurring on a list of atoms, <code>lat</code>, ask two questions about it: (<code>null? lat</code>) and <code>else</code>.</strong> <br/>
+<strong>When recurring on a number, <code>n</code>, ask two questions about it: (<code>zero? n</code>) and <code>else</code>.</strong> </p>
+<hr/>
+<div class="highlight"><pre><span></span><span class="c1">; Add numbers in a tuple</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">addtup</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">tup</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="nb">null? </span><span class="nv">tup</span><span class="p">)</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nb">+ </span><span class="p">(</span><span class="nb">car </span><span class="nv">tup</span><span class="p">)</span> <span class="p">(</span><span class="nf">addtup</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">tup</span><span class="p">)))))))</span>
+</pre></div>
+<hr/>
+<h3 id="the-fourth-commandment_1">The Fourth Commandment</h3>
+<p><em>(first revision)</em> <br/>
+<strong>Always change at least one argument while recurring. It must be changed to be closer to termination.</strong>
+<strong>The changing argument must be tested in the termination condition: when using <code>cdr</code>, test termination with <code>null?</code> and when using <code>sub1</code>, test termination with <code>zero?</code>.</strong></p>
+<hr/>
+<div class="highlight"><pre><span></span><span class="c1">; Multiplication using primitives</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">o*</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">n</span> <span class="nv">m</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="nb">zero? </span><span class="nv">m</span><span class="p">)</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nf">o+</span> <span class="nv">n</span> <span class="p">(</span><span class="nf">o*</span> <span class="nv">n</span> <span class="p">(</span><span class="nf">sub1</span> <span class="nv">m</span><span class="p">)))))))</span>
+</pre></div>
+<hr/>
+<h3 id="the-fifth-commandment">The Fifth Commandment</h3>
+<p><strong>When building a value with <code>o+</code>, always use <code>0</code> for the value of the terminating line, for adding <code>0</code> does not change the value of an addition.</strong>
+<strong>When building a value with <code>o*</code>, always use <code>1</code> for the value of the terminating line, for multiplying by <code>1</code> does not change the value of a multiplication.</strong>
+<strong>When building a value with <code>cons</code>, always consider <code>()</code> for the value of the terminating line.</strong></p>
+<hr/>
+<div class="highlight"><pre><span></span><span class="c1">; Addition of two tuples</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">tup+</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">tup1</span> <span class="nv">tup2</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="nb">null? </span><span class="nv">tup1</span><span class="p">)</span> <span class="nv">tup2</span><span class="p">)</span>
+      <span class="p">((</span><span class="nb">null? </span><span class="nv">tup2</span><span class="p">)</span> <span class="nv">tup1</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">else </span>
+        <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nf">o+</span> <span class="p">(</span><span class="nb">car </span><span class="nv">tup1</span><span class="p">)</span> <span class="p">(</span><span class="nb">car </span><span class="nv">tup2</span><span class="p">))</span> 
+          <span class="p">(</span><span class="nf">tup+</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">tup1</span><span class="p">)</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">tup2</span><span class="p">)))))))</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1">; Greater than</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">&gt;</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">n</span> <span class="nv">m</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="nb">zero? </span><span class="nv">n</span><span class="p">)</span> <span class="no">#f</span><span class="p">)</span>
+      <span class="p">((</span><span class="nb">zero? </span><span class="nv">m</span><span class="p">)</span> <span class="no">#t</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nb">&gt; </span><span class="p">(</span><span class="nf">sub1</span> <span class="nv">n</span><span class="p">)</span> <span class="p">(</span><span class="nf">sub1</span> <span class="nv">m</span><span class="p">))))))</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1">; Is Equal to (using &gt; and &lt;)</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">=</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">n</span> <span class="nv">m</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="nb">&gt; </span><span class="nv">n</span> <span class="nv">m</span><span class="p">)</span> <span class="no">#f</span><span class="p">)</span>
+      <span class="p">((</span><span class="nb">&lt; </span><span class="nv">n</span> <span class="nv">m</span><span class="p">)</span> <span class="no">#f</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">else </span><span class="no">#t</span><span class="p">))))</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1">; exponential</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">expt</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">n</span> <span class="nv">m</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="nb">zero? </span><span class="nv">m</span><span class="p">)</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nb">* </span><span class="nv">n</span> <span class="p">(</span><span class="nf">sub1</span> <span class="nv">m</span><span class="p">))))))</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1">; Division</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">quotient</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">n</span> <span class="nv">m</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="nb">&lt; </span><span class="nv">n</span> <span class="nv">m</span><span class="p">)</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nf">add1</span> <span class="p">(</span><span class="nb">quotient </span><span class="p">(</span><span class="nb">- </span><span class="nv">n</span> <span class="nv">m</span><span class="p">)</span> <span class="nv">m</span><span class="p">))))))</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1">; Length</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">length</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">lat</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="nb">null? </span><span class="nv">lat</span><span class="p">)</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nf">add1</span> <span class="p">(</span><span class="nb">length </span><span class="p">(</span><span class="nb">cdr </span><span class="nv">lat</span><span class="p">)))))))</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1">; Equal number or atom</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">eqan</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">a1</span> <span class="nv">a2</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="k">and </span><span class="p">(</span><span class="nb">number? </span><span class="nv">a1</span><span class="p">)</span> <span class="p">(</span><span class="nb">number? </span><span class="nv">a2</span><span class="p">))</span> 
+        <span class="p">(</span><span class="nb">= </span><span class="nv">a1</span> <span class="nv">a2</span><span class="p">))</span>
+      <span class="p">((</span><span class="k">or </span><span class="p">(</span><span class="nb">number? </span><span class="nv">a1</span><span class="p">)</span> <span class="p">(</span><span class="nb">number? </span><span class="nv">a2</span><span class="p">))</span> <span class="no">#f</span><span class="p">)</span>  
+      <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nb">eq? </span><span class="nv">a1</span> <span class="nv">a2</span><span class="p">)))))</span>
+</pre></div>
+<h2 id="oh-my-gawd-its-full-of-stars_1"><em>Oh My Gawd</em>: It's Full of Stars</h2>
+<div class="highlight"><pre><span></span><span class="c1">; remove member recursively</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">rember*</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">a</span> <span class="nv">l</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="nb">null? </span><span class="nv">l</span><span class="p">)</span> <span class="p">(</span><span class="nf">quote</span><span class="p">()))</span>
+      <span class="p">((</span><span class="nf">atom?</span> <span class="p">(</span><span class="nb">car </span><span class="nv">l</span><span class="p">))</span>
+        <span class="p">(</span><span class="k">cond </span>
+          <span class="p">((</span><span class="nb">eq? </span><span class="p">(</span><span class="nb">car </span><span class="nv">l</span><span class="p">)</span> <span class="nv">a</span><span class="p">)</span>
+            <span class="p">(</span><span class="nf">rember*</span> <span class="nv">a</span> <span class="p">(</span><span class="nf">cd</span> <span class="nv">l</span><span class="p">)))</span>
+          <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">car </span><span class="nv">l</span><span class="p">)</span>
+                  <span class="p">(</span><span class="nf">rember*</span> <span class="nv">a</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">l</span><span class="p">))))))</span>
+      <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nf">rember*</span> <span class="nv">a</span> <span class="p">(</span><span class="nb">car </span><span class="nv">l</span><span class="p">))</span> 
+              <span class="p">(</span><span class="nf">rember*</span> <span class="nv">a</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">l</span><span class="p">)))))))</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1">; Insert atom `new` to the right of `old` recursively</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">insertR*</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">new</span> <span class="nv">old</span> <span class="nv">l</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="nb">null? </span><span class="nv">l</span><span class="p">)</span> <span class="p">(</span><span class="nf">quote</span><span class="p">()))</span>
+      <span class="p">((</span><span class="nf">atom?</span> <span class="p">(</span><span class="nb">car </span><span class="nv">l</span><span class="p">))</span>
+        <span class="p">(</span><span class="k">cond </span>
+          <span class="p">((</span><span class="nb">eq? </span><span class="p">(</span><span class="nb">car </span><span class="nv">l</span><span class="p">)</span> <span class="nv">old</span><span class="p">)</span>
+            <span class="p">(</span><span class="nb">cons </span><span class="nv">old</span>
+              <span class="p">(</span><span class="nb">cons </span><span class="nv">new</span> 
+                <span class="p">(</span><span class="nf">insertR*</span> <span class="nv">new</span> <span class="nv">old</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">l</span><span class="p">)))))</span>
+          <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">car </span><span class="nv">l</span><span class="p">)</span>
+                  <span class="p">(</span><span class="nf">insertR*</span> <span class="nv">new</span> <span class="nv">old</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">l</span><span class="p">))))))</span>
+      <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nf">insertR*</span> <span class="nv">new</span> <span class="nv">old</span> <span class="p">(</span><span class="nb">car </span><span class="nv">l</span><span class="p">))</span> 
+              <span class="p">(</span><span class="nf">insertR*</span> <span class="nv">new</span> <span class="nv">old</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">l</span><span class="p">)))))))</span>
+</pre></div>
+<hr/>
+<h3 id="the-first-commandment_2">The First Commandment</h3>
+<p><em>(final version)</em> <br/>
+<strong>When recurring on a list of atoms, <code>lat</code>, ask two questions about it: <code>(null? lat)</code> and <code>else</code>.</strong> <br/>
+<strong>When recurring on a number, <code>n</code>, ask two questions about it: <code>(zero? n)</code> and <code>else</code>.</strong> <br/>
+<strong>When recurring on a list of S-expressions, <code>l</code>, ask three questions about it: <code>(null? l)</code>, <code>(atom? (car l))</code>and <code>else</code>.</strong> </p>
+<hr/>
+<h3 id="the-fourth-commandment_2">The Fourth Commandment</h3>
+<p><em>(final version)</em> <br/>
+<strong>Always change at least one argument while recurring.</strong> <br/>
+<strong>When recurring on a list of atoms, <code>lat</code>, use <code>(cdr lat)</code>.</strong> <br/>
+<strong>When recurring on a number, <code>n</code>, use <code>(sub1 n)</code>.</strong> <br/>
+<strong>And when recurring on a list of S-expressions, <code>l</code>, use <code>(car l)</code> and <code>(cdr l)</code> if neither <code>(null? l)</code> or <code>(atom? l)</code> are true.</strong> </p>
+<p><strong>It must be changed to be closer to termination.</strong>
+<strong>The changing argument must be tested in the termination condition:</strong> </p>
+<p><strong>when using <code>cdr</code>, test termination with <code>null?</code> and</strong> <br/>
+<strong>when using <code>sub1</code>, test termination with <code>zero?</code>.</strong></p>
+<hr/>
+<div class="highlight"><pre><span></span><span class="c1">; Occurence</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">occur*</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">a</span> <span class="nv">l</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="nb">null? </span><span class="nv">l</span><span class="p">)</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="p">((</span><span class="nf">atom?</span> <span class="p">(</span><span class="nb">car </span><span class="nv">l</span><span class="p">))</span>
+        <span class="p">(</span><span class="k">cond </span>
+          <span class="p">((</span><span class="nb">eq? </span><span class="p">(</span><span class="nb">car </span><span class="nv">l</span><span class="p">)</span> <span class="nv">a</span><span class="p">)</span>
+            <span class="p">(</span><span class="nf">add1</span> <span class="p">(</span><span class="nf">occur*</span> <span class="nv">a</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">l</span><span class="p">))))</span>
+          <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nf">occur*</span> <span class="nv">a</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">l</span><span class="p">)))))</span>
+      <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nb">+ </span><span class="p">(</span><span class="nf">occur*</span> <span class="nv">a</span> <span class="p">(</span><span class="nb">car </span><span class="nv">l</span><span class="p">))</span> 
+              <span class="p">(</span><span class="nf">occur*</span> <span class="nv">a</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">l</span><span class="p">)))))))</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1">; Is a member?</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">occur*</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">a</span> <span class="nv">l</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="nb">null? </span><span class="nv">l</span><span class="p">)</span> <span class="no">#f</span><span class="p">)</span>
+      <span class="p">((</span><span class="nf">atom?</span> <span class="p">(</span><span class="nb">car </span><span class="nv">l</span><span class="p">))</span>
+        <span class="p">(</span><span class="k">or </span>
+          <span class="p">(</span><span class="nb">eq? </span><span class="p">(</span><span class="nb">car </span><span class="nv">l</span><span class="p">)</span> <span class="nv">a</span><span class="p">)</span>
+          <span class="p">(</span><span class="nf">member*</span> <span class="nv">a</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">l</span><span class="p">))))</span>
+      <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="k">or </span><span class="p">(</span><span class="nf">member*</span> <span class="nv">a</span> <span class="p">(</span><span class="nb">car </span><span class="nv">l</span><span class="p">))</span> 
+              <span class="p">(</span><span class="nf">member*</span> <span class="nv">a</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">l</span><span class="p">)))))))</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1">; Are the two lists equal?</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">eqlist*</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">l1</span> <span class="nv">l2</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="k">and </span><span class="p">(</span><span class="nb">null? </span><span class="nv">l1</span><span class="p">)</span> <span class="p">(</span><span class="nb">null? </span><span class="nv">l2</span><span class="p">))</span> <span class="no">#t</span><span class="p">)</span>
+      <span class="p">((</span><span class="k">or </span><span class="p">(</span><span class="nb">null? </span><span class="nv">l1</span><span class="p">)</span> <span class="p">(</span><span class="nb">null? </span><span class="nv">l2</span><span class="p">))</span> <span class="no">#f</span><span class="p">)</span>
+      <span class="p">((</span><span class="k">and </span><span class="p">(</span><span class="nf">atom?</span> <span class="p">(</span><span class="nb">car </span><span class="nv">l1</span><span class="p">))</span> 
+          <span class="p">(</span><span class="nf">atom?</span> <span class="p">(</span><span class="nb">car </span><span class="nv">l2</span><span class="p">)))</span>
+          <span class="p">(</span><span class="k">and </span><span class="p">(</span><span class="nf">eqan?</span> <span class="p">(</span><span class="nb">car </span><span class="nv">l1</span><span class="p">)</span> <span class="p">(</span><span class="nb">car </span><span class="nv">l2</span><span class="p">))</span> 
+            <span class="p">(</span><span class="nf">eqan?</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">l1</span><span class="p">)</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">l2</span><span class="p">))))</span>
+      <span class="p">((</span><span class="k">or </span><span class="p">(</span><span class="nf">atom?</span> <span class="p">(</span><span class="nb">car </span><span class="nv">l1</span><span class="p">))</span> 
+        <span class="p">(</span><span class="nf">atom?</span> <span class="p">(</span><span class="nb">car </span><span class="nv">l2</span><span class="p">)))</span> <span class="no">#f</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="k">and </span><span class="p">(</span><span class="nf">eqlist*</span> <span class="p">(</span><span class="nb">car </span><span class="nv">l1</span><span class="p">)</span> <span class="p">(</span><span class="nb">car </span><span class="nv">l2</span><span class="p">))</span> 
+              <span class="p">(</span><span class="nf">eqlist*</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">l1</span><span class="p">)</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">l2</span><span class="p">)))))))</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1">; Are the S-expressions equal?</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">equal*</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">s1</span> <span class="nv">s2</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="k">and </span><span class="p">(</span><span class="nf">atom?</span> <span class="nv">ls1</span><span class="p">)</span> <span class="p">(</span><span class="nf">atom?</span> <span class="nv">s2</span><span class="p">))</span>
+        <span class="p">(</span><span class="nf">eqan?</span> <span class="nv">s1</span> <span class="nv">s2</span><span class="p">))</span>
+      <span class="p">((</span><span class="k">or </span><span class="p">(</span><span class="nf">atom?</span> <span class="nv">s1</span><span class="p">)</span> <span class="p">(</span><span class="nf">atom?</span> <span class="nv">s2</span><span class="p">))</span> <span class="no">#f</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nf">eqlist?</span> <span class="nv">s1</span> <span class="nv">s2</span><span class="p">)))))</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1">; using equal?</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">eqlist*</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">l1</span> <span class="nv">l2</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="k">and </span><span class="p">(</span><span class="nb">null? </span><span class="nv">l1</span><span class="p">)</span> <span class="p">(</span><span class="nb">null? </span><span class="nv">l2</span><span class="p">))</span> <span class="no">#t</span><span class="p">)</span>
+      <span class="p">((</span><span class="k">or </span><span class="p">(</span><span class="nb">null? </span><span class="nv">l1</span><span class="p">)</span> <span class="p">(</span><span class="nb">null? </span><span class="nv">l2</span><span class="p">))</span> <span class="no">#f</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="k">and </span><span class="p">(</span><span class="nf">eqlist*</span> <span class="p">(</span><span class="nb">car </span><span class="nv">l1</span><span class="p">)</span> <span class="p">(</span><span class="nb">car </span><span class="nv">l2</span><span class="p">))</span> 
+              <span class="p">(</span><span class="nf">eqlist*</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">l1</span><span class="p">)</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">l2</span><span class="p">)))))))</span>
+</pre></div>
+<hr/>
+<h3 id="the-sixth-commandment">The Sixth Commandment</h3>
+<p><strong>Simplify only after the function is correct.</strong></p>
+<hr/>
+<div class="highlight"><pre><span></span><span class="c1">; Is the input an arithmetic expression?</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">numbered?</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">aexp</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="nf">atom?</span> <span class="nv">aexp</span><span class="p">)</span> <span class="p">(</span><span class="nb">number? </span><span class="nv">aexp</span><span class="p">))</span>
+      <span class="p">(</span><span class="k">else </span>
+        <span class="p">(</span><span class="k">and </span><span class="p">(</span><span class="nf">numbered?</span> <span class="p">(</span><span class="nb">car </span><span class="nv">aexp</span><span class="p">))</span> 
+          <span class="p">(</span><span class="nf">numbered?</span> <span class="p">(</span><span class="nb">car </span><span class="p">(</span><span class="nb">cdr </span><span class="p">(</span><span class="nb">cdr </span><span class="nv">aexp</span><span class="p">)))))))))</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1">; Value of the given expression</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">value</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">nexp</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="nf">atom?</span> <span class="nv">nexp</span><span class="p">)</span> <span class="o">...</span><span class="p">)</span>
+      <span class="p">((</span><span class="nb">eq? </span><span class="p">(</span><span class="nb">car </span><span class="p">(</span><span class="nb">cdr </span><span class="nv">nexp</span><span class="p">))</span> <span class="p">(</span><span class="k">quote </span><span class="nv">+</span><span class="p">))</span> 
+        <span class="o">...</span><span class="p">)</span>
+      <span class="p">((</span><span class="nb">eq? </span><span class="p">(</span><span class="nb">car </span><span class="p">(</span><span class="nb">cdr </span><span class="nv">nexp</span><span class="p">))</span> <span class="p">(</span><span class="k">quote </span><span class="nv">x</span><span class="p">))</span> 
+        <span class="o">...</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">else </span>
+        <span class="o">...</span><span class="p">))))</span>
+</pre></div>
+<hr/>
+<h3 id="the-seventh-commandment">The Seventh Commandment</h3>
+<p><strong>Recur on the <em>subparts</em> that are of the same nature:</strong> <br/>
+<em> <strong>On the sublists of a list.</strong>
+</em> <strong>On the subexpressions of an arithematic expression.</strong> 
+***</p>
+<div class="highlight"><pre><span></span><span class="c1">; Value of the given expression</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">value</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">nexp</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="nf">atom?</span> <span class="nv">nexp</span><span class="p">)</span> <span class="nv">nexp</span><span class="p">)</span>
+      <span class="p">((</span><span class="nb">eq? </span><span class="p">(</span><span class="nb">car </span><span class="p">(</span><span class="nb">cdr </span><span class="nv">nexp</span><span class="p">))</span> <span class="p">(</span><span class="k">quote </span><span class="nv">+</span><span class="p">))</span> 
+        <span class="p">(</span><span class="nb">+ </span><span class="p">(</span><span class="nf">value</span> <span class="p">(</span><span class="nb">car </span><span class="nv">nexp</span><span class="p">))</span>
+          <span class="p">(</span><span class="nf">value</span> <span class="p">(</span><span class="nb">car </span><span class="p">(</span><span class="nb">cdr </span><span class="p">(</span><span class="nb">cdr </span><span class="nv">nexp</span><span class="p">))))))</span>
+      <span class="p">((</span><span class="nb">eq? </span><span class="p">(</span><span class="nb">car </span><span class="p">(</span><span class="nb">cdr </span><span class="nv">nexp</span><span class="p">))</span> <span class="p">(</span><span class="k">quote </span><span class="nv">x</span><span class="p">))</span> 
+        <span class="p">(</span><span class="nf">x</span> <span class="p">(</span><span class="nf">value</span> <span class="p">(</span><span class="nb">car </span><span class="nv">nexp</span><span class="p">))</span>
+          <span class="p">(</span><span class="nf">value</span> <span class="p">(</span><span class="nb">car </span><span class="p">(</span><span class="nb">cdr </span><span class="p">(</span><span class="nb">cdr </span><span class="nv">nexp</span><span class="p">))))))</span>
+      <span class="p">(</span><span class="k">else </span>
+        <span class="p">(</span><span class="nf">**</span> <span class="p">(</span><span class="nf">value</span> <span class="p">(</span><span class="nb">car </span><span class="nv">nexp</span><span class="p">))</span>
+          <span class="p">(</span><span class="nf">value</span> <span class="p">(</span><span class="nb">car </span><span class="p">(</span><span class="nb">cdr </span><span class="p">(</span><span class="nb">cdr </span><span class="nv">nexp</span><span class="p">)))))))))</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1">; Some Abstraction</span>
+<span class="p">(</span><span class="k">define </span><span class="mi">1</span><span class="nv">st-sub-exp</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">aexp</span><span class="p">)</span> 
+    <span class="p">(</span><span class="nb">car </span><span class="p">(</span><span class="nb">cdr </span><span class="nv">aexp</span><span class="p">))))</span>
+<span class="p">(</span><span class="k">define </span><span class="mi">2</span><span class="nv">nd-sub-exp</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">aexp</span><span class="p">)</span> 
+    <span class="p">(</span><span class="nb">car </span><span class="p">(</span><span class="nb">cdr </span><span class="p">(</span><span class="nb">cdr </span><span class="nv">aexp</span><span class="p">)))))</span>
+<span class="p">(</span><span class="k">define </span><span class="nv">operator</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">aexp</span><span class="p">)</span> 
+    <span class="p">(</span><span class="nb">car </span><span class="nv">aexp</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="k">define </span><span class="nv">value</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">nexp</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">cond</span>
+      <span class="p">((</span><span class="nf">atom?</span> <span class="nv">nexp</span><span class="p">)</span> <span class="nv">nexp</span><span class="p">)</span>
+      <span class="p">((</span><span class="nb">eq? </span><span class="p">(</span><span class="nf">operator</span> <span class="nv">nexp</span><span class="p">)</span> <span class="p">(</span><span class="k">quote </span><span class="nv">+</span><span class="p">))</span> 
+        <span class="p">(</span><span class="nb">+ </span><span class="p">(</span><span class="mi">1</span><span class="nv">st-sub-exp</span> <span class="nv">nexp</span><span class="p">)</span>
+          <span class="p">(</span><span class="mi">2</span><span class="nv">nd-sub-exp</span> <span class="nv">nexp</span><span class="p">)))</span>
+      <span class="p">((</span><span class="nb">eq? </span><span class="p">(</span><span class="nf">operator</span> <span class="nv">nexp</span><span class="p">)</span> <span class="p">(</span><span class="k">quote </span><span class="nv">x</span><span class="p">))</span> 
+        <span class="p">(</span><span class="nf">x</span> <span class="p">(</span><span class="mi">1</span><span class="nv">st-sub-exp</span> <span class="nv">nexp</span><span class="p">)</span>
+          <span class="p">(</span><span class="mi">2</span><span class="nv">nd-sub-exp</span> <span class="nv">nexp</span><span class="p">)))</span>
+      <span class="p">(</span><span class="k">else </span>
+        <span class="p">(</span><span class="nf">**</span> <span class="p">(</span><span class="nf">value</span> <span class="p">(</span><span class="mi">1</span><span class="nv">st-sub-exp</span> <span class="nv">nexp</span><span class="p">))</span>
+          <span class="p">(</span><span class="nf">value</span> <span class="p">(</span><span class="mi">2</span><span class="nv">nd-sub-exp</span> <span class="nv">nexp</span><span class="p">)))))))</span>
+</pre></div>
+<hr/>
+<h3 id="the-eighth-commandment">The Eighth Commandment</h3>
+<p><strong>Use help functions to abstract from representations.</strong> </p>
+<hr/>
+<hr/>
+<h3 id="the-tenth-commandment">The Tenth Commandment</h3>
+<p><strong>Build functions to collect more than one value at a time.</strong> </p>
+<hr/>
 
             
             </div>

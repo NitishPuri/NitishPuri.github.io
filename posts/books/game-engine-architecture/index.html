@@ -381,6 +381,7 @@ nitishpuri.github.io            </a>
 <ul>
 <li>Game Loop Architectural Styles<ul>
 <li>Windows Message Pumps</li>
+<li>Event Based Updating</li>
 <li>Callback-Driven Frameworks</li>
 </ul>
 </li>
@@ -416,8 +417,6 @@ nitishpuri.github.io            </a>
         <span class="c1">// etc.</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
-<div class="highlight"><pre><span></span>* Event Based Updating
 </pre></div>
 <ul>
 <li>Abstract Timelines<ul>
@@ -552,12 +551,123 @@ nitishpuri.github.io            </a>
 <li>Foundations of Depth Buffered Triangle Rasterization<ul>
 <li>Describing a Scene : Using surfaces<ul>
 <li>Representations Used by High-End Rendering Packages<ul>
-<li>Parametric surface equations, pathces</li>
+<li>Parametric surface equations, patches</li>
+<li>Triangle Meshes<ul>
+<li>Tesselation, LODs, dynamic tesselation, progressive meshes.</li>
+<li>Triangle lists, index lists, strips and fans.</li>
+</ul>
+</li>
+<li>Model Space.</li>
+<li>World space and Mesh instancing.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Describing the Visual Properties of a Surface. <ul>
+<li>Introduction to Light and Color</li>
+<li>Vertex Attributes<ul>
+<li>position, normal, tangent and bitangent, diffuse color, specular color, texture coordinates, skinning weights.</li>
+</ul>
+</li>
+<li>Vertex Formats</li>
+<li>Attribute Interpolation</li>
+<li>Textures</li>
+<li>Materials</li>
+</ul>
+</li>
+<li>Lighting Basics<ul>
+<li>Local and Global illumination</li>
+<li>The Phong Lighting Model</li>
+<li>Modeling Light Sources</li>
+</ul>
+</li>
+<li>The Virtual Camera<ul>
+<li>View Space</li>
+<li>Projections</li>
+<li>The View Volume and the Frustum</li>
+<li>Projection and Homogeneous Clip Space</li>
+<li>Screen Space and Aspect Ratios</li>
+<li>The Frame Buffer</li>
+<li>Triangle Rasterization and Fragments</li>
+<li>Occlusion and the Depth Buffer</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The Rendering Pipeline<ul>
+<li>Overview of the Rendeing Pipeline<ul>
+<li>How the Rendering Pipeline Transforms Data</li>
+<li>Implementation of the Pipeline</li>
+</ul>
+</li>
+<li>The Tools Stage(<em>offline</em>)<ul>
+<li>Geometry and Material creation tools</li>
+</ul>
+</li>
+<li>The Asset Conditioning Stage(<em>offline</em>)<ul>
+<li>Load the data generated through DCC applications into engine ready format.</li>
+<li>Index the data into scene-graphs or BSP tree to make it ready for the application.</li>
+</ul>
+</li>
+<li>A Brief History og the GPU<ul>
+<li>Software rendering</li>
+<li>Fixed-function pipeline</li>
+</ul>
+</li>
+<li>The GPU Pipeline(<em>gpu</em>)<ul>
+<li><strong>Vertex Shader</strong> - Transform and light  individual vertices from modelspace to clip space. Now has access to texture data as well.</li>
+<li><strong>Geometry Shader</strong> - Optional stage that can add/remove/modify primitives.</li>
+<li><strong>Stream Output</strong> - Permits to stream data at this point back into the pipeline for effects like hair simulation.</li>
+<li><strong>Clipping</strong> - Fixed function stage that chops the primitives to the frustum. User defined clip planes can be added.</li>
+<li><strong>Screen Mapping</strong> - Fixed stage that shifts and scales the vertices fromhomogeneous clip space into screen space.</li>
+<li><strong>Triangle Set-Up</strong> - Fixed initialization stage for rasterization hardware.</li>
+<li><strong>Triangle Traversal</strong> - Rasterize triangles and interpolate vertex attributes to generate per-fragment attributes. Fixed stage.</li>
+<li><strong>Early z-Test</strong> - Early z-test to avoid potentially expensive shading operating for occluded pixels. </li>
+<li><strong>Pixel Shader</strong> - Programmable fragment shader. Gets per-fragment attributes and can access texture maps. Outputs a single color.</li>
+<li><strong>Merging / Raster Operations Stage</strong> - Non-Programmable, highly configurable <em>blending stage</em>, also known as <em>raster operations</em>. Alpha test, stencil test, alpha blending for translucent objects, decals?.</li>
+</ul>
+</li>
+<li>Programmable Shaders<ul>
+<li>Accessing Memory</li>
+<li>Introduction to High-Level Shader Language Syntax</li>
+<li>Effects</li>
+</ul>
+</li>
+<li>Antialiasing<ul>
+<li>Full Screen Antialiasing(FSAA)</li>
+<li>Multi Sample Antialiasing(MSAA)</li>
+<li>Coverage Sample Antialiasing(CSAA)</li>
+<li>Morphological Antialiasing(MLAA)</li>
+</ul>
+</li>
+<li>The Application Stage<ul>
+<li>Visibility Determination<ul>
+<li>Frustum Culling, Occlusion and Potentially Visible Sets</li>
+<li>Portals and Occlusion Volume(Anti-Portals)</li>
+</ul>
+</li>
+<li>Primitive Submission</li>
+<li>Geometry Sorting</li>
+<li>Scene Graphs<ul>
+<li>Quadtrees, Octrees and BSP trees      </li>
+</ul>
+</li>
+<li>Choosing a Scene Graph</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Advanced Lighting and Global Illumination<ul>
+<li>Image-Based Lighting<ul>
+<li>Normal Mapping</li>
+<li>Heightmaps: Bump, Parallax and Displacement Mapping</li>
+<li>Specular/Gloss Maps</li>
+<li>Environment Mapping</li>
+<li>Three-Dimensional Textures</li>
+</ul>
+</li>
+<li>High Dynamic Range Lighting</li>
 <li></li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
